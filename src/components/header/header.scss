@@ -17,16 +17,27 @@ header {
 
 .img-header-logo {
     margin-right: 5px;
+    margin-top: 10px;
+    img {
+        width: 40vh;
+    }
 }
 
 .A-do-header {
     display: flex;
     justify-content: flex-end; 
     gap: 4vh;
+    padding-right: 20vh;
     flex-grow: 1; 
     
     a {
         color: white;
         text-decoration: none;
+        transition: 0.5s;
+
+        &:hover {
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
     }
 }

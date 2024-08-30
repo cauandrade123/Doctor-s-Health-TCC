@@ -2,6 +2,7 @@ import Header from "../../components/header/header";
 import './land.scss'
 import Medico from "../../assets/img/tcc/tccassests/land pages/aquinorego.svg"
 import Retangulo from "../../assets/img/tcc/tccassests/land pages/retangulo_landpagge.svg"
+import Footer from "../../components/footer/footer";
 
 
 
@@ -32,7 +33,13 @@ export default function Land () {
           <div className="img-doutor">
             <img src={Medico} alt="" />
           </div>
-          
+
+
+
+
+
+       
+       
         </div>
         </div>
     )

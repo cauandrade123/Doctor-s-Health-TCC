@@ -1,4 +1,4 @@
-import logo from './logomedica.svg'
+import logo from '../../assets/img/tcc/tccassests/logo/logomedica.svg'
 import './header.scss'
 
 export default function Header() {

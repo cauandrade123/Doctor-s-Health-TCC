@@ -1,0 +1,32 @@
+$font: "Arial";
+
+* {
+
+    font-family: $font;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px; 
+
+}
+
+.img-header-logo {
+    margin-right: 5px;
+}
+
+.A-do-header {
+    display: flex;
+    justify-content: flex-end; 
+    gap: 4vh;
+    flex-grow: 1; 
+    
+    a {
+        color: white;
+        text-decoration: none;
+    }
+}

@@ -49,9 +49,18 @@ export default function Land () {
                             </h2>
                       </div>
                       <div className="iconesConhecaMe">
-                          <img src={Twitter} alt="" />
-                          <img src={instagram} alt="" />
-                          <img src={Facebook} alt="" />
+                            <div className="twitter">
+                                <img src={Twitter} alt="" />
+                                <p>Twitter</p>
+                            </div>  
+                            <div className="instagram">
+                                <img src={instagram} alt="" />
+                                <p>Instagram</p>
+                            </div>  
+                            <div className="facebook">
+                                 <img src={Facebook} alt="" />
+                                 <p>Facebook</p>
+                            </div>
                       </div> 
                 </div>
             </div>

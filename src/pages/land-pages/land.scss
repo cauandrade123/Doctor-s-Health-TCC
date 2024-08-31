@@ -1,11 +1,23 @@
 $font: "Arial";
 
 
+@media (width<670) {
+    *{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        
+    }
+}
+
 .mae {
     background-color: rgb(11, 157, 235);
     font-family: $font;
     height: 100%;   
     max-height: 900px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 
     .Texto-image {
         display: flex;
@@ -27,6 +39,8 @@ $font: "Arial";
 
     .wave{
         width: 100%;
+        margin-top: 49dvh;
+        position: static;
     }
 
     
@@ -71,7 +85,7 @@ $font: "Arial";
         font-size: 20px;
         color: black;
 
-        p {//fiz uma gambiarra aqui, se quiser eu faço direito depois//
+        p {
             color: rgba(1, 146, 219, 1);
             background-color: white;
         }
@@ -90,13 +104,13 @@ $font: "Arial";
         justify-content: center ;
         align-items: center;
         width: 100%;
-        height: 100dvh;
+        height: 70dvh;
         background-color: white;
 
         .main{
             display: flex;
             flex-direction: row;
-            gap: 20vh;
+            gap: 40vh;
             justify-content: space-evenly;
             align-items: center;
             width: 220dvh;
@@ -105,13 +119,18 @@ $font: "Arial";
             .saibaMais{
                 display: flex;
                 flex-direction: column;
-                width:40%;
+                width:30%;
+                margin-top: 5.5dvh;
+                
+                
 
                 .iconeEtexto{
                     display: flex ;
                     flex-direction: row;
                     align-items: center;
+                    padding-bottom: 3dvh;
                     gap: 07dvh;
+                    
 
                     h2{
                         color: #006eff;
@@ -132,6 +151,7 @@ $font: "Arial";
                     align-items: center;
                     justify-content: center;
                     width: 88dvh;
+                    padding-bottom: 9dvh;
 
     
                     p{
@@ -160,7 +180,36 @@ $font: "Arial";
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
-                    gap: 15dvh;
+                    align-items: center;
+                    margin-top: 6vh;
+                    gap : 10dvh;
+
+                    .instagram{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+
+                    }
+
+                    
+                    .facebook{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+
+                    }
+
+                    
+                    .twitter{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+
+                    }
+
                 }
             }
         }

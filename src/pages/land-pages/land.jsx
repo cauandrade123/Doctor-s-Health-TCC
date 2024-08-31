@@ -34,18 +34,18 @@ export default function Land () {
                 <div className="saibaMais">
                       <div className="iconeEtexto">
                             <img className='iconeSaibaMais' src={iconSaibaMais} alt="" />
-                            <h2>Saiba Mais</h2>
+                            <h2>Saiba Mais.</h2>
                       </div> 
                       <div className="textoSaibaMais">
                           <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt consectetur veniam ut reprehenderit in, minima sunt molestias dolorum nihil est at dolorem rerum pariatur delectus necessitatibus autem dignissimos quasi repellat.
+                                 Eu sou o Dr. João Silva, clínico geral formado pela Universidade de São Paulo e reconhecido por minhas importantes contribuições à área.
                           </p>
                       </div>
                 </div>
                 <div className="conhecaMe">
                       <div className="textoConhecaMe">
                             <h2>
-                                conheca me
+                                Conheça-me
                             </h2>
                       </div>
                       <div className="iconesConhecaMe">

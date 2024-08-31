@@ -96,7 +96,9 @@ $font: "Arial";
         .main{
             display: flex;
             flex-direction: row;
-            justify-content: center;
+            gap: 20vh;
+            justify-content: space-evenly;
+            align-items: center;
             width: 220dvh;
             
 
@@ -108,11 +110,20 @@ $font: "Arial";
                 .iconeEtexto{
                     display: flex ;
                     flex-direction: row;
-                    gap: 01dvh;
+                    align-items: center;
+                    gap: 07dvh;
+
+                    h2{
+                        color: #006eff;
+                        font-size: 7vh;
+                        text-align: center;
+
+                        
+                    }
 
                     .iconeSaibaMais{
-                        width: 05dvh;
-                        height: 05dvh;
+                        width: 17dvh;
+                        height: 17dvh;
                     }
                 }
 
@@ -120,7 +131,12 @@ $font: "Arial";
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    width: 30dvh;
+                    width: 88dvh;
+
+    
+                    p{
+                        font-size: 4vh;
+                    }
                 }
 
 
@@ -131,13 +147,20 @@ $font: "Arial";
                 flex-direction: column;
 
                 .textoConhecaMe{
-                    text-align: center;
+                    
+                    h2{
+                        font-size: 7vh;
+                        text-align: center;
+                        color: #006eff;
+                    }
+
                 }
 
                 .iconesConhecaMe{
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
+                    gap: 15dvh;
                 }
             }
         }

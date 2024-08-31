@@ -7,17 +7,13 @@ export default function Header() {
         <header>
             <div className="img-header-logo">
                 <img src={logo} alt="" />
-            </div>
-
-
+            </div>      
             <div className="A-do-header">
-            <a href="">Home</a>        
-            <a href="">Serviços</a>
-            <a href="">Doctor</a>
-            <a href="">Feedback</a>
+                <a href="">Home</a>        
+                <a href="">Serviços</a>
+                <a href="">Doctor</a>
+                <a href="">Feedback</a>
             </div>
-
-
         </header>
 
     )

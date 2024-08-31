@@ -7,41 +7,30 @@ $font: "Arial";
     height: 100%;   
     max-height: 900px;
 
-}
-
-.Texto-image {
-    display: flex;
-    
-}
-
-
-.img-doutor {
-
-    display: flex ;
-   
-    
-
-    padding-left: 44vh;
-    
-    img {
-        width: 60vh;
+    .Texto-image {
+        display: flex;
+        
     }
-}
 
+    .img-doutor {
 
-
-.informaçoes-do-doutor {
+        display: flex ;
+        padding-left: 44vh;
+        
+        img {
+            width: 60vh;
+        }
+    }
 
     
+.informaçoes-do-doutor {
 
     display: flex;
     flex-direction: column;
     align-items: start;
     padding-left: 22vh;
     justify-content: center;
-
     gap: 5vh;
-
     color: white;
 
     h1 {
@@ -50,10 +39,7 @@ $font: "Arial";
         align-items: center; 
         border-radius: 4vh;
         gap: 10px;
-
-
         font-size: 10vh;
-
         font-style: bold;
     }
 
@@ -74,7 +60,6 @@ $font: "Arial";
         align-items: center; 
         border-radius: 4vh;
         gap: 10px;
-
         font-size: 20px;
         color: black;
 
@@ -91,4 +76,14 @@ $font: "Arial";
     }
 
 }
+
+
+
+}
+
+
+
+
+
+
 

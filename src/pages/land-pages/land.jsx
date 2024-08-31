@@ -14,7 +14,7 @@ export default function Land () {
                       <h1>Dr. João Silva</h1>
                       <h2>clinico geral, feito para solucionar seus problemas.   </h2>
                   <div className="A-da-info"> <a href="a">Agendar <p>consulta.</p> </a> </div>
-                  </div>
+                  </div>  ve se foiiiii
                   <div className="img-doutor">
                       <img src={Medico} alt="" />
                   </div>

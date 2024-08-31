@@ -6,7 +6,6 @@ function App() {
   return (
       <main className='App'>
         <Land/>
-       
       </main>
   );
 }

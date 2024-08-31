@@ -16,10 +16,15 @@ $font: "Arial";
 
         display: flex ;
         padding-left: 44vh;
+       
         
         img {
-            width: 60vh;
+            width: 40vh;
         }
+    }
+
+    .wave{
+        width: 100%;
     }
 
     
@@ -83,6 +88,7 @@ $font: "Arial";
         align-items: center;
         width: 100%;
         height: 100dvh;
+        background-color: white;
 
         .main{
             display: flex;
@@ -94,12 +100,12 @@ $font: "Arial";
             .saibaMais{
                 display: flex;
                 flex-direction: column;
-                width:80dvh;
+                width:40%;
 
                 .iconeEtexto{
                     display: flex ;
                     flex-direction: row;
-                    gap: 02dvh;
+                    gap: 01dvh;
 
                     .iconeSaibaMais{
                         width: 05dvh;

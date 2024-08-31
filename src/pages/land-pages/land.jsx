@@ -6,7 +6,6 @@ import iconSaibaMais from '../../assets/img/tcc/tccassests/simbolos/saiba mais.s
 import Facebook from '../../assets/img/tcc/tccassests/simbolos/Facebook.svg'
 import instagram from '../../assets/img/tcc/tccassests/simbolos/Instagram preto.svg'
 import Twitter from '../../assets/img/tcc/tccassests/simbolos/twitter.svg'
-import Retangulo from "../../assets/img/tcc/tccassests/landpages/retangulo_landpagge.svg"
 
 
 
@@ -25,7 +24,7 @@ export default function Land () {
                       <img src={Medico} alt="" />
                   </div>
             </div>
-          <img src={Wave} alt="" />  
+          <img className="wave" src={Wave} alt="" />  
           <section className='secao-2'>
             <div className="main">
                 <div className="saibaMais">

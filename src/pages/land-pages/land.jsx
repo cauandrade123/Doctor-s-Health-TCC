@@ -6,6 +6,10 @@ import iconSaibaMais from '../../assets/img/tcc/tccassests/simbolos/saiba mais.s
 import Facebook from '../../assets/img/tcc/tccassests/simbolos/Facebook.svg'
 import instagram from '../../assets/img/tcc/tccassests/simbolos/Instagram preto.svg'
 import Twitter from '../../assets/img/tcc/tccassests/simbolos/twitter.svg'
+import Retangulo from "../../assets/img/tcc/tccassests/landpages/retangulo_landpagge.svg"
+
+
+
 
 export default function Land () {
     return (
@@ -16,7 +20,11 @@ export default function Land () {
                       <h1>Dr. João Silva</h1>
                       <h2>clinico geral, feito para solucionar seus problemas.   </h2>
                   <div className="A-da-info"> <a href="a">Agendar <p>consulta.</p> </a> </div>
+<<<<<<< HEAD
                   </div>  
+=======
+                  </div> 
+>>>>>>> 040bf23d58d797c0f488fa8c18f9c5730d8f683a
                   <div className="img-doutor">
                       <img src={Medico} alt="" />
                   </div>

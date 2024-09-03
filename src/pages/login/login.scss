@@ -1,0 +1,172 @@
+.login-page {
+    main {
+        display: flex;
+        flex-direction: row;
+        height: 100vh;
+        background-image: url(../../assets/img/tcc/tccassests/paginas/Login.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .borda-azul {
+        position: relative; // Permite que elementos filhos com position: absolute sejam posicionados em relação a este contêiner
+        left: 0;
+        background-color: rgba(4, 106, 226, 1);
+        min-height: 100vh;
+        width: 50%;
+        border-top-right-radius: 10vh;
+        border-bottom-right-radius: 10vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .opcoes {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            h4 {
+                color: rgba(41, 41, 41, 0.884);
+                margin-bottom: 1vh; // Espaço entre os textos e os inputs
+                align-self: flex-start;
+                margin-left: 0; // Remove o deslocamento à esquerda
+            }
+
+            .entrar {
+                background-color: rgba(41, 41, 41, 0.884);
+                width: 20vh;
+                height: 5vh;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 1.5vh;
+                text-decoration: none;
+                color: white;
+                margin-bottom: 2vh; // Espaço entre os botões
+                transition: 0.5s;
+
+                &:hover {
+                    transition: 0.5s;
+                    transform: scale(1.1);
+                }
+            }
+
+            input {
+                border-radius: 1.5vh;
+                height: 5vh;
+                width: 50vh;
+                border: none;
+                margin-bottom: 2vh; // Espaço entre os inputs
+            }
+
+            h1 {
+                color: white;
+                margin-bottom: 4vh; // Espaço abaixo do título
+            }
+
+            button {
+                margin-bottom: 1vh; // Espaço entre os textos e os inputs
+                align-self: flex-start; // Alinha o texto à esquerda
+                margin-left: 0;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 2vh;
+            }
+
+            .voltar-all {
+                display: flex;
+                flex-direction: row;
+                gap: 2vh; // Espaço entre o texto e o botão
+                justify-content: center; // Centraliza os itens no eixo horizontal
+                align-items: center; // Centraliza os itens no eixo vertical
+
+                h3 {
+                    color: white;
+                    margin: 0; // Remove margens extras que podem desalinhar
+                    line-height: 5vh; // Garante que o texto tenha a mesma altura que o botão
+                }
+
+                .voltar {
+                    background-color: rgba(255, 255, 255, 0.884);
+                    width: 14vh;
+                    height: 5vh;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 1.5vh;
+                    text-decoration: none;
+                    color: rgb(0, 0, 0);
+                    transition: 0.5s;
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+
+        .logo {
+            position: absolute; 
+            bottom: 2vh; 
+            left: 2vh; 
+            height: 10vh; 
+            width: auto; 
+        }
+    }
+
+    .imagem-de-login {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .mae {
+        padding: 2vh;
+        max-height: none;
+
+        .img-doutor {
+            padding-left: 0;
+
+            img {
+                width: 70%;
+            }
+        }
+
+        .informaçoes-do-doutor {
+            padding-left: 0;
+            align-items: center;
+            text-align: center;
+            gap: 3vh;
+
+            h1 {
+                font-size: 8vh;
+                gap: 5px;
+            }
+
+            h2 {
+                width: 80%;
+            }
+
+            a {
+                width: 50%;
+                height: 8vh;
+                font-size: 16px;
+            }
+        }
+    }
+}

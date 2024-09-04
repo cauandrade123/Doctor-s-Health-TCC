@@ -1,0 +1,36 @@
+.container{
+    width: 90%;
+    height: 80dvh;
+    border: 1px solid green;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-radius: 10vh;
+
+    .box-pequena{
+        width: 80dvh;
+        height: 80dvh;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        
+        
+
+        h1{
+            color: #000000;
+        }
+
+
+        h4{
+            color: darkblue;
+        }
+    }
+
+    .box-grande{
+        height: 80dvh;
+        width: 106dvh;
+        background-color: darkblue;
+       
+        
+    }
+}

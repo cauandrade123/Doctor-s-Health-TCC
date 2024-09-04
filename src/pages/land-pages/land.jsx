@@ -6,6 +6,7 @@ import iconSaibaMais from '../../assets/img/tcc/tccassests/simbolos/saiba mais.s
 import Facebook from '../../assets/img/tcc/tccassests/simbolos/Facebook.svg'
 import instagram from '../../assets/img/tcc/tccassests/simbolos/Instagram preto.svg'
 import Twitter from '../../assets/img/tcc/tccassests/simbolos/twitter.svg'
+import Cards from "../../components/cards";
 
 
 export default function Land() {
@@ -63,8 +64,18 @@ export default function Land() {
                 </div>
             </div>
         </section>
-        </div>
+        <section className="secao-servicos">
+          <div className="title">
+              <h2>Serviços</h2>
+          </div>
+          
+          <Cards />
+
+         
+
+      </section>
       </div>
+    </div>
    
   )
 }

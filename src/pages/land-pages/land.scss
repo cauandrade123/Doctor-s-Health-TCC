@@ -93,21 +93,33 @@
                 text-align: center;
                 gap: 3vh;
 
-                h1 {
-                    font-size: 8vh;
-                    gap: 5px;
-                }
+    h2 {
+        width: 70vh;
+        font-family: arial;
+        font-weight: lighter;
+    }
 
                 h2 {
                     width: 80%;
                 }
 
-                a {
-                    width: 50%;
-                    height: 8vh;
-                    font-size: 16px;
-                }
-            }
+    a {
+        background-color: white;
+        text-decoration: none;
+        text-align: center;
+        width: 30vh;
+        height: 10vh;
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        border-radius: 4vh;
+        gap: 10px;
+        font-size: 20px;
+        color: black;
+
+        p {
+            color: rgba(1, 146, 219, 1);
+            background-color: white;
         }
     }
 
@@ -149,3 +161,133 @@
         }
     }
 }
+
+        }
+    
+    
+    
+    }
+    
+    .secao-2{
+        display:flex;
+        justify-content: center ;
+        align-items: center;
+        width: 100%;
+        height: 70dvh;
+        background-color: white;
+    
+        .main{
+            display: flex;
+            flex-direction: row;
+            gap: 40vh;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 220dvh;
+            
+    
+            .saibaMais{
+                display: flex;
+                flex-direction: column;
+                width:30%;
+                margin-top: 5.5dvh;
+                
+                
+    
+                .iconeEtexto{
+                    display: flex ;
+                    flex-direction: row;
+                    align-items: center;
+                    padding-bottom: 3dvh;
+                    gap: 07dvh;
+                    
+    
+                    h2{
+                        color: #006eff;
+                        font-size: 7vh;
+                        text-align: center;
+    
+                        
+                    }
+    
+                    .iconeSaibaMais{
+                        width: 17dvh;
+                        height: 17dvh;
+                    }
+                }
+    
+                .textoSaibaMais{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 88dvh;
+                    padding-bottom: 9dvh;
+    
+    
+                    p{
+                        font-size: 4vh;
+                    }
+                }
+    
+    
+            }
+    
+            .conhecaMe{
+                display:flex ;
+                flex-direction: column;
+    
+                .textoConhecaMe{
+                    
+                    h2{
+                        font-size: 7vh;
+                        text-align: center;
+                        color: #006eff;
+                    }
+    
+                }
+    
+                .iconesConhecaMe{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top: 6vh;
+                    gap : 10dvh;
+    
+                    .instagram{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+    
+                    }
+    
+                    
+                    .facebook{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+    
+                    }
+    
+                    
+                    .twitter{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+    
+                    }
+    
+                }
+            }
+        }
+    }
+    
+           
+    
+    
+    
+    
+    
+    }

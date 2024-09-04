@@ -1,8 +1,11 @@
 import Header from "../../components/header/header";
 import './land.scss'
-import Medico from "../../assets/img/tcc/tccassests/landpages/aquinorego.svg"
-
-import Wave from "../../assets/img/tcc/tccassests/landpages/wave 4.svg"
+import Medico from "../../assets/img/tcc/tccassests/land pages/aquinorego.svg"
+import Wave from "../../assets/img/tcc/tccassests/land pages/wave 4.svg"
+import iconSaibaMais from '../../assets/img/tcc/tccassests/simbolos/saiba mais.svg'
+import Facebook from '../../assets/img/tcc/tccassests/simbolos/Facebook.svg'
+import instagram from '../../assets/img/tcc/tccassests/simbolos/Instagram preto.svg'
+import Twitter from '../../assets/img/tcc/tccassests/simbolos/twitter.svg'
 
 
 export default function Land() {
@@ -24,34 +27,46 @@ export default function Land() {
         <img className="wave" src={Wave} alt="" />
 
 
-        <div className="saiba-mais">
-          <section className='secao-2'>
+        <section className='secao-2'>
             <div className="main">
-              <div className="saibaMais">
-                <div className="iconeEtexto">
-                  <img src="" alt="" />
-                  <h2>Saiba Mais</h2>
-                </div> hhhhh
-                <div className="textoSaibaMais">
-                  <p>
-
-                  </p>
+                <div className="saibaMais">
+                      <div className="iconeEtexto">
+                            <img className='iconeSaibaMais' src={iconSaibaMais} alt="" />
+                            <h2>Saiba Mais.</h2>
+                      </div> 
+                      <div className="textoSaibaMais">
+                          <p>
+                                 Eu sou o Dr. João Silva, clínico geral formado pela Universidade de São Paulo e reconhecido por minhas importantes contribuições à área.
+                          </p>
+                      </div>
                 </div>
-              </div>
-              <div className="conhecaMe">
-                <div className="textoConhecaMe">
-
+                <div className="conhecaMe">
+                      <div className="textoConhecaMe">
+                            <h2>
+                                Conheça-me
+                            </h2>
+                      </div>
+                      <div className="iconesConhecaMe">
+                            <div className="twitter">
+                                <img src={Twitter} alt="" />
+                                <p>Twitter</p>
+                            </div>  
+                            <div className="instagram">
+                                <img src={instagram} alt="" />
+                                <p>Instagram</p>
+                            </div>  
+                            <div className="facebook">
+                                 <img src={Facebook} alt="" />
+                                 <p>Facebook</p>
+                            </div>
+                      </div> 
                 </div>
-                <div className="iconesConhecaMe">
-                  <img src="" alt="" />
-                  <img src="" alt="" />
-                  <img src="" alt="" />
-                </div>
-              </div>
             </div>
-          </section>
+        </section>
         </div>
       </div>
-    </div>
+   
   )
 }
+
+

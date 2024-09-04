@@ -13,11 +13,14 @@ export default function Pagina () {
 
             <div className="menu-azul">
                 <div className="opcoes-do-menu">
-                    <p>oii</p>
-                    <p>oii</p>
-                    <p>oii</p>
+                    <p>agenda</p>
+                    <p>financeiro</p>
+                    <p>consultas</p>
                 </div>
             </div>
         </div>
     )
 }
+
+
+//vou fazer os botao ter a bolinha na hora da renderização //

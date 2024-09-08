@@ -20,16 +20,21 @@
 
         align-items: center;
         justify-content: center;
+        align-self: center;
+        justify-self: center;
 
        
         box-shadow: 10px 10px 4px #0B9DEB;
+
+        margin-bottom: 10vh;
         
 
         .container-box-geral{
             display: flex;
             flex-direction: column;
             justify-content: center;
-
+            
+            align-items: center;
 
             .container-box-inputs{
                 display: flex;
@@ -75,7 +80,8 @@
                 flex-direction: row;
                 margin-top: 5vh;
 
-
+                justify-content: center;
+                gap: 9vh;
                 width: 41vw;
 
                 .container-box-agenda{
@@ -83,7 +89,8 @@
                     border-radius: 28px;
 
                     height: 23vh;
-                    width: 30vh;
+                    width: 33vh;
+                    margin-left: -5vh;
 
                     .box-cont{
                         display: flex;
@@ -143,7 +150,86 @@
 
                     }
                 }
+
+                .container-box-horario{
+                    display: flex;
+                    align-self: flex-start;
+                    
+                    border: 2px solid black;
+                    border-radius: 28px;
+
+                    height: 23vh;
+                    width: 33vh;
+
+                    align-items: center;
+                    justify-content: center;
+
+                    .box-cont-horarios{
+                        display: flex;
+                        flex-direction: column;
+
+                        width: 25vh;
+                        
+                        gap: 5vh;
+                        align-items: center;
+                        justify-items: center;
+
+
+                        .box-horarios{
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: wrap;
+                            width: 100%;
+                            gap: 1vh;
+                           justify-content: center;
+                            button{
+                               height: 3vh;
+                               width: 7vh;
+
+                               background-color: #60B6E3;
+                               border-radius: 5px;
+                               border: 1px solid rgb(33, 33, 33);
+                            }
+                        }
+                    }
+                }
             
+            }
+
+            .container-box-txt-button{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 6vh;
+                margin-bottom: 5vh;
+                gap: 6vh;
+
+                .txt-hr{
+                    margin-left: 4vh;
+                    
+                    hr{
+                        border-color: #0B9DEB;
+                    }
+
+                    p{
+                        display: flex;
+                        flex-wrap: wrap;
+                        text-align: center;
+                        font-weight: bold;
+                        
+                    }
+                }
+
+                button{
+                    margin-right: 4vh;
+                    border-radius: 20px;
+                    background-color: #0B9DEB;
+                    width: 15vh;
+                    height: 6vh;
+
+                    color: white;
+                    font-size: 2vh;
+                }
             }
         }
     }

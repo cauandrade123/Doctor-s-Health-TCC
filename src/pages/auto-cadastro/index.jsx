@@ -6,7 +6,6 @@ import Agenda from '../../assets/img/tcc/tccassests/simbolos/Icon.svg'
 
 export default function Auto_cadastro(){
 
-    
 
     return(
         <div className="main">
@@ -47,12 +46,12 @@ export default function Auto_cadastro(){
 
                             <div className="input-style">
                             <p>RG</p>
-                            <input type="number" placeholder="Digite aqui" />
+                            <input type="number" placeholder="Digite aqui: " />
                             </div>
 
                             <div className="input-style">
                             <p>CPF</p>
-                            <input type="number" placeholder="Digite aqui" />
+                            <input type="number" placeholder="Digite aqui: XXX.XXX.XXX-XX" />
                             </div>
 
 
@@ -76,23 +75,39 @@ export default function Auto_cadastro(){
 
                                         <div className="box-data">
                                             <div className="box-data-input">
-                                            <input type="date" placeholder="Digite aqui" />
+                                            <input type="date"  />
                                             </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div className="container-box-horario">
+                                    <div className="box-cont-horarios">
+                                                <p>Selecione o horário</p>
 
+
+                                                <div className="box-horarios">
+                                                    <button>12:00</button>
+                                                    <button>13:00</button>
+                                                    <button>14:00</button>
+                                                    <button>15:00</button>
+                                                    <button>16:00</button>
+                                                    <button>17:00</button>
+                                                    <button>18:00</button>
+                                                    <button>19:00</button>
+                                                </div>
+                                        </div>
                             </div>
 
                         </div>
 
-                        <div className="container-box-txt/button">
+                        <div className="container-box-txt-button">
                         
-                            <p></p> 
-
-                            <button></button>
+                        <div className="txt-hr">
+                            <p>Em caso de cancelamento ou troca de horário entrar em contato por telefone!   </p> 
+                            <hr />
+                        </div>
+                            <button>Enviar</button>
 
 
                         </div>
@@ -101,6 +116,8 @@ export default function Auto_cadastro(){
 
 
             </div>
+
+            
         </div>
     )
 };

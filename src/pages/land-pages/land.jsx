@@ -6,6 +6,7 @@ import iconSaibaMais from '../../assets/img/tcc/tccassests/simbolos/saiba mais.s
 import Facebook from '../../assets/img/tcc/tccassests/simbolos/Facebook.svg'
 import instagram from '../../assets/img/tcc/tccassests/simbolos/Instagram preto.svg'
 import Twitter from '../../assets/img/tcc/tccassests/simbolos/twitter.svg'
+import { Link } from "react-router-dom";
 
 
 export default function Land() {
@@ -19,6 +20,11 @@ export default function Land() {
             <h1>Dr. João Silva</h1>
             <h2>clinico geral, feito para solucionar seus problemas.   </h2>
             <div className="A-da-info"> <a href="a">Agendar <p>consulta.</p> </a> </div>
+
+            <Link to='/adm'>adm</Link>
+            
+            <Link to='/login'>login</Link>
+
           </div>
           <div className="img-doutor">
             <img src={Medico} alt="" />

@@ -67,8 +67,8 @@ export default function Auto_cadastro(){
 
                                     
                                         <div className="box-h3-img">
-                                            <h3>Escolha a sua:</h3> 
-                                            <img src={Agenda} alt="" />
+                                            <h3>Escolha a sua: <img src={Agenda} alt="" /> </h3> 
+                                            
                                         </div>
 
                                         <hr />

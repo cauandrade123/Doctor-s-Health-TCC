@@ -3,7 +3,7 @@
 
     display: flex;
     flex-direction: column;
-    gap: 10vh;
+    gap: 6vh;
     flex: 1;
 
     background: linear-gradient(to bottom, #60B6E3, #C8E7F7);
@@ -242,7 +242,44 @@
                     font-size: 2vh;
                 }
             }
+
+
         }
     }
 
+    .container-box2{
+        display: flex;
+        flex-direction: column;
+
+        margin-bottom: 5vh;
+        .container-box-cards{
+            display: flex;
+            flex-direction: row;
+
+            gap: 6vh;
+
+            .card-box{
+                display: flex;
+                flex-direction: row;
+
+                align-items: center;
+
+                background-color: #FFFFFF;
+                border-radius: 20px;
+                padding: 1vh;
+                padding-right: 6vh;
+                padding-left: 2vh;
+                gap: 2vh;
+                img{
+                    width: 6vh;
+                }
+
+                .txt-card{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5vh;
+                }
+            }
+        }
+    }
 }

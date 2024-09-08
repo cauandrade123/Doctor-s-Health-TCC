@@ -2,6 +2,9 @@ import Header from "../../components/header/header";
 import './index.scss'
 import React, { useState } from 'react';
 import Agenda from '../../assets/img/tcc/tccassests/simbolos/Icon.svg'
+import Telefone from '../../assets/img/tcc/tccassests/simbolos/Phone call.svg'
+import Email from '../../assets/img/tcc/tccassests/simbolos/Emailicon.svg'
+import LocIcon from '../../assets/img/tcc/tccassests/simbolos/LocIcon.svg'
 
 
 export default function Auto_cadastro(){
@@ -116,6 +119,52 @@ export default function Auto_cadastro(){
 
 
             </div>
+
+
+            <div className="container-box2">
+                <h1>Nos Encontre Por Aqui</h1>
+
+                <div className="container-box-cards">
+                    <div className="card-box">
+
+                        <img src={Telefone} alt="" />
+
+                        <div className="txt-card">
+                            <p>Telefone</p>
+                            <p>(11) 98125-6503</p>
+                        </div>
+
+                    </div>
+                    <div className="card-box">
+
+                        <img src={Email} alt="" />
+
+                        <div className="txt-card">
+                            <p>Email</p>
+                            <p>drjoaosilva@gmail.com.br</p>
+                        </div>
+
+                    </div>
+                    <div className="card-box">
+
+                        <img src={LocIcon} alt="" />
+
+                        <div className="txt-card">
+                            <p>Endereço</p>
+                            <p>Rua Astolfo Vila, 389.</p>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div className="container-box-local">
+
+                </div>
+            </div>
+
+
 
             
         </div>

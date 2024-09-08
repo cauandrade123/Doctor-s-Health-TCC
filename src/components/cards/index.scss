@@ -1,35 +1,80 @@
 .container{
-    width: 90%;
-    height: 80dvh;
-    border: 1px solid green;
+    width: 135dvh;
+    height: 50dvh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    border-radius: 10vh;
+    border-radius: 03vh;
 
     .box-pequena{
         width: 80dvh;
-        height: 80dvh;
+        height: 50dvh;
         display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
         flex-direction: column;
         background-color: white;
+        border-top-left-radius: 03vh;
+        border-bottom-left-radius: 03dvh;
+        gap: 20px;
         
         
 
         h1{
             color: #000000;
+            height: 20dvh;
+            width: 35dvh;
+            font-size: 7dvh;
+
+            
+
         }
 
 
         h4{
-            color: darkblue;
+            color: #0053be;
+            font-size: 4dvh;
+            justify-self: flex-start;
+            
         }
     }
 
     .box-grande{
-        height: 80dvh;
+        height: 50dvh;
         width: 106dvh;
-        background-color: darkblue;
+        background-color: #006eff;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex: 2;
+        justify-content: center;
+        border-top-right-radius: 03vh;
+        border-bottom-right-radius: 03dvh;
+
+        .content-da-grande{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+
+
+            h2{
+                width: 40dvh;
+                height: 23dvh;
+                font-size: 05dvh;
+                color: white;
+            }
+
+            .remedioIcon{
+                img{
+                    width: 20dvh;
+                    height: 20dvh;
+                }
+            }
+
+        }    
        
         
     }

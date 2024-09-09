@@ -5,6 +5,7 @@ import Agenda from '../../assets/img/tcc/tccassests/simbolos/Icon.svg'
 import Telefone from '../../assets/img/tcc/tccassests/simbolos/Phone call.svg'
 import Email from '../../assets/img/tcc/tccassests/simbolos/Emailicon.svg'
 import LocIcon from '../../assets/img/tcc/tccassests/simbolos/LocIcon.svg'
+import Mapa from '../../assets/img/tcc/tccassests/simbolos/MapImage.svg'
 
 
 export default function Auto_cadastro(){
@@ -12,6 +13,7 @@ export default function Auto_cadastro(){
 
     return(
         <div className="main">
+            
             <Header/>
 
             
@@ -125,32 +127,32 @@ export default function Auto_cadastro(){
                 <h1>Nos Encontre Por Aqui</h1>
 
                 <div className="container-box-cards">
-                    <div className="card-box">
+                    <div className="card-box-tel">
 
                         <img src={Telefone} alt="" />
 
                         <div className="txt-card">
-                            <p>Telefone</p>
+                            <h4>Telefone</h4>
                             <p>(11) 98125-6503</p>
                         </div>
 
                     </div>
-                    <div className="card-box">
+                    <div className="card-box-email">
 
-                        <img src={Email} alt="" />
+                        <img className="Emailicon" src={Email} alt="" />
 
                         <div className="txt-card">
-                            <p>Email</p>
+                            <h4>Email</h4>
                             <p>drjoaosilva@gmail.com.br</p>
                         </div>
 
                     </div>
-                    <div className="card-box">
+                    <div className="card-box-loc">
 
-                        <img src={LocIcon} alt="" />
+                        <img  src={LocIcon} alt="" />
 
                         <div className="txt-card">
-                            <p>Endereço</p>
+                            <h4>Endereço</h4>
                             <p>Rua Astolfo Vila, 389.</p>
                         </div>
 
@@ -161,6 +163,8 @@ export default function Auto_cadastro(){
 
                 <div className="container-box-local">
 
+                    <img src={Mapa} alt="" />
+                
                 </div>
             </div>
 

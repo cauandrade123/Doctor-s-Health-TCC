@@ -19,17 +19,18 @@ export default function Land() {
           <div className="informaçoes-do-doutor">
             <h1>Dr. João Silva</h1>
             <h2>clinico geral, feito para solucionar seus problemas.   </h2>
-            <div className="A-da-info"> <a href="/auto_cadastro">Agendar <p>consulta.</p> </a> </div>
+            <div className="A-da-info"> <a target="blank" href="/auto_cadastro">Agendar <p>consulta.</p> </a> </div>
           </div>
           <div className="img-doutor">
             <img src={Medico} alt="" />
           </div>
         </div>
         <img className="wave" src={Wave} alt="" />
+    
 
 
         <section className='secao-2'>
-            <div className="main">
+            <div className="principal-secao-2">
                 <div className="saibaMais">
                       <div className="iconeEtexto">
                             <img className='iconeSaibaMais' src={iconSaibaMais} alt="" />
@@ -68,12 +69,8 @@ export default function Land() {
           <div className="title">
               <h2>Serviços</h2>
           </div>
-          
-          <Cards />
-
-         
-
-      </section>
+          <Cards /> 
+        </section>
       </div>
     </div>
    

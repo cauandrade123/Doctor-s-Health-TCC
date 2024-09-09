@@ -15,10 +15,12 @@ export default function Cards(){
                     </div>
                 </div>
                 <div className="box-grande">
-                    <div className="remedioIcon">
-                        <img src={IconRemedio} alt="" />
-                    </div>
-                    <h2>Consultório licenciado para medicamentos sobre restrição</h2>
+                    <div className="content-da-grande">    
+                        <div className="remedioIcon">
+                            <img src={IconRemedio} alt="" />
+                        </div>
+                        <h2>Consultório licenciado para medicamentos sobre restrição</h2>
+                    </div>    
                 </div>
             </div>
     );

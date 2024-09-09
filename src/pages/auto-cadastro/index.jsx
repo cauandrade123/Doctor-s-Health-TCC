@@ -13,6 +13,7 @@ export default function Auto_cadastro(){
 
     return(
         <div className="main">
+            
             <Header/>
 
             

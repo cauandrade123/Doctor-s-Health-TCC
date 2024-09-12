@@ -22,10 +22,10 @@ export default function Land() {
             <div className="A-da-info"> <a target="blank" href="/auto_cadastro">Agendar <p>consulta.</p> </a> </div>
           </div>
           <div className="img-doutor">
-            <img src={Medico} alt="" />
+            <img className="medico" src={Medico} alt="" />
           </div>
         </div>
-        <img className="wave" src={Wave} alt="" />
+        <img className="wave" src={Wave} alt="" />  {/* TROCAR IMAGEM, POIS NAO ESTA EM PNG */}
     
 
 
@@ -68,6 +68,7 @@ export default function Land() {
         <section className="secao-servicos">
           <div className="title">
               <h2>Serviços</h2>
+              
           </div>
           <Cards /> 
         </section>

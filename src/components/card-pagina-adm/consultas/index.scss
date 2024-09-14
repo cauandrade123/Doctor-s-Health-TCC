@@ -1,0 +1,89 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 100vh;
+}
+
+.card {
+  background-color: #80c4e2; // cor de fundo da imagem
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px; // largura mais controlada para se parecer com o card na imagem
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .dados-cliente {
+    h1 {
+      color: #333;
+      font-size: 18px;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #333;
+      margin: 10px 0;
+    }
+
+    .field {
+      display: flex;
+      align-items: center; // Alinha os elementos verticalmente no centro
+      justify-content: flex-start; // Garante que o texto fique bem próximo
+      margin-bottom: 8px;
+
+      h2 {
+        font-size: 14px;
+        color: #333;
+        margin-right: 5px; // Reduz o espaço entre o h2 e o dado
+        font-weight: normal; // Mantém o estilo consistente com a imagem
+      }
+
+      p {
+        font-size: 14px;
+        color: #555;
+        margin: 0;
+      }
+
+      input {
+        font-size: 14px;
+        padding: 5px;
+        width: 180px;
+      }
+    }
+  }
+
+  .proximo-cliente {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0066ff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 20px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #004db3;
+    }
+  }
+}

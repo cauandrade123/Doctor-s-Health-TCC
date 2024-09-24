@@ -9,7 +9,7 @@ import Twitter from '../../assets/img/tcc/tccassests/simbolos/twitter.svg'
 import Cards from "../../components/cards";
 import IconRemedio from '../../assets/img/tcc/tccassests/cards/remedio card.svg'
 import { useState } from "react";
-
+import Footer from "../../components/footer/footer";
 
 
 
@@ -110,6 +110,9 @@ let card_conheca = [
 
         ))}
         </section>
+        <Footer/>
+        
+        
       </div>
     </div>
    

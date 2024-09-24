@@ -5,6 +5,7 @@ import Telefone from '../../assets/img/tcc/tccassests/simbolos/Phone call.svg'
 import Email from '../../assets/img/tcc/tccassests/simbolos/Emailicon.svg'
 import LocIcon from '../../assets/img/tcc/tccassests/simbolos/LocIcon.svg'
 import Mapa from '../../assets/img/tcc/tccassests/simbolos/MapImage.svg'
+import Footer from "../../components/footer/footer";
 
 
 export default function Auto_cadastro(){
@@ -145,11 +146,13 @@ export default function Auto_cadastro(){
                     <img src={Mapa} alt="" />
                 
                 </div>
+               
             </div>
 
 
-
-            
+           
         </div>
+
+        
     )
 };

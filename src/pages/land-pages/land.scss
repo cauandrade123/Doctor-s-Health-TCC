@@ -13,27 +13,25 @@
        
         .background {
             display: flex;
+
             justify-content: center;
             flex-direction: column;
-            align-items: center;
             background-color: #0b9deb;
-            
-           
+            .wave {
+                width: 100%;
+                background-size: cover;
+                height: 30vh;
+                background-image: url('../../assets/img/tcc/tccassests/land pages/wave-4-removebg.png');
+            }
         }
-        .wave {
-            width: 100%;
-<<<<<<< HEAD
-=======
-            margin-top: 264px ;
->>>>>>> b110efaede1ce97c9b2a220f3fccfe5d70f5ccf3
-        }
+       
 
         .Texto-image {
           
             display: flex;
             flex-direction: row;
             justify-content: center;
-            gap: 10vh;
+            gap: 20vh;
         }
 
 
@@ -327,4 +325,4 @@
     
     
     
-}
+} 

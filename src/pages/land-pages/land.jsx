@@ -55,7 +55,7 @@ let card_conheca = [
 
 
 
-        <img className="wave" src={Wave} alt="" />
+        <div className="wave"></div>
         </div>
        
        

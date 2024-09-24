@@ -1,7 +1,7 @@
 import Header from "../../components/header/header";
 import './land.scss'
 import Medico from "../../assets/img/tcc/tccassests/land pages/aquinorego.svg"
-import Wave from "../../assets/img/tcc/tccassests/land pages/wave 4.svg"
+import Wave from "../../assets/img/tcc/tccassests/land pages/wave-4-removebg.png"
 import iconSaibaMais from '../../assets/img/tcc/tccassests/simbolos/saiba mais.svg'
 import Facebook from '../../assets/img/tcc/tccassests/simbolos/Facebook.svg'
 import instagram from '../../assets/img/tcc/tccassests/simbolos/Instagram preto.svg'

@@ -1,9 +1,8 @@
 import './index.scss'
-import IconRemedio from '../../assets/img/tcc/tccassests/cards/remedio card.svg'
 
 
 
-export default function Cards(){
+export default function Cards({texto_h2, img }){
     return(
             <div className="container">
                 <div className="box-pequena">
@@ -17,9 +16,10 @@ export default function Cards(){
                 <div className="box-grande">
                     <div className="content-da-grande">    
                         <div className="remedioIcon">
-                            <img src={IconRemedio} alt="" />
+                            <img src={img} alt="" />
                         </div>
-                        <h2>Consultório licenciado para medicamentos sobre restrição</h2>
+                        <h2>{texto_h2}</h2>
+                        <button> l</button>
                     </div>    
                 </div>
             </div>

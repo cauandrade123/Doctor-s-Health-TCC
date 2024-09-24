@@ -16,7 +16,6 @@ export default function Auto_cadastro(){
             
             <Header/>
 
-            
             <div className="container-box">
 
 

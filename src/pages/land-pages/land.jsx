@@ -1,7 +1,7 @@
 import Header from "../../components/header/header";
 import './land.scss'
 import Medico from "../../assets/img/tcc/tccassests/land pages/aquinorego.svg"
-import Wave from "../../assets/img/tcc/tccassests/land pages/wave-4-removebg.png"
+import Wave from "../../assets/img/tcc/tccassests/land pages/wave 4.svg"
 import iconSaibaMais from '../../assets/img/tcc/tccassests/simbolos/saiba mais.svg'
 import Facebook from '../../assets/img/tcc/tccassests/simbolos/Facebook.svg'
 import instagram from '../../assets/img/tcc/tccassests/simbolos/Instagram preto.svg'
@@ -39,8 +39,6 @@ let card_conheca = [
 
     <div className="mae-page">
       <div className="mae">
-        
-        <div className="background">
         <Header />
         <div className="Texto-image">
           <div className="informaçoes-do-doutor">
@@ -49,18 +47,12 @@ let card_conheca = [
             <div className="A-da-info"> <a target="blank" href="/auto_cadastro">Agendar <p>consulta.</p> </a> </div>
           </div>
           <div className="img-doutor">
-            <img className="medico" src={Medico} alt="" />
+            <img src={Medico} alt="" />
           </div>
         </div>
-
-
-
         <img className="wave" src={Wave} alt="" />
-        </div>
-       
-       
     
-      
+
 
         <section className='secao-2'>
             <div className="principal-secao-2">

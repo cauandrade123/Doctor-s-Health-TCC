@@ -1,0 +1,64 @@
+body, html, .mae {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+  }
+  
+  .background {
+    background-color: #0b9deb; /* Azul de fundo */
+    color: white;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .Texto-image {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .informacoes-do-doutor h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  .informacoes-do-doutor h2 {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+  }
+  
+  .A-da-info a {
+    background-color: #fff;
+    color: #1e90ff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1em;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .A-da-info a:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .img-doutor .medico {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .wave-container {
+    position: relative;
+    margin-top: -4px; /* Adicione uma margem negativa para elevar a onda */
+    z-index: 0;
+  }
+  
+  .wave {
+    width: 100%;
+    display: block;
+  }
+  

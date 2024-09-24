@@ -11,7 +11,7 @@ export default function Header() {
             </div>      
             <div className="A-do-header">
                 <a href=""> <Link to={'/'}>Home</Link></a>        
-                <a href="">Serviços</a>
+                <a href=""><Link to={'/teste'}>servicos</Link></a>
                 <a href="">Doctor</a>
                 <a href="">Feedback</a>
             </div>

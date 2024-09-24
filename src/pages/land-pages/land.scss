@@ -4,53 +4,52 @@
     flex-direction: column;
 
     .mae {
-     
         display: flex;
         flex-direction: column;
-        
+        background-color: #0b9deb;
         font-family: $font;
-      
-       
-        .background {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-            background-color: #0b9deb;
-            
-            border: 3px solid green;
-        }
+        height: 100%;
+        max-height: 900px;
+
         .wave {
             width: 100%;
             margin-top: 264px ;
         }
 
         .Texto-image {
-          
             display: flex;
-            flex-direction: row;
-            justify-content: center;
-            gap: 2vh;
         }
 
+        .img-doutor {
+            display: flex;
+            padding-left: 44vh;
+
+            .medico{
+                width: 60%;
+            }
+        }
 
         .informaçoes-do-doutor {
-     
             display: flex;
             flex-direction: column;
             align-items: start;
-           
+            padding-left: 22vh;
             justify-content: center;
             gap: 5vh;
             color: white;
 
             h1 {
-                font-size: 8vh;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                border-radius: 4vh;
+                gap: 10px;
+                font-size: 10vh;
                 font-weight: bold;
             }
 
             h2 {
-                font-size: 2vh;
+                width: 70vh;
             }
 
             a {

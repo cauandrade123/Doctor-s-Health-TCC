@@ -1,15 +1,40 @@
 import Header from "../../components/header/header";
 import './land.scss'
 import Medico from "../../assets/img/tcc/tccassests/land pages/aquinorego.svg"
-import Wave from "../../assets/img/tcc/tccassests/land pages/wave-4-removebg.png"
+import Wave from "../../assets/img/tcc/tccassests/land pages/wave 4.svg"
 import iconSaibaMais from '../../assets/img/tcc/tccassests/simbolos/saiba mais.svg'
 import Facebook from '../../assets/img/tcc/tccassests/simbolos/Facebook.svg'
 import instagram from '../../assets/img/tcc/tccassests/simbolos/Instagram preto.svg'
 import Twitter from '../../assets/img/tcc/tccassests/simbolos/twitter.svg'
 import Cards from "../../components/cards";
+import IconRemedio from '../../assets/img/tcc/tccassests/cards/remedio card.svg'
+import { useState } from "react";
+
+
+
+
+
 
 
 export default function Land() {
+
+  const [sla1, setsla1] = useState(false)
+const [sla2, setsla2] = useState(false)
+const [sla3, setsla3] = useState(false)
+
+let card_conheca = [
+
+  {
+    'texto_h2': 'Consultório licensiado para medicamento sobre restrição ',
+    'img': IconRemedio,
+    'sla': sla1 
+  }
+
+
+]
+
+
+
   return (
 
     <div className="mae-page">
@@ -22,10 +47,10 @@ export default function Land() {
             <div className="A-da-info"> <a target="blank" href="/auto_cadastro">Agendar <p>consulta.</p> </a> </div>
           </div>
           <div className="img-doutor">
-            <img className="medico" src={Medico} alt="" />
+            <img src={Medico} alt="" />
           </div>
         </div>
-        <img className="wave" src={Wave} alt="" />  {/* TROCAR IMAGEM, POIS NAO ESTA EM PNG */}
+        <img className="wave" src={Wave} alt="" />
     
 
 
@@ -68,9 +93,22 @@ export default function Land() {
         <section className="secao-servicos">
           <div className="title">
               <h2>Serviços</h2>
-              
           </div>
-          <Cards /> 
+          {card_conheca.map((item, index) => (
+
+          <Cards
+          key={index}
+      
+          texto_h2={item.texto_h2}
+          img={item.img}
+          
+
+          />
+    
+
+
+
+        ))}
         </section>
       </div>
     </div>

@@ -150,12 +150,7 @@ export default function Auto_cadastro(){
                
             </div>
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> a6d8de7cde123bc7578446d6684b725802e4095f
-           
+          <footer><Footer /></footer> 
         </div>
 
         

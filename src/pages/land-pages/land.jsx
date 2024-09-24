@@ -39,6 +39,8 @@ let card_conheca = [
 
     <div className="mae-page">
       <div className="mae">
+        
+        <div className="background">
         <Header />
         <div className="Texto-image">
           <div className="informaçoes-do-doutor">
@@ -47,12 +49,18 @@ let card_conheca = [
             <div className="A-da-info"> <a target="blank" href="/auto_cadastro">Agendar <p>consulta.</p> </a> </div>
           </div>
           <div className="img-doutor">
-            <img src={Medico} alt="" />
+            <img className="medico" src={Medico} alt="" />
           </div>
         </div>
-        <img className="wave" src={Wave} alt="" />
-    
 
+
+
+        <img className="wave" src={Wave} alt="" />
+        </div>
+       
+       
+    
+      
 
         <section className='secao-2'>
             <div className="principal-secao-2">

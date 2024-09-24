@@ -1,15 +1,15 @@
 .main{
- 
-
+    //Alinhamento da page.
     display: flex;
     flex-direction: column;
-    gap: 6vh;
+    gap: 5vh;
     flex: 1;
 
     background: linear-gradient(to bottom, #60B6E3, #C8E7F7);
 
     align-items: center;
 
+    //Container que armazena o conteudo do AutoCadastro
     .container-box{
         background-color: #FFFFFF;
 
@@ -247,18 +247,34 @@
         }
     }
 
+    //Container que ARMAZENA o conteudo do Nos Encontre Por Aqui...
     .container-box2{
         display: flex;
         flex-direction: column;
+        width: 80%;
 
         margin-bottom: 5vh;
+        
+        gap: 3vh;
+
+        h1{
+            align-self: center;
+            color: #0B9DEB;
+            font-size: 7vh;
+            text-shadow: 5px 6px 8px #ffffff;
+        }
         .container-box-cards{
             display: flex;
             flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
 
-            gap: 6vh;
+           
 
-            .card-box{
+            gap: 3vh;
+
+            .card-box-email{
                 display: flex;
                 flex-direction: row;
 
@@ -266,12 +282,72 @@
 
                 background-color: #FFFFFF;
                 border-radius: 20px;
-                padding: 1vh;
-                padding-right: 6vh;
+                padding: 2vh;
+                padding-top: 1.5vh;
+                padding-right: 5vh;
+                padding-left: 1vh;
+               
+
+                .Emailicon{
+                    width: 13.5vh;
+                }
+
+                .txt-card{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5vh;
+                }
+            }
+
+            .card-box-tel{
+                display: flex;
+                flex-direction: row;
+
+                align-items: center;
+
+                background-color: #FFFFFF;
+                border-radius: 20px;
+                padding: 2vh;
+                padding-right: 18vh;
                 padding-left: 2vh;
                 gap: 2vh;
+
+                .Emailicon{
+                    width: 12vh;
+                }
+
+                
                 img{
-                    width: 6vh;
+                    width: 10.5vh;
+                }
+
+                .txt-card{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5vh;
+                }
+            }
+
+            .card-box-loc{
+                display: flex;
+                flex-direction: row;
+
+                align-items: center;
+
+                background-color: #FFFFFF;
+                border-radius: 20px;
+                padding: 2vh;
+                padding-right: 11vh;
+                padding-left: 2vh;
+                gap: 1vh;
+
+                .Emailicon{
+                    width: 12vh;
+                }
+
+                
+                img{
+                    width: 11.5vh;
                 }
 
                 .txt-card{
@@ -281,5 +357,17 @@
                 }
             }
         }
+        .container-box-local{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img{    
+                width: 98%;
+                border-radius: 10px;
+            }
+        }
     }
+
+
 }

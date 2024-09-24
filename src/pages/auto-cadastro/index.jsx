@@ -7,6 +7,7 @@ import LocIcon from '../../assets/img/tcc/tccassests/simbolos/LocIcon.svg'
 import Mapa from '../../assets/img/tcc/tccassests/simbolos/MapImage.svg'
 
 
+
 export default function Auto_cadastro(){
 
 
@@ -149,7 +150,7 @@ export default function Auto_cadastro(){
 
 
 
-            
+           
         </div>
     )
 };

@@ -8,6 +8,7 @@ import Mapa from '../../assets/img/tcc/tccassests/simbolos/MapImage.svg'
 import Footer from "../../components/footer/footer";
 
 
+
 export default function Auto_cadastro(){
 
 
@@ -150,6 +151,10 @@ export default function Auto_cadastro(){
             </div>
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> a6d8de7cde123bc7578446d6684b725802e4095f
            
         </div>
 

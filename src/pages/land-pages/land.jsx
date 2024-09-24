@@ -50,7 +50,13 @@ let card_conheca = [
             <img src={Medico} alt="" />
           </div>
         </div>
+
+
+
         <img className="wave" src={Wave} alt="" />
+        </div>
+       
+       
     
 
 

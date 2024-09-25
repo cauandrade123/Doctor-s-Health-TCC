@@ -150,11 +150,11 @@ export default function Cardadm() {
                 </div>
 
                 {editarMode ? (
-                    <button className="proximo-cliente" onClick={salvar}>
+                    <button className="editar" onClick={salvar}>
                         Salvar
                     </button>
                 ) : (
-                    <button className="proximo-cliente" onClick={edit}>
+                    <button className="editar" onClick={edit}>
                         Editar
                     </button>
                 )}

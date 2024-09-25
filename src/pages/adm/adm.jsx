@@ -21,6 +21,7 @@ export default function Adm() {
             <div className="menu-adm">
                 <div className="logo-e-voltar">
                     <img src={logo} alt="logo" />
+                    <Link className="voltar" to='/' >voltar</Link>
                 </div>
 
                 <div className="menu-azul">

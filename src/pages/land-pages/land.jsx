@@ -27,14 +27,15 @@ export default function Land() {
 
           </div>
           <div className="img-doutor">
-            <img src={Medico} alt="" />
+            <img className="medico" src={Medico} alt="" />
           </div>
         </div>
-        <img className="wave" src={Wave} alt="" />
+        <img className="wave" src={Wave} alt="" />  {/* TROCAR IMAGEM, POIS NAO ESTA EM PNG */}
+    
 
 
         <section className='secao-2'>
-            <div className="main">
+            <div className="principal-secao-2">
                 <div className="saibaMais">
                       <div className="iconeEtexto">
                             <img className='iconeSaibaMais' src={iconSaibaMais} alt="" />
@@ -72,6 +73,7 @@ export default function Land() {
         <section className="secao-servicos">
           <div className="title">
               <h2>Serviços</h2>
+              
           </div>
           
          <Cards/>

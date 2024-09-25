@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import logo from '../../assets/img/tcc/tccassests/logo/logomedica.svg'
 import './header.scss'
 
@@ -9,7 +10,7 @@ export default function Header() {
                 <img src={logo} alt="" />
             </div>      
             <div className="A-do-header">
-                <a href="">Home</a>        
+                <a href=""> <Link to={'/'}>Home</Link></a>        
                 <a href="">Serviços</a>
                 <a href="">Doctor</a>
                 <a href="">Feedback</a>

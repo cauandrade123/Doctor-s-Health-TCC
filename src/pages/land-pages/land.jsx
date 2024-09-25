@@ -1,19 +1,49 @@
 import Header from "../../components/header/header";
 import './land.scss'
 import Medico from "../../assets/img/tcc/tccassests/land pages/aquinorego.svg"
-import Wave from "../../assets/img/tcc/tccassests/land pages/wave 4.svg"
+import Wave from "../../assets/img/tcc/tccassests/land pages/wave-4-removebg.png"
 import iconSaibaMais from '../../assets/img/tcc/tccassests/simbolos/saiba mais.svg'
 import Facebook from '../../assets/img/tcc/tccassests/simbolos/Facebook.svg'
 import instagram from '../../assets/img/tcc/tccassests/simbolos/Instagram preto.svg'
 import Twitter from '../../assets/img/tcc/tccassests/simbolos/twitter.svg'
 import { Link } from "react-router-dom";
 import Cards from "../../components/cards";
+import IconRemedio from '../../assets/img/tcc/tccassests/cards/remedio card.svg'
+import { useState } from "react";
+import Footer from "../../components/footer/footer";
+import dinheiro_card from '../../assets/img/tcc/tccassests/cards/dinheiro card.svg'
+import saude_card from '../../assets/img/tcc/tccassests/cards/saude_card.svg'
+
+
 
 export default function Land() {
+
+
+
+let card_conheca = [
+
+  {
+    'texto_1': 'Consultório licensiado para medicamento sobre restrição ',
+    'img_1': IconRemedio,
+    'texto_2': 'Os Melhores preços da região',
+    'img_2': dinheiro_card,
+    'texto_3': 'Melhor atendimento para sua saúde',
+    'img_3': saude_card,
+
+ 
+  }
+
+
+]
+
+
+
   return (
 
     <div className="mae-page">
       <div className="mae">
+        
+        <div className="background">
         <Header />
         <div className="Texto-image">
           <div className="informaçoes-do-doutor">
@@ -21,18 +51,22 @@ export default function Land() {
             <h2>clinico geral, feito para solucionar seus problemas.   </h2>
             <div className="A-da-info"> <a href="a">Agendar <p>consulta.</p> </a> </div>
 
-            <Link to='/adm'>adm</Link>
-            
-            <Link to='/login'>login</Link>
+          
 
           </div>
           <div className="img-doutor">
             <img className="medico" src={Medico} alt="" />
           </div>
         </div>
-        <img className="wave" src={Wave} alt="" />  {/* TROCAR IMAGEM, POIS NAO ESTA EM PNG */}
-    
 
+
+
+        <div className="wave"></div>
+        </div>
+       
+       
+    
+      
 
         <section className='secao-2'>
             <div className="principal-secao-2">
@@ -73,11 +107,23 @@ export default function Land() {
         <section className="secao-servicos">
           <div className="title">
               <h2>Serviços</h2>
-              
           </div>
-          
-         <Cards/>
+          <div className="slide">
+         {card_conheca.map((item,index) => 
+            <Cards
+              key={index}
+              texto_1={item.texto_1}
+              img_1={ item.img_1}
+              texto_2={ item.texto_2}
+              img_2={item.img_2}
+              texto_3={item.texto_3}
+              img_3={item.img_3}
 
+            
+            /> 
+          
+        )}
+        </div>
          
 
       </section>

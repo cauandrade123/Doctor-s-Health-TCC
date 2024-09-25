@@ -1,10 +1,12 @@
 import Header from "../../components/header/header";
 import './index.scss'
 import React, { useState } from 'react';
-import Agenda from '../../assets/img/tcc/tccassests/simbolos/Icon.svg'
 import Telefone from '../../assets/img/tcc/tccassests/simbolos/Phone call.svg'
 import Email from '../../assets/img/tcc/tccassests/simbolos/Emailicon.svg'
 import LocIcon from '../../assets/img/tcc/tccassests/simbolos/LocIcon.svg'
+import Mapa from '../../assets/img/tcc/tccassests/simbolos/MapImage.svg'
+import Footer from "../../components/footer/footer";
+
 
 
 export default function Auto_cadastro(){
@@ -12,6 +14,7 @@ export default function Auto_cadastro(){
 
     return(
         <div className="main">
+            
             <Header/>
 
             
@@ -57,50 +60,30 @@ export default function Auto_cadastro(){
                             <input type="number" placeholder="Digite aqui: XXX.XXX.XXX-XX" />
                             </div>
 
-
-
-
-                        </div>
-
-                        <div className="container-box-data">
-
-                            <div className="container-box-agenda">
-                                <div className="box-cont">
-                                        <p>Selecione a data</p>
-
-                                    
-                                        <div className="box-h3-img">
-                                            <h3>Escolha a sua: <img src={Agenda} alt="" /> </h3> 
-                                            
-                                        </div>
-
-                                        <hr />
-
-                                        <div className="box-data">
-                                            <div className="box-data-input">
-                                            <input type="date"  />
-                                            </div>
-                                    </div>
-                                </div>
+                            <div className="input-style">
+                            <p>Selecione a data</p>
+                            <input type="date"  />
                             </div>
 
-                            <div className="container-box-horario">
-                                    <div className="box-cont-horarios">
-                                                <p>Selecione o horário</p>
-
-
-                                                <div className="box-horarios">
-                                                    <button>12:00</button>
-                                                    <button>13:00</button>
-                                                    <button>14:00</button>
-                                                    <button>15:00</button>
-                                                    <button>16:00</button>
-                                                    <button>17:00</button>
-                                                    <button>18:00</button>
-                                                    <button>19:00</button>
-                                                </div>
-                                        </div>
+                            <div className="input-style">
+                            <p>Método de pagamento</p>
+                            <select>
+                            <option value="">Selecione o horario</option>
+                                    <option value="opcao1">12:00</option>
+                                    <option value="opcao2">13:00</option>
+                                    <option value="opcao4">14:00</option>
+                                    <option value="opcao5">15:00</option>
+                                    <option value="opcao6">16:00</option>
+                                    <option value="opcao7">17:00</option>
+                                    <option value="opcao8">18:00</option>
+                            </select>
                             </div>
+
+
+                        
+                            
+                      
+
 
                         </div>
 
@@ -125,32 +108,32 @@ export default function Auto_cadastro(){
                 <h1>Nos Encontre Por Aqui</h1>
 
                 <div className="container-box-cards">
-                    <div className="card-box">
+                    <div className="card-box-tel">
 
                         <img src={Telefone} alt="" />
 
                         <div className="txt-card">
-                            <p>Telefone</p>
+                            <h4>Telefone</h4>
                             <p>(11) 98125-6503</p>
                         </div>
 
                     </div>
-                    <div className="card-box">
+                    <div className="card-box-email">
 
-                        <img src={Email} alt="" />
+                        <img className="Emailicon" src={Email} alt="" />
 
                         <div className="txt-card">
-                            <p>Email</p>
+                            <h4>Email</h4>
                             <p>drjoaosilva@gmail.com.br</p>
                         </div>
 
                     </div>
-                    <div className="card-box">
+                    <div className="card-box-loc">
 
-                        <img src={LocIcon} alt="" />
+                        <img  src={LocIcon} alt="" />
 
                         <div className="txt-card">
-                            <p>Endereço</p>
+                            <h4>Endereço</h4>
                             <p>Rua Astolfo Vila, 389.</p>
                         </div>
 
@@ -161,12 +144,15 @@ export default function Auto_cadastro(){
 
                 <div className="container-box-local">
 
+                    <img src={Mapa} alt="" />
+                
                 </div>
+               
             </div>
 
-
-
-            
+          <footer><Footer /></footer> 
         </div>
+
+        
     )
 };

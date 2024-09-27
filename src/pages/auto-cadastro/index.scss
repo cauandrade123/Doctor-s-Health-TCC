@@ -375,3 +375,45 @@
 
 
 }
+
+.card {
+    position: fixed; /* Fixa o card na tela */
+    top: 20px; /* Distância do topo */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta o centralizado */
+    border: 1px solid #4caf50;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Garante que o card fique em cima de outros elementos */
+}
+
+.card h2 {
+    color: #4caf50;
+}
+
+.card p {
+    color: #333;
+}
+
+/* Animações */
+.fade-enter {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+.fade-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms, transform 300ms;
+}
+.fade-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+.fade-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 300ms, transform 300ms;
+}

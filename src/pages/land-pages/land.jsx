@@ -49,7 +49,10 @@ let card_conheca = [
           <div className="informaçoes-do-doutor">
             <h1>Dr. João Silva</h1>
             <h2>clinico geral, feito para solucionar seus problemas.   </h2>
+
+            <Link to={'/auto_cadastro'}>
             <div className="A-da-info"> <a href="a">Agendar <p>consulta.</p> </a> </div>
+            </Link>
 
           
 
@@ -127,6 +130,9 @@ let card_conheca = [
          
 
       </section>
+      <footer>
+        <Footer/>
+      </footer>
       </div>
     </div>
    

@@ -13,6 +13,7 @@ import { useState } from "react";
 import Footer from "../../components/footer/footer";
 import dinheiro_card from '../../assets/img/tcc/tccassests/cards/dinheiro card.svg'
 import saude_card from '../../assets/img/tcc/tccassests/cards/saude_card.svg'
+import Teste from "../teste/teste";
 
 
 
@@ -41,30 +42,11 @@ let card_conheca = [
   return (
 
    <div className="mae-page">
-        /* <div className="mae">
-        <Header />
-        <div className="Texto-image">
-          <div className="informaçoes-do-doutor">
-            <h1>Dr. João Silva</h1>
-            <h2>clinico geral, feito para solucionar seus problemas.   </h2>
 
-            <Link to={'/auto_cadastro'}>
-            <div className="A-da-info"> <a href="a">Agendar <p>consulta.</p> </a> </div>
-            </Link>
-
-          
-
-          </div>
-          <div className="img-doutor">
-            <img src={Medico} alt="" />
-          </div>
-        </div>
-
-
-
-        <img className="wave" src={Wave} alt="" />
-        </div> 
-       
+    <section className="secao-1">
+       <Teste/> 
+    </section>
+        
        
     
 

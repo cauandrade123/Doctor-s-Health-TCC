@@ -28,22 +28,24 @@ export default function Auto_cadastro(){
     async function criarCadastro(){
 
       
-            const tudo = [{
+            const tudo = {
 
-                nome: {nome},
-                nascimento: {DTnascimento},
-                rg:{rg},
-                cpf: {cpf},
-                pagamento:{pagamento},
-                telefone: {telefone},
-                data:{data},
-                horario:{horario}
+                "nome": nome,
+                "idade": DTnascimento,
+                "rg":rg,
+                "cpf": cpf,
+                "metodo":pagamento,
+                "telefone": telefone,
+                "data":data,
+               "horario":horario
                 
-            }]
+            }
 
-            console.log({tudo});
+            const url = 'http://localhost:5020/autocadastro'
+            let resp = await axios.post(url, tudo)
+
             
-      
+            alert(resp.data)
         
     };
 
@@ -97,7 +99,7 @@ const funcaoCombinada = () => {
 
                             <div className="input-style">
                             <p>Data de nascimento</p>
-                            <input onChange={e=> setNascimento(e.target.value)} type="text" placeholder="Digite aqui"  />
+                            <input onChange={e=> setNascimento(e.target.value)} type="number" placeholder="Digite aqui"  />
                             </div>
 
                             <div className="input-style">
@@ -143,7 +145,7 @@ const funcaoCombinada = () => {
                             <p>Em caso de cancelamento ou troca de horário entrar em contato por telefone!   </p> 
                             <hr />
                         </div>
-                            <button onClick={funcaoCombinada}>Enviar</button>
+                            <button onClick={criarCadastro}>Enviar</button>
 
                             
 

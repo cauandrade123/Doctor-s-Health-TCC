@@ -1,4 +1,5 @@
-.container{
+
+.container {
     width: 135dvh;
     height: 50dvh;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -7,9 +8,9 @@
     justify-content: space-evenly;
     border-radius: 03vh;
 
-    .box-pequena{
-        width: 80dvh;
-        height: 50dvh;
+    .box-pequena {
+        width: 80vh;
+        height: 50vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -17,31 +18,25 @@
         flex-direction: column;
         background-color: white;
         border-top-left-radius: 03vh;
-        border-bottom-left-radius: 03dvh;
+        border-bottom-left-radius: 03vh;
         gap: 20px;
-        
-        
 
-        h1{
+        h1 {
             color: #000000;
             height: 20dvh;
             width: 35dvh;
             font-size: 7dvh;
-
-            
-
         }
 
-
-        h4{
+        h4 {
             color: #0053be;
             font-size: 4dvh;
             justify-self: flex-start;
-            
         }
     }
 
-    .box-grande{
+    .box-grande {
+        position: relative;
         height: 50dvh;
         width: 106dvh;
         background-color: #006eff;
@@ -51,31 +46,70 @@
         flex: 2;
         justify-content: center;
         border-top-right-radius: 03vh;
-        border-bottom-right-radius: 03dvh;
+        border-bottom-right-radius: 03vh;
 
-        .content-da-grande{
+        .content-da-grande {
             display: flex;
             justify-content: center;
+         
             align-items: center;
             gap: 20px;
 
-
-            h2{
-                width: 40dvh;
-                height: 23dvh;
-                font-size: 05dvh;
-                color: white;
-            }
-
-            .remedioIcon{
-                img{
-                    width: 20dvh;
-                    height: 20dvh;
-                }
-            }
-
-        }    
-       
         
+            .slide {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 5vh;
+
+                h2 {
+                    width: 40dvh;
+                    height: 23dvh;
+                    font-size: 05dvh;
+                    color: white;
+                }
+    
+                    img {
+                        width: 20dvh;
+                        height: 20dvh;
+                    }
+
+                    .img_saude{
+
+                        width: 30dvh;
+                        height: 30dvh;
+                        
+                    }
+            }
+        }
+
+        .btn-esquerda,
+        .btn-direita {
+            position: absolute;
+            background-color: white;
+            border: none;
+            color: #006eff;
+            font-size: 2rem;
+            width: 4dvh;
+            height: 4dvh;
+            border-radius: 50%;
+            transition: 0.5s;
+        }
+
+        .btn-esquerda {
+            left: 2dvh;
+        }
+
+        .btn-direita {
+            right: 2dvh;
+        }
+
+        .btn-esquerda:hover,
+        .btn-direita:hover {
+            transform: scale(1.1);
+            transition: 0.5s;
+            background-color: #0053be;
+            color: white;
+        }
     }
 }

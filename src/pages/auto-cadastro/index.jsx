@@ -1,15 +1,65 @@
 import Header from "../../components/header/header";
 import './index.scss'
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 import Telefone from '../../assets/img/tcc/tccassests/simbolos/Phone call.svg'
 import Email from '../../assets/img/tcc/tccassests/simbolos/Emailicon.svg'
 import LocIcon from '../../assets/img/tcc/tccassests/simbolos/LocIcon.svg'
 import Mapa from '../../assets/img/tcc/tccassests/simbolos/MapImage.svg'
 import Footer from "../../components/footer/footer";
+import axios from "axios";
+import Inputmask from "inputmask";
+import { useNavigate } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
+
 
 
 
 export default function Auto_cadastro(){
+
+    const[nome,setNome]= useState();
+    const[telefone,setTelefone]= useState();
+    const[pagamento,setPagamento]= useState();
+    const[DTnascimento,setNascimento]= useState();
+    const[cpf,setCpf]= useState();
+    const[rg,setRg]= useState();
+    const[horario,setHorario]= useState();
+    const[data,setData]= useState();
+
+    async function criarCadastro(){
+
+      
+            const tudo = [{
+
+                nome: {nome},
+                nascimento: {DTnascimento},
+                rg:{rg},
+                cpf: {cpf},
+                pagamento:{pagamento},
+                telefone: {telefone},
+                data:{data},
+                horario:{horario}
+                
+            }]
+
+            console.log({tudo});
+            
+      
+        
+    };
+
+    
+
+
+
+const funcaoCombinada = () => {
+    criarCadastro();
+    
+};
+ 
+
+
+
+    
 
 
     return(
@@ -27,55 +77,55 @@ export default function Auto_cadastro(){
                             
                             <div className="input-style">
                             <p>Nome</p>
-                            <input type="text" placeholder="Digite aqui" />
+                            <input onChange={e=> setNome(e.target.value)} type="text" placeholder="Digite aqui" />
                             </div>
 
                             <div className="input-style">
                             <p>Número de telefone</p>
-                            <input type="number" placeholder="Digite aqui" />
+                            <input type="text" placeholder="Digite aqui" onChange={e=> setTelefone(e.target.value)} />
                             </div>
 
                             <div className="input-style">
                             <p>Método de pagamento</p>
-                            <select>
+                            <select onChange={e=> setPagamento(e.target.value)}>
                                 <option value="">Selecione</option>
-                                <option value="opcao1">Pix</option>
-                                <option value="opcao2">Dinheiro</option>
-                                <option value="opcao3">Cartão</option>
+                                <option value="Pix">Pix</option>
+                                <option value="Dinheiro">Dinheiro</option>
+                                <option value="Cartão">Cartão</option>
                             </select>
                             </div>
 
                             <div className="input-style">
-                            <p>Idade</p>
-                            <input type="number" placeholder="Digite aqui" />
+                            <p>Data de nascimento</p>
+                            <input onChange={e=> setNascimento(e.target.value)} type="text" placeholder="Digite aqui"  />
                             </div>
 
                             <div className="input-style">
                             <p>RG</p>
-                            <input type="number" placeholder="Digite aqui: " />
+                            <input onChange={e=> setRg(e.target.value)} type="text" placeholder="Digite aqui: " />
                             </div>
 
                             <div className="input-style">
                             <p>CPF</p>
-                            <input type="number" placeholder="Digite aqui: XXX.XXX.XXX-XX" />
+                            <input onChange={e=> setCpf(e.target.value)} type="text" placeholder="Digite aqui: XXX.XXX.XXX-XX" />
                             </div>
 
                             <div className="input-style">
                             <p>Selecione a data</p>
-                            <input type="date"  />
+                            <input onChange={e=> setData(e.target.value)} type="date"  />
                             </div>
 
                             <div className="input-style">
-                            <p>Método de pagamento</p>
-                            <select>
+                            <p>Horário</p>
+                            <select onChange={e=> setHorario(e.target.value)}>
                             <option value="">Selecione o horario</option>
-                                    <option value="opcao1">12:00</option>
-                                    <option value="opcao2">13:00</option>
-                                    <option value="opcao4">14:00</option>
-                                    <option value="opcao5">15:00</option>
-                                    <option value="opcao6">16:00</option>
-                                    <option value="opcao7">17:00</option>
-                                    <option value="opcao8">18:00</option>
+                                    <option value="12:00">12:00</option>
+                                    <option value="13:00">13:00</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="16:00">16:00</option>
+                                    <option value="17:00">17:00</option>
+                                    <option value="18:00">18:00</option>
                             </select>
                             </div>
 
@@ -93,8 +143,9 @@ export default function Auto_cadastro(){
                             <p>Em caso de cancelamento ou troca de horário entrar em contato por telefone!   </p> 
                             <hr />
                         </div>
-                            <button>Enviar</button>
+                            <button onClick={funcaoCombinada}>Enviar</button>
 
+                            
 
                         </div>
                        

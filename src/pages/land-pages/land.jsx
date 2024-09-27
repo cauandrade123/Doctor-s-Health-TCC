@@ -6,28 +6,31 @@ import iconSaibaMais from '../../assets/img/tcc/tccassests/simbolos/saiba mais.s
 import Facebook from '../../assets/img/tcc/tccassests/simbolos/Facebook.svg'
 import instagram from '../../assets/img/tcc/tccassests/simbolos/Instagram preto.svg'
 import Twitter from '../../assets/img/tcc/tccassests/simbolos/twitter.svg'
+import { Link } from "react-router-dom";
 import Cards from "../../components/cards";
 import IconRemedio from '../../assets/img/tcc/tccassests/cards/remedio card.svg'
 import { useState } from "react";
 import Footer from "../../components/footer/footer";
-
-
-
+import dinheiro_card from '../../assets/img/tcc/tccassests/cards/dinheiro card.svg'
+import saude_card from '../../assets/img/tcc/tccassests/cards/saude_card.svg'
 
 
 
 export default function Land() {
 
-  const [sla1, setsla1] = useState(false)
-const [sla2, setsla2] = useState(false)
-const [sla3, setsla3] = useState(false)
+
 
 let card_conheca = [
 
   {
-    'texto_h2': 'Consultório licensiado para medicamento sobre restrição ',
-    'img': IconRemedio,
-    'sla': sla1 
+    'texto_1': 'Consultório licensiado para medicamento sobre restrição ',
+    'img_1': IconRemedio,
+    'texto_2': 'Os Melhores preços da região',
+    'img_2': dinheiro_card,
+    'texto_3': 'Melhor atendimento para sua saúde',
+    'img_3': saude_card,
+
+ 
   }
 
 
@@ -44,7 +47,13 @@ let card_conheca = [
           <div className="informaçoes-do-doutor">
             <h1>Dr. João Silva</h1>
             <h2>clinico geral, feito para solucionar seus problemas.   </h2>
-            <div className="A-da-info"> <a target="blank" href="/auto_cadastro">Agendar <p>consulta.</p> </a> </div>
+
+            <Link to={'/auto_cadastro'}>
+            <div className="A-da-info"> <a href="a">Agendar <p>consulta.</p> </a> </div>
+            </Link>
+
+          
+
           </div>
           <div className="img-doutor">
             <img src={Medico} alt="" />
@@ -100,25 +109,28 @@ let card_conheca = [
           <div className="title">
               <h2>Serviços</h2>
           </div>
-          {card_conheca.map((item, index) => (
+          <div className="slide">
+         {card_conheca.map((item,index) => 
+            <Cards
+              key={index}
+              texto_1={item.texto_1}
+              img_1={ item.img_1}
+              texto_2={ item.texto_2}
+              img_2={item.img_2}
+              texto_3={item.texto_3}
+              img_3={item.img_3}
 
-          <Cards
-          key={index}
-      
-          texto_h2={item.texto_h2}
-          img={item.img}
+            
+            /> 
           
+        )}
+        </div>
+         
 
-          />
-    
-
-
-
-        ))}
-        </section>
+      </section>
+      <footer>
         <Footer/>
-        
-        
+      </footer>
       </div>
   
    

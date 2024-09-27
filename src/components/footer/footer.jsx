@@ -33,7 +33,7 @@ export default function Footer() {
             </div>
 
             <div className="botao-adm">
-                <Link>
+                <Link to={'/login'}>
                     <div className="botao">
                         <p>Admin</p>
                     </div>

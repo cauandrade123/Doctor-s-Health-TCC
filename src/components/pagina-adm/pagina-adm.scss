@@ -3,7 +3,7 @@
     height: 100vh;
     width: 25%; 
 
-    border-top-right-radius: 7vh;
+    border-top-right-radius: 10vh;
 
     display: flex;
     flex-direction: column;
@@ -19,20 +19,21 @@
             display: flex;
             
             color: white;
-            font-size: 24px;
+            font-size: 40px;
             text-decoration: none;
             margin-right: auto; 
         }
 
         img {
-            height: 50px; 
+            height: 70%; 
             margin-left: 10px;
         }
     }
 
     .menu-azul {
-        background-color: #005cbf;
-        border-radius: 20px; 
+        background-color: rgba(4, 106, 226, 1);
+        border-top-left-radius: 5vh;
+        border-top-right-radius: 5vh; 
         width: 80%; 
         height: 50%;
         margin: 0 auto; 
@@ -47,12 +48,29 @@
         .opcoes-do-menu {
             display: flex;
             flex-direction: column;
-            align-items: flex-start; 
-            color: white;
-            font-size: 18px;
+     
+          
+           
             gap: 20px; 
             line-height: 1.5;
             width: 100%;
+
+            
+        .Agenda, .Financas, .Consultas {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; 
+            color: white;
+            font-size: 200%;
+         
+            line-height: 3;
+            padding-left: 5vh;
+            width: 100%;
+
+            background: none;
+            border: none;
         }
+        }
+
     }
 }

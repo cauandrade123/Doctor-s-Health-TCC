@@ -26,7 +26,7 @@ export default function Login() {
                             <input type={senha ? "text" : "password"} />
                             <button onClick={mostrar}>mostrar senha</button>
 
-                            <Link className="entrar" to='/login'>Entrar</Link>
+                            <Link className="entrar" to='/adm'>Entrar</Link>
 
                             <div className="voltar-all">  {/*armazena o texto e botão para voltar a pagina inicial*/}
 

@@ -11,6 +11,7 @@ body, html, .mae {
     text-align: left;
     position: relative;
     z-index: 1;
+    height: 110vh;
   }
   
   .Texto-image {
@@ -32,20 +33,29 @@ body, html, .mae {
   }
   
   .A-da-info a {
-    background-color: #fff;
-    color: #1e90ff;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1em;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-  }
-  
-  .A-da-info a:hover {
-    background-color: #f0f0f0;
-  }
-  
+    background-color: white;
+                text-decoration: none;
+                text-align: center;
+                width: 30vh;
+                height: 10vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 4vh;
+                gap: 10px;
+                font-size: 20px;
+                color: black;
+                transition: 1s;
+
+                p {
+                    color: rgba(1, 146, 219, 1);
+                    background-color: white;
+                }
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
   .img-doutor .medico {
     max-width: 100%;
     height: auto;

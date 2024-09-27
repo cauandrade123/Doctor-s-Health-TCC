@@ -37,8 +37,8 @@ let card_conheca = [
 
   return (
 
-    <div className="mae-page">
-      <div className="mae">
+   <div className="mae-page">
+        /* <div className="mae">
         <Header />
         <div className="Texto-image">
           <div className="informaçoes-do-doutor">
@@ -54,7 +54,7 @@ let card_conheca = [
 
 
         <img className="wave" src={Wave} alt="" />
-        </div>
+        </div> 
        
        
     

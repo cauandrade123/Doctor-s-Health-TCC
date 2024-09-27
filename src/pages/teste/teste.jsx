@@ -3,7 +3,7 @@ import Medico from "../../assets/img/tcc/tccassests/land pages/aquinorego.svg"
 import Wave from "../../assets/img/tcc/tccassests/land pages/wave-4-removebg.png"
 import './teste.scss'
 
-export default function teste(){
+export default function Teste(){
     return(
 
         <div className="mae">

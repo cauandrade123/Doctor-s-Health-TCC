@@ -120,7 +120,7 @@ let card_conheca = [
         
         
       </div>
-    </div>
+  
    
   )
 }

@@ -11,12 +11,15 @@ export default function Teste(){
           <Header />
           <div className="Texto-image">
             <div className="informacoes-do-doutor">
+              <div className="texto">
+
               <h1>Dr. João Silva</h1>
               <h2>Clínico geral, feito para solucionar seus problemas.</h2>
               <div className="A-da-info">
                 <a target="_blank" href="/auto_cadastro">
                   Agendar <p>consulta.</p>
                 </a>
+              </div>
               </div>
             </div>
             <div className="img-doutor">

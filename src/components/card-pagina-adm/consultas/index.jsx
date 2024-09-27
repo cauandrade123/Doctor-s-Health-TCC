@@ -39,7 +39,7 @@ export default function Cardadm() {
 
     return (
         <div className="card-container">
-            <div className="card">
+            <div className="card1">
                 <div className="dados-cliente">
                     <h1>Data: 20/01/2023  Horario: 14:00</h1>
                     <hr />

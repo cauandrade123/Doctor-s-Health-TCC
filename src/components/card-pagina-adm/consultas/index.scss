@@ -16,17 +16,14 @@ body {
   height: 100vh;
 }
 
-.card {
-  background-color: #80c4e2; // cor de fundo da imagem
+.card1 {
+  background-color: #60B6E3; // cor de fundo da imagem
   padding: 20px;
   border-radius: 10px;
-  width: 400px; // largura mais controlada para se parecer com o card na imagem
+  width: 60vh; // largura mais controlada para se parecer com o card na imagem
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
 
-  &:hover {
-    transform: translateY(-5px);
-  }
 
   .dados-cliente {
     h1 {
@@ -85,5 +82,14 @@ body {
     &:hover {
       background-color: #004db3;
     }
+  }
+
+  .editar{
+
+    background-color: #0066ff;
+    padding: 1vh 3vh;
+    border: none;
+    border-radius: 2vh;
+    color: white;
   }
 }

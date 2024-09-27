@@ -21,6 +21,13 @@ body, html, .mae {
     max-width: 1200px;
     margin: auto;
   }
+
+  .texto{
+
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25vh;
+  }
   
   .informacoes-do-doutor h1 {
     font-size: 2.5em;

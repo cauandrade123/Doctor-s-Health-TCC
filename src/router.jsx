@@ -4,6 +4,7 @@ import Login from "./pages/login/login";
 import Adm from "./pages/adm/adm";
 import Auto_cadastro from "./pages/auto-cadastro";
 import Teste from "./pages/teste/teste";
+import Cadastrado from "./pages/cadastrado";
 
 export default function Navegacao(){
     return(
@@ -14,6 +15,7 @@ export default function Navegacao(){
                 <Route path="/adm"  element={<Adm />} />
                 <Route path="/auto_cadastro" element= {<Auto_cadastro />} />
                 <Route path="/teste" element= {<Teste />} />
+                <Route path="/cadastrado" element= {<Cadastrado/>}/>
             </Routes>
         </BrowserRouter>
     );

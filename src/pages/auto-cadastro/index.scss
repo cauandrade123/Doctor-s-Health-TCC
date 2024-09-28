@@ -55,7 +55,7 @@
 
             .container-box-inputs{
                 display: flex;
-                width: 80vh;
+                width: 90vh;
                 flex-wrap: wrap;
                 margin-top: 8vh;
                 gap: 5vh;
@@ -72,9 +72,10 @@
                         border-radius: 8px;
 
                         height: 6vh;
-                        width: 35vh;
+                        width: 39vh;
 
-                        padding-left: 2vh;
+                        padding-left: 1vh;
+                        padding-right: 1vh;
 
                     }
 
@@ -83,7 +84,7 @@
                         border-radius: 8px;
 
                         height: 6vh;
-                        width: 35vh;
+                        width: 39vh;
 
                         padding-left: 1vh;
                         color: gray;

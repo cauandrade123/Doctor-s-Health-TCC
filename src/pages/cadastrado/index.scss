@@ -1,4 +1,4 @@
-.main{
+.main-cadastrado{
     //Alinhamento da page.
     display: flex;
     flex-direction: column;
@@ -76,7 +76,7 @@
                         width: 35vh;
 
                         padding-left: 1vh;
-
+                        padding-right: 1vh;
                     }
 
                     select{
@@ -89,6 +89,7 @@
                         padding-left: 1vh;
                         color: gray;
                     }
+
                 }
             }
 

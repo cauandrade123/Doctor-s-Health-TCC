@@ -62,7 +62,7 @@ const funcaoCombinada = () => {
 
 
     return(
-        <div className="main">
+        <div className="main-cadastrado">
             
             <Header/>
 

@@ -1,4 +1,4 @@
-.main{
+.main-cadastrado{
     //Alinhamento da page.
     display: flex;
     flex-direction: column;
@@ -48,16 +48,17 @@
         margin-bottom: 4vh;
         margin-top: 2vh;
 
-        .h1-title-container-box-inputs{
-            color: #0B9DEB;
-            margin-top: 3vh;
-        }
 
+        
+            .h1-title-container-box-inputs{
+                color: #0B9DEB;
+                margin-top: 3vh;
+            }
             .container-box-inputs{
                 display: flex;
-                width: 90vh;
+                width: 80vh;
                 flex-wrap: wrap;
-                margin-top: 8vh;
+                margin-top: 3vh;
                 gap: 5vh;
                 
 
@@ -72,11 +73,10 @@
                         border-radius: 8px;
 
                         height: 6vh;
-                        width: 39vh;
+                        width: 35vh;
 
                         padding-left: 1vh;
                         padding-right: 1vh;
-
                     }
 
                     select{
@@ -84,11 +84,12 @@
                         border-radius: 8px;
 
                         height: 6vh;
-                        width: 39vh;
+                        width: 35vh;
 
                         padding-left: 1vh;
                         color: gray;
                     }
+
                 }
             }
 
@@ -213,6 +214,7 @@
 
                                background-color: #60B6E3;
                                border-radius: 5px;
+                               border: 1px solid rgb(33, 33, 33);
                             }
                         }
                     }

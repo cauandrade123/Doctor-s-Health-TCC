@@ -16,6 +16,7 @@ header {
 }
 
 .img-header-logo {
+    padding-left: 5vh;
     margin: 01dvh;
     img {
         width: 34vh;
@@ -26,7 +27,7 @@ header {
     display: flex;
     justify-content: flex-end; 
     gap: 4vh;
-    padding-right: 20vh;
+    padding-right: 10vh;
     flex-grow: 1; 
     
     a {

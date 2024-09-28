@@ -10,119 +10,71 @@ import axios from "axios";
 import Inputmask from "inputmask";
 import { useNavigate } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
-import Notification from "../../components/aviso/aviso";
 import { Link } from "react-router-dom";
 
 
 
 
-
-export default function Auto_cadastro(){
+export default function Cadastrado(){
 
     const[nome,setNome]= useState();
-    const[telefone,setTelefone]= useState();
     const[pagamento,setPagamento]= useState();
-    const[DTnascimento,setNascimento]= useState();
     const[cpf,setCpf]= useState();
     const[rg,setRg]= useState();
     const[horario,setHorario]= useState();
     const[data,setData]= useState();
-    const [notificationMessage, setNotificationMessage] = useState('');
-    const [notificationType, setNotificationType] = useState('')
 
+    async function criarCadastro(){
 
+      
+            const tudo = {
 
-    const resetarCampos = () => {
-        setNome('');
-        setTelefone('');
-        setPagamento('');
-        setNascimento('');
-        setCpf('');
-        setRg('');
-        setHorario('');
-        setData('');
-        setNotificationMessage(''); // Reseta a mensagem de notificação
-    };
-    
-    const cadastrarAgenda = async () => {
-        
-            const url = 'http://localhost:5020/agenda'
-            const infos = {
-
-                "dia": data,
-                "horario": horario
-
+                "nome": nome,
+                "rg":rg,
+                "cpf": cpf,
+                "metodo":pagamento,
+                "data":data,
+               "horario":horario
+                
             }
-            const response = await axios.post(url, infos );
-            return response.data.agendaId; // Retorna o ID da agenda criada
+
+            const url = 'http://localhost:5020/autocadastro'
+            let resp = await axios.post(url, tudo)
+
             
-      
+            alert(resp.data)
+        
     };
 
-
-    const cadastrarERegistrar = async () => {
-    
-      
-            if (!nome || !telefone || !pagamento || !DTnascimento || !rg || !cpf || !data || !horario) {
-                setNotificationMessage('Por favor, preencha todos os campos obrigatórios.');
-                setNotificationType('error');
-                return;
-            }
-
-            else{
-                
-                const agendaId = await cadastrarAgenda(data, horario);
-                
-                // Depois, registrar o paciente com o ID da agenda
-                const tudo = {
-                    "nome": nome,
-                    "idade":DTnascimento,
-                    "rg": rg,
-                    "cpf": cpf,
-                    "metodo": pagamento,
-                    "telefone": telefone,
-                    "id_agenda": agendaId
-                }
-                
-                const url = 'http://localhost:5020/autocadastro';
-                const resp = await axios.post(url, tudo);
-                alert(resp.data);
-                setNotificationMessage('consulta marcada com sucesso!.');
-                setNotificationType('success');
-                
-
-            }
-
-
-
-
-
-
-                
-    };
-    
     
 
-    const closeNotification = () => {
-        setNotificationMessage(''); // Fecha a notificação
-    };
+
+
+const funcaoCombinada = () => {
+    criarCadastro();
+    
+};
  
+
+
 
     
 
 
     return(
-        <div className="main">
+        <div className="main-cadastrado">
             
             <Header/>
 
-            <h1 className="h1-title-container-box">Seja bem-vindo(a), realize seu cadastro!</h1>
+            <h1 className="h1-title-container-box">Seja bem-vindo(a) novamente!</h1>
             <div className="container-box">
+
+                
 
                 <div className="container-box-geral">
 
-                <h1 className="h1-title-container-box-inputs">Agende sua consulta.</h1>
-
+                    <h1 className="h1-title-container-box-inputs">Agende sua consulta.</h1>
+                
                         <div className="container-box-inputs">
                             
                             <div className="input-style">
@@ -131,33 +83,13 @@ export default function Auto_cadastro(){
                             </div>
 
                             <div className="input-style">
-                            <p>Número de telefone</p>
-                            <input type="text" placeholder="Digite aqui" onChange={e=> setTelefone(e.target.value)} />
+                            <p>CPF</p>
+                            <input onChange={e=> setCpf(e.target.value)} type="text" placeholder="Digite aqui: XXX.XXX.XXX-XX" />
                             </div>
-
-                            <div className="input-style">
-                            <p>Método de pagamento</p>
-                            <select onChange={e=> setPagamento(e.target.value)}>
-                                <option value="">Selecione</option>
-                                <option value="Pix">Pix</option>
-                                <option value="Dinheiro">Dinheiro</option>
-                                <option value="Cartão">Cartão</option>
-                            </select>
-                            </div>
-
-                            <div className="input-style">
-                            <p>Data de nascimento</p>
-                            <input onChange={e=> setNascimento(e.target.value)} type="date" placeholder="Digite aqui"  />
-                            </div>
-
+                          
                             <div className="input-style">
                             <p>RG</p>
                             <input onChange={e=> setRg(e.target.value)} type="text" placeholder="Digite aqui: " />
-                            </div>
-
-                            <div className="input-style">
-                            <p>CPF</p>
-                            <input onChange={e=> setCpf(e.target.value)} type="text" placeholder="Digite aqui: XXX.XXX.XXX-XX" />
                             </div>
 
                             <div className="input-style">
@@ -179,10 +111,15 @@ export default function Auto_cadastro(){
                             </select>
                             </div>
 
-
-                        
-                            
-                      
+                            <div className="input-style">
+                            <p>Método de pagamento</p>
+                            <select onChange={e=> setPagamento(e.target.value)}>
+                                <option value="">Selecione</option>
+                                <option value="Pix">Pix</option>
+                                <option value="Dinheiro">Dinheiro</option>
+                                <option value="Cartão">Cartão</option>
+                            </select>
+                            </div>
 
 
                         </div>
@@ -191,13 +128,9 @@ export default function Auto_cadastro(){
                         
                         <div className="txt-hr">
                             <p>Em caso de cancelamento ou troca de horário entrar em contato por telefone!   </p> 
-                            <a href=""><Link to={'/cadastrado'}>Se você já possui cadastro, clique aqui.</Link></a>
+                            <a href=""><Link to={'/auto_cadastro'}>Se você não possui cadastro, clique aqui.</Link></a>
                         </div>
-
-                            <button onClick={cadastrarERegistrar}>Enviar</button>
-
                             <button className="bt-enviar" onClick={criarCadastro}>Enviar</button>
-
 
                             
 

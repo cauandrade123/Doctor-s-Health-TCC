@@ -29,7 +29,8 @@ export default function Auto_cadastro(){
     const[data,setData]= useState();
     const [notificationMessage, setNotificationMessage] = useState('');
     const [notificationType, setNotificationType] = useState('')
-
+    const [agenda, setAgenda] = useState('')
+  
 
 
     const resetarCampos = () => {
@@ -44,62 +45,76 @@ export default function Auto_cadastro(){
         setNotificationMessage(''); // Reseta a mensagem de notificação
     };
     
-    const cadastrarAgenda = async () => {
-        
-            const url = 'http://localhost:5020/agenda'
-            const infos = {
-
-                "dia": data,
-                "horario": horario
-
-            }
-            const response = await axios.post(url, infos );
-            return response.data.agendaId; // Retorna o ID da agenda criada
-            
-      
-    };
-
-
-    const cadastrarERegistrar = async () => {
+    const cadastrarAgenda = async (data, horario) => {
+        const url = 'http://localhost:5020/agenda';
+        const info = {
+            "dia": data,
+            "hora": horario
+        };
     
-      
-            if (!nome || !telefone || !pagamento || !DTnascimento || !rg || !cpf || !data || !horario) {
-                setNotificationMessage('Por favor, preencha todos os campos obrigatórios.');
-                setNotificationType('error');
-                return;
-            }
-
-            else{
-                
-                const agendaId = await cadastrarAgenda(data, horario);
-                
-                // Depois, registrar o paciente com o ID da agenda
-                const tudo = {
-                    "nome": nome,
-                    "idade":DTnascimento,
-                    "rg": rg,
-                    "cpf": cpf,
-                    "metodo": pagamento,
-                    "telefone": telefone,
-                    "id_agenda": agendaId
-                }
-                
-                const url = 'http://localhost:5020/autocadastro';
-                const resp = await axios.post(url, tudo);
-                alert(resp.data);
-                setNotificationMessage('consulta marcada com sucesso!.');
-                setNotificationType('success');
-                
-
-            }
-
-
-
-
-
-
-                
+        const response = await axios.post(url, info);
+        return response.data.agendaId; // Retorna o ID da agenda criada
     };
+    
+    const criarAutoCadastro = async (nome, DTnascimento, rg, cpf, pagamento, telefone, agendaId) => {
+        const tudo = {
+            "nome": nome,
+            "nascimento": DTnascimento,
+            "rg": rg,
+            "cpf": cpf,
+            "metodo": pagamento,
+            "telefone": telefone,
+            "id_agenda": agendaId
+        };
+    
+        const url = 'http://localhost:5020/autocadastro';
+        const resp = await axios.post(url, tudo);
+        return resp.data.pacienteId; // Retorna o ID do paciente cadastrado
+    };
+    
+    const cadastrarConsulta = async (agendaId, pacienteId) => {
+        const con = {
+            "id_agenda": agendaId,
+            "tratamento": "",
+            "condicao": "",
+            "medicao": "",
+            "preco": "0",
+            "id_paciente": pacienteId
+        };
+    
+        const url2 = 'http://localhost:5020/consultas';
+        const resp2 = await axios.post(url2, con);
+        return resp2.data; // Retorna os dados da consulta criada
+    };
+    
+    const cadastrarTudo = async (nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario) => {
+        // Verifique se todos os campos obrigatórios estão preenchidos
+        if (!nome || !telefone || !pagamento || !DTnascimento || !rg || !cpf || !data || !horario) {
+            setNotificationMessage('Por favor, preencha todos os campos obrigatórios.');
+            setNotificationType('error');
+            return;
+        }
+    
+        try {
+           
+            const agendaId = await cadastrarAgenda(data, horario);
+    
+            
+            const pacienteId = await criarAutoCadastro(nome, DTnascimento, rg, cpf, pagamento, telefone, agendaId);
+    
+           
+            const consultaData = await cadastrarConsulta(agendaId, pacienteId);
+    
+            // Notificação de sucesso
+            setNotificationMessage('Consulta marcada com sucesso!');
+            setNotificationType('success');
+        } catch (error) {
+            console.error('Erro ao cadastrar:', error);
+            setNotificationMessage('Erro ao cadastrar. Tente novamente.');
+            setNotificationType('error');
+        }
+    };
+
     
     
 
@@ -203,7 +218,7 @@ export default function Auto_cadastro(){
                             <a href=""><Link to={'/cadastrado'}>Se você já possui cadastro, clique aqui.</Link></a>
                         </div>
 
-                            <button onClick={cadastrarERegistrar}>Enviar</button>
+                        <button onClick={() => cadastrarTudo(nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario)}>Enviar</button>
 
                            
 

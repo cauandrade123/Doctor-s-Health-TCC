@@ -10,6 +10,8 @@ import axios from "axios";
 import Inputmask from "inputmask";
 import { useNavigate } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
+import Notification from "../../components/aviso/aviso";
+
 
 
 
@@ -24,42 +26,86 @@ export default function Auto_cadastro(){
     const[rg,setRg]= useState();
     const[horario,setHorario]= useState();
     const[data,setData]= useState();
+    const [notificationMessage, setNotificationMessage] = useState('');
+    const [notificationType, setNotificationType] = useState('')
 
-    async function criarCadastro(){
 
-      
-            const tudo = {
 
-                "nome": nome,
-                "idade": DTnascimento,
-                "rg":rg,
-                "cpf": cpf,
-                "metodo":pagamento,
-                "telefone": telefone,
-                "data":data,
-               "horario":horario
-                
-            }
-
-            const url = 'http://localhost:5020/autocadastro'
-            let resp = await axios.post(url, tudo)
-
-            
-            alert(resp.data)
+    const resetarCampos = () => {
+        setNome('');
+        setTelefone('');
+        setPagamento('');
+        setNascimento('');
+        setCpf('');
+        setRg('');
+        setHorario('');
+        setData('');
+        setNotificationMessage(''); // Reseta a mensagem de notificação
+    };
+    
+    const cadastrarAgenda = async () => {
         
+            const url = 'http://localhost:5020/agenda'
+            const infos = {
+
+                "dia": data,
+                "horario": horario
+
+            }
+            const response = await axios.post(url, infos );
+            return response.data.agendaId; // Retorna o ID da agenda criada
+            
+      
     };
 
+
+    const cadastrarERegistrar = async () => {
+    
+      
+            if (!nome || !telefone || !pagamento || !DTnascimento || !rg || !cpf || !data || !horario) {
+                setNotificationMessage('Por favor, preencha todos os campos obrigatórios.');
+                setNotificationType('error');
+                return;
+            }
+
+            else{
+                
+                const agendaId = await cadastrarAgenda(data, horario);
+                
+                // Depois, registrar o paciente com o ID da agenda
+                const tudo = {
+                    "nome": nome,
+                    "idade":DTnascimento,
+                    "rg": rg,
+                    "cpf": cpf,
+                    "metodo": pagamento,
+                    "telefone": telefone,
+                    "id_agenda": agendaId
+                }
+                
+                const url = 'http://localhost:5020/autocadastro';
+                const resp = await axios.post(url, tudo);
+                alert(resp.data);
+                setNotificationMessage('consulta marcada com sucesso!.');
+                setNotificationType('success');
+                
+
+            }
+
+
+
+
+
+
+                
+    };
+    
     
 
-
-
-const funcaoCombinada = () => {
-    criarCadastro();
-    
-};
+    const closeNotification = () => {
+        setNotificationMessage(''); // Fecha a notificação
+    };
  
-
-
 
     
 
@@ -69,6 +115,12 @@ const funcaoCombinada = () => {
             
             <Header/>
 
+            <Notification 
+            message={notificationMessage} 
+            onClose={closeNotification} 
+            duration={3000} 
+            type={notificationType} // Passa o tipo para o componente
+        />
             
             <div className="container-box">
 
@@ -99,7 +151,7 @@ const funcaoCombinada = () => {
 
                             <div className="input-style">
                             <p>Data de nascimento</p>
-                            <input onChange={e=> setNascimento(e.target.value)} type="number" placeholder="Digite aqui"  />
+                            <input onChange={e=> setNascimento(e.target.value)} type="date" placeholder="Digite aqui"  />
                             </div>
 
                             <div className="input-style">
@@ -145,7 +197,7 @@ const funcaoCombinada = () => {
                             <p>Em caso de cancelamento ou troca de horário entrar em contato por telefone!   </p> 
                             <hr />
                         </div>
-                            <button onClick={criarCadastro}>Enviar</button>
+                            <button onClick={cadastrarERegistrar}>Enviar</button>
 
                             
 

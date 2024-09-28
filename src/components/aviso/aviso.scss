@@ -1,0 +1,18 @@
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.notification button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    text-decoration: underline;
+    margin-top: 10px;
+}

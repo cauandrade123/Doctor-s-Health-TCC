@@ -52,7 +52,7 @@ body, html, .mae {
                 gap: 10px;
                 font-size: 20px;
                 color: black;
-                transition: 1s;
+                transition: 0.4s;
 
                 p {
                     color: rgba(1, 146, 219, 1);
@@ -61,6 +61,10 @@ body, html, .mae {
 
                 &:hover {
                     transform: scale(1.1);
+
+                    transition: 0.4s;
+                   box-shadow: 5px 5px 5px #0a6697;
+                  
                 }
             }
   .img-doutor .medico {

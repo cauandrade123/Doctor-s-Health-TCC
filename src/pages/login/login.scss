@@ -16,6 +16,7 @@
         position: relative; // Permite que elementos filhos com position: absolute sejam posicionados em relação a este contêiner
         left: 0;
         background-color: rgba(4, 106, 226, 1);
+        box-shadow: 10px 4px 10px rgb(123, 123, 123);
         min-height: 100vh;
         width: 52%;
         border-top-right-radius: 10vh;
@@ -67,13 +68,15 @@
                     text-decoration: none;
                     color: white;
                     margin-bottom: 2vh; // Espaço entre os botões
-                    transition: 0.5s;
+                    transition: 0.4s;
                     margin-top: 5vh;
                     align-self: center;
     
                     &:hover {
-                        transition: 0.5s;
+                        transition: 0.3s;
                         transform: scale(1.1);
+
+                        box-shadow: 5px 5px 3px rgb(0, 0, 0);
                     }
                 }
 
@@ -131,10 +134,12 @@
                     border-radius: 8px;
                     text-decoration: none;
                     color: rgb(0, 0, 0);
-                    transition: 0.5s;
+                    transition: 0.4s;
 
                     &:hover {
                         transform: scale(1.1);
+
+                        box-shadow: 5px 5px 3px rgb(0, 0, 0);
                     }
                 }
             }

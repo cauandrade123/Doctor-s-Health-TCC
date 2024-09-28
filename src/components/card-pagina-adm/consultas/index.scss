@@ -10,11 +10,28 @@ body {
 
 .card-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  gap: 5vh;
   padding: 20px;
   height: 100vh;
+
+  .buscar-paciente {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  // Centraliza verticalmente dentro do contêiner
+    align-items: center;      // Centraliza horizontalmente
+    gap: 2vh;
+
+    select, input {
+      width: 25vh;
+      height: 5vh;
+      border-radius: 1vh;
+      border: 1px solid #0E39D0;
+      padding-left: 2vh;
+    }
+  }
 }
+
 
 .card1 {
   background-color: #60B6E3; // cor de fundo da imagem
@@ -23,7 +40,6 @@ body {
   width: 60vh; // largura mais controlada para se parecer com o card na imagem
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
-
 
   .dados-cliente {
     h1 {
@@ -41,15 +57,15 @@ body {
 
     .field {
       display: flex;
-      align-items: center; // Alinha os elementos verticalmente no centro
-      justify-content: flex-start; // Garante que o texto fique bem próximo
+      align-items: center;
+      justify-content: flex-start;
       margin-bottom: 8px;
 
       h2 {
         font-size: 14px;
         color: #333;
-        margin-right: 5px; // Reduz o espaço entre o h2 e o dado
-        font-weight: normal; // Mantém o estilo consistente com a imagem
+        margin-right: 5px;
+        font-weight: normal;
       }
 
       p {
@@ -84,8 +100,7 @@ body {
     }
   }
 
-  .editar{
-
+  .editar {
     background-color: #0066ff;
     padding: 1vh 3vh;
     border: none;

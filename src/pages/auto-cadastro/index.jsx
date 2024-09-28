@@ -185,7 +185,7 @@ export default function Auto_cadastro(){
                             </div>
 
                             <div className="input-style">
-                            <p>Selecione a data</p>
+                            <p>Selecione a data desejada para a consulta</p>
                             <input onChange={e=> setData(e.target.value)} type="date"  />
                             </div>
 

@@ -12,22 +12,58 @@ body {
   display: flex;
   flex-direction: column;
   gap: 5vh;
-  padding: 20px;
+  margin-left: 5vh;
+ padding-top: 5vh;
   height: 100vh;
 
+  
   .buscar-paciente {
     display: flex;
     flex-direction: column;
     justify-content: center;  // Centraliza verticalmente dentro do contêiner
-    align-items: center;      // Centraliza horizontalmente
-    gap: 2vh;
+    align-items: flex-start;      // Centraliza horizontalmente
+    gap: 1vh;
 
-    select, input {
-      width: 25vh;
-      height: 5vh;
-      border-radius: 1vh;
-      border: 1px solid #0E39D0;
+    .Buscar::placeholder{
+      color: white;
+      font-weight: 400;
+    }
+
+    .Buscar:focus{
+      outline: none;
+    }
+
+    .label-select-input{
+      font-size: 1.8vh;
+    }
+    .Buscar{
+      border: 1px solid black;
+      
+      height: 6vh;
+      width: 40vh;
       padding-left: 2vh;
+      padding-right: 2vh;
+      border-radius: 20px;
+      font-size: 3vh;
+      background-color: #60B6E3;
+        opacity: 74%;
+      color: #fff;
+    }
+    
+    select {
+      border: 1px solid #0E39D0;
+      
+      height: 4vh;
+      width: 38vh;
+  
+      padding-left: 1vh;
+      border-radius: 8px;
+  
+      font-size: 1.7vh;
+      color: #000000;
+    }
+    select:focus {
+      outline: none; 
     }
   }
 }

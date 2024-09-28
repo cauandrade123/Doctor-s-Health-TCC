@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import './index.scss';
+import Lupa from '../../../assets/img/tcc/tccassests/simbolos/Lupa.svg';
+
 
 export default function Cardadm() {
     const [editarMode, setEditarMode] = useState(false);
     const [sair, setSair] = useState(false);
+    const [consultasList, setConsultasList] = useState([])
 
     const [formData, setFormData] = useState({
         nome: 'Pamela Almeida Santos Guiné',
@@ -40,12 +43,14 @@ export default function Cardadm() {
     return (
         <div className="card-container">
             <div className="buscar-paciente">
-             <input type="text" placeholder='Buscar Paciente' />
+             <input className='Buscar' type="text" placeholder={`🔎 Consultar`}/>
             
+
+            <label className='label-select-input' htmlFor="">Escolha entre consultas:</label>
              <select >
                
-                <option value="Pix">Passadas</option>
-                <option value="Dinheiro">Futuras</option>
+                <option value="Pix">Próximas</option>
+                <option value="Dinheiro">Passadas</option>
                 
             </select>
 

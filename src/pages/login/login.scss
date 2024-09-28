@@ -8,6 +8,8 @@
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
+
+        
     }
 
     .borda-azul {
@@ -15,7 +17,7 @@
         left: 0;
         background-color: rgba(4, 106, 226, 1);
         min-height: 100vh;
-        width: 50%;
+        width: 52%;
         border-top-right-radius: 10vh;
         border-bottom-right-radius: 10vh;
         display: flex;
@@ -29,6 +31,24 @@
             justify-content: center;
             flex-direction: column;
 
+            .input-style{
+                display: flex;
+                flex-direction: column;
+
+
+                .mostrar-erro{
+                    display: flex;
+                    justify-content: space-between;
+
+                    .erro{
+                     color: #FF7E7E;
+                    justify-self: flex-end;
+                    }
+                }
+            }
+
+           
+
             h4 {
                 color: rgba(41, 41, 41, 0.884);
                 margin-bottom: 1vh; // Espaço entre os textos e os inputs
@@ -36,26 +56,31 @@
                 margin-left: 0; // Remove o deslocamento à esquerda
             }
 
-            .entrar {
-                background-color: rgba(41, 41, 41, 0.884);
-                width: 20vh;
-                height: 5vh;
-                text-align: center;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border-radius: 1.5vh;
-                text-decoration: none;
-                color: white;
-                margin-bottom: 2vh; // Espaço entre os botões
-                transition: 0.5s;
-                
+            
 
-                &:hover {
+                .entrar {
+                    background-color: rgba(41, 41, 41, 0.884);
+                    width: 30vh;
+                    height: 5vh;
+                    border-radius:8px;
+                    text-decoration: none;
+                    color: white;
+                    margin-bottom: 2vh; // Espaço entre os botões
                     transition: 0.5s;
-                    transform: scale(1.1);
+                    margin-top: 5vh;
+                    align-self: center;
+    
+                    &:hover {
+                        transition: 0.5s;
+                        transform: scale(1.1);
+                    }
                 }
-            }
+
+              .mostrar {
+                margin-left: 1vh;
+              } 
+            
+           
 
             input {
                 border-radius: 1.5vh;
@@ -63,6 +88,7 @@
                 width: 50vh;
                 border: none;
                 margin-bottom: 2vh; // Espaço entre os inputs
+                padding-left: 2vh;
             }
 
             h1 {
@@ -95,13 +121,13 @@
 
                 .voltar {
                     background-color: rgba(255, 255, 255, 0.884);
-                    width: 14vh;
+                    width: 15vh;
                     height: 5vh;
                     text-align: center;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    border-radius: 1.5vh;
+                    border-radius: 8px;
                     text-decoration: none;
                     color: rgb(0, 0, 0);
                     transition: 0.5s;

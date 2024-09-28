@@ -205,7 +205,7 @@ export default function Auto_cadastro(){
 
                             <button onClick={cadastrarERegistrar}>Enviar</button>
 
-                            <button className="bt-enviar" onClick={criarCadastro}>Enviar</button>
+                           
 
 
                             

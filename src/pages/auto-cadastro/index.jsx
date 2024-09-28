@@ -113,8 +113,17 @@ export default function Auto_cadastro(){
 
     return(
         <div className="main">
+
+
             
             <Header/>
+
+            <Notification 
+            message={notificationMessage} 
+            onClose={closeNotification} 
+            duration={3000} 
+            type={notificationType} // Passa o tipo para o componente
+        />
 
             <h1 className="h1-title-container-box">Seja bem-vindo(a), realize seu cadastro!</h1>
             <div className="container-box">

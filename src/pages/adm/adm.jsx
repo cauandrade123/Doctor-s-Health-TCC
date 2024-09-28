@@ -1,4 +1,3 @@
-import Pagina from "../../components/pagina-adm/pagina-adm";
 import { Link } from "react-router-dom";
 import logo from "../../assets/img/tcc/tccassests/logo/logomedica.svg"
 import './adm.scss'
@@ -8,12 +7,22 @@ import Seta from '../../assets/img/tcc/tccassests/simbolos/SetaVoltarADM.svg'
 
 export default function Adm() {
 
-    const [conteudo, setConteudo] = useState(null);
+    const [conteudo, setConteudo] = useState(<Cardadm/>);
 
 
     const mostrarOi = () => {
         setConteudo(
                <Cardadm/>
+        );
+    }
+    const mostrarOi2 = () => {
+        setConteudo(
+               ''
+        );
+    }
+    const mostrarOi3 = () => {
+        setConteudo(
+               ''
         );
     }
 
@@ -26,9 +35,9 @@ export default function Adm() {
                 </div>
                 <div className="menu-azul">
                     <div className="opcoes-do-menu">
-                        <button  className="Agenda">Agenda</button>
                         <button onClick={mostrarOi} className="Consultas">Consultas</button>
-                        <button className="Financas">Finanças</button>
+                        <button onClick={mostrarOi2} className="Agenda">Agenda</button>
+                        <button onClick={mostrarOi3} className="Financas">Finanças</button>
                     </div>
                 </div>
             </div>

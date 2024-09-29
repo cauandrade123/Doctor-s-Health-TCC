@@ -8,7 +8,7 @@ import Mapa from '../../assets/img/tcc/tccassests/simbolos/MapImage.svg'
 import Footer from "../../components/footer/footer";
 import axios from "axios";
 import Inputmask from "inputmask";
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import Notification from "../../components/aviso/aviso";
 import { Link } from "react-router-dom";
@@ -108,6 +108,7 @@ export default function Auto_cadastro(){
             // Notificação de sucesso
             setNotificationMessage('Consulta marcada com sucesso!');
             setNotificationType('success');
+            <Navigate to='/' />
         } catch (error) {
             console.error('Erro ao cadastrar:', error);
             setNotificationMessage('Erro ao cadastrar. Tente novamente.');

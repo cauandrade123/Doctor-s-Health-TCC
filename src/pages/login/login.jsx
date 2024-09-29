@@ -10,7 +10,7 @@ export default function Login() {
     const [senhalg, setSenhalg] = useState(''); // Valor da senha digitada
     const [email, setEmail] = useState(''); // Valor do email digitado
     const [conteudo, setConteudo] = useState(''); // Mensagens de erro ou sucesso
-    const navigate = useNavigate(); // Hook para navegação após login
+    
 
     // Função para alternar entre mostrar ou esconder a senha
     const mostrar = () => setSenha(!senha);
@@ -18,7 +18,7 @@ export default function Login() {
     // Função para verificar o login
     const Verificar = async () => {
         // Verifica se email e senha foram preenchidos
-        if (!email || !senhalg) {
+        if (email !== "adm" && senhalg !== '1234') {
             setConteudo('Email e senha são obrigatórios.');
             return;
         }
@@ -36,7 +36,7 @@ export default function Login() {
             // Se o token for válido, armazena no localStorage e navega para a página de admin
             if (token) {
                 localStorage.setItem('token', token); // Armazena o token no localStorage
-                navigate('/ADM'); // Redireciona para a página de administrador
+                <Navigate to={'/ADM'} />; // Redireciona para a página de administrador
             }
         } catch (error) {
             // Se o login falhar, exibe a mensagem de erro

@@ -110,15 +110,11 @@
           
 
         </section>
-
-        <section id="secao-3">
-
-            <div>
-
-              
-            </div>
-
-        </section>
+            <section id="secao-3">
+                  <div> 
+                    
+                  </div>
+            </section>
         <footer>
           <Footer/>
         </footer>
@@ -127,5 +123,10 @@
     
     )
   }
+
+
+
+
+
 
 

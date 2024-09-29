@@ -24,7 +24,7 @@ export default function Login() {
         }
     }
 
-    if(verficado == true) {
+    if(verficado === true) {
         return <Navigate to={'/ADM'}/>
     }
     return (

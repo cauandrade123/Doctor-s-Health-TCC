@@ -5,10 +5,11 @@ import { useState } from "react";
 import Cardadm from "../../components//card-pagina-adm/consultas"
 import Seta from '../../assets/img/tcc/tccassests/simbolos/SetaVoltarADM.svg'
 import CardAgenda from "../../components/card-agenda";
+import CardFinancas from "../../components/card-financeiro";
 
 export default function Adm() {
 
-    const [conteudo, setConteudo] = useState(<Cardadm/>, <CardAgenda />);
+    const [conteudo, setConteudo] = useState(<Cardadm/>, <CardAgenda />, <CardFinancas/>);
 
 
     const mostrarOi = () => {
@@ -23,16 +24,31 @@ export default function Adm() {
     }
     const mostrarOi3 = () => {
         setConteudo(
-               ''
+               <CardFinancas/>
         );
     }
+
+  
+
+
+ 
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+
+  };
+
+ 
+
+
+
 
     return (
         <div className="main-adm">
             <div className="menu-adm">
                 <div className="logo-e-voltar">
                     <img src={logo} alt="logo" />
-                    <Link className="voltar" to='/' ><img src={Seta} alt="" /></Link>
+                    <Link onClick={handleLogout} className="voltar" to='/' ><img src={Seta} alt="" /></Link>
                 </div>
                 <div className="menu-azul">
                     <div className="opcoes-do-menu">

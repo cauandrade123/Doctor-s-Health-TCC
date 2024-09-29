@@ -4,10 +4,11 @@ import './adm.scss'
 import { useState } from "react";
 import Cardadm from "../../components//card-pagina-adm/consultas"
 import Seta from '../../assets/img/tcc/tccassests/simbolos/SetaVoltarADM.svg'
+import CardAgenda from "../../components/card-agenda";
 
 export default function Adm() {
 
-    const [conteudo, setConteudo] = useState(<Cardadm/>);
+    const [conteudo, setConteudo] = useState(<Cardadm/>, <CardAgenda />);
 
 
     const mostrarOi = () => {
@@ -17,7 +18,7 @@ export default function Adm() {
     }
     const mostrarOi2 = () => {
         setConteudo(
-               ''
+               <CardAgenda />
         );
     }
     const mostrarOi3 = () => {

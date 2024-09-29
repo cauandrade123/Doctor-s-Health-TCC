@@ -17,7 +17,7 @@ export default function Login() {
 
     function Verify(){
 
-        if (email == 'adm@gmail.com' && senhalg == 'senha1234')  {
+        if (email === 'adm@gmail.com' && senhalg === 'senha1234')  {
            setVerficado(true)
         } else {
             setConteudo('Email ou senha incorretos.')

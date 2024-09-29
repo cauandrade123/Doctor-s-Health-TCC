@@ -1,0 +1,94 @@
+.pagina-agenda{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .content{ 
+        margin: 5dvh;
+        display: flex;
+        flex-direction: column;
+        justify-content:space-between ;
+        
+        .Buscar::placeholder{
+            color: white;
+        }
+           
+          .Buscar{
+            border: none;
+            height: 6vh;
+            width: 40vh;
+            padding-left: 2vh;
+            padding-right: 2vh;
+            border-radius: 20px;
+            font-size: 3vh;
+            background-color: #60B6E3;
+            opacity: 74%;
+            color: #fff;
+          }
+
+          .calendar {
+            // Estilo geral do input de data
+            appearance: none; // Remove o estilo padrão do input de data
+            -webkit-appearance: none; // Para Webkit (Chrome, Safari, etc.)
+            -moz-appearance: none; // Para Firefox
+          
+            // Estilizando o campo
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            
+          }
+          
+    
+    }
+    .react-datepicker {
+        margin: 10dvh;
+        font-family: 'Roboto', sans-serif;
+        
+      
+        &__header {
+          background-color: #007bff; // Cabeçalho azul
+          border-bottom: 1px solid #004896;
+        }
+      
+        &__current-month {
+          color: white;
+         
+        }
+      
+         &__day {
+          color: #007bff;
+          padding: 02dvh;
+        }
+        
+        &__day-name{
+            color: white;
+        }
+      
+        &__day--selected {
+          background-color: #007bff; // Dia selecionado azul
+          color: white;
+        }
+      
+        &__day:hover {
+          background-color: #0056b3; // Fundo mais escuro ao passar o mouse
+          color: white;
+        }
+      
+        &__navigation {
+          background-color: #007bff; // Navegação azul
+          border: none;
+      
+          &--previous, &--next {
+            color: white;
+          }
+        }
+      
+        &__day--keyboard-selected {
+          background-color: #80bdff;
+          color: #fff;
+        }
+      }
+      
+}

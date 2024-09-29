@@ -188,7 +188,7 @@ const funcaoCombinada = () => {
                
             </div>
 
-          <footer><Footer /></footer> 
+          <footer> <Footer /></footer> 
         </div>
 
         

@@ -1,3 +1,8 @@
+html {
+  scroll-behavior: smooth; /* Ativa a rolagem suave para toda a página */
+}
+
+
 .mae-page {
     $font: "Arial";
     display: flex;
@@ -101,7 +106,7 @@
     
     }
     
-    .secao-2{
+    #secao-2{
         display:flex;
         justify-content: center ;
         align-items: center;
@@ -218,7 +223,7 @@
         }
     }
 
-    .secao-servicos{
+    #secao-servicos{
         display: flex;
         flex-direction: column;
         gap: 60px;
@@ -396,7 +401,7 @@
   
   
   // Outras seções
-  .secao-2 {
+  #secao-2 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -483,7 +488,7 @@
     }
   }
   
-  .secao-servicos {
+  #secao-servicos {
     display: flex;
     flex-direction: column;
     gap: 60px;

@@ -27,6 +27,7 @@ export default function CardAgenda(){
         <div className="pagina-agenda">
             <div className="content">
                 <input className='Buscar' type="text" placeholder={`🔎 Consultar`}/>
+                
           
                 <DatePicker    
                     selected={startDate} // pega os valores desse input calendario
@@ -35,6 +36,8 @@ export default function CardAgenda(){
                     inline
                     className="blue-calendar"  
                 />
+
+             
             </div>
         </div>
     )

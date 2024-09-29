@@ -5,10 +5,11 @@ import { useState } from "react";
 import Cardadm from "../../components//card-pagina-adm/consultas"
 import Seta from '../../assets/img/tcc/tccassests/simbolos/SetaVoltarADM.svg'
 import CardAgenda from "../../components/card-agenda";
+import CardFinancas from "../../components/card-financeiro";
 
 export default function Adm() {
 
-    const [conteudo, setConteudo] = useState(<Cardadm/>, <CardAgenda />);
+    const [conteudo, setConteudo] = useState(<Cardadm/>, <CardAgenda />, <CardFinancas/>);
 
 
     const mostrarOi = () => {
@@ -23,7 +24,7 @@ export default function Adm() {
     }
     const mostrarOi3 = () => {
         setConteudo(
-               ''
+               <CardFinancas/>
         );
     }
 

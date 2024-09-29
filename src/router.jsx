@@ -46,7 +46,7 @@ export default function Navegacao() {
                 <Route path="/teste" element={<Teste />} />
                 <Route path="/cadastrado" element={<Cadastrado />} />
                 <Route
-                    path="/adm" element={ <PrivateRoute> <Adm /> </PrivateRoute>
+                    path="/adm" element={  <Adm /> 
                     }
                 />
             </Routes>

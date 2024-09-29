@@ -5,7 +5,7 @@ import Land from './pages/land-pages/land';
 function App() {
   return (
       <main className='App'>
-        <Land/>
+        <Land />
       </main>
   );
 }

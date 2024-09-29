@@ -1,8 +1,11 @@
 import './index.scss';
-import { useState } from 'react';
+import { useState , useEffect, useRef } from 'react';
+
 
 export default function Cards({ texto_1, texto_2, texto_3, img_1, img_2,img_3 }) {
     const [posicao, setPosicao] = useState(0);
+    const Animacao = useRef ([])
+
 
     const passar = () => {
         setPosicao((prev) => (prev + 1) % 3); 
@@ -11,6 +14,21 @@ export default function Cards({ texto_1, texto_2, texto_3, img_1, img_2,img_3 })
     const voltar = () => {
         setPosicao((prev) => (prev === 0 ? 2 : prev - 1));
     };
+
+    useEffect(() => {
+        const slideInterval = setInterval(passar, 5000); 
+    
+        return () => clearInterval(slideInterval); 
+      }, []);
+
+
+      const rolagem_bonita = (index) => {
+        Animacao.current[index].scrollIntoView({
+             behavior: 'smooth',
+             block: 'nearest'
+        })
+
+      }
 
     return (
         <div className="container">

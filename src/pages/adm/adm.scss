@@ -10,30 +10,32 @@
     flex-direction: row;
     height: 100%;
     width: 100%;
+    
  
 
             .menu-adm {
                 background: #00a2ff; 
 
 
-                min-height: 100vh;
+                min-height: 80vh;
                 border-top-right-radius: 10vh;
 
                 display: flex;
                 flex-direction: column;
                 align-items: center;
 
+             
+                
                 .logo-e-voltar {
                     display: flex;
                     flex-direction: row-reverse;
                     align-items: center;
                     padding-top: 2vh;
                     
-
+                  
                     img {
                         height: 70%;
                         margin-left: 10px;
-                        
                     }
                 }
 
@@ -45,7 +47,7 @@
                     height: 50%;
                     margin: 0 auto; 
                     padding: 20px;
-
+                  
                     display: flex;
                     align-items: center;
                     justify-content: flex-end;
@@ -56,7 +58,7 @@
                         display: flex;
                         flex-direction: column;
                 
-                    
+                       
                     
                         line-height: 1.5;
                         width: 100%;
@@ -69,7 +71,7 @@
                         align-items: flex-start; 
                         color: white;
                         font-size: 200%;
-                    
+                       
                         line-height: 3;
                         padding-left: 5vh;
                         width: 100%;
@@ -83,8 +85,9 @@
             }
             .consultas {
                 display: flex;
-                flex: 1; 
-                height: 100%;
+                
+                height: 80%;
+          
             }
 
 }

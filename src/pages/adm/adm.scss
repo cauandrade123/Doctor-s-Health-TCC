@@ -2,6 +2,9 @@
 
 
 
+body{
+    overflow-y: hidden;
+}
 
 
 
@@ -85,9 +88,11 @@
             }
             .consultas {
                 display: flex;
-                
-                height: 80%;
-                border: 1px solid green;
+                padding-top: 3vh;
+                align-self: center;
+                height: 70vh;
+
+               
             }
 
 }

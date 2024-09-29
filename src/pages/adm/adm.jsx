@@ -28,12 +28,27 @@ export default function Adm() {
         );
     }
 
+  
+
+
+ 
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+
+  };
+
+ 
+
+
+
+
     return (
         <div className="main-adm">
             <div className="menu-adm">
                 <div className="logo-e-voltar">
                     <img src={logo} alt="logo" />
-                    <Link className="voltar" to='/' ><img src={Seta} alt="" /></Link>
+                    <Link onClick={handleLogout} className="voltar" to='/' ><img src={Seta} alt="" /></Link>
                 </div>
                 <div className="menu-azul">
                     <div className="opcoes-do-menu">

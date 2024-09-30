@@ -9,6 +9,8 @@ body {
 }
 
 .card-container {
+
+
   display: flex;
   flex-direction: column;
   gap: 5vh;
@@ -41,7 +43,7 @@ body {
       font-size: 1.8vh;
     }
     .Buscar{
-      border: none;
+     border: 0.5px solid black;
       height: 6vh;
       width: 40vh;
       padding-left: 2vh;

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/img/tcc/tccassests/logo/logomedica.svg"
 import './adm.scss'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Cardadm from "../../components//card-pagina-adm/consultas"
 import Seta from '../../assets/img/tcc/tccassests/simbolos/SetaVoltarADM.svg'
 import CardAgenda from "../../components/card-agenda";
@@ -39,7 +39,12 @@ export default function Adm() {
   };
 
  
-
+  useEffect(() => {
+    document.body.classList.add('no-scroll');
+    return () => {
+        document.body.classList.remove('no-scroll');
+    };
+  }, []);
 
 
 

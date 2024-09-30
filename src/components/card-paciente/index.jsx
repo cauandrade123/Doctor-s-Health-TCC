@@ -1,14 +1,12 @@
 
 import './index1.scss';
 import { useState } from 'react';
-export default function Card_Paciente({condicao, cpf ,dia_horario, medicacao,nascimento,nome,  preco, rg, tratamento}){
+export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medicacao,nascimento,nome,  preco, rg, tratamento}){
 
 
     const [editarMode, setEditarMode] = useState(false);
     const [sair, setSair] = useState(false);
     
-  
-
     const edit = () => {
         setEditarMode(true);
     };
@@ -32,7 +30,7 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, medicacao,nas
       
 
         <div className="dados-cliente">
-            <h1>{dia_horario}</h1>
+            <h1>Data: {dia_horario} / Horário: {horario}</h1>
             <hr />
             <div className="field">
                 <h2>Nome:      {editarMode ? (

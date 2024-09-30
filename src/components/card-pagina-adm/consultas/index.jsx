@@ -13,8 +13,9 @@ export default function Cardadm() {
     const [passadas, setPassadas] = useState('consultasPassadas')
     const [buscar, setBuscar] = useState('')
 
+    
 
-    {/* Função para pesquisar no banco pelo CPF */}
+    {/* Função para pesquisar no banco pelo CPF. */}
     async function Buscar() {
         const url = 'http://localhost:5020/consultasCpf/'+`${buscar}`
         let resp = await axios.get(url)
@@ -22,7 +23,7 @@ export default function Cardadm() {
         setConsultasList(resp.data)
     }
 
-      {/* Função para renderizar a resposta do BANCO nos cardzin */}
+      {/* Função para renderizar a resposta do BANCO nos cardzin. */}
     async function renderList(){
         const url = 'http://localhost:5020/'+tipoConsulta
         let resp = await axios.get(url)
@@ -30,7 +31,8 @@ export default function Cardadm() {
         setConsultasList(resp.data)
     }
 
-    {/* useEffect para renderizar a lista na tela */}
+    {/* useEffect para renderizar a lista na tela, se o input "busca" tiver vazio, renderiza a opção
+    escolhida no input de passadas e futuras.*/}
     useEffect(()=> {
 
         if (buscar == '') {
@@ -39,7 +41,7 @@ export default function Cardadm() {
             Buscar()
         }
        
-    }, [buscar])
+    }, [tipoConsulta, buscar])
 
 
 
@@ -65,7 +67,10 @@ export default function Cardadm() {
                     key={index}
                     condicao={item.condicao}
                     cpf={item.cpf}
-                    dia_horario={item.dia_horario}
+
+                    dia_horario={new Date(item.dia_horario).toLocaleDateString()}
+                    horario={new Date(item.dia_horario).toLocaleString('pt-BR', {hour: '2-digit',minute: '2-digit', hour12: false})}
+                    
                     medicacao={item.medicacao}
                     nascimento={item.nascimento}
                     nome={item.nome}

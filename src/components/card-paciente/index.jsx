@@ -23,6 +23,7 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
        
     };
 
+
     
     return(
         <div className="card1">
@@ -67,7 +68,7 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
                         onChange={mudar}
                     />
                 ) : (
-                    <p>{nascimento}</p>
+                    <p><pre>{nascimento}</pre></p>
                 )}</h2>
               
             </div>

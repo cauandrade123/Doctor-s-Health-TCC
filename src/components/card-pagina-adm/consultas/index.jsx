@@ -13,7 +13,34 @@ export default function Cardadm() {
     const [passadas, setPassadas] = useState('consultasPassadas')
     const [buscar, setBuscar] = useState('')
 
-    
+
+    function CalcularIdade (nascimento){
+
+        {/* Pega a informação da data atual */}
+        const dataHOJE = new Date();
+        const ano = dataHOJE.getFullYear();
+        const mes = dataHOJE.getMonth();
+        const dia = dataHOJE.getDay();
+        {/* ------------------------------- */}
+
+        {/* Pega a informação da data de nascimento */}
+        const dataNascimento = new Date(nascimento)
+        const mesNasc = dataNascimento.getMonth();
+        const anoNasc = dataNascimento.getFullYear();
+        const diaNasc = dataNascimento.getDay();
+        {/* --------------------------------------- */}
+
+        {/* Calculo e lógica da parada da situação do procedimento */}
+        let idade = ano- anoNasc 
+
+        if ( mes < mesNasc || (mes === mesNasc && dia < diaNasc)) {
+            idade--
+        }
+        {/* ------------------------------------------------------ */}
+
+
+        return idade
+    }
 
     {/* Função para pesquisar no banco pelo CPF. */}
     async function Buscar() {
@@ -61,6 +88,8 @@ export default function Cardadm() {
           <div className="cards">
 
                     {consultasList.map((item, index) => {
+
+
                     return (
                       
                 <Card_Paciente
@@ -72,7 +101,8 @@ export default function Cardadm() {
                     horario={new Date(item.dia_horario).toLocaleString('pt-BR', {hour: '2-digit',minute: '2-digit', hour12: false})}
                     
                     medicacao={item.medicacao}
-                    nascimento={item.nascimento}
+                    nascimento={`Idade atual: ${CalcularIdade(item.nascimento)}
+Data de nascimento: ${new Date(item.nascimento).toLocaleDateString()}`}
                     nome={item.nome}
                     preco={item.preco}
                     rg={item.rg}

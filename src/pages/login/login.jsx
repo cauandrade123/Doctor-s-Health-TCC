@@ -10,36 +10,35 @@ export default function Login() {
     const [senhalg, setSenhalg] = useState(''); // Valor da senha digitada
     const [email, setEmail] = useState(''); // Valor do email digitado
     const [conteudo, setConteudo] = useState(''); // Mensagens de erro ou sucesso
-    
+    const navigate = useNavigate(); // Inicialize o useNavigate
 
     // Função para alternar entre mostrar ou esconder a senha
     const mostrar = () => setSenha(!senha);
 
-    // Função para verificar o login
     const Verificar = async () => {
-        // Verifica se email e senha foram preenchidos
-        if (email !== "adm" && senhalg !== '1234') {
-            setConteudo('Email e senha são obrigatórios.');
-            return;
-        }
+      
+       
+        
+       
 
         try {
-            // Envia a requisição para o backend
+            
             const response = await axios.post('http://localhost:5020/login', {
-                email,
+                email: email,
                 senha: senhalg,
             });
 
-            // Recebe o token de autenticação do backend
+           
             const { token } = response.data;
+           console.log(token);
 
-            // Se o token for válido, armazena no localStorage e navega para a página de admin
+           
             if (token) {
-                localStorage.setItem('token', token); // Armazena o token no localStorage
-                <Navigate to={'/ADM'} />; // Redireciona para a página de administrador
+                localStorage.setItem('token', token); 
+               navigate('/adm')
             }
         } catch (error) {
-            // Se o login falhar, exibe a mensagem de erro
+           
             if (error.response && error.response.status === 401) {
                 setConteudo('Email ou senha incorretos.');
             } else {

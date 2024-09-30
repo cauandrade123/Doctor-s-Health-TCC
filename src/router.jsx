@@ -18,20 +18,20 @@ export default function Navegacao() {
     
       // Verificar se o token é válido e não está expirado
       if (token) {
-        const decodedToken = jwtDecode(token);
-        const currentTime = Date.now() / 1000; // Tempo atual em segundos
+        const decodedoToken = jwtDecode(token);
+        const tempo = Date.now() / 1000; 
     
-        // Se o token expirou, remove o token e redireciona para login
-        if (decodedToken.exp < currentTime) {
+     
+        if (decodedoToken.exp < tempo) {
           localStorage.removeItem('token');
           return <Navigate to="/login" />;
         }
     
-        // Se o token é válido, renderiza o componente filho
+       
         return children;
       }
     
-      // Se não houver token, redireciona para login
+     
       return <Navigate to="/login" />;
     };
     
@@ -45,10 +45,13 @@ export default function Navegacao() {
                 <Route path="/auto_cadastro" element={<Auto_cadastro />} />
                 <Route path="/teste" element={<Teste />} />
                 <Route path="/cadastrado" element={<Cadastrado />} />
+
+                
+
                 <Route
-                    path="/adm" element={  <Adm /> 
-                    }
-                /> 
+                    path="/adm" element={ <PrivateRoute>  <Adm/>   </PrivateRoute>}
+                  /> 
+                
             </Routes>
         </BrowserRouter>
     );

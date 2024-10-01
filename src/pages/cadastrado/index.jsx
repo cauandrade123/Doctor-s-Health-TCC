@@ -77,21 +77,12 @@ const funcaoCombinada = () => {
                 
                         <div className="container-box-inputs">
                             
-                            <div className="input-style">
-                            <p>Nome</p>
-                            <input onChange={e=> setNome(e.target.value)} type="text" placeholder="Digite aqui" />
-                            </div>
 
                             <div className="input-style">
                             <p>CPF</p>
                             <input onChange={e=> setCpf(e.target.value)} type="text" placeholder="Digite aqui: XXX.XXX.XXX-XX" />
                             </div>
                           
-                            <div className="input-style">
-                            <p>RG</p>
-                            <input onChange={e=> setRg(e.target.value)} type="text" placeholder="Digite aqui: " />
-                            </div>
-
                             <div className="input-style">
                             <p>Selecione a data</p>
                             <input onChange={e=> setData(e.target.value)} type="date"  />

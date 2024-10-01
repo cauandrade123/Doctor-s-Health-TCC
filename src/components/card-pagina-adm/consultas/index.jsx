@@ -107,6 +107,7 @@ Data de nascimento: ${new Date(item.nascimento).toLocaleDateString()}`}
                     preco={item.preco}
                     rg={item.rg}
                     tratamento={item.tratamento}
+                    finalizada={item.finalizada}
                 />
                     
                     );

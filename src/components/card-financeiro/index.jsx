@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+/*import { useState, useEffect } from 'react';
 import './index.scss';
 import axios from 'axios';
 
@@ -83,4 +83,36 @@ export default function CardFinancas() {
             </div>
         </div>
     );
+}*/
+
+import { useState } from "react";
+import { GoArrowLeft } from "react-icons/go";
+import { GoArrowRight } from "react-icons/go";
+import { Chart } from 'react-google-charts';
+
+
+
+
+export default function  CardFinancas () {
+
+    const [anos, setAnos] = useState(2024)
+    const [faturamento, setFaturamento] = useState(1250)
+
+    return(
+        <div className="main_financeiro">
+            <div className="graficos">
+
+            </div>
+
+            <div className="content_anos">
+                <button><GoArrowLeft/></button>
+                <p>{anos}</p>
+                <button><GoArrowRight /></button>
+            </div>
+
+            <h1>Faturamento: {faturamento}</h1>
+        </div>
+
+    );
+
 }

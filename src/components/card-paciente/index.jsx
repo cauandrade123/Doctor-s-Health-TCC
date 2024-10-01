@@ -1,11 +1,17 @@
 
 import './index1.scss';
 import { useState } from 'react';
-export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medicacao,nascimento,nome,  preco, rg, tratamento}){
+export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medicacao,nascimento,nome,  preco, rg, tratamento, finalizada}){
 
 
     const [editarMode, setEditarMode] = useState(false);
     const [sair, setSair] = useState(false);
+    const [terminada, setTerminada] = useState(false)
+
+    
+      
+     
+      
     
     const edit = () => {
         setEditarMode(true);
@@ -134,6 +140,21 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
                     />
                 ) : (
                     <p>{preco}</p>
+                )}</h2>
+                
+            </div>
+
+            <div className="field">
+                <h2>Finalizada:{editarMode ? (
+                    <input
+                        type="text"
+                        
+                        name="Finalizada"
+                        value={finalizada}
+                        onChange={mudar}
+                    />
+                ) : (
+                    <p>{finalizada}</p>
                 )}</h2>
                 
             </div>

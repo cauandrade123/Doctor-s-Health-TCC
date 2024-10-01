@@ -49,7 +49,7 @@ export default function Navegacao() {
                 
 
                 <Route
-                    path="/adm" element={ <PrivateRoute>  <Adm/>   </PrivateRoute>}
+                    path="/adm" element={   <Adm/>  }
                   /> 
                 
             </Routes>

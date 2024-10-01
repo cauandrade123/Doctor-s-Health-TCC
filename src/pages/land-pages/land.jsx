@@ -43,9 +43,32 @@
 
     <div className="mae-page">
 
-      <section id="secao-1">
-        <Teste/> 
-      </section>
+<div className="mae">
+        <div className="background">
+          <Header />
+          <div className="Texto-image">
+            <div className="informacoes-do-doutor">
+              <div className="texto">
+
+              <h1>Dr. João Silva</h1>
+              <h2>Clínico geral, feito para solucionar seus problemas.</h2>
+              <div className="A-da-info">
+                <a target="_blank" href="/auto_cadastro">
+                  Agendar <p>consulta.</p>
+                </a>
+              </div>
+              </div>
+            </div>
+            <div className="img-doutor">
+              <img className="medico" src={Medico} alt="Dr. João Silva" />
+            </div>
+          </div>
+        </div>
+        <div className="wave-container">
+          <img className="wave" src={Wave} alt="Wave" />
+        </div>
+      </div>
+      
           
         
       

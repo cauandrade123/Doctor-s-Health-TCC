@@ -1,5 +1,5 @@
 
-import './index1.scss';
+import './index.scss';
 import { useState } from 'react';
 export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medicacao,nascimento,nome,  preco, rg, tratamento}){
 

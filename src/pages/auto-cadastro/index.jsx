@@ -30,6 +30,7 @@ export default function Auto_cadastro(){
     const [notificationMessage, setNotificationMessage] = useState('');
     const [notificationType, setNotificationType] = useState('')
     const [agenda, setAgenda] = useState('')
+    const terminada = false
   
 
 
@@ -86,26 +87,58 @@ export default function Auto_cadastro(){
         const resp2 = await axios.post(url2, con);
         return resp2.data; // Retorna os dados da consulta criada
     };
+
+    const verificarCpf = async (cpf) => {
+        const url = 'http://localhost:5020/verificar-cpf';
+        const response = await axios.post(url, { cpf });
+        return response.data; 
+    };
+
+    const verificarConsulta = async (cpf) => {
+        const url = 'http://localhost:5020/verificarConsulta';
+        const response = await axios.post(url, { cpf });
+        return response.data; 
+    };
+
+
     
-    const cadastrarTudo = async (nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario) => {
-        // Verifique se todos os campos obrigatórios estão preenchidos
+    const cadastrarTudo = async (nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario, terminada) => {
+      
         if (!nome || !telefone || !pagamento || !DTnascimento || !rg || !cpf || !data || !horario) {
             setNotificationMessage('Por favor, preencha todos os campos obrigatórios.');
             setNotificationType('error');
             return;
         }
+
+        
     
         try {
            
-            const agendaId = await cadastrarAgenda(data, horario);
+            const respostaVerificacao1 = verificarCpf(cpf)
+            if (respostaVerificacao1.status === 200) {
+                setNotificationMessage('CPF já cadastrado, vá para a opção ja caastrados!.');
+                setNotificationType('error');
+                return;
+            }
+             
+            const respostaVerificacao2 = verificarConsulta(cpf)
+            if(respostaVerificacao2.status === 400){
+                setNotificationMessage('CPF inválido.');
+                setNotificationType('error');
+                return;
+            }
+            else if(respostaVerificacao2.status === 200){
+                setNotificationMessage('Você já possui um agendamento.');
+                setNotificationType('error');
+                return;
+            }
+            
     
             
+            const agendaId = await cadastrarAgenda(data, horario);
             const pacienteId = await criarAutoCadastro(nome, DTnascimento, rg, cpf, pagamento, telefone, agendaId);
+            const consultaData = await cadastrarConsulta(agendaId, pacienteId, terminada);
     
-           
-            const consultaData = await cadastrarConsulta(agendaId, pacienteId);
-    
-            // Notificação de sucesso
             setNotificationMessage('Consulta marcada com sucesso!');
             setNotificationType('success');
         } catch (error) {
@@ -114,8 +147,6 @@ export default function Auto_cadastro(){
             setNotificationType('error');
         }
     };
-
-    
     
 
     const closeNotification = () => {
@@ -218,7 +249,7 @@ export default function Auto_cadastro(){
                             <a href=""><Link to={'/cadastrado'}>Se você já possui cadastro, clique aqui.</Link></a>
                         </div>
 
-                        <button onClick={() => cadastrarTudo(nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario)}>Enviar</button>
+                        <button onClick={() => cadastrarTudo(nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario, terminada)}>Enviar</button>
 
                            
 

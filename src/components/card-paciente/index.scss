@@ -9,6 +9,14 @@
   
     
     margin-right: 5vh;
+
+    /* Container dos botões editar e finalizar */
+    .container-buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+    /* ----------------------------------------- */
+    
     .dados-cliente {
       h1 {
         color: #333;

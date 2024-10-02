@@ -1,12 +1,14 @@
 
 import './index.scss';
 import { useState } from 'react';
+import axios from 'axios';
 export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medicacao,nascimento,nome,  preco, rg, tratamento, finalizada}){
 
 
     const [editarMode, setEditarMode] = useState(false);
     const [sair, setSair] = useState(false);
     const [terminada, setTerminada] = useState(false)
+    const [finalizada2, setFinalizada2] = useState(false)
 
     
       
@@ -29,6 +31,22 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
        
     };
 
+
+   async function Finalizar() {
+
+    alert(cpf)
+    const url = 'http://localhost:5020/finalizarConsulta/'+cpf 
+    let  resp = await axios.put(url)
+    
+
+    setFinalizada2(resp)
+    }
+
+    if(finalizada2 == false) {
+        finalizada = 'Não'
+    } else {
+        finalizada = 'Sim'
+    }
 
     
     return(
@@ -160,17 +178,21 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
             </div>
         </div>
 
-        {editarMode ? (
-            <button className="editar" onClick={salvar}>
-                Salvar
-            </button>
-        ) : (
-            <button className="editar" onClick={edit}>
-                Editar
-            </button>
-        )}
+        <div className="container-buttons">
 
-      
+                {editarMode ? (
+                    <button className="editar" onClick={salvar}>
+                        Salvar
+                    </button>
+                ) : (
+                    <button className="editar" onClick={edit}>
+                        Editar
+                    </button>
+                )}
+
+                <button className='editar' onClick={Finalizar}>Finalizar?</button>
+
+        </div>
     </div>
     )
 }

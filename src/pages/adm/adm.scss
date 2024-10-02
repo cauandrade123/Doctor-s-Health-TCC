@@ -4,12 +4,15 @@
 
 
 
+.no-scroll{
+    overflow-y: hidden;
 
 .main-adm {
     display: flex;
     flex-direction: row;
     height: 100%;
     width: 100%;
+  
  
 
             .menu-adm {
@@ -29,11 +32,11 @@
                     align-items: center;
                     padding-top: 2vh;
                     
-
+                  
                     img {
                         height: 70%;
                         margin-left: 10px;
-                        
+                       
                     }
                 }
 
@@ -45,7 +48,7 @@
                     height: 50%;
                     margin: 0 auto; 
                     padding: 20px;
-
+                  
                     display: flex;
                     align-items: center;
                     justify-content: flex-end;
@@ -56,7 +59,7 @@
                         display: flex;
                         flex-direction: column;
                 
-                    
+                       
                     
                         line-height: 1.5;
                         width: 100%;
@@ -69,7 +72,7 @@
                         align-items: flex-start; 
                         color: white;
                         font-size: 200%;
-                    
+                       
                         line-height: 3;
                         padding-left: 5vh;
                         width: 100%;
@@ -83,8 +86,13 @@
             }
             .consultas {
                 display: flex;
-                flex: 1; 
-                height: 100%;
+                padding-top: 3vh;
+                align-self: center;
+                height: 70vh;
+
+               
             }
+
+}
 
 }

@@ -60,13 +60,17 @@
                 margin-top: 8vh;
                 gap: 5vh;
                 
+                .input-style-center{
+                    justify-content: center;
+                    align-items: center ;
+                 }   
 
                 .input-style{
                     p{
                         font-size: 1.5vh;
                         margin-bottom: 1vh;
                     }
-
+                
                     input{
                         border: 1px solid black;
                         border-radius: 8px;

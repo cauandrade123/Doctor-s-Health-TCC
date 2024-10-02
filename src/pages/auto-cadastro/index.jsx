@@ -8,11 +8,10 @@ import Mapa from '../../assets/img/tcc/tccassests/simbolos/MapImage.svg'
 import Footer from "../../components/footer/footer";
 import axios from "axios";
 import Inputmask from "inputmask";
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import Notification from "../../components/aviso/aviso";
 import { Link } from "react-router-dom";
-
 
 
 
@@ -30,7 +29,6 @@ export default function Auto_cadastro(){
     const [notificationMessage, setNotificationMessage] = useState('');
     const [notificationType, setNotificationType] = useState('')
     const [agenda, setAgenda] = useState('')
-    const terminada = false
   
 
 
@@ -141,6 +139,8 @@ export default function Auto_cadastro(){
     
             setNotificationMessage('Consulta marcada com sucesso!');
             setNotificationType('success');
+            <Navigate to='/' />
+
         } catch (error) {
             console.error('Erro ao cadastrar:', error);
             setNotificationMessage('Erro ao cadastrar. Tente novamente.');
@@ -153,6 +153,16 @@ export default function Auto_cadastro(){
         setNotificationMessage(''); // Fecha a notificação
     };
  
+
+    const enviarEmail = () =>{
+        if(cadastrarTudo()){
+            const url ='endereço do endpoints'
+
+            axios.post(url, email)
+        }
+        
+        return enviarEmail
+    }
 
     
 
@@ -221,18 +231,25 @@ export default function Auto_cadastro(){
                             </div>
 
                             <div className="input-style">
-                            <p>Horário</p>
-                            <select onChange={e=> setHorario(e.target.value)}>
-                            <option value="">Selecione o horario</option>
-                                    <option value="12:00">12:00</option>
-                                    <option value="13:00">13:00</option>
-                                    <option value="14:00">14:00</option>
-                                    <option value="15:00">15:00</option>
-                                    <option value="16:00">16:00</option>
-                                    <option value="17:00">17:00</option>
-                                    <option value="18:00">18:00</option>
-                            </select>
+                            <p>Email</p>
+                            <input type="text" placeholder="Digite aqui seu email" onChange={e=> setEmail(e.target.value)} />
                             </div>
+                            
+                            <div className="input-style-center">
+                                <div className="input-style">
+                                    <p>Horário</p>
+                                    <select onChange={e=> setHorario(e.target.value)}>
+                                            <option value="">Selecione o horario</option>
+                                            <option value="12:00">12:00</option>
+                                            <option value="13:00">13:00</option>
+                                            <option value="14:00">14:00</option>
+                                            <option value="15:00">15:00</option>
+                                            <option value="16:00">16:00</option>
+                                            <option value="17:00">17:00</option>
+                                            <option value="18:00">18:00</option>
+                                    </select>
+                                </div>
+                            </div>    
 
 
                         

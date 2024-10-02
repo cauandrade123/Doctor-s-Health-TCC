@@ -29,7 +29,7 @@ export default function Auto_cadastro(){
     const [notificationMessage, setNotificationMessage] = useState('');
     const [notificationType, setNotificationType] = useState('')
     const [agenda, setAgenda] = useState('')
-  
+    const [email, setEmail] = useState('')
 
 
     const resetarCampos = () => {
@@ -150,11 +150,11 @@ export default function Auto_cadastro(){
     
 
     const closeNotification = () => {
-        setNotificationMessage(''); // Fecha a notificação
+        setNotificationMessage(''); 
     };
  
 
-    const enviarEmail = () =>{
+    const enviarEmail = () =>{  // se TODO o processoda função der certo, ai sim, a função enviar email é ativada😀
         if(cadastrarTudo()){
             const url ='endereço do endpoints'
 
@@ -263,10 +263,11 @@ export default function Auto_cadastro(){
                         
                         <div className="txt-hr">
                             <p>Em caso de cancelamento ou troca de horário entrar em contato por telefone!   </p> 
-                            <a href=""><Link to={'/cadastrado'}>Se você já possui cadastro, clique aqui.</Link></a>
+                            
+                        <Link to={'/cadastrado'}>Se você já possui cadastro, clique aqui.</Link>
                         </div>
 
-                        <button onClick={() => cadastrarTudo(nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario, terminada)}>Enviar</button>
+                        {/* <button onClick={() => cadastrarTudo(nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario, terminada)}>Enviar</button> */}
 
                            
 

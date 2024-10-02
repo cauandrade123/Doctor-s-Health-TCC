@@ -1,59 +1,54 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-  }
-
-
-
-.main-financas {
-
+.main_financeiro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3vh;
     
-    background-color: #60B6E3;
-    height: 80vh;
-    width: 80%;
-    border-radius: 20px;
 
-    margin-left: 11vh;
-    margin-top: 5vh;
-    
-    
-    .card-financas {
+    .card_financas {
         display: flex;
-        flex-direction: column;
-        justify-content: space-between; /* Mantém content-data no topo */
-        align-items: center;
-        height: 100%;
+        gap: 5vh;
 
-        .content-data {
+        .content-cards {
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            padding: 20px; /* Adiciona um espaçamento */
-            
-            .btn-esq, .btn-dir {
-                background-color: #046AE2;
-                color: white;
-                border: none;
-                border-radius: 2vh;
-                width: 10vh;
-                height: 5vh;
-            }
-        }
-
-        .content-dados {
-            display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-            gap: 15vh;
-            height: 100%; /* Ocupa todo o espaço disponível */
+            background-color: #046AE2;
+            color: white;
+            width: 22vh;
+            height: 20vh;
+            border-radius: 2vh;
+            transition: 1s;
+
+            &:hover {
+                transform: scale(1.1);
+                transition: 1s;
+            }
+        }
+    }
+}
+
+.content_anos {
+    display: flex;
+    flex-direction: row;
+    gap: 5vh;
+
+    button {
+        background-color: #046AE2;
+        color: white;
+        border: none;
+        text-align: center;
+        width: 20vh;
+        border-radius: 2vh;
+        transition: 1s;
+
+        &:hover {
+            text-align: center;
+            background-color: #0151ac;
+            transform: scale(1.1);
+            transition: 1s;
         }
     }
 }

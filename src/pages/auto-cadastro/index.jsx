@@ -87,7 +87,7 @@ export default function Auto_cadastro(){
         return resp2.data; // Retorna os dados da consulta criada
     };
 
-    const verificarCpf = async (cpf) => {
+    const verificarpaciente = async (cpf) => {
         const url = 'http://localhost:5020/verificar-cpf';
         const response = await axios.post(url, { cpf });
         return response.data; 
@@ -99,12 +99,42 @@ export default function Auto_cadastro(){
         return response.data; 
     };
 
+    const verificarCpf = async (cpf) => {
+        const cpfLimpo = cpf.replace(/\D/g, '');
+        if (cpfLimpo.length !== 11 || /^(\d)\1{10}$/.test(cpfLimpo)) {
+            return false;
+        }
+        
+        let soma = 0;
+        for (let i = 0; i < 9; i++) {
+            soma += parseInt(cpfLimpo[i]) * (10 - i);
+        }
+        let primeiroDigito = (soma * 10) % 11;
+        if (primeiroDigito === 10) primeiroDigito = 0;
+    
+        soma = 0;
+        for (let i = 0; i < 10; i++) {
+            soma += parseInt(cpfLimpo[i]) * (11 - i);
+        }
+        let segundoDigito = (soma * 10) % 11;
+        if (segundoDigito === 10) segundoDigito = 0;
+    
+        return cpfLimpo[9] == primeiroDigito && cpfLimpo[10] == segundoDigito;
+    };
+
 
     
     const cadastrarTudo = async (nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario) => {
-        // Verifique se todos os campos obrigatórios estão preenchidos
+        
         if (!nome || !telefone || !pagamento || !DTnascimento || !rg || !cpf || !data || !horario) {
             setNotificationMessage('Por favor, preencha todos os campos obrigatórios.');
+            setNotificationType('error');
+            return;
+        }
+
+        const cpfValido = await verificarCpf(cpf);
+        if (!cpfValido) {
+            setNotificationMessage('CPF inválido. Por favor, verifique e tente novamente.');
             setNotificationType('error');
             return;
         }

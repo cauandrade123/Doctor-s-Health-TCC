@@ -1,6 +1,6 @@
 
 import './index.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medicacao,nascimento,nome,  preco, rg, tratamento, finalizada}){
 
@@ -8,11 +8,26 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
     const [editarMode, setEditarMode] = useState(false);
     const [sair, setSair] = useState(false);
     const [terminada, setTerminada] = useState(false)
-    const [finalizada2, setFinalizada2] = useState(false)
-
+    const [finalizada2, setFinalizada2] = useState(finalizada)
+    const [bt, setBt] = useState('')
     
-      
+      function setarBt () {
+        alert(JSON.stringify(finalizada2.data))
+        if (finalizada2 == undefined) {
+            setBt(
+                <button className='editar' >Já finalizada</button>
+            )
+        } else (
+            setBt(
+                <button className='editar' onClick={Finalizar} >Finalizar?</button>
+            )
+        )
+      }
      
+
+      useEffect(() =>{
+        setarBt()
+      }, [])
       
     
     const edit = () => {
@@ -33,22 +48,27 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
 
 
    async function Finalizar() {
-
-    alert(cpf)
     const url = 'http://localhost:5020/finalizarConsulta/'+cpf 
     let  resp = await axios.put(url)
-    
 
     setFinalizada2(resp)
     }
 
-    if(finalizada2 == false) {
-        finalizada = 'Não'
-    } else {
-        finalizada = 'Sim'
+    async function verificarEstadoFinalizada() {
+        const url2 = 'http://localhost:5020/consultaFinalizar/'+cpf
+        let resp2 = await axios.get(url2)
+
+        
+        setFinalizada2(resp2)
+        
     }
 
-    
+    useEffect( () => {
+        verificarEstadoFinalizada()
+    }, [finalizada2])
+
+
+   
     return(
         <div className="card1">
 
@@ -161,7 +181,7 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
                 )}</h2>
                 
             </div>
-
+                
             <div className="field">
                 <h2>Finalizada:{editarMode ? (
                     <input
@@ -176,6 +196,7 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
                 )}</h2>
                 
             </div>
+           
         </div>
 
         <div className="container-buttons">
@@ -190,8 +211,9 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
                     </button>
                 )}
 
-                <button className='editar' onClick={Finalizar}>Finalizar?</button>
-
+                
+                {bt}
+                
         </div>
     </div>
     )

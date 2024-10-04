@@ -1,6 +1,7 @@
 
 import './index.scss';
 import { useEffect, useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medicacao,nascimento,nome,  preco, rg, tratamento, finalizada}){
 
@@ -10,19 +11,21 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
     const [terminada, setTerminada] = useState(false)
     const [finalizada2, setFinalizada2] = useState(finalizada)
     const [bt, setBt] = useState('')
+
+    const navigate = useNavigate()
     
       function setarBt () {
-        alert(JSON.stringify(finalizada2.data))
-        if (finalizada2 == undefined) {
+        if (finalizada == 'Sim') {
             setBt(
                 <button className='editar' >Já finalizada</button>
             )
-        } else (
+        } else {
             setBt(
                 <button className='editar' onClick={Finalizar} >Finalizar?</button>
             )
-        )
-      }
+            
+        }
+      } 
      
 
       useEffect(() =>{
@@ -51,6 +54,7 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
     const url = 'http://localhost:5020/finalizarConsulta/'+cpf 
     let  resp = await axios.put(url)
 
+    navigate('/adm')
     setFinalizada2(resp)
     }
 

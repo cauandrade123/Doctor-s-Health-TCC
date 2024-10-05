@@ -151,14 +151,13 @@ export default function Auto_cadastro() {
 
     const cadastrarTudo = async (nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario) => {
 
-        // Verificar se todos os campos obrigatórios foram preenchidos
+  
         if (!nome || !telefone || !pagamento || !DTnascimento || !rg || !cpf || !data || !horario) {
             setNotificationMessage('Por favor, preencha todos os campos obrigatórios.');
             setNotificationType('error');
             return;
         }
-    
-        // Validar o CPF
+
         const cpfValido = await verificarCpf(cpf);
         if (!cpfValido) {
             setNotificationMessage('CPF inválido. Por favor, verifique e tente novamente.');
@@ -169,17 +168,16 @@ export default function Auto_cadastro() {
         try {
             console.log('Verificando se o paciente já está cadastrado...');
     
-            // Verificar se o paciente já está cadastrado no sistema
             const pacienteExistente = await verificarpaciente(cpf);
     
             if (pacienteExistente) {
                 console.log('Paciente já cadastrado:', pacienteExistente);
     
-                // Avisar que o paciente já está cadastrado
+         
                 setNotificationMessage('O paciente já está cadastrado no sistema.');
                 setNotificationType('info');
     
-                // Verificar se o paciente já tem consulta em aberto
+             
                 console.log('Verificando se o paciente já possui consulta marcada...');
                 const consultaExistente = await verificarConsulta(cpf);
                 if (consultaExistente) {
@@ -190,22 +188,20 @@ export default function Auto_cadastro() {
                 }
             }
     
-            // Caso o paciente não exista ou não tenha consulta, seguir com o cadastro
+            
             console.log('Cadastrando agenda...');
             const agendaId = await cadastrarAgenda(data, horario);
     
             console.log('Agenda cadastrada com ID:', agendaId);
     
-            // Criar o cadastro do paciente (somente se ele não existir)
+            
             const pacienteId = pacienteExistente?.id || await criarAutoCadastro(nome, DTnascimento, rg, cpf, pagamento, telefone, agendaId);
             console.log('Paciente cadastrado com ID:', pacienteId);
     
-            // Marcar a consulta
             console.log('Cadastrando consulta...');
             const consultaData = await cadastrarConsulta(agendaId, pacienteId);
             console.log('Consulta cadastrada:', consultaData);
     
-            // Notificação de sucesso
             setNotificationMessage('Consulta marcada com sucesso!');
             setNotificationType('success');
             <Navigate to='/' />

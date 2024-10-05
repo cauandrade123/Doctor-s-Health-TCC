@@ -131,7 +131,6 @@ export default function Auto_cadastro() {
 
             console.log('Horários recebidos:', horarios);
 
-            // Extraia os horários ocupados
          
 
             const horariosOcupados = response.data.horariosOcupados[0].map(item => item.hora.slice(0, 5));
@@ -142,7 +141,7 @@ export default function Auto_cadastro() {
 
     };
 
-    const indetificarData = (e) => {
+    const IndetificarData = (e) => {
         const selecionarData = e.target.value;
         setData(selecionarData);
         obterHorariosOcupados(selecionarData);
@@ -150,50 +149,81 @@ export default function Auto_cadastro() {
 
     const horariosDisponiveis = ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
 
-
-
     const cadastrarTudo = async (nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario) => {
 
+        // Verificar se todos os campos obrigatórios foram preenchidos
         if (!nome || !telefone || !pagamento || !DTnascimento || !rg || !cpf || !data || !horario) {
             setNotificationMessage('Por favor, preencha todos os campos obrigatórios.');
             setNotificationType('error');
             return;
         }
-
+    
+        // Validar o CPF
         const cpfValido = await verificarCpf(cpf);
         if (!cpfValido) {
             setNotificationMessage('CPF inválido. Por favor, verifique e tente novamente.');
             setNotificationType('error');
             return;
         }
-
+    
         try {
-
+            console.log('Verificando se o paciente já está cadastrado...');
+    
+            // Verificar se o paciente já está cadastrado no sistema
+            const pacienteExistente = await verificarpaciente(cpf);
+    
+            if (pacienteExistente) {
+                console.log('Paciente já cadastrado:', pacienteExistente);
+    
+                // Avisar que o paciente já está cadastrado
+                setNotificationMessage('O paciente já está cadastrado no sistema.');
+                setNotificationType('info');
+    
+                // Verificar se o paciente já tem consulta em aberto
+                console.log('Verificando se o paciente já possui consulta marcada...');
+                const consultaExistente = await verificarConsulta(cpf);
+                if (consultaExistente) {
+                    console.log('Consulta já existente:', consultaExistente);
+                    setNotificationMessage('O paciente já possui uma consulta marcada.');
+                    setNotificationType('error');
+                    return;
+                }
+            }
+    
+            // Caso o paciente não exista ou não tenha consulta, seguir com o cadastro
+            console.log('Cadastrando agenda...');
             const agendaId = await cadastrarAgenda(data, horario);
-
-
-            const pacienteId = await criarAutoCadastro(nome, DTnascimento, rg, cpf, pagamento, telefone, agendaId);
-
-
-            const consultaData = await cadastrarConsulta(agendaId, pacienteId, terminada);
-
+    
+            console.log('Agenda cadastrada com ID:', agendaId);
+    
+            // Criar o cadastro do paciente (somente se ele não existir)
+            const pacienteId = pacienteExistente?.id || await criarAutoCadastro(nome, DTnascimento, rg, cpf, pagamento, telefone, agendaId);
+            console.log('Paciente cadastrado com ID:', pacienteId);
+    
+            // Marcar a consulta
+            console.log('Cadastrando consulta...');
+            const consultaData = await cadastrarConsulta(agendaId, pacienteId);
+            console.log('Consulta cadastrada:', consultaData);
+    
             // Notificação de sucesso
             setNotificationMessage('Consulta marcada com sucesso!');
             setNotificationType('success');
             <Navigate to='/' />
+    
         } catch (error) {
             console.error('Erro ao cadastrar:', error);
             setNotificationMessage('Erro ao cadastrar. Tente novamente.');
             setNotificationType('error');
         }
     };
+    
 
     const closeNotification = () => {
         setNotificationMessage('');
     };
 
 
-    const enviarEmail = () => {  // se TODO o processoda função der certo, ai sim, a função enviar email é ativada😀
+    const enviarEmail = () => { 
         if (cadastrarTudo()) {
             const url = 'endereço do endpoints'
 
@@ -217,7 +247,7 @@ export default function Auto_cadastro() {
                 message={notificationMessage}
                 onClose={closeNotification}
                 duration={3000}
-                type={notificationType} // Passa o tipo para o componente
+                type={notificationType} 
             />
 
             <h1 className="h1-title-container-box">Seja bem-vindo(a), realize seu cadastro!</h1>
@@ -266,7 +296,7 @@ export default function Auto_cadastro() {
 
                         <div className="input-style">
                             <p>Selecione a data desejada para a consulta</p>
-                            <input onChange={indetificarData} type="date" />
+                            <input onChange={IndetificarData} type="date" />
                         </div>
 
                         <div className="input-style">

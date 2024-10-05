@@ -154,7 +154,7 @@ export default function Auto_cadastro(){
     };
  
 
-    const enviarEmail = () =>{  // se TODO o processoda função der certo, ai sim, a função enviar email é ativada😀
+    const enviarEmail = () =>{  // se TODO o processoda função der certo, ai sim, a função enviar email é ativada😀  fgf
         if(cadastrarTudo()){
             const url ='endereço do endpoints'
 

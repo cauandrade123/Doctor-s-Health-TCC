@@ -13,8 +13,15 @@ export default function Cardadm() {
     const [passadas, setPassadas] = useState('consultasPassadas')
     const [buscar, setBuscar] = useState('')
 
-    const [finalizada2, setFinalizada2] = useState(false)
 
+    function YesORNo (booleano) {
+        console.log(booleano)
+        if (booleano == undefined) {
+            booleano = 'Sim'
+        } else {booleano = 'Não'}
+
+        return booleano
+    }
 
     function CalcularIdade (nascimento){
 
@@ -109,7 +116,7 @@ Data de nascimento: ${new Date(item.nascimento).toLocaleDateString()}`}
                     preco={item.preco}
                     rg={item.rg}
                     tratamento={item.tratamento}
-                    finalizada={item.finalizada}
+                    finalizada={YesORNo(item.finalizada)}
                 />
 
               

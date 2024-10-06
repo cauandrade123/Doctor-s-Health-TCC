@@ -18,6 +18,10 @@ import { Link } from "react-router-dom";
 
 
 export default function Auto_cadastro() {
+
+    const Navigate = useNavigate()
+
+
     const [horariosOcupados, setHorariosOcupados] = useState([]);
     const [nome, setNome] = useState();
     const [telefone, setTelefone] = useState();
@@ -219,17 +223,35 @@ export default function Auto_cadastro() {
     };
 
 
-    const enviarEmail = () => { 
-        if (cadastrarTudo()) {
-            const url = 'endereço do endpoints'
-
-            axios.post(url, email)
+    const enviarEmail = async () => {
+        try {
+          let response = await axios.post('http://localhost:5020/enviar/email', {
+            email: email,
+            data: data,
+            horario: horario,
+            nome: nome,
+            Horario: horario // O email que o usuário inseriu
+          });
+         
+        } catch (error) {
+          console.error('Erro ao enviar o e-mail:', error);
+          alert('Erro ao enviar o e-mail.');
+          
         }
+      };
 
-        return enviarEmail
-    }
-
-
+      const todasAsFuncoes = async () => {
+        try {
+            await cadastrarTudo(nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario);
+            await enviarEmail();
+            console.log('Cadastro e email enviados com sucesso');
+            setNotificationMessage('cadastro realizado com sucesso')
+            Navigate('/')
+        } catch (error) {
+            console.error("Erro ao realizar as funções:", error);
+        }
+    };
+    
 
 
     return (
@@ -297,7 +319,7 @@ export default function Auto_cadastro() {
 
                         <div className="input-style">
                             <p>Email</p>
-                            <input type="text" placeholder="Digite aqui seu email" onChange={e => setEmail(e.target.value)} />
+                            <input type="text" placeholder="Digite aqui seu email" value={email} onChange={e => setEmail(e.target.value)} />
                         </div>
 
                         <div className="input-style">
@@ -331,8 +353,8 @@ export default function Auto_cadastro() {
                             <Link to={'/cadastrado'}>Se você já possui cadastro, clique aqui.</Link>
                         </div>
 
-                        {<button onClick={() => cadastrarTudo(nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario, terminada)}>Enviar</button>}
-
+                        {/* {<button onClick={() => cadastrarTudo(nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario, terminada)}>Enviar</button>} */}
+                        <button onClick={todasAsFuncoes}>Enviar</button>
 
 
 

@@ -40,7 +40,7 @@ export default function Navegacao() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<App/>} />
+                <Route path="/" element={<Adm/>} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/auto_cadastro" element={<Auto_cadastro />} />
                 <Route path="/teste" element={<Teste />} />
@@ -48,11 +48,11 @@ export default function Navegacao() {
 
                 
 
-                <Route
+                 <Route
                     path="/adm" element={ <PrivateRoute>
                       <Adm/>
                     </PrivateRoute> }
-                  /> 
+                  />  
                 
             </Routes>
         </BrowserRouter>

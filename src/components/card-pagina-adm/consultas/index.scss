@@ -18,8 +18,10 @@ body {
  align-self: center;
   height: 97vh;
   justify-self: center;
+  
   .cards{
     display: flex;
+    
     
   }
   .buscar-paciente {
@@ -48,11 +50,14 @@ body {
       width: 40vh;
       padding-left: 2vh;
       padding-right: 2vh;
-      border-radius: 20px;
+      border-radius: 08px;
       font-size: 3vh;
-      background-color: #60B6E3;
-        opacity: 74%;
-      color: #fff;
+      background-color: #ffffff;
+      opacity: 80%;    
+    }
+
+    .Buscar::placeholder{
+      color: black;
     }
     
     select {

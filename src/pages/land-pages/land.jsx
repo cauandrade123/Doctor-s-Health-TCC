@@ -65,7 +65,7 @@
           </div>
         </div>
         <div className="wave-container">
-          <img className="wave" src={Wave} alt="Wave" />
+         <img className="wave" src={Wave} alt="Wave" /> 
         </div>
       </div>
       

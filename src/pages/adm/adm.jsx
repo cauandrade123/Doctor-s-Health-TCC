@@ -12,17 +12,17 @@ export default function Adm() {
     const [conteudo, setConteudo] = useState(<Cardadm/>, <CardAgenda />, <CardFinancas/>);
 
 
-    const mostrarOi = () => {
+    const mostrarCardAdm = () => {
         setConteudo(
                <Cardadm/>
         );
     }
-    const mostrarOi2 = () => {
+    const mostrarCardAgenda = () => {
         setConteudo(
                <CardAgenda />
         );
     }
-    const mostrarOi3 = () => {
+    const mostrarCardfincanca = () => {
         setConteudo(
                <CardFinancas/>
         );
@@ -57,9 +57,9 @@ export default function Adm() {
                 </div>
                 <div className="menu-azul">
                     <div className="opcoes-do-menu">
-                        <button onClick={mostrarOi} className="Consultas">Consultas</button>
-                        <button onClick={mostrarOi2} className="Agenda">Agenda</button>
-                        <button onClick={mostrarOi3} className="Financas">Finanças</button>
+                        <button onClick={mostrarCardAdm} className="Consultas">Consultas</button>
+                        <button onClick={mostrarCardAgenda} className="Agenda">Agenda</button>
+                        <button onClick={mostrarCardfincanca} className="Financas">Finanças</button>
                     </div>
                 </div>
             </div>

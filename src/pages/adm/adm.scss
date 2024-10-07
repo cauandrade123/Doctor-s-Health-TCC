@@ -1,98 +1,94 @@
-
-
-
-
-
-
-.no-scroll{
+.no-scroll {
     overflow-y: hidden;
+}
+
+
 
 .main-adm {
     display: flex;
     flex-direction: row;
-    height: 100%;
-    width: 100%;
-  
- 
+    background-color: rgba(211, 211, 211, 0.493); /* A cor cinza é aplicada apenas aqui */
+    min-height: 100vh; /* Ocupa a altura total da viewport */
+    width: auto; /* Ocupa a largura total da viewport */
 
-            .menu-adm {
-                background: #00a2ff; 
+    .menu-adm {
+        background: #00a2ffc0; 
+        width: 55vh;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
+        .logo-e-voltar {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            padding-top: 2vh;
 
-                min-height: 100vh;
-                border-top-right-radius: 10vh;
+            .voltar {
+                width: 9vh;
+            }
+            
+            img {
+                height: 70%;
+                margin-left: 10px;
+            }
+        }
 
+        .menu-azul {
+            background-color: rgba(4, 108, 226, 0.808);
+            border-top-left-radius: 3vh;
+            border-top-right-radius: 3vh;
+            width: 80%;
+            height: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-top: auto;
+
+            .opcoes-do-menu {
                 display: flex;
                 flex-direction: column;
-                align-items: center;
+                line-height: 1.5;
+                width: 100%;
 
-                .logo-e-voltar {
+                .Agenda, .Financas, .Consultas {
                     display: flex;
-                    flex-direction: row-reverse;
-                    align-items: center;
-                    padding-top: 2vh;
-                    
-                  
-                    img {
-                        height: 70%;
-                        margin-left: 10px;
-                       
-                    }
+                    flex-direction: column;
+                    align-items: flex-start;
+                    color: white;
+                    font-size: 200%;
+                    line-height: 3;
+                    padding-left: 5vh;
+                    width: 100%;
+                    background: none;
+                    border: none;
+                    transition: all 0.3s;
                 }
 
-                .menu-azul {
-                    background-color: rgba(4, 106, 226, 1);
-                    border-top-left-radius: 5vh;
-                    border-top-right-radius: 5vh; 
-                    width: 80%; 
-                    height: 50%;
-                    margin: 0 auto; 
-                    padding: 20px;
-                  
+                .Agenda:hover, .Financas:hover, .Consultas:hover {
                     display: flex;
-                    align-items: center;
-                    justify-content: flex-end;
-
-                    margin-top: auto;
-                   
-                    .opcoes-do-menu {
-                        display: flex;
-                        flex-direction: column;
-                
-                       
-                    
-                        line-height: 1.5;
-                        width: 100%;
-                    
-                   
-                        
-                    .Agenda, .Financas, .Consultas {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: flex-start; 
-                        color: white;
-                        font-size: 200%;
-                       
-                        line-height: 3;
-                        padding-left: 5vh;
-                        width: 100%;
-
-                        background: none;
-                        border: none;
-                    }
-                    }
-
+                    flex-direction: column;
+                    align-items: flex-start;
+                    color: white;
+                    font-size: 200%;
+                    line-height: 3;
+                    padding-left: 5vh;
+                    width: 100%;
+                    background-color: rgba(2, 2, 219, 0.877);
+                    border-radius: 10px;
+                    transform: scale(1.1);
                 }
             }
-            .consultas {
-                display: flex;
-                padding-top: 3vh;
-                align-self: center;
-                height: 70vh;
+        }
+    }
 
-               
-            }
-
-}
-
+    .consultas {
+        display: flex;
+        padding-top: 3vh;
+        align-self: center;
+        height: 70vh;
+    }
 }

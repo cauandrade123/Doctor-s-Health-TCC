@@ -48,11 +48,11 @@ export default function Navegacao() {
 
                 
 
-                <Route
+                 <Route
                     path="/adm" element={ <PrivateRoute>
                       <Adm/>
                     </PrivateRoute> }
-                  /> 
+                  />  
                 
             </Routes>
         </BrowserRouter>

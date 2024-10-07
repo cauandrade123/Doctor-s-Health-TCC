@@ -34,7 +34,7 @@ export default function Auto_cadastro() {
     const [notificationMessage, setNotificationMessage] = useState('');
     const [notificationType, setNotificationType] = useState('')
     const [agenda, setAgenda] = useState('')
-    const [email, setEmail] = useState('')
+//    const [email, setEmail] = useState('')
     const terminada = false
 
 
@@ -222,6 +222,7 @@ export default function Auto_cadastro() {
         setNotificationMessage('');
     };
 
+    {/*
 
     const enviarEmail = async () => {
         try {
@@ -240,11 +241,13 @@ export default function Auto_cadastro() {
         }
       };
 
+    */}
+
       const todasAsFuncoes = async () => {
         try {
             await cadastrarTudo(nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario);
-            await enviarEmail();
-            console.log('Cadastro e email enviados com sucesso');
+           // await enviarEmail();
+         //   console.log('Cadastro e email enviados com sucesso');
             setNotificationMessage('cadastro realizado com sucesso')
             Navigate('/')
         } catch (error) {
@@ -319,7 +322,7 @@ export default function Auto_cadastro() {
 
                         <div className="input-style">
                             <p>Email</p>
-                            <input type="text" placeholder="Digite aqui seu email" value={email} onChange={e => setEmail(e.target.value)} />
+                            <input type="text" placeholder="Digite aqui seu email"  />
                         </div>
 
                         <div className="input-style">

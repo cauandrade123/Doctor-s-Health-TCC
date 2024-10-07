@@ -115,7 +115,7 @@ export default function Cardadm() {
                     preco={item.preco}
                     rg={item.rg}
                     tratamento={item.tratamento}
-                    finalizada={Transformar(item.finalizada)}
+                    finalizada={item.finalizada?('Sim'):('Não')}
                 />
 
               

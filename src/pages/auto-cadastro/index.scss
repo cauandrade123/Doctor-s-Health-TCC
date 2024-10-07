@@ -441,3 +441,26 @@
     transform: translateY(-20px);
     transition: opacity 300ms, transform 300ms;
 }
+.horario-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+
+    &:focus {
+        outline: none;
+        border-color: #66afe9;
+    }
+}
+
+.horario-ocupado {
+    color: red; // Cor para horários ocupados
+    background-color: #ffe6e6; // Fundo levemente rosa para horários ocupados
+}
+
+.horario-disponivel {
+    color: black; // Cor para horários disponíveis
+    background-color: rgb(255, 255, 255); // Fundo branco para horários disponíveis
+}

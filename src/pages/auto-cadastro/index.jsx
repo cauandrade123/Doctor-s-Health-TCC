@@ -34,7 +34,7 @@ export default function Auto_cadastro() {
     const [notificationMessage, setNotificationMessage] = useState('');
     const [notificationType, setNotificationType] = useState('')
     const [agenda, setAgenda] = useState('')
-//    const [email, setEmail] = useState('')
+    const [email, setEmail] = useState('')
     const terminada = false
 
 
@@ -124,7 +124,7 @@ export default function Auto_cadastro() {
         let segundoDigito = (soma * 10) % 11;
         if (segundoDigito === 10) segundoDigito = 0;
 
-        return cpfLimpo[9] == primeiroDigito && cpfLimpo[10] == segundoDigito;
+        return cpfLimpo[9] === primeiroDigito && cpfLimpo[10] === segundoDigito;
     };
 
     const obterHorariosOcupados = async (data) => {
@@ -222,56 +222,11 @@ export default function Auto_cadastro() {
         setNotificationMessage('');
     };
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    const enviarEmail = () =>{  // se TODO o processoda função der certo, ai sim, a função enviar email é ativada😀  fgf
-        if(cadastrarTudo()){
-            const url ='endereço do endpoints'
-=======
 
-    const enviarEmail = () => { 
-        if (cadastrarTudo()) {
-            const url = 'endereço do endpoints'
->>>>>>> 509ea95aff814456d76a37810348db285473b2ff
+   
+  
 
-            axios.post(url, email)
-=======
-    {/*
-
-    const enviarEmail = async () => {
-        try {
-          let response = await axios.post('http://localhost:5020/enviar/email', {
-            email: email,
-            data: data,
-            horario: horario,
-            nome: nome,
-            Horario: horario // O email que o usuário inseriu
-          });
-         
-        } catch (error) {
-          console.error('Erro ao enviar o e-mail:', error);
-          alert('Erro ao enviar o e-mail.');
-          
->>>>>>> 41ec466a09459a1b01aaec39e42171d4426724bd
-        }
-      };
-
-    */}
-
-      const todasAsFuncoes = async () => {
-        try {
-            await cadastrarTudo(nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario);
-           // await enviarEmail();
-         //   console.log('Cadastro e email enviados com sucesso');
-            setNotificationMessage('cadastro realizado com sucesso')
-            Navigate('/')
-        } catch (error) {
-            console.error("Erro ao realizar as funções:", error);
-        }
-    };
-    
-
-
+   
     return (
         <div className="main">
 
@@ -335,10 +290,10 @@ export default function Auto_cadastro() {
                             <input onChange={IndetificarData} type="date" />
                         </div>
 
-                        <div className="input-style">
+                        {/* <div className="input-style">
                             <p>Email</p>
                             <input type="text" placeholder="Digite aqui seu email"  />
-                        </div>
+                        </div> */}
 
                         <div className="input-style">
                             <p>Horário</p>
@@ -371,8 +326,8 @@ export default function Auto_cadastro() {
                             <Link to={'/cadastrado'}>Se você já possui cadastro, clique aqui.</Link>
                         </div>
 
-                        {/* {<button onClick={() => cadastrarTudo(nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario, terminada)}>Enviar</button>} */}
-                        <button onClick={todasAsFuncoes}>Enviar</button>
+                       {<button onClick={() => cadastrarTudo(nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario, terminada)}>Enviar</button>} 
+                       
 
 
 

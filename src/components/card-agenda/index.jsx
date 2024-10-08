@@ -1,63 +1,70 @@
-import React, { useEffect, useState } from 'react';
-import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
+import './index.scss'
+import React, { useState, useEffect } from 'react';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import { format, parse, startOfWeek, getDay } from 'date-fns';
-import ptBR from 'date-fns/locale/pt-BR';
-import axios from 'axios';
+import moment from 'moment';
+import 'moment/locale/pt-br'; 
 
-const locales = {
-  'pt-BR': ptBR,
-};
+const localizer = momentLocalizer(moment);
 
-const localizer = dateFnsLocalizer({
-  format,
-  parse,
-  startOfWeek: () => startOfWeek(new Date(), { weekStartsOn: 0 }),
-  getDay,
-  locales,
-});
-
-export default function CardAgenda() {
-  const [listadeEventos, setListadeEventos] = useState([]);
+export default function  MyCalendar  () {
+  const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    const pegarData = async () => {
-      try {
-        const url = 'http://localhost:5020/pegardata';
-        const resp = await axios.get(url);
-        const dados = resp.data.dia_horario; 
+    fetchConsultasFromAPI()
+      .then(data => {
+        const formattedEvents = data.map(event => {
+          
+          const startDate = moment(event.dia_horario).toDate();
+          const endDate = moment(event.dia_horario).add(1, 'hours').toDate(); 
 
-        const eventosTransformados = transformData(dados);
+          return {
+            start: startDate,
+            end: endDate,
+            title: event.title || 'Consulta',
+          };
+        });
 
-        setListadeEventos(eventosTransformados);
-        
-      } catch (error) {
-        console.error('Erro ao pegar os dados:', error);
-      }
-    };
-
-    pegarData();
+        console.log('Eventos formatados:', formattedEvents);
+        setEvents(formattedEvents);
+      })
+      .catch(error => console.error('Erro ao carregar consultas:', error));
   }, []);
 
-  const transformData = (dados) => {
-    return dados.map(item => ({
-      title: item.titulo, // Certifique-se de que `titulo` existe em `item`
-      start: new Date(item.data_inicio),
-      end: new Date(item.data_fim),
-    }));
+  const fetchConsultasFromAPI = async () => {
+    const response = await fetch('http://localhost:5020/pegardata');
+    if (!response.ok) {
+      throw new Error('Erro ao carregar dados da API');
+    }
+    const data = await response.json();
+    console.log('Dados recebidos:', data);
+    return data;
   };
 
   return (
-    <div>
-      <Calendar
-        localizer={localizer}
-        events={listadeEventos}
-        startAccessor="start"
-        endAccessor="end"
-        views={['month', 'week', 'day', 'agenda']}
-        defaultView="month"
-        style={{ height: 500, margin: '50px' }}
-      />
-    </div>
+    <main>
+      <div style={{ height: '550px', width: '57vw',  marginLeft:  '80px', marginTop: '-12 0px'  }}>
+        <Calendar
+              localizer={localizer}
+              events={events}
+              startAccessor="start"
+              endAccessor="end"
+              style={{ margin: '50px' }}
+              messages={{
+              today: 'Hoje',
+              previous: 'Voltar',
+              next: 'Próximo',
+              month: 'Mês',
+              week: 'Semana',
+              day: 'Dia',
+              agenda: 'Agenda',
+              date: 'Data',
+              time: 'Hora',
+              event: 'Evento',
+          }}
+        />
+      </div>
+    </main>  
   );
-}
+};
+

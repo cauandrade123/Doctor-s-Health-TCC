@@ -40,7 +40,7 @@ export default function CardAgenda() {
         endAccessor="end"
         views={['month', 'week', 'day', 'agenda']}
         defaultView="month"
-        style={{ height: 500, margin: '50px' }}
+        style={{ height: 500, margin: '50px', boxShadow: '10px 10px 10px black' }}
       />
     </div>
   );

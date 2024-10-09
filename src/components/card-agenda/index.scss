@@ -27,12 +27,11 @@
           }
 
           .calendar {
-            // Estilo geral do input de data
-            appearance: none; // Remove o estilo padrão do input de data
-            -webkit-appearance: none; // Para Webkit (Chrome, Safari, etc.)
-            -moz-appearance: none; // Para Firefox
-          
-            // Estilizando o campo
+           
+            appearance: none; 
+            -webkit-appearance: none; 
+            -moz-appearance: none; 
+        
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;

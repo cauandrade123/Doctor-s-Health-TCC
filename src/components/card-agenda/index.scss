@@ -1,8 +1,5 @@
-.pagina-agenda{
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
+<<<<<<< HEAD
     .content{ 
         margin: 5dvh;
         display: flex;
@@ -40,54 +37,25 @@
           }
           
     
+=======
+    .rbc-calendar {
+      background-color: #f8f9fa; 
+      border-radius: 8px; 
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+      margin-left: 20px;
     }
-    .react-datepicker {
-        margin: 10dvh;
-        font-family: 'Roboto', sans-serif;
-        
-      
-        &__header {
-          background-color: #007bff; // Cabeçalho azul
-          border-bottom: 1px solid #004896;
-        }
-      
-        &__current-month {
-          color: white;
-         
-        }
-      
-         &__day {
-          color: #007bff;
-          padding: 02dvh;
-        }
-        
-        &__day-name{
-            color: white;
-        }
-      
-        &__day--selected {
-          background-color: #007bff; // Dia selecionado azul
-          color: white;
-        }
-      
-        &__day:hover {
-          background-color: #0056b3; // Fundo mais escuro ao passar o mouse
-          color: white;
-        }
-      
-        &__navigation {
-          background-color: #007bff; // Navegação azul
-          border: none;
-      
-          &--previous, &--next {
-            color: white;
-          }
-        }
-      
-        &__day--keyboard-selected {
-          background-color: #80bdff;
-          color: #fff;
-        }
-      }
-      
-}
+    
+    .rbc-event {
+      background-color: #007bff; 
+      color: white; 
+      border-radius: 4px; 
+    }
+    
+    .rbc-event:hover {
+      background-color: #0056b3; 
+    }
+    
+    .rbc-month-view {
+      border: 1px solid #dee2e6; 
+>>>>>>> b509d69cfd151ba4e7529640a3a2fa245317aa45
+    }

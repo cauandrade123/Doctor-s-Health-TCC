@@ -42,7 +42,7 @@ export default function Cards({ texto_1, texto_2, texto_3, img_1, img_2,img_3 })
             </div>
             <div className="box-grande">
                 <div className="content-da-grande">
-                    {/* Controla qual slide está visível com base na posição */}
+                   
                     {posicao === 0 && (
                         <div className="slide">
                               <img src={img_1} alt="Slide 1" />

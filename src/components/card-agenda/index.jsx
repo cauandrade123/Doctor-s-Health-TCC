@@ -1,13 +1,74 @@
-import React from 'react';
-import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
+import './index.scss'
+import React, { useState, useEffect } from 'react';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import { format, parse, startOfWeek, getDay } from 'date-fns';
-import ptBR from 'date-fns/locale/pt-BR';
+import moment from 'moment';
+import 'moment/locale/pt-br'; 
 
-const locales = {
-  'pt-BR': ptBR,
+const localizer = momentLocalizer(moment);
+
+export default function  MyCalendar  () {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    fetchConsultasFromAPI()
+      .then(data => {
+        const formattedEvents = data.map(event => {
+          
+          const startDate = moment(event.dia_horario).toDate();
+          const endDate = moment(event.dia_horario).add(1, 'hours').toDate(); 
+
+          return {
+            start: startDate,
+            end: endDate,
+            title: event.title || 'Consulta',
+          };
+        });
+
+        console.log('Eventos formatados:', formattedEvents);
+        setEvents(formattedEvents);
+      })
+      .catch(error => console.error('Erro ao carregar consultas:', error));
+  }, []);
+
+  const fetchConsultasFromAPI = async () => {
+    const response = await fetch('http://localhost:5020/pegardata');
+    if (!response.ok) {
+      throw new Error('Erro ao carregar dados da API');
+    }
+    const data = await response.json();
+    console.log('Dados recebidos:', data);
+    return data;
+  };
+
+  return (
+    <main>
+      <div style={{ height: '550px', width: '57vw',  marginLeft:  '80px', marginTop: '-12 0px'  }}>
+        <Calendar
+              localizer={localizer}
+              events={events}
+              startAccessor="start"
+              endAccessor="end"
+              style={{ margin: '50px' }}
+              messages={{
+              today: 'Hoje',
+              previous: 'Voltar',
+              next: 'Próximo',
+              month: 'Mês',
+              week: 'Semana',
+              day: 'Dia',
+              agenda: 'Agenda',
+              date: 'Data',
+              time: 'Hora',
+              event: 'Evento',
+          }}
+        />
+      </div>
+    </main>  
+  );
 };
 
+<<<<<<< HEAD
 const localizer = dateFnsLocalizer({
   format,
   parse,
@@ -48,3 +109,5 @@ export default function CardAgenda() {
 
 
 
+=======
+>>>>>>> b509d69cfd151ba4e7529640a3a2fa245317aa45

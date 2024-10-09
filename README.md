@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+create database db_tcc;
+use db_tcc;
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+create table tb_agenda(
+id_agenda int primary key auto_increment,
+dia_horario datetime unique
 
-## Available Scripts
+);
 
-In the project directory, you can run:
 
-### `npm start`
+create table consulta(
+id_consulta int primary key auto_increment,
+id_agenda int,
+tratamento varchar(244),
+condicao varchar(100),
+medicacao varchar(200),
+preco decimal(10,2),
+id_paciente          int,
+finalizadaboolean,
+foreign key(id_agenda) references tb_agenda(id_agenda),
+foreign key(id_paciente) references tb_auto_cadastro(id_paciente)
+);
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+create table tb_auto_cadastro(
+id_paciente int primary key auto_increment,
+nome           varchar(100),
+nascimento              date,
+rg              varchar(20) unique,
+cpf               varchar(20) unique,
+metodo_pagamento varchar(20),
+telefone varchar(11),
+id_agendaint,
+foreign key(id_agenda) references tb_agenda(id_agenda)
+);
 
-### `npm test`
+create table tb_cadastrado(
+id_cadastrado  int primary key auto_increment,
+cpf varchar(20),
+metodo_pagamento varchar(20),
+id_agenda int,
+foreign key(id_agenda) references tb_agenda(id_agenda),
+foreign key(cpf) references tb_auto_cadastro(cpf)
+);
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+create table tb_login(
+id_login   int primary key auto_increment,
+email        varchar(255),
+senha        varchar(255)
+);
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+INSERT INTO tb_agenda (dia_horario) VALUES
+('2024-10-01 10:00:00'),
+('2024-10-02 14:30:00'),
+('2024-10-03 09:15:00');
 
-### `npm run eject`
+INSERT INTO tb_auto_cadastro (nome, nascimento, rg, cpf, metodo_pagamento, telefone) VALUES
+('João Silva', '1985-05-20', '123456789', '123.456.789-00', 'Cartão', '11987654321'),
+('Maria Oliveira', '1990-08-15', '987654321', '987.654.321-00', 'Dinheiro', '11876543210'),
+('Carlos Pereira', '1978-02-10', '555555555', '555.555.555-00', 'Cheque', '11765432109');
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+INSERT INTO consulta (id_agenda, tratamento, condicao, medicacao, preco, id_paciente, finalizada) VALUES
+(1, 'Limpeza Dental', 'Saudável', 'Fluoreto', 150.00, 1, true),
+(2, 'Restauração', 'Cárie', 'Analgésico', 300.00, 2, true),
+(3, 'Consulta de Rotina', 'Saudável', 'Nenhuma', 100.00, 3, false);
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+INSERT INTO tb_cadastrado (cpf, metodo_pagamento, id_agenda) VALUES
+('123.456.789-00', 'Cartão', 1),
+('987.654.321-00', 'Dinheiro', 2);
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ SELECT 
+tb_agenda.dia_horario,
+   tb_auto_cadastro.nome,
+tb_auto_cadastro.rg,
+    tb_auto_cadastro.nascimento,
+    tb_auto_cadastro.cpf,
+    consulta.tratamento,
+    consulta.condicao,
+    consulta.medicacao,
+    consulta.preco,
+    consulta.finalizada
+FROM 
+    consulta
+JOIN 
+    tb_agenda ON consulta.id_agenda = tb_agenda.id_agenda
+JOIN 
+    tb_auto_cadastro ON consulta.id_paciente = tb_auto_cadastro.id_paciente
+WHERE 
+    finalizada = true
+ORDER BY 
+    tb_agenda.dia_horario DESC;
+    
+    insert into tb_login(email, senha) values ('adm123', '123');

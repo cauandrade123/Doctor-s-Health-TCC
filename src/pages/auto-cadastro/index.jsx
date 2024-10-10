@@ -95,8 +95,8 @@ export default function Auto_cadastro() {
     };
 
     const verificarConsulta = async (cpf) => {
-        const url = 'http://localhost:5020/verificarConsulta';
-        const response = await axios.post(url, { cpf });
+       
+        const response = await axios.get(`http://localhost:5020/verificarconsulta/${cpf}`);
         return response.data;
     };
 
@@ -167,51 +167,48 @@ export default function Auto_cadastro() {
     
         try {
             console.log('Verificando se o paciente já está cadastrado...');
-    
+            
             const pacienteExistente = await verificarpaciente(cpf);
-    
+            
             if (pacienteExistente) {
                 console.log('Paciente já cadastrado:', pacienteExistente);
-    
-         
+                
                 setNotificationMessage('O paciente já está cadastrado no sistema.');
                 setNotificationType('info');
-    
-             
+                
                 console.log('Verificando se o paciente já possui consulta marcada...');
-                const consultaExistente = await verificarConsulta(cpf);
-                if (consultaExistente) {
-                    console.log('Consulta já existente:', consultaExistente);
+                const consultaResponse = await verificarConsulta(cpf);
+                
+                if (consultaResponse.hasConsulta) {
+                    console.log('Consulta já existente:', consultaResponse.consulta);
                     setNotificationMessage('O paciente já possui uma consulta marcada.');
                     setNotificationType('error');
                     return;
                 }
             }
-    
-            
+        
+            // Continue com o cadastro da agenda e consulta
             console.log('Cadastrando agenda...');
             const agendaId = await cadastrarAgenda(data, horario);
-    
+            
             console.log('Agenda cadastrada com ID:', agendaId);
-    
             
             const pacienteId = pacienteExistente?.id || await criarAutoCadastro(nome, DTnascimento, rg, cpf, pagamento, telefone, agendaId);
-            console.log('Paciente cadastrado com ID:', pacienteId);
-    
+
+            
             console.log('Cadastrando consulta...');
             const consultaData = await cadastrarConsulta(agendaId, pacienteId);
             console.log('Consulta cadastrada:', consultaData);
-    
+            
             setNotificationMessage('Consulta marcada com sucesso!');
             setNotificationType('success');
             <Navigate to='/' />
-    
+        
         } catch (error) {
             console.error('Erro ao cadastrar:', error);
             setNotificationMessage('Erro ao cadastrar. Tente novamente.');
             setNotificationType('error');
-        }
-    };
+        }};
     
 
     const closeNotification = () => {

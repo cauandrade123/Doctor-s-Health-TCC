@@ -5,6 +5,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import moment from 'moment';
 import 'moment/locale/pt-br'; 
 
+
 const localizer = momentLocalizer(moment);
 
 export default function  MyCalendar  () {
@@ -43,71 +44,26 @@ export default function  MyCalendar  () {
 
   return (
     <main>
-      <div style={{ height: '550px', width: '57vw',  marginLeft:  '80px', marginTop: '-12 0px'  }}>
-        <Calendar
-              localizer={localizer}
-              events={events}
-              startAccessor="start"
-              endAccessor="end"
-              style={{ margin: '50px' }}
-              messages={{
-              today: 'Hoje',
-              previous: 'Voltar',
-              next: 'Próximo',
-              month: 'Mês',
-              week: 'Semana',
-              day: 'Dia',
-              agenda: 'Agenda',
-              date: 'Data',
-              time: 'Hora',
-              event: 'Evento',
-          }}
-        />
-      </div>
-    </main>  
+  <div style={{ height: '550px', width: '57vw', marginLeft: '80px', marginTop: '-70px', backgroundColor: 'transparent' }}>
+    <Calendar
+      localizer={localizer}
+      events={events}
+      startAccessor="start"
+      endAccessor="end"
+      messages={{
+        today: 'Hoje',
+        previous: 'Voltar',
+        next: 'Próximo',
+        month: 'Mês',
+        week: 'Semana',
+        day: 'Dia',
+        agenda: 'Agenda',
+      }}
+    />
+  </div>
+</main>
+
   );
 };
 
-<<<<<<< HEAD
-const localizer = dateFnsLocalizer({
-  format,
-  parse,
-  startOfWeek: () => startOfWeek(new Date(), { weekStartsOn: 0 }),
-  getDay,
-  locales,
-});
 
-const myEventsList = [
-  {
-    title: 'Reunião',
-    allDay: true,
-    start: new Date(2024, 9, 1),
-    end: new Date(2024, 9, 1),
-  },
-  {
-    title: 'Projeto',
-    start: new Date(2024, 9, 7, 10, 0),
-    end: new Date(2024, 9, 7, 12, 0),
-  },
-];
-
-export default function CardAgenda() {
-  return (
-    <div>
-      <Calendar
-        localizer={localizer}
-        events={myEventsList}
-        startAccessor="start"
-        endAccessor="end"
-        views={['month', 'week', 'day', 'agenda']}
-        defaultView="month"
-        style={{ height: 500, margin: '50px', boxShadow: '10px 10px 10px black' }}
-      />
-    </div>
-  );
-}
-
-
-
-=======
->>>>>>> b509d69cfd151ba4e7529640a3a2fa245317aa45

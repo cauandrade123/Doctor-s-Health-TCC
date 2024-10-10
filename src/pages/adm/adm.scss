@@ -9,7 +9,7 @@
     flex-direction: row;
     background-color: rgba(211, 211, 211, 0.493); /* A cor cinza é aplicada apenas aqui */
     min-height: 100vh; /* Ocupa a altura total da viewport */
-    width: 100vw; /* Ocupa a largura total da viewport */
+    width: auto; /* Ocupa a largura total da viewport */
 
     .menu-adm {
         background: #00a2ffc0; 

@@ -10,29 +10,8 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
     const [sair, setSair] = useState(false);
     const [terminada, setTerminada] = useState(false)
     const [finalizada2, setFinalizada2] = useState(finalizada)
-    const [bt, setBt] = useState('')
 
-    const navigate = useNavigate()
-    
-      function setarBt () {
-        if (finalizada == 'Sim') {
-            setBt(
-                <button className='editar' >Já finalizada</button>
-            )
-        } else {
-            setBt(
-                <button className='editar' onClick={Finalizar} >Finalizar?</button>
-            )
-            
-        }
-      } 
-     
-
-      useEffect(() =>{
-        setarBt()
-      }, [])
-      
-    
+  
     const edit = () => {
         setEditarMode(true);
     };
@@ -50,12 +29,12 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
     };
 
 
+
+
    async function Finalizar() {
     const url = 'http://localhost:5020/finalizarConsulta/'+cpf 
     let  resp = await axios.put(url)
 
-    navigate('/adm')
-    setFinalizada2(resp)
     }
 
     async function verificarEstadoFinalizada() {
@@ -63,13 +42,12 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
         let resp2 = await axios.get(url2)
 
         
-        setFinalizada2(resp2)
-        
+        setFinalizada2(resp2.data.finalizada)
     }
 
     useEffect( () => {
         verificarEstadoFinalizada()
-    }, [finalizada2])
+    }, [finalizada,cpf])
 
 
    
@@ -196,6 +174,7 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
                         onChange={mudar}
                     />
                 ) : (
+                    
                     <p>{finalizada}</p>
                 )}</h2>
                 
@@ -216,9 +195,11 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
                 )}
 
                 
-                {bt}
+                {(finalizada == 'Não') && <button className='editar' onClick={Finalizar} >Finalizar?</button> }
                 
         </div>
     </div>
     )
 }
+
+//<button className='editar' onClick={Finalizar} >Finalizar?</button>

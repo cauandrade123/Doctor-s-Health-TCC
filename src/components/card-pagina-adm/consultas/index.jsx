@@ -14,14 +14,16 @@ export default function Cardadm() {
     const [buscar, setBuscar] = useState('')
 
 
-    function YesORNo (booleano) {
-        console.log(booleano)
-        if (booleano == undefined) {
-            booleano = 'Sim'
-        } else {booleano = 'Não'}
 
-        return booleano
+    function Transformar (finalizada) {
+
+        if (finalizada == undefined) {
+            finalizada = 'Sim'
+        } else { finalizada = 'Não' }
+
+        return finalizada
     }
+
 
     function CalcularIdade (nascimento){
 
@@ -98,25 +100,22 @@ export default function Cardadm() {
 
                     {consultasList.map((item, index) => {
 
-
+                       
                     return (
                       
                 <Card_Paciente
                     key={index}
                     condicao={item.condicao}
                     cpf={item.cpf}
-
                     dia_horario={new Date(item.dia_horario).toLocaleDateString()}
                     horario={new Date(item.dia_horario).toLocaleString('pt-BR', {hour: '2-digit',minute: '2-digit', hour12: false})}
-                    
                     medicacao={item.medicacao}
-                    nascimento={`Idade atual: ${CalcularIdade(item.nascimento)}
-Data de nascimento: ${new Date(item.nascimento).toLocaleDateString()}`}
+                    nascimento={`Idade atual: ${CalcularIdade(item.nascimento)}\nData de nascimento: ${new Date(item.nascimento).toLocaleDateString()}`}
                     nome={item.nome}
                     preco={item.preco}
                     rg={item.rg}
                     tratamento={item.tratamento}
-                    finalizada={YesORNo(item.finalizada)}
+                    finalizada={item.finalizada?('Sim'):('Não')}
                 />
 
               

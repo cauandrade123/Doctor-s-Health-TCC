@@ -18,6 +18,10 @@ import { Link } from "react-router-dom";
 
 
 export default function Auto_cadastro() {
+
+    const Navigate = useNavigate()
+
+
     const [horariosOcupados, setHorariosOcupados] = useState([]);
     const [nome, setNome] = useState();
     const [telefone, setTelefone] = useState();
@@ -120,7 +124,7 @@ export default function Auto_cadastro() {
         let segundoDigito = (soma * 10) % 11;
         if (segundoDigito === 10) segundoDigito = 0;
 
-        return cpfLimpo[9] == primeiroDigito && cpfLimpo[10] == segundoDigito;
+        return cpfLimpo[9] === primeiroDigito && cpfLimpo[10] === segundoDigito;
     };
 
     const obterHorariosOcupados = async (data) => {
@@ -216,19 +220,10 @@ export default function Auto_cadastro() {
     };
 
 
-    const enviarEmail = () => { 
-        if (cadastrarTudo()) {
-            const url = 'endereço do endpoints'
+   
+  
 
-            axios.post(url, email)
-        }
-
-        return enviarEmail
-    }
-
-
-
-
+   
     return (
         <div className="main">
 
@@ -292,10 +287,10 @@ export default function Auto_cadastro() {
                             <input onChange={IndetificarData} type="date" />
                         </div>
 
-                        <div className="input-style">
+                        {/* <div className="input-style">
                             <p>Email</p>
-                            <input type="text" placeholder="Digite aqui seu email" onChange={e => setEmail(e.target.value)} />
-                        </div>
+                            <input type="text" placeholder="Digite aqui seu email"  />
+                        </div> */}
 
                         <div className="input-style">
                             <p>Horário</p>
@@ -328,8 +323,8 @@ export default function Auto_cadastro() {
                             <Link to={'/cadastrado'}>Se você já possui cadastro, clique aqui.</Link>
                         </div>
 
-                        {<button onClick={() => cadastrarTudo(nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario, terminada)}>Enviar</button>}
-
+                       {<button onClick={() => cadastrarTudo(nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario, terminada)}>Enviar</button>} 
+                       
 
 
 

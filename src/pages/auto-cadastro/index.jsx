@@ -19,6 +19,21 @@ import { Link } from "react-router-dom";
 
 export default function Auto_cadastro() {
 
+    const validarMaiorDe18 = (dataNascimento) => {
+        const hoje = new Date();
+        const nascimento = new Date(dataNascimento);
+        let idade = hoje.getFullYear() - nascimento.getFullYear();
+        const mes = hoje.getMonth() - nascimento.getMonth();
+    
+        // Ajusta se a pessoa ainda não fez aniversário este ano
+        if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
+            idade--;
+        }
+    
+        // Retorna true se a idade for maior ou igual a 18, caso contrário false
+        return idade >= 18;
+    };
+
     const Navigate = useNavigate()
 
 
@@ -47,7 +62,7 @@ export default function Auto_cadastro() {
         setRg('');
         setHorario('');
         setData('');
-        setNotificationMessage(''); // Reseta a mensagem de notificação
+        setNotificationMessage(''); 
     };
 
     const cadastrarAgenda = async (data, horario) => {
@@ -58,7 +73,7 @@ export default function Auto_cadastro() {
         };
 
         const response = await axios.post(url, info);
-        return response.data.agendaId; // Retorna o ID da agenda criada
+        return response.data.agendaId; 
     };
 
     const criarAutoCadastro = async (nome, DTnascimento, rg, cpf, pagamento, telefone, agendaId) => {
@@ -74,7 +89,7 @@ export default function Auto_cadastro() {
 
         const url = 'http://localhost:5020/autocadastro';
         const resp = await axios.post(url, tudo);
-        return resp.data.pacienteId; // Retorna o ID do paciente cadastrado
+        return resp.data.pacienteId; 
     };
 
     const cadastrarConsulta = async (agendaId, pacienteId) => {
@@ -89,7 +104,7 @@ export default function Auto_cadastro() {
 
         const url2 = 'http://localhost:5020/consultas';
         const resp2 = await axios.post(url2, con);
-        return resp2.data; // Retorna os dados da consulta criada
+        return resp2.data; 
     };
 
     const verificarpaciente = async (cpf) => {
@@ -104,29 +119,45 @@ export default function Auto_cadastro() {
         return response.data;
     };
 
-    const verificarCpf = async (cpf) => {
+    const verificarCpf = (cpf) => {
         const cpfLimpo = cpf.replace(/\D/g, '');
+    
+        
         if (cpfLimpo.length !== 11 || /^(\d)\1{10}$/.test(cpfLimpo)) {
             return false;
         }
-
+    
+        
         let soma = 0;
         for (let i = 0; i < 9; i++) {
             soma += parseInt(cpfLimpo[i]) * (10 - i);
         }
         let primeiroDigito = (soma * 10) % 11;
-        if (primeiroDigito === 10) primeiroDigito = 0;
-
+        if (primeiroDigito === 10 || primeiroDigito === 11) {
+            primeiroDigito = 0;
+        }
+    
+        if (parseInt(cpfLimpo[9]) !== primeiroDigito) {
+            return false; 
+        }
+    
+       
         soma = 0;
         for (let i = 0; i < 10; i++) {
             soma += parseInt(cpfLimpo[i]) * (11 - i);
         }
         let segundoDigito = (soma * 10) % 11;
-        if (segundoDigito === 10) segundoDigito = 0;
-
-        return cpfLimpo[9] === primeiroDigito && cpfLimpo[10] === segundoDigito;
+        if (segundoDigito === 10 || segundoDigito === 11) {
+            segundoDigito = 0;
+        }
+    
+        if (parseInt(cpfLimpo[10]) !== segundoDigito) {
+            return false; 
+        }
+    
+       
+        return true;
     };
-
     const obterHorariosOcupados = async (data) => {
 
         try {
@@ -162,18 +193,24 @@ export default function Auto_cadastro() {
             return;
         }
 
-        const cpfValido = await verificarCpf(cpf);
+        const validarIdade = validarMaiorDe18(DTnascimento);
+            if (!validarIdade) {
+                setNotificationMessage('Você precisa ter 18 anos ou mais.');
+                setNotificationType('warning');
+                return;
+            }
+
+        const cpfValido = verificarCpf(cpf);
         if (!cpfValido) {
             setNotificationMessage('CPF inválido. Por favor, verifique e tente novamente.');
-            setNotificationType('error');
+            setNotificationType('warning');
             return;
         }
     
         try {
+
             console.log('Verificando se o paciente já está cadastrado...');
-            
             const pacienteExistente = await verificarpaciente(cpf);
-            
             if (pacienteExistente) {
                 console.log('Paciente já cadastrado:', pacienteExistente);
                 
@@ -186,12 +223,13 @@ export default function Auto_cadastro() {
                 if (consultaResponse.hasConsulta) {
                     console.log('Consulta já existente:', consultaResponse.consulta);
                     setNotificationMessage('O paciente já possui uma consulta marcada.');
-                    setNotificationType('error');
+                    setNotificationType('info');
                     return;
                 }
+                return;
             }
         
-            // Continue com o cadastro da agenda e consulta
+            
             console.log('Cadastrando agenda...');
             const agendaId = await cadastrarAgenda(data, horario);
             

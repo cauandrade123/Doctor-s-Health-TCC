@@ -7,9 +7,23 @@
 .main-adm {
     display: flex;
     flex-direction: row;
-    background-color: rgba(211, 211, 211, 0.493); /* A cor cinza é aplicada apenas aqui */
     min-height: 100vh; /* Ocupa a altura total da viewport */
-    width: auto; /* Ocupa a largura total da viewport */
+ 
+
+
+    .consultas {
+        display: flex;
+        padding-top: 3vh;
+        align-self: center;
+        min-height: 100vh;
+        flex: 1;
+    
+
+        
+        background-color: rgba(111, 111, 111, 0.326); /* A cor cinza é aplicada apenas aqui */
+
+       
+    }
 
     .menu-adm {
         background: #0015ffc0; 
@@ -85,10 +99,5 @@
         }
     }
 
-    .consultas {
-        display: flex;
-        padding-top: 3vh;
-        align-self: center;
-        height: 70vh;
-    }
+   
 }

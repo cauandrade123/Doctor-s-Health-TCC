@@ -16,7 +16,7 @@ export default function Navegacao() {
     const PrivateRoute = ({ children }) => {
       const token = localStorage.getItem('token');
     
-      // Verificar se o token é válido e não está expirado
+      
       if (token) {
         const decodedoToken = jwtDecode(token);
         const tempo = Date.now() / 1000; 
@@ -40,7 +40,7 @@ export default function Navegacao() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Adm/>} />
+                <Route path="/" element={<App/>} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/auto_cadastro" element={<Auto_cadastro />} />
                 <Route path="/teste" element={<Teste />} />

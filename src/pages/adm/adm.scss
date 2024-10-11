@@ -12,8 +12,8 @@
     width: auto; /* Ocupa a largura total da viewport */
 
     .menu-adm {
-        background: #00a2ffc0; 
-        width: 55vh;
+        background: #0015ffc0; 
+        width: 53vh;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
@@ -36,10 +36,10 @@
         }
 
         .menu-azul {
-            background-color: rgba(4, 108, 226, 0.808);
+            background-color: rgb(81, 162, 255);
             border-top-left-radius: 3vh;
             border-top-right-radius: 3vh;
-            width: 80%;
+            width: 76%;
             height: 50%;
             margin: 0 auto;
             padding: 20px;

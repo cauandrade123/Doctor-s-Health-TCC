@@ -10,7 +10,7 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
     const [sair, setSair] = useState(false);
     const [terminada, setTerminada] = useState(false)
     const [finalizada2, setFinalizada2] = useState(finalizada)
-
+    const [bt, setBotao] = useState('')
   
     const edit = () => {
         setEditarMode(true);
@@ -27,6 +27,19 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
     const mudar = (e) => {
        
     };
+
+
+    {/* Função para setar o botão de finalizar, se FINALZIADA for == 'Não', ele seta com valor button, se não deixa do mesmo jeito */}
+    function setBt() {
+        
+        if(finalizada == 'Não'){
+        setBotao(<button className='editar' onClick={Finalizar} >Finalizar?</button>)
+        } 
+        else {
+        setBotao('')
+        }
+
+    }
 
 
 
@@ -47,7 +60,8 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
 
     useEffect( () => {
         verificarEstadoFinalizada()
-    }, [finalizada,cpf])
+        setBt()
+    }, [finalizada2,cpf])
 
 
    
@@ -60,55 +74,26 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
             <h1>Data: {dia_horario} / Horário: {horario}</h1>
             <hr />
             <div className="field">
-                <h2>Nome:      {editarMode ? (
-                    <input
-                        type="text"
-                        name="nome"
-                        value={nome}
-                        onChange={mudar}
-                    />
-                ) : (
+                <h2>Nome:      
                     <p>{nome}</p>
-                )}</h2>
+                </h2>
           
             </div>
             <div className="field">
-                <h2>RG:  {editarMode ? (
-                    <input
-                        type="text"
-                        name="rg"
-                        value={rg}
-                        onChange={mudar}
-                    />
-                ) : (
+                <h2>RG:  
                     <h2>{rg}</h2>
-                )}</h2>
+                </h2>
               
             </div>
             <div className="field">
-                <h2>Idade:  {editarMode ? (
-                    <input
-                        type="text"
-                        name="idade"
-                        value={nascimento}
-                        onChange={mudar}
-                    />
-                ) : (
-                    <p><pre>{nascimento}</pre></p>
-                )}</h2>
+                <h2>Idade:   <p><pre>{nascimento}</pre></p>
+                </h2>
               
             </div>
             <div className="field">
-                <h2>CPF: {editarMode ? (
-                    <input
-                        type="text"
-                        name="cpf"
-                        value={cpf}
-                        onChange={mudar}
-                    />
-                ) : (
+                <h2>CPF: 
                     <p>{cpf}</p>
-                )}</h2>
+                </h2>
                
             </div>
             <div className="field">
@@ -167,14 +152,13 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
             <div className="field">
                 <h2>Finalizada:{editarMode ? (
                     <input
-                        type="text"
+                        type="checkbox"
                         
                         name="Finalizada"
                         value={finalizada}
                         onChange={mudar}
-                    />
-                ) : (
-                    
+                    /> 
+                ) : (     
                     <p>{finalizada}</p>
                 )}</h2>
                 
@@ -194,12 +178,10 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
                     </button>
                 )}
 
-                
-                {(finalizada == 'Não') && <button className='editar' onClick={Finalizar} >Finalizar?</button> }
+                {bt}
+             
                 
         </div>
     </div>
     )
 }
-
-//<button className='editar' onClick={Finalizar} >Finalizar?</button>

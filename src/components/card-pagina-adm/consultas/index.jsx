@@ -15,16 +15,6 @@ export default function Cardadm() {
 
 
 
-    function Transformar (finalizada) {
-
-        if (finalizada == undefined) {
-            finalizada = 'Sim'
-        } else { finalizada = 'Não' }
-
-        return finalizada
-    }
-
-
     function CalcularIdade (nascimento){
 
         {/* Pega a informação da data atual */}

@@ -2,6 +2,7 @@
 import './index.scss';
 import { useEffect, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
+import Notification from '../aviso/aviso';
 import axios from 'axios';
 export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medicacao,nascimento,nome,  preco, rg, tratamento, finalizada}){
 
@@ -11,6 +12,16 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
     const [terminada, setTerminada] = useState(false)
     const [finalizada2, setFinalizada2] = useState(finalizada)
     const [bt, setBotao] = useState('')
+
+    const [notificationMessage, setNotificationMessage] = useState('');
+    const [notificationType, setNotificationType] = useState('')
+
+    const closeNotification = () => {
+        setNotificationMessage('');
+    };
+
+
+    const navigate = useNavigate()
   
     const edit = () => {
         setEditarMode(true);
@@ -29,11 +40,12 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
     };
 
 
-    {/* Função para setar o botão de finalizar, se FINALZIADA for == 'Não', ele seta com valor button, se não deixa do mesmo jeito */}
+    {/* Função para setar o botão de finalizar, se FINALIZADA for == 'Não', ele seta com valor button, se não deixa do mesmo jeito */}
     function setBt() {
         
         if(finalizada == 'Não'){
         setBotao(<button className='editar' onClick={Finalizar} >Finalizar?</button>)
+        
         } 
         else {
         setBotao('')
@@ -47,14 +59,21 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
    async function Finalizar() {
     const url = 'http://localhost:5020/finalizarConsulta/'+cpf 
     let  resp = await axios.put(url)
+    
+    setNotificationMessage('Consulta finalizada com sucesso!')
+    setNotificationType('sucess')
 
+    setTimeout(function() {
+        window.location.reload();
+    }, 3000)
+
+    
     }
 
     async function verificarEstadoFinalizada() {
         const url2 = 'http://localhost:5020/consultaFinalizar/'+cpf
         let resp2 = await axios.get(url2)
 
-        
         setFinalizada2(resp2.data.finalizada)
     }
 
@@ -68,7 +87,12 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
     return(
         <div className="card1">
 
-      
+        <Notification
+                message={notificationMessage}
+                onClose={closeNotification}
+                duration={4000}
+                type={notificationType} 
+        />
 
         <div className="dados-cliente">
             <h1>Data: {dia_horario} / Horário: {horario}</h1>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './index.scss';
 import axios from 'axios';
 import Card_Paciente from '../../card-paciente';
-
+import Notification from '../../aviso/aviso';
 
 export default function Cardadm() {
  
@@ -12,6 +12,9 @@ export default function Cardadm() {
     const [futura, setFutura] = useState('consultasFuturas')
     const [passadas, setPassadas] = useState('consultasPassadas')
     const [buscar, setBuscar] = useState('')
+
+    const [notificationMessage, setNotificationMessage] = useState('');
+    const [notificationType, setNotificationType] = useState('')  
 
 
 
@@ -68,7 +71,6 @@ export default function Cardadm() {
         } else {
             Buscar()
         }
-       
     }, [tipoConsulta, buscar])
 
 
@@ -90,9 +92,9 @@ export default function Cardadm() {
 
                     {consultasList.map((item, index) => {
 
-                       
+          
                     return (
-                      
+                       
                 <Card_Paciente
                     key={index}
                     condicao={item.condicao}
@@ -111,6 +113,9 @@ export default function Cardadm() {
               
                     
                     );
+
+    
+        
                 })}
 
         </div>

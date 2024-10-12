@@ -43,24 +43,24 @@ export default function  MyCalendar  () {
   };
 
   return (
-    <main>
-  <div style={{ height: '500px', width: '50vw', marginLeft: '20dvh', backgroundColor: 'transparent' }}>
-    <Calendar
-      localizer={localizer}
-      events={events}
-      startAccessor="start"
-      endAccessor="end"
-      messages={{
-        today: 'Hoje',
-        previous: 'Voltar',
-        next: 'Próximo',
-        month: 'Mês',
-        week: 'Semana',
-        day: 'Dia',
-        agenda: 'Agenda',
-      }}
-    />
-  </div>
+    <main className='card-calendario'>
+    <div style={{ height: '500px', width: '50vw', marginLeft: '20dvh', backgroundColor: 'transparent' }}>
+      <Calendar
+        localizer={localizer}
+        events={events}
+        startAccessor="start"
+        endAccessor="end"
+        messages={{
+          today: 'Hoje',
+          previous: 'Voltar',
+          next: 'Próximo',
+          month: 'Mês',
+          week: 'Semana',
+          day: 'Dia',
+          agenda: 'Agenda',
+        }}
+      />
+    </div>
 </main>
 
   );

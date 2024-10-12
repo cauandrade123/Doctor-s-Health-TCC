@@ -5,7 +5,13 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import Notification from '../aviso/aviso';
 import axios from 'axios';
 export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medicacao,nascimento,nome,  preco, rg, tratamento, finalizada}){
-
+  
+    // const[preco, setPreco] = useState(preco)
+    // const[medicacao, setMedicacao] = useState(medicacao)
+    // const[rg, setRg] = useState(rg)
+    // const[cpf, setCpf] = useState(cpf)
+    // const[condicao, setCondicao] = useState(condicao)
+    // const[tratamento, setTratamento]= useState(tratamento)
 
     const [editarMode, setEditarMode] = useState(false);
     const [sair, setSair] = useState(false);
@@ -167,6 +173,7 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
                         value={preco}
                         onChange={mudar}
                     />
+
                 ) : (
                     <p>{preco}</p>
                 )}</h2>

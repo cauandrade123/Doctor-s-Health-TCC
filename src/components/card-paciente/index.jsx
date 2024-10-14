@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import Notification from '../aviso/aviso';
 import axios from 'axios';
+import ConsultasPDF from '../gerar-pdf';
 export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medicacao,nascimento,nome,  preco, rg, tratamento, finalizada}){
   
     // const[preco, setPreco] = useState(preco)
@@ -208,6 +209,8 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
                         Editar
                     </button>
                 )}
+
+                <button onClick={ConsultasPDF}>gerar pdf</button>
 
                 {bt}
              

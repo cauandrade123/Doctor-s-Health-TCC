@@ -247,7 +247,7 @@ export default function Auto_cadastro() {
             
             setNotificationMessage('Consulta marcada com sucesso!');
             setNotificationType('success');
-            <Navigate to='/' />
+            <Navigate to='/' />}
         
         } catch (error) {
             console.error('Erro ao cadastrar:', error);

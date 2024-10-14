@@ -97,6 +97,7 @@ export default function Cardadm() {
                        
                 <Card_Paciente
                     key={index}
+                    id={item.id}
                     condicao={item.condicao}
                     cpf={item.cpf}
                     dia_horario={new Date(item.dia_horario).toLocaleDateString()}

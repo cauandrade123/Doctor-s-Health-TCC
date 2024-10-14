@@ -76,6 +76,19 @@ export default function Auto_cadastro() {
         return response.data.agendaId; 
     };
 
+    const enviarEmail = async (nome, data, horario, email) => {
+        const url = 'http://localhost:5020/send';
+        const info = {
+            "nome": nome,
+            "email": email,
+            "dia": data,
+            "hora": horario
+        };
+
+        const response = await axios.post(url, info);
+        return response.data.agendaId; 
+    };
+
     const criarAutoCadastro = async (nome, DTnascimento, rg, cpf, pagamento, telefone, agendaId) => {
         const tudo = {
             "nome": nome,
@@ -184,10 +197,10 @@ export default function Auto_cadastro() {
 
     const horariosDisponiveis = ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
 
-    const cadastrarTudo = async (nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario) => {
+    const cadastrarTudo = async (nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario, email) => {
 
   
-        if (!nome || !telefone || !pagamento || !DTnascimento || !rg || !cpf || !data || !horario) {
+        if (!nome || !telefone || !pagamento || !DTnascimento || !rg || !cpf || !data || !horario || !email) {
             setNotificationMessage('Por favor, preencha todos os campos obrigatórios.');
             setNotificationType('error');
             return;
@@ -211,7 +224,7 @@ export default function Auto_cadastro() {
 
             console.log('Verificando se o paciente já está cadastrado...');
             const pacienteExistente = await verificarpaciente(cpf);
-            if (pacienteExistente) {
+            if (!pacienteExistente) {
                 console.log('Paciente já cadastrado:', pacienteExistente);
                 
                 setNotificationMessage('O paciente já está cadastrado no sistema.');
@@ -244,6 +257,9 @@ export default function Auto_cadastro() {
             
             setNotificationMessage('Consulta marcada com sucesso!');
             setNotificationType('success');
+            if(notificationMessage == "Consulta marcada com sucesso!"){
+                const envio = enviarEmail(nome, data, horario, email)
+            }
             <Navigate to='/' />
         
         } catch (error) {
@@ -325,10 +341,6 @@ export default function Auto_cadastro() {
                             <input onChange={IndetificarData} type="date" />
                         </div>
 
-                        {/* <div className="input-style">
-                            <p>Email</p>
-                            <input type="text" placeholder="Digite aqui seu email"  />
-                        </div> */}
 
                         <div className="input-style">
                             <p>Horário</p>
@@ -336,10 +348,10 @@ export default function Auto_cadastro() {
                                 <option value="">Selecione o horário</option>
                                 {horariosDisponiveis.map(h => (
                                     <option
-                                        key={h}
-                                        value={h}
-                                        className={horariosOcupados.includes(h) ? 'horario-ocupado' : 'horario-disponivel'}
-                                        disabled={horariosOcupados.includes(h)} 
+                                    key={h}
+                                    value={h}
+                                    className={horariosOcupados.includes(h) ? 'horario-ocupado' : 'horario-disponivel'}
+                                    disabled={horariosOcupados.includes(h)} 
                                     >
                                         {h}
                                     </option>
@@ -348,6 +360,10 @@ export default function Auto_cadastro() {
                         </div>
 
 
+                              <div className="input-style">
+                                    <p>Email</p>
+                                    <input onChange={e=>setEmail(e.target.value)} type="text" placeholder="Digite aqui seu email"  />
+                                </div> 
 
 
 

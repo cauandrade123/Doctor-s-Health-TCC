@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './index.scss';
 import axios from 'axios';
 import Card_Paciente from '../../card-paciente';
-
+import Notification from '../../aviso/aviso';
 
 export default function Cardadm() {
  
@@ -13,16 +13,9 @@ export default function Cardadm() {
     const [passadas, setPassadas] = useState('consultasPassadas')
     const [buscar, setBuscar] = useState('')
 
+    const [notificationMessage, setNotificationMessage] = useState('');
+    const [notificationType, setNotificationType] = useState('')  
 
-
-    function Transformar (finalizada) {
-
-        if (finalizada == undefined) {
-            finalizada = 'Sim'
-        } else { finalizada = 'Não' }
-
-        return finalizada
-    }
 
 
     function CalcularIdade (nascimento){
@@ -78,7 +71,6 @@ export default function Cardadm() {
         } else {
             Buscar()
         }
-       
     }, [tipoConsulta, buscar])
 
 
@@ -100,11 +92,12 @@ export default function Cardadm() {
 
                     {consultasList.map((item, index) => {
 
-                       
+          
                     return (
-                      
+                       
                 <Card_Paciente
                     key={index}
+                    id={item.id}
                     condicao={item.condicao}
                     cpf={item.cpf}
                     dia_horario={new Date(item.dia_horario).toLocaleDateString()}
@@ -121,6 +114,9 @@ export default function Cardadm() {
               
                     
                     );
+
+    
+        
                 })}
 
         </div>

@@ -7,13 +7,27 @@
 .main-adm {
     display: flex;
     flex-direction: row;
-    background-color: rgba(211, 211, 211, 0.493); /* A cor cinza é aplicada apenas aqui */
     min-height: 100vh; /* Ocupa a altura total da viewport */
-    width: auto; /* Ocupa a largura total da viewport */
+ 
+
+
+    .consultas {
+        display: flex;
+        padding-top: 3vh;
+        align-self: center;
+        min-height: 100vh;
+        flex: 1;
+    
+
+        
+        background-color: rgba(153, 153, 153, 0.326); /* A cor cinza é aplicada apenas aqui */
+
+       
+    }
 
     .menu-adm {
-        background: #00a2ffc0; 
-        width: 55vh;
+        background: #006eff; 
+        width: 53vh;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
@@ -36,10 +50,10 @@
         }
 
         .menu-azul {
-            background-color: rgba(4, 108, 226, 0.808);
+            background-color: rgb(81, 162, 255);
             border-top-left-radius: 3vh;
             border-top-right-radius: 3vh;
-            width: 80%;
+            width: 76%;
             height: 50%;
             margin: 0 auto;
             padding: 20px;
@@ -85,10 +99,5 @@
         }
     }
 
-    .consultas {
-        display: flex;
-        padding-top: 3vh;
-        align-self: center;
-        height: 70vh;
-    }
+   
 }

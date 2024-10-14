@@ -224,25 +224,15 @@ export default function Auto_cadastro() {
 
             console.log('Verificando se o paciente já está cadastrado...');
             const pacienteExistente = await verificarpaciente(cpf);
-            if (!pacienteExistente) {
+            if (pacienteExistente) {
                 console.log('Paciente já cadastrado:', pacienteExistente);
                 
                 setNotificationMessage('O paciente já está cadastrado no sistema.');
                 setNotificationType('info');
                 
-                console.log('Verificando se o paciente já possui consulta marcada...');
-                const consultaResponse = await verificarConsulta(cpf);
-                
-                if (consultaResponse.hasConsulta) {
-                    console.log('Consulta já existente:', consultaResponse.consulta);
-                    setNotificationMessage('O paciente já possui uma consulta marcada.');
-                    setNotificationType('info');
-                    return;
-                }
                 return;
-            }
-        
-            
+                
+            }else{
             console.log('Cadastrando agenda...');
             const agendaId = await cadastrarAgenda(data, horario);
             
@@ -257,9 +247,6 @@ export default function Auto_cadastro() {
             
             setNotificationMessage('Consulta marcada com sucesso!');
             setNotificationType('success');
-            if(notificationMessage == "Consulta marcada com sucesso!"){
-                const envio = enviarEmail(nome, data, horario, email)
-            }
             <Navigate to='/' />
         
         } catch (error) {

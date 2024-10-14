@@ -1,47 +1,55 @@
 
+.card-calendario{
+  display: flex;
+   justify-content: center;
+   align-items: center;
 
 
-.rbc-calendar {
-  border-radius: 10px;  
-  border: none;
-  overflow: hidden;   
-  box-shadow: 16px 10px 13px rgba(0, 0, 0, 0.331) ;
-  background-color: white;
-
-
-    .rbc-toolbar {
-      background-color: #007bff;  
-      color: white;               
-      padding: 10px;         
-      border-radius: 10px 10px 0 0; 
-    }
-    .rbc-btn-group button {
-      background-color: #007bff;  
-      color: white;              
-      border: none;               
-    }
-    
-    .rbc-btn-group button:hover {
-      background-color: #0056b3; 
-    }
-    
-    .rbc-toolbar-label {
-      font-weight: bold;    
-      color: white;    
-    }
-    
-    
-    .rbc-toolbar {
-      background-color: #007bff; 
-      color: white;            
-    }
-    
-    
-    
-    .rbc-btn-group button:hover {
-      background-color: #0056b3;   
-    }
-    
+  .rbc-calendar {
+    border-radius: 10px;  
+    border: none;
+    overflow: hidden;   
+    box-shadow: 16px 10px 13px rgba(0, 0, 0, 0.331) ;
+    background-color: white;
+  
+  
+      .rbc-toolbar {
+        background-color: #007bff;  
+        color: white;               
+        padding: 10px;         
+        border-radius: 10px 10px 0 0; 
+      }
+      .rbc-btn-group button {
+        background-color: #007bff;  
+        color: white;              
+        border: none;               
+      }
+      
+      .rbc-btn-group button:hover {
+        background-color: #0056b3; 
+      }
+      
+      .rbc-toolbar-label {
+        font-weight: bold;    
+        color: white;    
+      }
+      
+      
+      .rbc-toolbar {
+        background-color: #007bff; 
+        color: white;            
+      }
+      
+      
+      
+      .rbc-btn-group button:hover {
+        background-color: #0056b3;   
+      }
+      
+  
+  }
+  
 
 }
+
 

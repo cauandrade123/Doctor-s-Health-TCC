@@ -30,11 +30,11 @@ export default function Auto_cadastro() {
             idade--;
         }
     
-        // Retorna true se a idade for maior ou igual a 18, caso contrário false
+       
         return idade >= 18;
     };
 
-    const Navigate = useNavigate()
+   
 
 
     const [horariosOcupados, setHorariosOcupados] = useState([]);
@@ -76,15 +76,27 @@ export default function Auto_cadastro() {
         return response.data.agendaId; 
     };
 
-    const criarAutoCadastro = async (nome, DTnascimento, rg, cpf, pagamento, telefone, agendaId) => {
+    const enviarEmail = async (nome, data, horario, email) => {
+        const url = 'http://localhost:5020/send';
+        const info = {
+            "nome": nome,
+            "email": email,
+            "dia": data,
+            "hora": horario
+        };
+
+        const response = await axios.post(url, info);
+        return response.data.agendaId; 
+    };
+
+    const criarAutoCadastro = async (nome, DTnascimento, rg, cpf, telefone, email) => {
         const tudo = {
             "nome": nome,
             "nascimento": DTnascimento,
             "rg": rg,
             "cpf": cpf,
-            "metodo": pagamento,
             "telefone": telefone,
-            "id_agenda": agendaId
+            "email": email
         };
 
         const url = 'http://localhost:5020/autocadastro';
@@ -92,14 +104,15 @@ export default function Auto_cadastro() {
         return resp.data.pacienteId; 
     };
 
-    const cadastrarConsulta = async (agendaId, pacienteId) => {
+    const cadastrarConsulta = async (agendaId, pacienteId, pagamento) => {
         const con = {
             "id_agenda": agendaId,
             "tratamento": "",
             "condicao": "",
             "medicao": "",
             "preco": "0",
-            "id_paciente": pacienteId
+            "id_paciente": pacienteId,
+            "metodo": pagamento
         };
 
         const url2 = 'http://localhost:5020/consultas';
@@ -183,65 +196,66 @@ export default function Auto_cadastro() {
     };
 
     const horariosDisponiveis = ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
+    const navigate = useNavigate();
 
-    const cadastrarTudo = async (nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario) => {
+const cadastrarTudo = async (nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario, email) => {
+   
 
-  
-        if (!nome || !telefone || !pagamento || !DTnascimento || !rg || !cpf || !data || !horario) {
-            setNotificationMessage('Por favor, preencha todos os campos obrigatórios.');
-            setNotificationType('error');
-            return;
-        }
+    if (!nome || !telefone || !pagamento || !DTnascimento || !rg || !cpf || !data || !horario) {
+        setNotificationMessage('Por favor, preencha todos os campos obrigatórios.');
+        setNotificationType('error');
+        return;
+    }
 
-        const validarIdade = validarMaiorDe18(DTnascimento);
-            if (!validarIdade) {
-                setNotificationMessage('Você precisa ter 18 anos ou mais.');
-                setNotificationType('warning');
-                return;
-            }
 
-        const cpfValido = verificarCpf(cpf);
-        if (!cpfValido) {
-            setNotificationMessage('CPF inválido. Por favor, verifique e tente novamente.');
-            setNotificationType('warning');
-            return;
-        }
-    
-        try {
+    const validarIdade = validarMaiorDe18(DTnascimento);
+    if (!validarIdade) {
+        setNotificationMessage('Você precisa ter 18 anos ou mais.');
+        setNotificationType('warning');
+        return;
+    }
 
-            console.log('Verificando se o paciente já está cadastrado...');
-            const pacienteExistente = await verificarpaciente(cpf);
-            if (pacienteExistente == true) {
-                console.log('Paciente já cadastrado:', pacienteExistente);
-                
-                setNotificationMessage('O paciente já está cadastrado no sistema.');
-                setNotificationType('info');
-                
-                return;
-                
-            }else{
+
+    const cpfValido = verificarCpf(cpf);
+    if (!cpfValido) {
+        setNotificationMessage('CPF inválido. Por favor, verifique e tente novamente.');
+        setNotificationType('warning');
+        return;
+    }
+
+    try {
+        console.log('Verificando se o paciente já está cadastrado...');
+        const pacienteExistente = await verificarpaciente(cpf);
+
+        if (pacienteExistente.existe) {
+          
+            console.log('Paciente já cadastrado:', pacienteExistente);
+            setNotificationMessage('O paciente já está cadastrado no sistema.');
+            setNotificationType('info');
+        }else{
             console.log('Cadastrando agenda...');
             const agendaId = await cadastrarAgenda(data, horario);
             
             console.log('Agenda cadastrada com ID:', agendaId);
             
-            const pacienteId = pacienteExistente?.id || await criarAutoCadastro(nome, DTnascimento, rg, cpf, pagamento, telefone, agendaId);
+            const pacienteId = pacienteExistente?.id || await criarAutoCadastro(nome, DTnascimento, rg, cpf, telefone, email);
 
             
             console.log('Cadastrando consulta...');
-            const consultaData = await cadastrarConsulta(agendaId, pacienteId);
+            const consultaData = await cadastrarConsulta(agendaId, pacienteId, pagamento);
             console.log('Consulta cadastrada:', consultaData);
             
             setNotificationMessage('Consulta marcada com sucesso!');
             setNotificationType('success');
-            setTimeout(Navigate, 2000, "/");
-            return;}
+            setTimeout(navigate, 1500, "/")}
         
         } catch (error) {
             console.error('Erro ao cadastrar:', error);
             setNotificationMessage('Erro ao cadastrar. Tente novamente.');
             setNotificationType('error');
         }};
+
+
     
 
     const closeNotification = () => {
@@ -316,10 +330,6 @@ export default function Auto_cadastro() {
                             <input onChange={IndetificarData} type="date" />
                         </div>
 
-                        {/* <div className="input-style">
-                            <p>Email</p>
-                            <input type="text" placeholder="Digite aqui seu email"  />
-                        </div> */}
 
                         <div className="input-style">
                             <p>Horário</p>
@@ -327,10 +337,10 @@ export default function Auto_cadastro() {
                                 <option value="">Selecione o horário</option>
                                 {horariosDisponiveis.map(h => (
                                     <option
-                                        key={h}
-                                        value={h}
-                                        className={horariosOcupados.includes(h) ? 'horario-ocupado' : 'horario-disponivel'}
-                                        disabled={horariosOcupados.includes(h)} 
+                                    key={h}
+                                    value={h}
+                                    className={horariosOcupados.includes(h) ? 'horario-ocupado' : 'horario-disponivel'}
+                                    disabled={horariosOcupados.includes(h)} 
                                     >
                                         {h}
                                     </option>
@@ -339,6 +349,10 @@ export default function Auto_cadastro() {
                         </div>
 
 
+                              <div className="input-style">
+                                    <p>Email</p>
+                                    <input onChange={e=>setEmail(e.target.value)} type="text" placeholder="Digite aqui seu email"  />
+                                </div> 
 
 
 

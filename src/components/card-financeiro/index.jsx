@@ -29,7 +29,13 @@ export default function CardFinancas() {
             const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
 
 
-            setMelhormes(meses[MelhorMes]);
+         
+
+            if (maiorFaturamento > 0) {
+                setMelhormes(meses[MelhorMes])
+            } else {
+                setMelhormes("não teve")
+            }
 
 
         }

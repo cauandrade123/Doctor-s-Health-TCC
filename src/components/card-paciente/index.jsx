@@ -63,6 +63,13 @@ export default function Card_Paciente({condicao, cpf ,dia_horario, horario, medi
         setBt()
     }, [finalizada2,cpf])
 
+    async function editar () {
+        let url = ''
+        let resp = await axios.put(url)
+                
+    } 
+
+
 
    
     return(

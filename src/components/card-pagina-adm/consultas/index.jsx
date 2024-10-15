@@ -74,6 +74,8 @@ export default function Cardadm() {
 
 
 
+
+
     return (
         <div className="card-container">
             <div className="buscar-paciente">

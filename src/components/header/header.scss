@@ -42,3 +42,31 @@ header {
         }
     }
 }
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        align-items: center;
+        padding: 5px;
+    }
+
+    .img-header-logo {
+        padding-left: 0;
+        margin: 2vh 0;
+        
+        img {
+            width: 25vh;
+        }
+    }
+
+    .A-do-header {
+        justify-content: center;
+        gap: 2vh;
+        padding-right: 0;
+        padding-top: 1vh;
+
+        a {
+            font-size: 2.5vh;
+        }
+    }
+}

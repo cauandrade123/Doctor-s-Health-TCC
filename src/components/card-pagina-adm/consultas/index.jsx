@@ -3,6 +3,7 @@ import './index.scss';
 import axios from 'axios';
 import Card_Paciente from '../../card-paciente';
 import Notification from '../../aviso/aviso';
+import InputMask from 'react-input-mask';
 
 export default function Cardadm() {
  
@@ -81,7 +82,7 @@ export default function Cardadm() {
     return (
         <div className="card-container">
             <div className="buscar-paciente">
-             <input value={buscar} onChange={e => setBuscar(e.target.value)} className='Buscar' type="text" placeholder={`🔎 Consultar pelo CPF`}/>
+            <InputMask mask="999.999.999-99" value={buscar} onChange={e => setBuscar(e.target.value)} className='Buscar' type="text" placeholder={`🔎 Consultar pelo CPF`}/>
 
             <label className='label-select-input' htmlFor="">Escolha entre consultas:</label>
              <select onChange={ e => setTipoconsulta(e.target.value)}>

@@ -106,7 +106,7 @@ export default function Cardadm() {
                     dia_horario={new Date(item.dia_horario).toLocaleDateString()}
                     horario={new Date(item.dia_horario).toLocaleString('pt-BR', {hour: '2-digit',minute: '2-digit', hour12: false})}
                     medicacao={item.medicacao}
-                    nascimento={`Idade atual: ${CalcularIdade(item.nascimento)}\nData de nascimento: ${new Date(item.nascimento).toLocaleDateString()}`}
+                    nascimento={`Idade atual: ${CalcularIdade(item.nascimento)} \n Data de nascimento: ${new Date(item.nascimento).toLocaleDateString()}`}
                     nome={item.nome}
                     preco={item.preco}
                     rg={item.rg}

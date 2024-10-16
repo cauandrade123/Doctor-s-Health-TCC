@@ -12,7 +12,7 @@ export default function ConsultasPDF({ nome, cpf, tratamento, condicao, medicaca
         text: "Consulta",
         fontSize: 15,
         bold: true,
-        margin: [15, 50, 15, 40],  // Corrigido 'Margin' para 'margin'
+        margin: [15, 50, 15, 40],
     };
 
     const detalhes = [
@@ -28,7 +28,6 @@ export default function ConsultasPDF({ nome, cpf, tratamento, condicao, medicaca
 
 
     ]
-    // Adicione detalhes do conteúdo aqui
 
 
     function rodape(currentPage, pageCount) {

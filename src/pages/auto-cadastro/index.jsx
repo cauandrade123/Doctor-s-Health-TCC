@@ -199,57 +199,62 @@ export default function Auto_cadastro() {
 
     const cadastrarTudo = async (nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario, email) => {
         console.log(nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario, email)
-
-
+    
         if (!nome || !telefone || !pagamento || !DTnascimento || !rg || !cpf || !data || !horario || !email) {
             setNotificationMessage('Por favor, preencha todos os campos obrigatórios.');
             setNotificationType('error');
             return;
         }
-
-
-        const validarIdade = validarMaiorDe18(DTnascimento);
-        if (!validarIdade) {
-            setNotificationMessage('Você precisa ter 18 anos ou mais.');
-            setNotificationType('warning');
-            return;
-        }
-
-
+    
+      
         const cpfValido = verificarCpf(cpf);
         if (!cpfValido) {
             setNotificationMessage('CPF inválido. Por favor, verifique e tente novamente.');
             setNotificationType('warning');
             return;
         }
-
+    
+        const validarIdade = validarMaiorDe18(DTnascimento);
+        if (!validarIdade) {
+            setNotificationMessage('Você precisa ter 18 anos ou mais.');
+            setNotificationType('warning');
+            return;
+        }
+    
+       
+        const hoje = new Date();
+        const dataConsulta = new Date(data);
+        if (dataConsulta.setHours(0, 0, 0, 0) < hoje.setHours(0, 0, 0, 0)) {
+            setNotificationMessage('A data da consulta não pode ser uma data passada.');
+            setNotificationType('warning');
+            return;
+        }
+    
         try {
             console.log('Verificando se o paciente já está cadastrado...');
             const pacienteExistente = await verificarpaciente(cpf);
-
+    
             if (pacienteExistente.existe) {
-
                 console.log('Paciente já cadastrado:', pacienteExistente);
                 setNotificationMessage('O paciente já está cadastrado no sistema.');
                 setNotificationType('info');
             } else {
                 console.log('Cadastrando agenda...');
                 const agendaId = await cadastrarAgenda(data, horario);
-
+    
                 console.log('Agenda cadastrada com ID:', agendaId);
-
+    
                 const pacienteId = await criarAutoCadastro(nome, DTnascimento, rg, cpf, telefone, email);
-
-
+    
                 console.log('Cadastrando consulta...');
                 const consultaData = await cadastrarConsulta(agendaId, pacienteId, pagamento);
                 console.log('Consulta cadastrada:', consultaData);
-
+    
                 setNotificationMessage('Consulta marcada com sucesso!');
                 setNotificationType('success');
                 setTimeout(navigate, 1500, "/")
             }
-
+    
         } catch (error) {
             console.error('Erro ao cadastrar:', error);
             setNotificationMessage('Erro ao cadastrar. Tente novamente.');

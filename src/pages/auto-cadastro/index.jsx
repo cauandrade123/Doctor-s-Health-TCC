@@ -25,7 +25,6 @@ export default function Auto_cadastro() {
         let idade = hoje.getFullYear() - nascimento.getFullYear();
         const mes = hoje.getMonth() - nascimento.getMonth();
 
-        // Ajusta se a pessoa ainda não fez aniversário este ano
         if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
             idade--;
         }

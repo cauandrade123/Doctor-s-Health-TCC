@@ -10,10 +10,38 @@
     
     margin-right: 5vh;
 
+
+    button{
+      cursor: pointer;
+    }
+
     /* Container dos botões editar e finalizar */
     .container-buttons {
       display: flex;
       justify-content: space-between;
+      
+      .bt-gerarPdf{
+
+        border: 0px;
+        border-radius: 0.5vh;
+        background-color: #fff;
+        .simbolPdf{
+          height: 4vh;
+          
+          
+        } 
+      }
+
+      .meet{
+        border: 0px;
+        border-radius: 0.5vh;
+        background-color: #fff;
+        .simbolMeet{
+          height: 4.5vh;
+          
+          
+        } 
+      }
     }
     /* ----------------------------------------- */
     

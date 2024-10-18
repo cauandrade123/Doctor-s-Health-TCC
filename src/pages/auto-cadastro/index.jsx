@@ -12,6 +12,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import Notification from "../../components/aviso/aviso";
 import { Link } from "react-router-dom";
+import Cardcorfirmação from '../../components/confirmacao/confirmacao'
 
 
 
@@ -31,6 +32,42 @@ export default function Auto_cadastro() {
 
 
         return idade >= 18;
+    };
+
+
+
+
+    const verificarTelefone = async (telefone) => {
+        const novo = telefone.replace(/\D/g, '')
+        console.log(novo)
+       
+            const url = `https://api.apilayer.com/number_verification/validate?number=55${novo}`;
+            const response = await axios.get(url, {
+                headers: {
+                    apikey: "QEfnE0uqDtnxB5qBrff4A8Ct2lTYsxHn"
+                }
+            });
+            return response.data.valid; 
+    };
+
+
+    
+    const verificarEmail = async (email) => {
+       
+            const url = `https://api.hunter.io/v2/email-verifier?email=${email}&api_key=72167d43207c27e6691b19ab0bbd3a2699b9250d`;
+            const response = await axios.get(url)
+               
+            return response.data.data.status; 
+    };
+
+    const [mostrarConfirmacao, setConfirmacao] = useState(false);
+    const [mensagem, setMensagem] = useState(''); 
+  
+
+  
+    const FecharComfirmação = () => {
+        setConfirmacao(false);
+        navigate('/#secao-1');
     };
 
 
@@ -220,6 +257,24 @@ export default function Auto_cadastro() {
             setNotificationType('warning');
             return;
         }
+
+
+        const validarNumero = await verificarTelefone(telefone);
+        console.log(validarNumero)
+        if (!validarNumero) {
+            setNotificationMessage('Numero inválido. Por favor, verifique e tente novamente.');
+            setNotificationType('warning');
+            return;
+        }
+
+        const validarEmail = await verificarEmail(email);
+        console.log(validarEmail)
+        if (validarEmail != "valid") {
+            setNotificationMessage('Email inválido. Por favor, verifique e tente novamente.');
+            setNotificationType('warning');
+            return;
+        }
+    
     
        
         const hoje = new Date();
@@ -249,10 +304,10 @@ export default function Auto_cadastro() {
                 console.log('Cadastrando consulta...');
                 const consultaData = await cadastrarConsulta(agendaId, pacienteId, pagamento);
                 console.log('Consulta cadastrada:', consultaData);
+                setMensagem('Consulta agenda')
+                setConfirmacao(true);
     
-                setNotificationMessage('Consulta marcada com sucesso!');
-                setNotificationType('success');
-                setTimeout(navigate, 1500, "/")
+           
             }
     
         } catch (error) {
@@ -377,7 +432,7 @@ export default function Auto_cadastro() {
 
                         {<button onClick={() => cadastrarTudo(nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario, email)}>Enviar</button>}
 
-
+                        <Cardcorfirmação mostrar={mostrarConfirmacao} aoFechar={FecharComfirmação} mensagem={mensagem} />
 
 
 

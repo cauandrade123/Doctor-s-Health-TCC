@@ -9,6 +9,7 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import Chat from "./components/bot";
+import PageJitsi from "./pages/PaginaJistimeet";
 
 
 export default function Navegacao() {
@@ -41,12 +42,12 @@ export default function Navegacao() {
     return (
         <BrowserRouter>
             <Routes>
-            <Route path="/chat" element={<Chat/>} />
+                <Route path="/chat" element={<Chat/>} />
                 <Route path="/" element={<App/>} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/auto_cadastro" element={<Auto_cadastro />} />
-                <Route path="/teste" element={<Teste />} />
                 <Route path="/cadastrado" element={<Cadastrado />} />
+                <Route path="/reuniao" element={<PrivateRoute><PageJitsi/></PrivateRoute>} />
 
                 
 

@@ -1,5 +1,5 @@
 .main{
-    //Alinhamento da page.
+    
     display: flex;
     flex-direction: column;
     gap: 5vh;
@@ -401,17 +401,17 @@
 }
 
 .card {
-    position: fixed; /* Fixa o card na tela */
-    top: 20px; /* Distância do topo */
-    left: 50%; /* Centraliza horizontalmente */
-    transform: translateX(-50%); /* Ajusta o centralizado */
+    position: fixed; 
+    top: 20px; 
+    left: 50%; 
+    transform: translateX(-50%); 
     border: 1px solid #4caf50;
     border-radius: 8px;
     padding: 16px;
     margin: 16px;
     background-color: #f9f9f9;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000; /* Garante que o card fique em cima de outros elementos */
+    z-index: 1000; 
 }
 
 .card h2 {
@@ -456,13 +456,13 @@
 }
 
 .horario-ocupado {
-    color: red; // Cor para horários ocupados
-    background-color: #ffe6e6; // Fundo levemente rosa para horários ocupados
+    color: red; 
+    background-color: #ffe6e6; 
 }
 
 .horario-disponivel {
-    color: black; // Cor para horários disponíveis
-    background-color: rgb(255, 255, 255); // Fundo branco para horários disponíveis
+    color: black;
+    background-color: rgb(255, 255, 255); 
 }
 
 

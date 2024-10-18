@@ -1,4 +1,4 @@
-  import Header from "../../components/header/header";
+import Header from "../../components/header/header";
   import NewDoutor from '../../assets/img/tcc/tccassests/NovoAssets/dr-img/newDoutor.svg'
   import { Link } from "react-router-dom";
   import './land.scss'
@@ -69,10 +69,3 @@
     )
 
   }
-
-
-
-
-
-
-

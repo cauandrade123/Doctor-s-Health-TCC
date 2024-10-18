@@ -58,3 +58,31 @@
       }
     }
 }
+
+@media (max-width: 768px) {
+  .card1 {
+      width: 90%; // Altera a largura para 90% em telas menores
+      margin-right: 0; // Remove a margem direita para evitar overflow
+      padding: 15px; // Ajusta o padding
+
+      .dados-cliente {
+          h1 {
+              font-size: 18px; 
+          }
+
+          .field {
+              h2 {
+                  font-size: 12px; // Reduz o tamanho da fonte do subtítulo
+              }
+
+              p {
+                  font-size: 12px; // Reduz o tamanho da fonte do texto
+              }
+
+              input {
+                  width: 100%; // Define o input para ocupar 100% da largura disponível
+              }
+          }
+      }
+  }
+}

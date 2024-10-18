@@ -7,7 +7,7 @@ import LocIcon from '../../assets/img/tcc/tccassests/simbolos/LocIcon.svg'
 import Mapa from '../../assets/img/tcc/tccassests/simbolos/MapImage.svg'
 import Footer from "../../components/footer/footer";
 import axios from "axios";
-import Inputmask from "inputmask";
+import InputMask from 'react-input-mask';
 import { useNavigate } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { Link } from "react-router-dom";
@@ -17,6 +17,7 @@ import Notification from "../../components/aviso/aviso";
 
 
 export default function Cadastrado(){
+    const navigate = useNavigate()
 
 
     const verificarCpf = async (cpf) => {
@@ -42,34 +43,21 @@ export default function Cadastrado(){
         return cpfLimpo[9] === primeiroDigito && cpfLimpo[10] === segundoDigito;
     };
 
-    const cadastrarConsulta = async (agendaId, pacienteId) => {
+    const cadastrarConsulta = async (agendaId, pacienteId, pagamento) => {
         const con = {
             "id_agenda": agendaId,
             "tratamento": "",
             "condicao": "",
             "medicao": "",
             "preco": "0",
-            "id_paciente": pacienteId
+            "id_paciente": pacienteId,
+            "metodo": pagamento
         };
 
         const url2 = 'http://localhost:5020/consultas';
         const resp2 = await axios.post(url2, con);
-        return resp2.data; // Retorna os dados da consulta criada
+        return resp2.data;
     };
-
-    const Cadastrado = async (agendaId, pacienteId, pagamento) => {
-        const con = {
-            "id_paciente": pacienteId,
-            "metodo": pagamento,
-            "id_agenda": agendaId};
-            
-
-        const url2 = 'http://localhost:5020/cadastrado';
-        const resp2 = await axios.post(url2, con);
-        return resp2.data; 
-    };
-
-
 
     const verificarpaciente = async (cpf) => {
         const url = 'http://localhost:5020/verificar-cpf';
@@ -78,7 +66,7 @@ export default function Cadastrado(){
     };
 
     const verificarConsulta = async (cpf) => {
-       
+
         const response = await axios.get(`http://localhost:5020/verificarconsulta/${cpf}`);
         return response.data;
     };
@@ -91,12 +79,12 @@ export default function Cadastrado(){
         };
 
         const response = await axios.post(url, info);
-        return response.data.agendaId; // Retorna o ID da agenda criada
+        return response.data.agendaId;
     };
 
     const pegarId = async (cpf) => {
        
-        const response = await axios.get(`/Id-do-paciente/${cpf}`);
+        const response = await axios.get(`http://localhost:5020/Id-do-paciente/${cpf}`);
         return response.data.id_paciente;
     };
 
@@ -137,6 +125,9 @@ export default function Cadastrado(){
     
     const cadastrarTudo = async ( pagamento, cpf, data, horario) => {
 
+        console.log(pagamento, cpf, data, horario );
+        
+
   
         if ( !pagamento ||  !cpf || !data || !horario) {
             setNotificationMessage('Por favor, preencha todos os campos obrigatórios.');
@@ -144,10 +135,10 @@ export default function Cadastrado(){
             return;
         }
 
-        const cpfValido = await verificarCpf(cpf);
+        const cpfValido = verificarCpf(cpf);
         if (!cpfValido) {
             setNotificationMessage('CPF inválido. Por favor, verifique e tente novamente.');
-            setNotificationType('error');
+            setNotificationType('warning');
             return;
         }
     
@@ -156,10 +147,10 @@ export default function Cadastrado(){
             
             const pacienteExistente = await verificarpaciente(cpf);
             
-            if (!pacienteExistente) {
+            if (!pacienteExistente.existe) {
 
                 
-                setNotificationMessage('o paciente não possui cadastro.');
+                setNotificationMessage('O paciente já possui uma consulta em aberto.');
                 setNotificationType('info');
                 return;
             }
@@ -173,20 +164,34 @@ export default function Cadastrado(){
                     return;
             }
 
+            const hoje = new Date();
+            const dataConsulta = new Date(data);
+            if (dataConsulta.setHours(0, 0, 0, 0) < hoje.setHours(0, 0, 0, 0)) {
+                setNotificationMessage('A data da consulta não pode ser uma data passada.');
+                setNotificationType('warning');
+                return;
+            }
 
+         
+
+            console.log('pegando id...');
+            const pacienteId = await pegarId(cpf);
+            console.log(' ID pego:', pacienteId);
+            
+            console.log('Cadastrando agenda...');
+            const agendaId = await cadastrarAgenda(data, horario);
+            console.log('Agenda cadastrada com ID:', agendaId);
+
+            console.log('criando consulta...');
+            const criarConsulta = await cadastrarConsulta(agendaId, pacienteId, pagamento);
+            console.log('consulta criada...');
+
+
+            setNotificationMessage('Consulta marcada com sucesso!');
+                setNotificationType('success');
+                setTimeout(navigate, 1500, "/")
 
             
-            const agendaId = await cadastrarAgenda(data, horario);
-
-            const pacienteId = await pegarId(cpf);
-
-            const cadastrado = await Cadastrado(agendaId, pacienteId, pagamento)
-
-
-
-
-
-
             
     
         }   catch (error) {
@@ -232,7 +237,8 @@ export default function Cadastrado(){
 
                             <div className="input-style">
                             <p>CPF</p>
-                            <input onChange={e=> setCpf(e.target.value)} type="text" placeholder="Digite aqui: XXX.XXX.XXX-XX" />
+                            <InputMask
+                             mask="999.999.999-99" onChange={e => setCpf(e.target.value)} type="text" placeholder="Digite aqui: XXX.XXX.XXX-XX" />
                             </div>
                           
                             <div className="input-style">
@@ -276,7 +282,7 @@ export default function Cadastrado(){
                             <p>Em caso de cancelamento ou troca de horário entrar em contato por telefone!   </p> 
                             <a href=""><Link to={'/auto_cadastro'}>Se você não possui cadastro, clique aqui.</Link></a>
                         </div>
-                            <button className="bt-enviar" onClick={cadastrarTudo}>Enviar</button>
+                        <button className="bt-enviar" onClick={() => cadastrarTudo(pagamento, cpf, data, horario)}>Enviar</button>
 
                             
 

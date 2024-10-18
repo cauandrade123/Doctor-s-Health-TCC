@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './index.scss'
+
 
 export default function Chat() {
     const [mensagem, setMensagem] = useState('');
@@ -63,8 +65,8 @@ export default function Chat() {
     }
 
     return (
-        <main>
-            <div>
+        <main className="bot">
+            <div className="bot1">
                 <ul>
                     {resposta.map((msg, index) => (
                         <li key={index} className={msg.sender}>

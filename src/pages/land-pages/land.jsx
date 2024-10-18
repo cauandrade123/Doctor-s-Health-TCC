@@ -51,6 +51,9 @@
               <div className="texto">
 
               <h1>Dr. João Silva</h1>
+
+             
+
               <h2>Clínico geral, feito para solucionar seus problemas.</h2>
               <div className="A-da-info">
                 <Link to={"/auto_cadastro"}>
@@ -72,7 +75,7 @@
       
           
         
-      
+
 
 
           <section id='secao-2'>

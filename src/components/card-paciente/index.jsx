@@ -5,8 +5,8 @@ import Notification from '../aviso/aviso';
 import axios from 'axios';
 
 import ConsultasPDF from '../gerar-pdf';
-
-
+import SimboloPDF from '../../assets/img/tcc/tccassests/simbolos/simbolPdf.png'
+import SimboloCamera from '../../assets/img/tcc/tccassests/simbolos/simbolCamera.png'
 
 export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario, medicacao, nascimento, nome, preco, rg, tratamento, finalizada }) {
 
@@ -37,6 +37,10 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
         setEditarMode(true);
     };
 
+    function NavegarParaReuniao (){
+        const params = { nome }
+        navigate('/reuniao', {state: {nome}}) // precisa mandar o parametros nome
+    }
 
     const salvar = async () => {
 
@@ -194,7 +198,7 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
                     <button className="editar" onClick={edit}>Editar</button>
                 )}
 
-                <button onClick={() => ConsultasPDF({
+                <button className='bt-gerarPdf' onClick={() => ConsultasPDF({
                     nome,
                     cpf,
                     tratamento,
@@ -204,7 +208,11 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
                     dia_horario,
                     horario
                 })}>
-                    Gerar PDF
+                    <img className='simbolPdf' src={SimboloPDF} alt="" />
+                </button>
+
+                <button onClick={NavegarParaReuniao} className='meet'>
+                    <img className='simbolMeet' src={SimboloCamera} alt="" />
                 </button>
 
 

@@ -1,17 +1,25 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Chat() {
-
-    const [mensagem, setMensagem] = useState('')
-    const [resposta, setResposta] = useState([])
+    const [mensagem, setMensagem] = useState('');
+    const [resposta, setResposta] = useState([]);
+    const [carregando, setCarregando] = useState(false); // Estado para controle do carregamento
+    const navigate = useNavigate('');
 
     const mostrasmsg = async () => {
-        if (mensagem == null) {
+        if (!mensagem.trim()) {
+            setResposta((prevResposta) => [
+                ...prevResposta,
+                { text: 'Por favor, insira uma mensagem válida.', sender: 'bot' }
+            ]);
             return;
         }
 
-        setResposta([...resposta, { text: mensagem, sender: 'user' }])
+        setResposta((prevResposta) => [...prevResposta, { text: mensagem, sender: 'user' }]);
+        setMensagem("");
+        setCarregando(true); // Inicia o carregamento
 
         const respotadobot = await axios.get(`https://api.wit.ai/message`, {
             params: {
@@ -23,27 +31,52 @@ export default function Chat() {
             },
         });
 
+        let resp = respotadobot.data;
 
-        let resp = respotadobot.data
+        const saudacao = resp.entities['saudacao:saudacao'] || [];
+        const consulta = resp.entities['consulta:consulta'] || [];
+        const xingamento = resp.entities['xingamento:xingamento'] || [];
+        const cancelar = resp.entities['cancelamento:cancelamentos'] || [];
 
-        const bot = resp.intents[0]?.name||'nao compreendo'
+        const novasRespostas = [];
 
-        setResposta((prevResposta) => [...prevResposta, {text: bot, sender: "bot"}])
-        setMensagem('')
+        if (saudacao.length > 0) {
+            novasRespostas.push({ text: 'Olá! Como posso lhe ajudar hoje?', sender: "bot" });
+        }
+        if (cancelar.length > 0) {
+            novasRespostas.push({ text: 'Para cancelar uma consulta, clique no botão abaixo:', sender: "bot" });
+        }
+        if (consulta.length > 0) {
+            novasRespostas.push({ text: 'Para marcar sua consulta, clique no botão abaixo:', sender: "bot" });
+            novasRespostas.push({ text: 'Clique aqui', sender: 'button' });
+        }
+        if (xingamento.length > 0) {
+            novasRespostas.push({ text: 'Esse tipo de mensagem não é tolerado.', sender: "bot" });
+        }
+
+        setResposta((prevResposta) => [...prevResposta, ...novasRespostas]);
+        setCarregando(false); // Finaliza o carregamento
     }
 
+    const navegar = () => {
+        navigate('/auto_cadastro');
+    }
 
     return (
         <main>
-                        <div>
+            <div>
                 <ul>
                     {resposta.map((msg, index) => (
                         <li key={index} className={msg.sender}>
                             <strong>{msg.sender === 'user' ? 'Você' : 'Aquino'}:</strong> {msg.text}
+                            {msg.sender === 'button' && (
+                                <button onClick={navegar}>{msg.text}</button>
+                            )}
                         </li>
                     ))}
+                    {carregando && <li className="bot"><strong>Aquino:</strong> Estou pensando...</li>} {/* Indicador de carregamento */}
                 </ul>
-               
+
                 <input
                     type="text"
                     value={mensagem}
@@ -52,8 +85,6 @@ export default function Chat() {
                 />
                 <button onClick={mostrasmsg}>Enviar</button>
             </div>
-
         </main>
     );
 }
-

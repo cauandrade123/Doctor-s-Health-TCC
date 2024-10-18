@@ -1,479 +1,92 @@
-html {
-  scroll-behavior: smooth;
-  /* Ativa a rolagem suave para toda a página */
-}
-
-
-.mae-page {
-  $font: "Arial";
+main{
   display: flex;
-  flex-direction: column;
-}
-
-@media (max-width: 768px) {
-  .mae {
-    padding: 2vh;
-    max-height: none;
-    display: flex;
-    flex-direction: column;
-
-    .img-doutor {
-      padding-left: 0;
-
-      img {
-        width: 70%;
-      }
-    }
-
-    .informaçoes-do-doutor {
-      padding-left: 0;
-      align-items: center;
-      text-align: center;
-      gap: 3vh;
-
-      h2 {
-        width: 70vh;
-        font-family: arial;
-        font-weight: lighter;
-      }
-
-      h2 {
-        width: 80%;
-      }
-
-      a {
-        background-color: white;
-        text-decoration: none;
-        text-align: center;
-        width: 30vh;
-        height: 10vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 4vh;
-        gap: 10px;
-        font-size: 20px;
-        color: black;
-
-        p {
-          color: rgba(1, 146, 219, 1);
-          background-color: white;
-        }
-      }
-
-    }
-
-  }
-
-
-
-}
-
-#secao-2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
-  height: 90dvh;
-  background-color: white;
-
-  .principal-secao-2 {
-    display: flex;
-    flex-direction: row;
-    gap: 40vh;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    height: 90dvh;
-
-
-    .saibaMais {
-      display: flex;
-      flex-direction: column;
-      width: 30%;
-      margin-top: 5.5dvh;
-
-
-
-      .iconeEtexto {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding-bottom: 3dvh;
-        gap: 07dvh;
-
-
-        h2 {
-          color: #006eff;
-          font-size: 7vh;
-          text-align: center;
-
-
-        }
-
-        .iconeSaibaMais {
-          width: 17dvh;
-          height: 17dvh;
-        }
-      }
-
-      .textoSaibaMais {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 88dvh;
-        padding-bottom: 9dvh;
-
-
-        p {
-          font-size: 4vh;
-        }
-      }
-
-
-    }
-
-    .conhecaMe {
-      display: flex;
-      flex-direction: column;
-
-      .textoConhecaMe {
-
-        h2 {
-          font-size: 7vh;
-          text-align: center;
-          color: #006eff;
-        }
-
-      }
-
-      .iconesConhecaMe {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 6vh;
-        gap: 10dvh;
-
-        .instagram {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-
-        }
-
-
-        .facebook {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-
-        }
-
-
-        .twitter {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-
-        }
-
-      }
-    }
-  }
-}
-
-#secao-servicos {
-  display: flex;
+  height: 100vh;
+  justify-content: center;
   flex-direction: column;
-  gap: 60px;
-
-  display: flex;
-  flex-direction: column;
-
-
-  .background {
-    display: flex;
-
-    justify-content: center;
-    flex-direction: column;
-    background-color: #0b9deb;
-
-    .wave {
-      width: 100%;
-      background-size: cover;
-      height: 30vh;
-      background-image: url('../../assets/img/tcc/tccassests/land pages/wave-4-removebg.png');
-    }
-  }
-
-  .Texto-image {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20vh;
-
-    .medico {
-      padding-right: 20vh;
-      margin-left: auto;
-    }
-
-    .informaçoes-do-doutor {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
-      gap: 5vh;
-      padding-left: 20vh;
-      color: white;
-
-      h1 {
-        font-size: 8vh;
-        font-weight: bold;
-      }
-
-      h2 {
-        font-size: 5vh;
-      }
-
-      a {
-        background-color: white;
-        text-decoration: none;
-        text-align: center;
-        width: 30vh;
-        height: 10vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 4vh;
-        gap: 10px;
-        font-size: 20px;
-        color: black;
-        transition: 1s;
-
-        p {
-          color: rgba(1, 146, 219, 1);
-          background-color: white;
-        }
-
-        &:hover {
-          transform: scale(1.1);
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .mae {
-    padding: 2vh;
+  background-image: linear-gradient(to bottom, white, rgba(0, 178, 255, 0.9), white);
+  
+    
+  .secao1{
+    background-color: rgba(11, 157, 235, 0.8);
+    margin: 0 auto;
+    width: 97%;
+    height: 97%;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
 
-    .Texto-image {
-      flex-direction: column;
-      gap: 5vh;
-      align-items: center;
-      text-align: center;
 
-      .medico {
-        padding-right: 0;
-        margin-left: 0;
+    .content{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items:flex-start;
+      margin: 10px;
+      
 
-        img {
-          width: 70%;
-        }
-      }
+  
 
-      .informaçoes-do-doutor {
-        padding-left: 0;
-        align-items: center;
-        text-align: center;
-        gap: 3vh;
 
-        h1 {
-          font-size: 6vh;
-        }
+        .texto-titulo{
+          margin-left: 25px;
+          margin-top: 40px;
+          gap: 40px ;
+          width: 50vw;
+          height: 50vh;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          color: white;
 
-        h2 {
-          font-size: 4vh;
-        }
+          button{
+            gap: 20px;
+            width: 18vw;
+            background-color: white;
+            height: 10vh;
+            border: none;
+            border-radius: 20px;
+            color: rgba(1, 146, 219, 1);
+            font-size: 3.5vh;
+            font-weight: bolder;
+            transition: all 0.4s;
+          }
 
-        a {
-          width: 80%;
-          height: auto;
-          font-size: 18px;
-          padding: 2vh;
+          button:hover{
+            transform: scale(1.1);
+          }
+  
+          h1{
+            font-size: 10vh;
+          }
 
-          p {
-            font-size: 16px;
+          p{
+            width: 28vw;
+            font-size: 4vh ;
+            font-weight: lighter;
           }
         }
+      
+     
+      .img-doutor{
+
+        width: 25vw;
+        background-color: rgba(232, 242, 251, 0.849);
+        border-radius: 10px ;
+        height: 76vh;
+
+        img{
+          width: 30.2vw;          
+        }
       }
+
+
     }
+
   }
+
+ 
+
+
+
 }
-
-// Responsividade para monitores grandes (até 30 polegadas)
-@media (min-width: 2560px) {
-  .mae {
-    padding: 5vh;
-    display: flex;
-    flex-direction: column;
-
-    .Texto-image {
-      gap: 5vh;
-
-      .medico {
-        padding-right: 55vh;
-
-        img {
-          width: 80%;
-        }
-      }
-
-      .informaçoes-do-doutor {
-        padding-left: 30vh;
-        gap: 7vh;
-
-        h1 {
-          font-size: 12vh;
-        }
-
-        h2 {
-          font-size: 8vh;
-        }
-
-        a {
-          width: 40vh;
-          height: 12vh;
-          font-size: 24px;
-
-          p {
-            font-size: 22px;
-          }
-        }
-      }
-    }
-  }
-}
-
-
-// Outras seções
-#secao-2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 50vh;
-  background-color: white;
-
-  .principal-secao-2 {
-    display: flex;
-    flex-direction: row;
-    gap: 40vh;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    height: 90vh;
-
-
-    .saibaMais {
-      display: flex;
-      flex-direction: column;
-      width: 30%;
-      margin-top: 5.5vh;
-
-      .iconeEtexto {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding-bottom: 3vh;
-        gap: 7vh;
-
-        h2 {
-          color: #006eff;
-          font-size: 7vh;
-          text-align: center;
-        }
-
-        .iconeSaibaMais {
-          width: 17vh;
-          height: 17vh;
-        }
-      }
-
-      .textoSaibaMais {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 88vh;
-        padding-bottom: 9vh;
-
-        p {
-          font-size: 4vh;
-        }
-      }
-    }
-
-    .conhecaMe {
-      display: flex;
-      flex-direction: column;
-
-      .textoConhecaMe {
-        h2 {
-          font-size: 7vh;
-          text-align: center;
-          color: #006eff;
-        }
-      }
-
-      .iconesConhecaMe {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 6vh;
-        gap: 10vh;
-
-        .instagram,
-        .facebook,
-        .twitter {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-      }
-    }
-  }
-}
-
-#secao-servicos {
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 150vh;
-  background: rgb(81, 175, 200);
-  background: linear-gradient(0deg, rgba(81, 175, 200, 1) 0%, rgba(175, 218, 230, 1) 44%, rgba(255, 255, 255, 1) 100%);
-
-  .title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    h2 {
-      font-size: 7vh;
-      color: #228ac2;
-    }
-  }
-}
-
-

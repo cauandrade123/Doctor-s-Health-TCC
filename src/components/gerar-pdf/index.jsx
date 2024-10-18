@@ -36,7 +36,7 @@ export default function ConsultasPDF({ nome, cpf, tratamento, condicao, medicaca
             alignment: 'center',
             fontSize: 15,
             bold: true,
-            margin: [15, 50, 15, 40],  // Corrigido 'Margin' para 'margin'
+            margin: [15, 50, 15, 40],
         }]
 
             ;

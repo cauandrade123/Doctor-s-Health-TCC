@@ -164,6 +164,14 @@ export default function Cadastrado(){
                     return;
             }
 
+            const hoje = new Date();
+            const dataConsulta = new Date(data);
+            if (dataConsulta.setHours(0, 0, 0, 0) < hoje.setHours(0, 0, 0, 0)) {
+                setNotificationMessage('A data da consulta não pode ser uma data passada.');
+                setNotificationType('warning');
+                return;
+            }
+
          
 
             console.log('pegando id...');

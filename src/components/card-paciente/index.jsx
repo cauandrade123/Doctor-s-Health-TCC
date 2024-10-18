@@ -87,6 +87,8 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
     async function Finalizar() {
         const url = `http://localhost:5020/finalizarConsulta/${cpf}`;
         await axios.put(url);
+
+
         setNotificationMessage('Consulta finalizada com sucesso!');
         setNotificationType('sucess');
 

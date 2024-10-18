@@ -2,7 +2,7 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
 
-// Registrar os componentes necessários
+
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 export default function Graficos({ dadosAPI }) {
@@ -11,7 +11,7 @@ export default function Graficos({ dadosAPI }) {
         datasets: [
             {
                 label: 'Faturamento Mensal',
-                data: dadosAPI, // Agora os dados são passados por props
+                data: dadosAPI, 
                 backgroundColor: 'rgba(4, 106, 226, 1)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,
@@ -21,6 +21,7 @@ export default function Graficos({ dadosAPI }) {
 
     const opcoes = {
         responsive: true,
+        maintainAspectRatio: false,
         scales: {
             y: {
                 beginAtZero: true
@@ -28,5 +29,7 @@ export default function Graficos({ dadosAPI }) {
         }
     };
 
-    return <Bar data={dados} options={opcoes} height={400} width={800} />;
+    return  <div style={{ width: '100vh', height: '400px' }}> 
+    <Bar data={dados} options={opcoes} />
+</div>;
 }

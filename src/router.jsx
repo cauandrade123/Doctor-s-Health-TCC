@@ -42,13 +42,12 @@ export default function Navegacao() {
     return (
         <BrowserRouter>
             <Routes>
-            <Route path="/chat" element={<Chat/>} />
+                <Route path="/chat" element={<Chat/>} />
                 <Route path="/" element={<App/>} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/auto_cadastro" element={<Auto_cadastro />} />
-                <Route path="/teste" element={<Teste />} />
                 <Route path="/cadastrado" element={<Cadastrado />} />
-                <Route path="/reuniao" element={<PageJitsi/>} />
+                <Route path="/reuniao" element={<PrivateRoute><PageJitsi/></PrivateRoute>} />
 
                 
 

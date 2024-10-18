@@ -181,7 +181,7 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
                             onChange={mudar}
                         />
                     ) : (
-                        <p>{preco}</p>
+                        <p>R${preco}</p>
                     )}</h2>
                 </div>
                 <div className="field">

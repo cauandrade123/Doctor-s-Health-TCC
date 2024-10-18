@@ -31,6 +31,7 @@ export default function JitsiMeet({nm_Paciente, nm_Sala}) {
            return () => api.dispose()
     }, [])
 
+
     
 
     return <div id="div-JitsiMeet" style={{ width: '100%', height: '100vh' }}></div>;

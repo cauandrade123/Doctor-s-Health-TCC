@@ -27,9 +27,12 @@ export default function JitsiMeet({nm_Paciente, nm_Sala}) {
         
     
            setLink(`https://${dominio}/${nm_Sala}`)
+
+           localStorage.setItem('link', link);
+           console.log(link)
            
-           return () => api.dispose()
-    }, [])
+           return () => api.dispose();
+        }, [nm_Paciente, nm_Sala]);
 
 
     

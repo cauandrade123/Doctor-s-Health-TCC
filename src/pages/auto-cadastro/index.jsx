@@ -87,6 +87,7 @@ export default function Auto_cadastro() {
     const [agenda, setAgenda] = useState('')
     const [email, setEmail] = useState('')
     const terminada = false
+     const [carregando, setCarregando] = useState(false);
 
 
     const resetarCampos = () => {
@@ -112,13 +113,13 @@ export default function Auto_cadastro() {
         return response.data.agendaId;
     };
 
-    const enviarEmail = async (nome, data, horario, email) => {
-        const url = 'http://localhost:5020/send';
+    const EnviarEmail = async (nome, data, horario, email) => {
+        const url = 'http://localhost:5020/enviar';
         const info = {
             "nome": nome,
             "email": email,
-            "dia": data,
-            "hora": horario
+            "data": data,
+            "horario": horario
         };
 
         const response = await axios.post(url, info);
@@ -244,6 +245,15 @@ export default function Auto_cadastro() {
         }
     
       
+        console.log('Verificando se o paciente já está cadastrado...');
+        const pacienteExistente = await verificarpaciente(cpf);
+
+        if (pacienteExistente.existe) {
+            console.log('Paciente já cadastrado:', pacienteExistente);
+            setNotificationMessage('O paciente já está cadastrado no sistema.');
+            setNotificationType('info');
+            return
+        }
         const cpfValido = verificarCpf(cpf);
         if (!cpfValido) {
             setNotificationMessage('CPF inválido. Por favor, verifique e tente novamente.');
@@ -257,7 +267,16 @@ export default function Auto_cadastro() {
             setNotificationType('warning');
             return;
         }
-
+        
+         const hoje = new Date();
+         const dataConsulta = new Date(data);
+         if (dataConsulta.setHours(0, 0, 0, 0) < hoje.setHours(0, 0, 0, 0)) {
+             setNotificationMessage('A data da consulta não pode ser uma data passada.');
+             setNotificationType('warning');
+             return;
+         }
+     
+    
 
         const validarNumero = await verificarTelefone(telefone);
         console.log(validarNumero)
@@ -276,24 +295,8 @@ export default function Auto_cadastro() {
         }
     
     
-       
-        const hoje = new Date();
-        const dataConsulta = new Date(data);
-        if (dataConsulta.setHours(0, 0, 0, 0) < hoje.setHours(0, 0, 0, 0)) {
-            setNotificationMessage('A data da consulta não pode ser uma data passada.');
-            setNotificationType('warning');
-            return;
-        }
-    
         try {
-            console.log('Verificando se o paciente já está cadastrado...');
-            const pacienteExistente = await verificarpaciente(cpf);
-    
-            if (pacienteExistente.existe) {
-                console.log('Paciente já cadastrado:', pacienteExistente);
-                setNotificationMessage('O paciente já está cadastrado no sistema.');
-                setNotificationType('info');
-            } else {
+           
                 console.log('Cadastrando agenda...');
                 const agendaId = await cadastrarAgenda(data, horario);
     
@@ -304,11 +307,13 @@ export default function Auto_cadastro() {
                 console.log('Cadastrando consulta...');
                 const consultaData = await cadastrarConsulta(agendaId, pacienteId, pagamento);
                 console.log('Consulta cadastrada:', consultaData);
+                
+                const enviarEmail = await EnviarEmail(nome, data, horario, email);
                 setMensagem('Consulta agenda')
                 setConfirmacao(true);
     
            
-            }
+            
     
         } catch (error) {
             console.error('Erro ao cadastrar:', error);

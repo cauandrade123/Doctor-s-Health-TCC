@@ -8,14 +8,16 @@ import ConsultasPDF from '../gerar-pdf';
 import SimboloPDF from '../../assets/img/tcc/tccassests/simbolos/simbolPdf.png'
 import SimboloCamera from '../../assets/img/tcc/tccassests/simbolos/simbolCamera.png'
 
-export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario, medicacao, nascimento, nome, preco, rg, tratamento, finalizada }) {
+export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario, medicacao, nascimento, nome, preco, rg, tratamento, finalizada, email }) {
 
     const [editarMode, setEditarMode] = useState(false);
     const [sair, setSair] = useState(false);
     const [terminada, setTerminada] = useState(false);
     const [finalizada2, setFinalizada2] = useState(finalizada);
     const [bt, setBotao] = useState('');
+    let [linkConsulta, setlinkConsulta] = useState('');
 
+    setlinkConsulta = localStorage.getItem('link');
 
     const [novoTratamento, setNovoTratamento] = useState('');
     const [novaCondicao, setNovaCondicao] = useState('');
@@ -31,15 +33,34 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
         setNotificationMessage('');
     };
 
+    async function enviarEmail() {
+
+        const comando = {
+            "nome": nome,
+            "link": `https://meet.jit.si/SALA%20DE%20${nome}`, 
+            "email": email
+        }
+        const url = `http://localhost:5020/enviar-call`;
+        await axios.post(url,comando);}
+
     const navigate = useNavigate();
 
     const edit = () => {
         setEditarMode(true);
     };
+    
+    function combinada(){
+        enviarEmail();
+        NavegarParaReuniao();
+        localStorage.removeItem('link');
+
+    }
+
 
     function NavegarParaReuniao (){
         const params = { nome }
-        navigate('/reuniao', {state: {nome}}) // precisa mandar o parametros nome
+        navigate('/reuniao', {state: {nome}}) 
+
     }
 
     const salvar = async () => {
@@ -191,6 +212,8 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
                 </div>
             </div>
 
+            <footer>
+
             <div className="container-buttons">
                 {editarMode ? (
                     <button className="editar" onClick={salvar}>Salvar</button>
@@ -211,13 +234,14 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
                     <img className='simbolPdf' src={SimboloPDF} alt="" />
                 </button>
 
-                <button onClick={NavegarParaReuniao} className='meet'>
+                <button onClick={combinada} className='meet'>
                     <img className='simbolMeet' src={SimboloCamera} alt="" />
                 </button>
 
 
                 {bt}
             </div>
+                    </footer>
         </div>
     );
 }

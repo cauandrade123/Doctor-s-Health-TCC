@@ -1,11 +1,3 @@
-$font: "Arial";
-
-* {
-
-    font-family: $font;
-    margin: 0;
-    box-sizing: border-box;
-}
 
 header{
     display: flex;
@@ -32,13 +24,26 @@ header{
         color: white;
         font-family: 'Roboto';
 
-        li{
-            font-size: 3.4vh;
+        a{
+            text-decoration: none;
+            color: white;
             transition: all 0.3s;
         }
 
+        a:hover{
+            color: cadetblue;
+            transform: scale(1.1);
+        }
+
+        li{
+            font-size: 3.4vh;
+            transition: all 0.3s;
+            color: white;
+        }
+
         li:hover{
-            transform: scale(1.2);
+            transform: scale(1.1);
+            color: cadetblue;
         }
     }
 }

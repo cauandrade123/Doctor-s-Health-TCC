@@ -220,3 +220,10 @@
 
 
 }
+
+.chamar-chat-container {
+  position: fixed;  // Fixa o elemento em relação à tela
+  bottom: 20px;     // Distância do fundo da tela
+  right: 20px;      // Distância da direita da tela
+  z-index: 1000;    // Para garantir que o botão esteja acima de outros elementos
+}

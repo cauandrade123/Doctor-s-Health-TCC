@@ -1,0 +1,25 @@
+.ChamarBot {
+    position: relative;
+  
+    button {
+    
+      z-index: 1000; 
+    }
+  }
+  
+  .chat-popup {
+    position: absolute;
+    top: -10vh; // Ajuste este valor para mover o chat mais para cima
+    left: -50vh; // Ajuste este valor para posicionar à esquerda do botão
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 400px; // Largura do Chatbot
+  }
+  
+  .abrir {
+    border-radius: 50%;
+    height: 10vh;
+    width: 10vh;
+  }

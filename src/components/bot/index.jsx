@@ -92,6 +92,7 @@ export default function Chat() {
         }
         if (xingamento.length > 0) {
             novasRespostas.push({ text: 'Esse tipo de mensagem não é tolerado.', sender: "bot" });
+            navigate('/')
         }
 
         if (novasRespostas.length === 0) {

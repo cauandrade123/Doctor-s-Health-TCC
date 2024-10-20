@@ -1,90 +1,53 @@
-// styles.scss
+.ChamarBot {
+    position: relative;
 
-$cor-fundo: #f8f9fa;
-$cor-bot: #007bff;
-$cor-bot-hover: #0056b3;
-$cor-texto-bot: #ffffff;
-$cor-texto-usuario: #212529;
-$cor-input: #ffffff;
-$cor-borda: #ced4da;
-$cor-carregando: #6c757d;
+    button {
+        z-index: 1000;
+    }
+}
 
-
-
-
-.bot1 {
-    width: 100%; // Ocupar 100% da largura
-    max-width: 600px; // Definir uma largura máxima
-    height: 100%; // Ocupar 100% da altura
-    background-color: $cor-input;
+.chat-popup {
+    position: absolute;
+    bottom: 10vh; // Manter o chat perto da parte inferior, mas com espaço
+    left: 0; // Ajustar para a esquerda conforme necessário
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 400px;
+    max-height: 70vh; // Limitar a altura máxima
+    overflow-y: auto; // Permitir rolagem vertical
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse; // Inverte a direção do conteúdo, novas mensagens empurram para cima
+}
+
+.bot1 {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column-reverse; // Para garantir que as mensagens apareçam de baixo para cima
 }
 
 ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    flex-grow: 1; // Para ocupar o espaço restante
-    overflow-y: auto; // Permitir rolagem vertical
-    border: 1px solid $cor-borda;
-    border-radius: 8px;
-}
-
-li {
-    margin: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    position: relative;
-
-    &.user {
-        background-color: $cor-bot;
-        color: $cor-texto-bot;
-        align-self: flex-end; // Alinhar mensagens do usuário à direita
-        text-align: right;
-    }
-
-    &.bot {
-        background-color: #e9ecef;
-        color: $cor-texto-usuario;
-        align-self: flex-start; // Alinhar mensagens do bot à esquerda
-        text-align: left;
-    }
-
-    &.button {
-        background-color: $cor-bot;
-        border: none;
-        color: $cor-texto-bot;
-        padding: 8px 12px;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 10px;
-
-        &:hover {
-            background-color: $cor-bot-hover;
-        }
-    }
+    overflow-y: auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column-reverse; // As novas mensagens aparecem no final da lista
 }
 
 input {
     padding: 10px;
-    border: 1px solid $cor-borda;
+    border: 1px solid #ced4da;
     border-radius: 5px;
-    margin-bottom: 10px;
-    font-size: 14px;
-    width: 100%; // Ocupar 100% da largura do contêiner
-
-    &:focus {
-        outline: none;
-        border-color: $cor-bot;
-    }
+    margin-top: 10px; // O input de mensagem sempre ficará no final
+    width: 100%;
 }
 
 button {
-    background-color: $cor-bot;
-    color: $cor-texto-bot;
+    background-color: #007bff;
+    color: #ffffff;
     border: none;
     padding: 10px;
     border-radius: 5px;
@@ -92,11 +55,6 @@ button {
     font-size: 14px;
 
     &:hover {
-        background-color: $cor-bot-hover;
+        background-color: #0056b3;
     }
-}
-
-.bot {
-    font-style: italic;
-    color: $cor-carregando; // Cor para a mensagem de carregamento
 }

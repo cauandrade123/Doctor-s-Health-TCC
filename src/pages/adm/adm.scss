@@ -102,3 +102,93 @@
 
    
 }
+
+@media (max-width: 768px) {
+    .main-adm {
+        flex-direction: column; 
+
+        .menu-adm {
+            width: 100%; 
+            min-height: 200px; 
+            display: flex;
+            flex-direction: column;
+          
+            justify-content: space-between; 
+
+            .menu-azul {
+                background-color:#006eff;;
+                width: auto;
+                height: 100px; 
+                margin: 0;
+                margin-bottom: 20px; 
+                border-radius: 0;
+                padding: 10px; 
+                justify-content: center;
+                margin-top: 0; 
+
+                .opcoes-do-menu {
+                    display: flex;
+                    flex-direction: row; /* Alinha as opções em uma linha */
+                    gap: 40px; /* Espaçamento entre as opções */
+                    align-items: center; /* Alinha as opções ao centro verticalmente */
+
+                    .Agenda, .Financas, .Consultas {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        color: white;
+                        font-size: 100%;
+                        line-height: 3;
+                        width: 100%;
+                        background: none;
+                        border: none;
+                        transition: all 0.3s;
+                    }
+
+                    .Agenda:hover, .Financas:hover, .Consultas:hover {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        text-align: center;
+                        color: white;
+                        font-size: 130%;
+                        line-height: 3;
+                        width: 100%;
+                        background-color: rgba(2, 2, 219, 0.877);
+                        border-radius: 10px;
+                        transform: scale(1.1);
+                    }
+                }
+            }
+
+            .logo-e-voltar {
+                display: flex;
+                align-items: center;
+
+                .logo {
+                    width: 280px;
+                }
+
+                .voltar {
+                    width: 6vh; 
+                }
+            }
+        }
+
+        .consultas {
+             display: flex;
+             width: 100%;
+
+             flex-direction: column;
+            padding-top: 3vh;
+             align-self: center;
+            
+             flex: 1;
+            overflow-y: auto;
+    
+
+        
+        background-color: rgba(153, 153, 153, 0.326); 
+        }
+    }
+}

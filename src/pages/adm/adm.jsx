@@ -52,8 +52,8 @@ export default function Adm() {
         <div className="main-adm">
             <div className="menu-adm">
                 <div className="logo-e-voltar">
-                    <img src={logo} alt="logo" />
-                    <Link onClick={handleLogout} className="voltar" to='/' ><img src={Seta} alt="" /></Link>
+                    <img className="logo" src={logo} alt="logo" />
+                    <Link onClick={handleLogout} className="voltar" to='/' ><img className="seta" src={Seta} alt="" /></Link>
                 </div>
                 <div className="menu-azul">
                     <div className="opcoes-do-menu">

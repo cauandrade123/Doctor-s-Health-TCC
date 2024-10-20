@@ -13,6 +13,7 @@ import { CSSTransition } from 'react-transition-group';
 import Notification from "../../components/aviso/aviso";
 import { Link } from "react-router-dom";
 import Cardcorfirmação from '../../components/confirmacao/confirmacao'
+import MapComponent from "../../components/MapComponent";
 
 
 
@@ -490,7 +491,7 @@ export default function Auto_cadastro() {
 
                 <div className="container-box-local">
 
-                    <img src={Mapa} alt="" />
+                   <MapComponent />
 
                 </div>
 

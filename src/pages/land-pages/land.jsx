@@ -50,7 +50,7 @@ import Header from "../../components/header/header";
   export default function Land() {
 
     return(
-        <main className="main-principal">
+        <main className="principal-landing-page">
             <div className="secao1">
                 <div className="header">
                     <Header />

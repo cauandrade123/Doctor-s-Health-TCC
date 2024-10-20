@@ -23,7 +23,7 @@ export default function MapComponent(){
                     shadowUrl: MarkShadow
                 })}>
                     <Popup>
-                        A pretty CSS3 popup. <br /> Easily customizable.
+                        Clínica Doctor's Health
                     </Popup>
             </Marker>
         </MapContainer>

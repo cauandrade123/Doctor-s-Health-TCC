@@ -1,7 +1,7 @@
 import './footer.scss'
-import logo from '../../assets/img/tcc/tccassests/logo/logomedica.svg'
+import NewLogo from '../../assets/img/tcc/tccassests/NovoAssets/new-logo/newlogo.svg'
 import { Link } from 'react-router-dom'
-import insta from '../../assets/img/tcc/tccassests/simbolos/instagram com cor.svg'
+import InstaWhite from '../../assets/img/tcc/tccassests/simbolos/InstaWhite.svg'
 
 
 export default function Footer() {
@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="container-footer">
 
             <div className="container-logo-loc">
-                <img src={logo} alt="" />
+                <img src={NewLogo} alt="" />
                 <div className="loc">
                     <p><strong>Localização</strong></p>
                     <p>Rua Astolfo Vila, 389</p>
@@ -26,7 +26,7 @@ export default function Footer() {
                 <p>@2024 Doctor's Health +</p>
                 <p>Desenvolvido pelo time <strong>InfoDevs</strong></p>
                 <div className="insta1">
-                    <img src={insta} alt="" />
+                    <img src={InstaWhite} alt="" />
                     <p>@DrJoãoSilva_oficial</p>
                 </div>
 
@@ -34,9 +34,9 @@ export default function Footer() {
 
             <div className="botao-adm">
                 <Link to={'/login'}>
-                    <div className="botao">
-                        <p>Admin</p>
-                    </div>
+                    
+                    <button>Admin</button>
+                    
                 </Link>
             </div>
 

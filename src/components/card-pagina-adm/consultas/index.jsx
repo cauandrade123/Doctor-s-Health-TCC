@@ -3,6 +3,7 @@ import './index.scss';
 import axios from 'axios';
 import Card_Paciente from '../../card-paciente';
 import Notification from '../../aviso/aviso';
+import InputMask from 'react-input-mask';
 
 export default function Cardadm() {
  
@@ -81,7 +82,7 @@ export default function Cardadm() {
     return (
         <div className="card-container">
             <div className="buscar-paciente">
-             <input value={buscar} onChange={e => setBuscar(e.target.value)} className='Buscar' type="text" placeholder={`🔎 Consultar pelo CPF`}/>
+            <InputMask mask="999.999.999-99" value={buscar} onChange={e => setBuscar(e.target.value)} className='Buscar' type="text" placeholder={`🔎 Consultar pelo CPF`}/>
 
             <label className='label-select-input' htmlFor="">Escolha entre consultas:</label>
              <select onChange={ e => setTipoconsulta(e.target.value)}>
@@ -100,12 +101,13 @@ export default function Cardadm() {
                 <Card_Paciente
                     key={index}
                     id={item.id}
+                    email={item.email}
                     condicao={item.condicao}
                     cpf={item.cpf}
                     dia_horario={new Date(item.dia_horario).toLocaleDateString()}
                     horario={new Date(item.dia_horario).toLocaleString('pt-BR', {hour: '2-digit',minute: '2-digit', hour12: false})}
                     medicacao={item.medicacao}
-                    nascimento={`Idade atual: ${CalcularIdade(item.nascimento)}\nData de nascimento: ${new Date(item.nascimento).toLocaleDateString()}`}
+                    nascimento={`Idade atual: ${CalcularIdade(item.nascimento)} \n Data de nascimento: ${new Date(item.nascimento).toLocaleDateString()}`}
                     nome={item.nome}
                     preco={item.preco}
                     rg={item.rg}

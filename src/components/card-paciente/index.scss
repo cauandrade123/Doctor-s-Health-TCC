@@ -1,60 +1,117 @@
-
 .card1 {
-    background-color: #ffffff; // cor de fundo da imagem
-    padding: 20px;
-    border-radius: 10px;
-    width: 60vh; // largura mais controlada para se parecer com o card na imagem
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.267);
-    transition: transform 0.2s;
-  
-    
-    margin-right: 5vh;
+  background-color: #ffffff; 
+  padding: 20px;
+  border-radius: 10px;
+  width: 60vh;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.267);
+  transition: transform 0.2s;
+  margin-right: 5vh;
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between; 
+  height: 100%; 
 
-    /* Container dos botões editar e finalizar */
-    .container-buttons {
+  button {
+    cursor: pointer;
+  }
+
+  
+  .container-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto; 
+
+    .bt-gerarPdf {
+      border: 0px;
+      border-radius: 0.5vh;
+      background-color: #fff;
+
+      .simbolPdf {
+        height: 4vh;
+      } 
+    }
+
+    .meet {
+      border: 0px;
+      border-radius: 0.5vh;
+      background-color: #fff;
+
+      .simbolMeet {
+        height: 4.5vh;
+      } 
+    }
+  }
+
+  .dados-cliente {
+    flex-grow: 1; 
+    margin-bottom: 10px;
+
+    h1 {
+      color: #333;
+      font-size: 16px;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #333;
+      margin: 10px 0;
+    }
+
+    .field {
       display: flex;
-      justify-content: space-between;
-    }
-    /* ----------------------------------------- */
-    
-    .dados-cliente {
-      h1 {
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 8px;
+
+      h2 {
+        font-size: 14px;
         color: #333;
-        font-size: 16px;
-        margin-bottom: 10px;
-        text-align: left;
+        margin-right: 5px;
+        font-weight: normal;
       }
-  
-      hr {
-        border: none;
-        border-top: 1px solid #333;
-        margin: 10px 0;
+
+      p {
+        font-size: 14px;
+        color: #555;
+        margin: 0;
       }
-  
-      .field {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        margin-bottom: 8px;
-  
-        h2 {
-          font-size: 14px;
-          color: #333;
-          margin-right: 5px;
-          font-weight: normal;
-        }
-  
-        p {
-          font-size: 14px;
-          color: #555;
-          margin: 0;
-        }
-  
-        input {
-          font-size: 14px;
-          padding: 5px;
-          width: 180px;
-        }
+
+      input {
+        font-size: 14px;
+        padding: 5px;
+        width: 180px;
       }
     }
+  }
+}
+
+@media (max-width: 768px) {
+.card1 {
+  width: 90%; 
+  margin-right: 0;
+  padding: 15px; 
+  height: auto; 
+
+  .dados-cliente {
+    h1 {
+      font-size: 16px; 
+    }
+
+    .field {
+      h2 {
+        font-size: 14px; 
+      }
+
+      p {
+        font-size: 14px; 
+      }
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+}
 }

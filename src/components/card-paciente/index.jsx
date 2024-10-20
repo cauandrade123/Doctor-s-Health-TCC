@@ -57,6 +57,7 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
     }
 
 
+
     function NavegarParaReuniao (){
         const params = { nome }
         navigate('/reuniao', {state: {nome}}) 

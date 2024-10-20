@@ -47,12 +47,15 @@ import Header from "../../components/header/header";
                 <div className="header">
                     <Header />
                 </div>
+
                 <div className="content">
                     <div className="texto-titulo">
-                          <h1>Doctor's Health</h1>
-                          <p>Clinica fundada pelo Dr. João Silva, prezando pela sua saúde e bem-estar.</p>
-                          <Link to={'/auto_cadastro'}><button>Agendar Consulta</button></Link>
-                    </div>          
+                        <h1>Doctor's Health</h1>
+                        <p>Clinica fundada pelo Dr. João Silva, prezando pela sua saúde e bem-estar.</p>
+                        <Link to={'/auto_cadastro'}>
+                            <button>Agendar Consulta</button>
+                        </Link>
+                    </div>
                     <div className="img-doutor">
                         <img src={NewDoutor} alt="" />
                     </div>
@@ -130,6 +133,5 @@ import Header from "../../components/header/header";
             </div>
             <Footer />
         </main>
-    )
-
-  }
+    );
+}

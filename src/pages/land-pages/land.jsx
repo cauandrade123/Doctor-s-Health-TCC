@@ -1,7 +1,7 @@
 import Header from "../../components/header/header";
   import NewDoutor from '../../assets/img/tcc/tccassests/NovoAssets/dr-img/newDoutor.svg'
   import { Link } from "react-router-dom";
-  import FotoSobreNos from '../../assets/img/tcc/tccassests/NovoAssets/new-assets/image-voeneto.svg'
+  import FotoSobreNos from '../../assets/img/tcc/tccassests/NovoAssets/new-assets/imgvoeneto1.svg'
   import FotoSobreNos2 from '../../assets/img/tcc/tccassests/NovoAssets/new-assets/fotoneta2.svg'
   import EnfermeiraCuidando from '../../assets/img/tcc/tccassests/land pages/enfermeira-cuidando-idosa.svg'
   import SaudeCard from '../../assets/img/tcc/tccassests/cards/saude_card.svg'

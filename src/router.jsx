@@ -3,7 +3,6 @@ import App from "./App";
 import Login from "./pages/login/login";
 import Adm from "./pages/adm/adm";
 import Auto_cadastro from "./pages/auto-cadastro";
-import Teste from "./pages/teste/teste";
 import Cadastrado from "./pages/cadastrado";
 import React from 'react';
 import { Navigate } from 'react-router-dom';

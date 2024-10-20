@@ -13,7 +13,7 @@
     }
 
     .borda-azul {
-        position: relative; // Permite que elementos filhos com position: absolute sejam posicionados em relação a este contêiner
+        position: relative; 
         left: 0;
         background-color: rgba(4, 106, 226, 1);
         box-shadow: 10px 4px 10px rgb(123, 123, 123);

@@ -100,17 +100,7 @@ export default function Auto_cadastro() {
     
     
 
-    const resetarCampos = () => {
-        setNome('');
-        setTelefone('');
-        setPagamento('');
-        setNascimento('');
-        setCpf('');
-        setRg('');
-        setHorario('');
-        setData('');
-        setNotificationMessage('');
-    };
+
 
     const cadastrarAgenda = async (data, horario) => {
         const url = 'http://localhost:5020/agenda';

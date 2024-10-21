@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import './confirmacao.scss';
+import './negacao.scss';
 
-const Confirmacao = ({ mostrar, aoFechar}) => {
+const Negacao = ({ mostrar, aoFechar, mensagem }) => {
   useEffect(() => {
     if (mostrar) {
       const temporizador = setTimeout(() => {
@@ -14,13 +14,13 @@ const Confirmacao = ({ mostrar, aoFechar}) => {
   return (
     <div className={`sobreposicao ${mostrar ? 'mostrar' : ''}`}>
       <div className={`cartao ${mostrar ? 'mostrar' : ''}`}>
-        <div className="circulo-check">
-          <div className="check"></div>
+        <div className="circulo-x">
+          <div className="x"></div>
         </div>
-        <p>Agendamento concluido</p> 
+        <p>{mensagem}</p>
       </div>
     </div>
   );
 };
 
-export default Confirmacao;
+export default Negacao;

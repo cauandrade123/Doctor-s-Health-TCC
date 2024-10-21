@@ -12,7 +12,9 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import Notification from "../../components/aviso/aviso";
 import { Link } from "react-router-dom";
-import Cardcorfirmação from '../../components/confirmacao/confirmacao'
+import Cardconfirmação from '../../components/confirmacao/confirmacao'
+import CardNegacação from '../../components/negacao/negacao'
+import CardCarregamento from '../../components/carregando/carregando'
 import MapComponent from "../../components/MapComponent";
 
 
@@ -60,19 +62,24 @@ export default function Auto_cadastro() {
                
             return response.data.data.status; 
     };
-
-    const [mostrarConfirmacao, setConfirmacao] = useState(false);
-    const [mensagem, setMensagem] = useState(''); 
-  
-
-  
-    const FecharComfirmação = () => {
+    
+    
+    
+    const FecharConfirmação = () => {
         setConfirmacao(false);
         navigate('/#secao-1');
     };
 
-
-
+        
+    const FecharNegação = () => {
+        setNegacao(false);
+        setTimeout(function () {
+            window.location.reload();
+        }, 200);
+    };
+    
+    
+    
 
     const [horariosOcupados, setHorariosOcupados] = useState([]);
     const [nome, setNome] = useState();
@@ -85,11 +92,13 @@ export default function Auto_cadastro() {
     const [data, setData] = useState();
     const [notificationMessage, setNotificationMessage] = useState('');
     const [notificationType, setNotificationType] = useState('')
-    const [agenda, setAgenda] = useState('')
     const [email, setEmail] = useState('')
-    const terminada = false
-     const [carregando, setCarregando] = useState(false);
-
+    const [mostrarConfirmacao, setConfirmacao] = useState(false);
+    const [mostrarNegacao, setNegacao] = useState(false);
+    const [carregando, setCarregando] = useState(false);
+    const [mensagem, setMensagem] = useState(''); 
+    
+    
 
     const resetarCampos = () => {
         setNome('');
@@ -236,12 +245,18 @@ export default function Auto_cadastro() {
     const horariosDisponiveis = ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
     const navigate = useNavigate();
 
+
+
+
     const cadastrarTudo = async (nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario, email) => {
-        console.log(nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario, email)
+        setCarregando(true)
+        
     
         if (!nome || !telefone || !pagamento || !DTnascimento || !rg || !cpf || !data || !horario || !email) {
-            setNotificationMessage('Por favor, preencha todos os campos obrigatórios.');
-            setNotificationType('error');
+            setMensagem('Por favor, preencha todos os campos obrigatórios.');
+            setCarregando(false);
+            setNegacao(true)
+
             return;
         }
     
@@ -251,29 +266,37 @@ export default function Auto_cadastro() {
 
         if (pacienteExistente.existe) {
             console.log('Paciente já cadastrado:', pacienteExistente);
-            setNotificationMessage('O paciente já está cadastrado no sistema.');
-            setNotificationType('info');
+            setMensagem('O paciente já está cadastrado no sistema.');
+            setCarregando(false);
+            setNegacao(true)
+
             return
         }
         const cpfValido = verificarCpf(cpf);
         if (!cpfValido) {
-            setNotificationMessage('CPF inválido. Por favor, verifique e tente novamente.');
-            setNotificationType('warning');
+            setMensagem('CPF inválido. Por favor, verifique e tente novamente.');
+            setCarregando(false);
+            setNegacao(true)
+
             return;
         }
     
         const validarIdade = validarMaiorDe18(DTnascimento);
         if (!validarIdade) {
-            setNotificationMessage('Você precisa ter 18 anos ou mais.');
-            setNotificationType('warning');
+            setMensagem('Você precisa ter 18 anos ou mais.');
+            setCarregando(false);
+            setNegacao(true)
+
             return;
         }
         
          const hoje = new Date();
          const dataConsulta = new Date(data);
          if (dataConsulta.setHours(0, 0, 0, 0) < hoje.setHours(0, 0, 0, 0)) {
-             setNotificationMessage('A data da consulta não pode ser uma data passada.');
-             setNotificationType('warning');
+            setMensagem('A data da consulta não pode ser uma data passada.');
+             setCarregando(false);
+            setNegacao(true)
+
              return;
          }
      
@@ -282,16 +305,20 @@ export default function Auto_cadastro() {
         const validarNumero = await verificarTelefone(telefone);
         console.log(validarNumero)
         if (!validarNumero) {
-            setNotificationMessage('Numero inválido. Por favor, verifique e tente novamente.');
-            setNotificationType('warning');
+            setMensagem('Numero inválido. Por favor, verifique e tente novamente.');
+            setCarregando(false);
+            setNegacao(true)
+
             return;
         }
 
         const validarEmail = await verificarEmail(email);
         console.log(validarEmail)
         if (validarEmail != "valid") {
-            setNotificationMessage('Email inválido. Por favor, verifique e tente novamente.');
-            setNotificationType('warning');
+            setMensagem('Email inválido. Por favor, verifique e tente novamente.');
+            setCarregando(false);
+            setNegacao(true)
+
             return;
         }
     
@@ -310,17 +337,20 @@ export default function Auto_cadastro() {
                 console.log('Consulta cadastrada:', consultaData);
                 
                 const enviarEmail = await EnviarEmail(nome, data, horario, email);
-                setMensagem('Consulta agenda')
+                setMensagem('Agendamento concluido')
+                setCarregando(false);
                 setConfirmacao(true);
     
            
             
     
         } catch (error) {
+            
             console.error('Erro ao cadastrar:', error);
-            setNotificationMessage('Erro ao cadastrar. Tente novamente.');
-            setNotificationType('error');
-        }
+            setMensagem('Erro ao cadastrar. Tente novamente.');
+            setCarregando(false);
+                setNegacao(true);
+        } 
     };
 
 
@@ -428,7 +458,9 @@ export default function Auto_cadastro() {
 
                     </div>
 
-                    <div className="container-box-txt-button">
+                                    {carregando? <CardCarregamento mostrar={carregando}/>:
+
+                                        <div className="container-box-txt-button">
 
                         <div className="txt-hr">
                             <p>Em caso de cancelamento ou troca de horário entrar em contato por telefone!   </p>
@@ -438,13 +470,15 @@ export default function Auto_cadastro() {
 
                         {<button onClick={() => cadastrarTudo(nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario, email)}>Enviar</button>}
 
-                        <Cardcorfirmação mostrar={mostrarConfirmacao} aoFechar={FecharComfirmação} mensagem={mensagem} />
-
+                        <Cardconfirmação mostrar={mostrarConfirmacao} aoFechar={FecharConfirmação} />
+                        <CardNegacação mostrar={mostrarNegacao} aoFechar={FecharNegação} mensagem={mensagem}/>
+                        
 
 
 
                     </div>
 
+}
                 </div>
 
 

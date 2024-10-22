@@ -50,6 +50,7 @@ export default function Login() {
 
     return (
         <div className="login-page">
+            
             <main> {/* onde está o background */}
                 <div className="borda-azul"> {/* metade azul do site, armazena os inputs e o botão */}
                     <div className="opcoes"> {/* armazena os inputs */}

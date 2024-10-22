@@ -438,65 +438,52 @@
     opacity: 0;
     transform: translateY(-20px);
     transition: opacity 300ms, transform 300ms;
-}
+};
 
 @media (max-width: 768px) {
-    .main {
-        gap: 2vh;
+    .main-cadastrado {
 
-        p{font-size: 11px;
-            margin-right: 25px;
-        }
-
-        .h1-title-container-box {
+          
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            p{font-size: 11px;
+                margin-right: 25px;
+            }
+            
+        .h1-title-container-box{
             font-size: 4vh;
         }
 
-        .container-box {
-            width: 90%;
-            .container-box-inputs {
-                width: 80vh;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .container-box-data {
-                flex-direction: column;
-                gap: 3vh;
-                width: 100%;
-                .container-box-agenda,
-                .container-box-horario {
-                    width: 80%;
-                }
-            }
-
-            .container-box-txt-button {
-                flex-direction: column;
-                gap: 2vh;
-                button {
-                    width: 12vh;
-                    height: 5vh;
-                }
-            }
+        .h1-title-container-box-inputs{
+            font-size: 4vh;
         }
 
-        .container-box2 {
-            width: 95%;
-            h1 {
-                font-size: 5vh;
-            }
+        .container-box
+        {
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            width: 90%;
 
-            .container-box-cards {
-                flex-direction: column;
-                gap: 2vh;
-                .card-box-email,
-                .card-box-tel,
-                .card-box-loc {
-                    padding-right: 2vh;
+            .container-box-geral{
+
+                
+                .container-box-inputs{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 80vh;
                 }
+
+                .container-box-txt-button{
+                    display: flex;
+                    flex-direction: column                     
+                }
+                
             }
         }
 
     }
-}
+};

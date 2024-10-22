@@ -1,0 +1,73 @@
+.sobreposicao {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+    
+    &.mostrar {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+  
+  .cartao {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.3s, transform 0.3s;
+    
+    &.mostrar {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .circulo-x {
+    width: 60px;
+    height: 60px;
+    background-color: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 10px;
+  }
+  
+  .x {
+    width: 30px;
+    height: 30px;
+    position: relative;
+  }
+  
+  .x::before,
+  .x::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+  
+  .x::before {
+    transform: rotate(45deg);
+  }
+  
+  .x::after {
+    transform: rotate(-45deg);
+  }
+  

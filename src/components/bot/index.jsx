@@ -121,7 +121,7 @@ export default function Chat() {
                         <li key={index} className={msg.sender}>
                             <strong>{msg.sender === 'user' ? 'Você' : 'Aquino'}:</strong> {msg.text}
                             {msg.sender === 'button' && (
-                                <button onClick={navegar}>{msg.text}</button>
+                                <button className="clique" onClick={navegar}>{msg.text}</button>
                             )}
                         </li>
                     ))}
@@ -135,7 +135,7 @@ export default function Chat() {
                     onKeyDown={clique}
                     placeholder="Digite sua mensagem"
                 />
-                <button onClick={mostrasmsg}>Enviar</button>
+                <button className="enviar" onClick={mostrasmsg}>Enviar</button>
             </div>
         </main>
     );

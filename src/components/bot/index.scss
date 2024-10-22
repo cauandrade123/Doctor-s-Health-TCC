@@ -1,30 +1,40 @@
 .ChamarBot {
     position: relative;
 
-    button {
-        z-index: 1000;
-    }
+
 }
 
 .chat-popup {
     position: absolute;
-    bottom: 10vh; // Manter o chat perto da parte inferior, mas com espaço
-    left: 0; // Ajustar para a esquerda conforme necessário
+    bottom: 10vh;
+    left: 0;
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    width: 400px;
-    max-height: 70vh; // Limitar a altura máxima
-    overflow-y: auto; // Permitir rolagem vertical
+    width: 500px; // Aumente este valor para mudar a largura do card
+    max-height: 80vh; // Aumente este valor para mudar a altura máxima do card
+    overflow-y: auto;
     display: flex;
-    flex-direction: column-reverse; // Inverte a direção do conteúdo, novas mensagens empurram para cima
+    flex-direction: column;
+    padding: 15px;
+    border: 1px solid #ddd;
+    // Suavização da rolagem
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #007bff;
+        border-radius: 4px;
+    }
 }
 
 .bot1 {
     flex-grow: 1;
     display: flex;
-    flex-direction: column-reverse; // Para garantir que as mensagens apareçam de baixo para cima
+    flex-direction: column;
+    gap: 10px; // Adiciona espaçamento entre as mensagens
 }
 
 ul {
@@ -34,27 +44,64 @@ ul {
     overflow-y: auto;
     flex-grow: 1;
     display: flex;
-    flex-direction: column-reverse; // As novas mensagens aparecem no final da lista
+    flex-direction: column;
+    gap: 10px; // Adiciona espaçamento entre as mensagens
+}
+
+li {
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+
+    &.user {
+        background-color: #007bff;
+        color: #fff;
+        align-self: flex-end; // Alinha mensagens do usuário à direita
+    }
+
+    &.bot {
+        background-color: #f1f1f1;
+        color: #333;
+        align-self: flex-start; // Alinha mensagens do bot à esquerda
+    }
 }
 
 input {
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ced4da;
-    border-radius: 5px;
-    margin-top: 10px; // O input de mensagem sempre ficará no final
+    border-radius: 8px;
     width: 100%;
+    margin-top: 10px;
+    font-size: 16px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+
+    &:focus {
+        outline: none;
+        border-color: #007bff;
+    }
 }
 
 button {
     background-color: #007bff;
     color: #ffffff;
     border: none;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 12px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+
+   
+}
+
+.enviar, .clique {
+    border-radius: 2vh;
+    background-color: #007bff;
 
     &:hover {
         background-color: #0056b3;
     }
+
+
 }

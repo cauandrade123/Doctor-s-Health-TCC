@@ -10,6 +10,7 @@ import Header from "../../components/header/header";
   import './land.scss'
   import Cards from "../../components/cards";
   import Footer from '../../components/footer/footer'
+  import ChamarChat from '../../components/bot/index'
   
 
 
@@ -136,7 +137,7 @@ import Header from "../../components/header/header";
                 <ChamarChat />
             </div>
             
-                        <Footer />
+                <Footer />
         </main>
     );
 }

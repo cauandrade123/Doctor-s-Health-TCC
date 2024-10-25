@@ -118,6 +118,7 @@ export default function Land() {
 
                             <button>Contate-nos</button>
                         </div>
+                        
                         <div className="image-box-branca2">
                             <img src={EnfermeiraCuidando} alt="" />
                         </div>

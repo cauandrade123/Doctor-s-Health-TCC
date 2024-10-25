@@ -3,6 +3,7 @@ import NewLogo from '../../assets/img/tcc/tccassests/NovoAssets/new-logo/newlogo
 import { Link as ScrollLink } from 'react-scroll';
 import { Link as RouterLink } from 'react-router-dom';
 import './header.scss';
+import { Colors } from 'chart.js';
 
 export default function Header() {
     return (

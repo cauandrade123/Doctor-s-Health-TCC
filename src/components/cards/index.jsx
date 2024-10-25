@@ -1,6 +1,7 @@
 import { animateScroll } from 'react-scroll';
 import './index.scss';
 import { useState , useEffect, useRef } from 'react';
+import { scrollMore } from 'react-scroll/modules/mixins/animate-scroll';
 
 
 export default function Cards({ texto_1, texto_2, texto_3, img_1, img_2,img_3 }) {
@@ -19,15 +20,19 @@ export default function Cards({ texto_1, texto_2, texto_3, img_1, img_2,img_3 })
     };
 
     useEffect(() => {
-        const slideInterval = setInterval(passar, 5000); 
+        
+        const slideInterval = setInterval(passar, 4000); 
     
-        return () => clearInterval(slideInterval); 
+        return () => clearInterval('scroll', slideInterval); 
       }, []);
 
 
       const rolagem_bonita = (index) => {
         const irparalado = () => {
         
+
+
+
         }
 
       }
@@ -63,7 +68,7 @@ export default function Cards({ texto_1, texto_2, texto_3, img_1, img_2,img_3 })
                     )}
                     {posicao === 2 && (
                         <div className="slide">
-                               <img className='img_saude' src={img_3} alt="Slide 3" />
+                               <img src={img_3} alt="Slide 3" />
                                <div className="textoSlide">
                                     <h2>{texto_3}</h2>
                                </div>  

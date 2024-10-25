@@ -96,10 +96,12 @@ import Header from "../../components/header/header";
                                 <h2>Como Trabalhamos</h2>
 
                                 <h1>Marcar uma consulta <br /> é facil como 1, 2, 3...</h1>
+                                <div>
 
                                 <li>se cadastre, é super fácil!</li>
                                 <li>escolha o melhor horário pra você...</li>
                                 <li>Pronto! sua consulta está agendada!</li>
+                                </div>
                         </div>
                     </div>
                     <div id="ComoTrabalhamos" className="box-branca2">

@@ -1,17 +1,16 @@
 import Header from "../../components/header/header";
-import NewDoutor from '../../assets/img/tcc/tccassests/NovoAssets/dr-img/newDoutor.svg'
-import { Link } from "react-router-dom";
-import FotoSobreNos from '../../assets/img/tcc/tccassests/NovoAssets/new-assets/imgvoeneto1.svg'
-import FotoSobreNos2 from '../../assets/img/tcc/tccassests/NovoAssets/new-assets/fotoneta2.svg'
-import EnfermeiraCuidando from '../../assets/img/tcc/tccassests/land pages/enfermeira-cuidando-idosa.svg'
-import SaudeCard from '../../assets/img/tcc/tccassests/cards/saude_card.svg'
-import DinheiroCard from '../../assets/img/tcc/tccassests/cards/dinheiro card.svg'
-import RemedioCard from '../../assets/img/tcc/tccassests/cards/remedio card.svg'
-import './land.scss'
-import Cards from "../../components/cards";
-import Footer from '../../components/footer/footer'
-import ChamarChat from "../../components/teste_boy";
-
+  import NewDoutor from '../../assets/img/tcc/tccassests/NovoAssets/dr-img/newDoutor.svg'
+  import { Link } from "react-router-dom";
+  import FotoSobreNos from '../../assets/img/tcc/tccassests/NovoAssets/new-assets/imgvoeneto1.svg'
+  import FotoSobreNos2 from '../../assets/img/tcc/tccassests/NovoAssets/new-assets/fotoneta2.svg'
+  import EnfermeiraCuidando from '../../assets/img/tcc/tccassests/land pages/enfermeira-cuidando-idosa.svg'
+  import SaudeCard from '../../assets/img/tcc/tccassests/cards/saude_card.svg'
+  import DinheiroCard from '../../assets/img/tcc/tccassests/cards/dinheiro card.svg'
+  import RemedioCard from '../../assets/img/tcc/tccassests/cards/remedio card.svg'
+  import './land.scss'
+  import Cards from "../../components/cards";
+  import Footer from '../../components/footer/footer'
+  import ChamarChat from '../../components/bot/index'
   
 
 
@@ -137,8 +136,8 @@ export default function Land() {
             <div className="chamar-chat-container">
                 <ChamarChat/>
             </div>
-
-            <Footer />
+            
+                <Footer />
         </main>
     );
 }

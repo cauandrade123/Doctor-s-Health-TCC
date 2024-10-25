@@ -6,6 +6,8 @@ import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Tooltip, Lege
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 export default function Graficos({ dadosAPI }) {
+
+
     const dados = {
         labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
         datasets: [
@@ -29,7 +31,8 @@ export default function Graficos({ dadosAPI }) {
         }
     };
 
-    return  <div style={{ width: '100vh', height: '400px' }}> 
+    return  <div style={{ width: '60vh', height: '400px' }}> 
+
     <Bar data={dados} options={opcoes} />
 </div>;
 }

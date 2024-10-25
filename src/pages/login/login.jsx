@@ -6,14 +6,15 @@ import { useState } from "react";
 import axios from "axios";
 
 export default function Login() {
-    const [senha, setSenha] = useState(false); // Controle de mostrar ou esconder a senha
-    const [senhalg, setSenhalg] = useState(''); // Valor da senha digitada
-    const [email, setEmail] = useState(''); // Valor do email digitado
-    const [conteudo, setConteudo] = useState(''); // Mensagens de erro ou sucesso
-    const navigate = useNavigate(); // Inicialize o useNavigate
+    const [senha, setSenha] = useState(false); 
+    const [senhalg, setSenhalg] = useState('');
+    const [email, setEmail] = useState('');
+    const [conteudo, setConteudo] = useState('');
+    const navigate = useNavigate(); 
 
-    // Função para alternar entre mostrar ou esconder a senha
     const mostrar = () => setSenha(!senha);
+
+   
 
     const Verificar = async () => {
       
@@ -48,6 +49,14 @@ export default function Login() {
         }
     };
 
+
+    const clique = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault(); 
+            Verificar(); 
+        }
+    }
+
     return (
         <div className="login-page">
             
@@ -62,6 +71,8 @@ export default function Login() {
                                 type="email" 
                                 value={email} 
                                 onChange={e => setEmail(e.target.value)} 
+                                onKeyDown={clique}
+
                                 required
                             />
                         </div>
@@ -72,6 +83,7 @@ export default function Login() {
                                 value={senhalg} 
                                 onChange={e => setSenhalg(e.target.value)} 
                                 type={senha ? "text" : "password"} 
+                                onKeyDown={clique}
                                 required
                             />
                             <div className="mostrar-erro">

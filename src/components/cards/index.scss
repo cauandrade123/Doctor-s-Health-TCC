@@ -1,6 +1,7 @@
 
+
 .container {
-    width: 97%;
+    width: 87%;
     height: 60dvh;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -26,7 +27,7 @@
         .title{
             display: flex;
             align-items: flex-start;
-            width: 28dvw;
+            width: 80%;
         }
 
       
@@ -109,3 +110,137 @@
     }
 }
 
+@media (max-width: 768px) {
+    
+
+.container {
+    width: 70%;
+    height: 20dvh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    border-radius: 01.5vh;
+    margin-top: 02vh;
+    margin-bottom: 02vh;
+
+    border: 1px solid rgb(0, 60, 255); 
+
+    .box-pequena {
+        width: 20%;
+        height: 20dvh;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex: 1.7;
+        flex-direction: column;
+        background-color: white;
+        border-top-left-radius:  01.5vh;
+        border-bottom-left-radius:  01.5vh;
+        border: 1px solid green;
+
+
+        .title{
+
+        }
+
+        .content{
+            width: 60%;
+            height: 9dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid green;
+        
+                
+
+            h1{
+                font-size: 3.3dvh;
+               
+            }
+        }
+
+      
+
+        h1 {
+            color: #000000;
+           
+            font-size: 3.5dvh;
+        }
+
+        h4 {
+            color: rgba(99, 199, 252, 1) ;
+            font-size: 2dvh;
+            justify-self: flex-start;
+        }
+    }
+
+    .box-grande {
+        position: relative;
+        width: 20%;
+        height: 20dvh;
+        background-color: rgba(99, 199, 252, 1);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex:1.9;
+        justify-content: center;
+        border-top-right-radius:  01.5vh;
+        border-bottom-right-radius: 01.5vh;
+
+
+        .content-da-grande {
+            display: flex;
+         
+         
+
+            .textoSlide{
+                width: 17%;
+                height: 17%;
+            }
+        
+            .slide {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                
+               
+
+
+                .textoSlide{
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+               
+
+
+
+                    h2 {
+                        margin-right: 10dvh;
+                        width: 01%;
+                        height: 01% ;
+                        font-size: 01.5dvh;
+                        color: white;
+
+                    }
+
+                }
+
+             
+    
+                img {
+                        width: 24%;
+                        height: 19%;   
+                }
+
+               
+            }
+        }
+
+    }
+}
+}

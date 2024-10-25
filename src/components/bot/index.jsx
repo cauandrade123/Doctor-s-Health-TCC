@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import './index.scss'
 
 
@@ -108,9 +109,9 @@ export default function Chat() {
     }
 
     const clique = (e) => {
-        if (e.key === 'Enter') { // Corrigido para 'Enter'
-            e.preventDefault(); // Corrigido para preventDefault()
-            mostrasmsg(); // Chama a função para enviar a mensagem
+        if (e.key === 'Enter') {
+            e.preventDefault(); 
+            mostrasmsg(); 
         }
     }
     return (

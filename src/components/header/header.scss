@@ -61,6 +61,11 @@ header{
 }
 
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
+    header{
+    .links{
+
+        gap: 0px;
+        margin-right: 0px;
+
     }}
+}

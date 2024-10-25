@@ -28,6 +28,7 @@ export default function Cards({ texto_1, texto_2, texto_3, img_1, img_2,img_3 })
 
 
     return (
+   
         <div className="container">
             <div className="box-pequena">
                 <div className="title">
@@ -67,5 +68,6 @@ export default function Cards({ texto_1, texto_2, texto_3, img_1, img_2,img_3 })
                 </div>
             </div>
         </div>
+     
     );
 }

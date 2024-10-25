@@ -12,6 +12,7 @@ import Cards from "../../components/cards";
 import Footer from '../../components/footer/footer'
 import ChamarChat from "../../components/teste_boy";
 
+  
 
 
 
@@ -134,7 +135,7 @@ export default function Land() {
             </div>
 
             <div className="chamar-chat-container">
-                <ChamarChat />
+                <ChamarChat/>
             </div>
 
             <Footer />

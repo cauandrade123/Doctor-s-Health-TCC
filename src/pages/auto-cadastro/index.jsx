@@ -364,7 +364,12 @@ export default function Auto_cadastro() {
     };
 
 
-
+    const clique = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault()
+            cadastrarTudo()
+        }
+    }
 
 
 
@@ -393,12 +398,12 @@ export default function Auto_cadastro() {
 
                         <div className="input-style">
                             <p>Nome</p>
-                            <input onChange={e => setNome(e.target.value)} type="text" placeholder="Digite aqui" />
+                            <input onKeyDown={clique}  onChange={e => setNome(e.target.value)} type="text" placeholder="Digite aqui" />
                         </div>
 
                         <div className="input-style">
                             <p>Número de telefone</p>
-                            <InputMask mask="(99) 99999-9999" type="text" placeholder="Digite aqui" onChange={e => setTelefone(e.target.value)} />
+                            <InputMask mask="(99) 99999-9999" type="text" onKeyDown={clique} placeholder="Digite aqui" onChange={e => setTelefone(e.target.value)} />
                         </div>
 
                         <div className="input-style">
@@ -413,24 +418,24 @@ export default function Auto_cadastro() {
 
                         <div className="input-style">
                             <p>Data de nascimento</p>
-                            <input onChange={e => setNascimento(e.target.value)} type="date" placeholder="Digite aqui" />
+                            <input onChange={e => setNascimento(e.target.value)} onKeyDown={clique} type="date" placeholder="Digite aqui" />
                         </div>
 
                         <div className="input-style">
                             <p>RG</p>
                             <InputMask
-                             mask="99.999.999-9" onChange={e => setRg(e.target.value)} type="text" placeholder="Digite aqui: " />
+                             mask="99.999.999-9" onChange={e => setRg(e.target.value)} onKeyDown={clique} type="text" placeholder="Digite aqui: " />
                         </div>
 
                         <div className="input-style">
                             <p>CPF</p>
                             <InputMask
-                             mask="999.999.999-99" onChange={e => setCpf(e.target.value)} type="text" placeholder="Digite aqui: XXX.XXX.XXX-XX" />
+                             mask="999.999.999-99" onChange={e => setCpf(e.target.value)} onKeyDown={clique} type="text" placeholder="Digite aqui: XXX.XXX.XXX-XX" />
                         </div>
 
                         <div className="input-style">
                             <p>Selecione a data desejada para a consulta</p>
-                            <input onChange={IndetificarData} type="date" />
+                            <input onChange={IndetificarData} onKeyDown={clique} type="date" />
                         </div>
 
 
@@ -454,7 +459,7 @@ export default function Auto_cadastro() {
 
                         <div className="input-style">
                             <p>Email</p>
-                            <input onChange={e => setEmail(e.target.value)} type="text" placeholder="Digite aqui seu email" />
+                            <input onKeyDown={clique} onChange={e => setEmail(e.target.value)} type="text" placeholder="Digite aqui seu email" />
                         </div>
 
 

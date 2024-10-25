@@ -4,7 +4,7 @@ import './index.scss'; // Importe o arquivo SCSS
 import { FaHeadset } from "react-icons/fa";
 
 export default function ChamarChat() {
-  const [chamar, setChamar] = useState(false);
+  const [chamar, setChamar] = useState(true);
 
   const mostrar = () => {
     setChamar(!chamar);
@@ -12,10 +12,16 @@ export default function ChamarChat() {
 
   return (
     <div className="ChamarBot">
-      <button className="abrir" onClick={mostrar}>
-        {chamar ? <FaHeadset size={30} /> : <FaHeadset size={30} />}
-      </button>
+  
+  
 
+
+
+  
+      
+  <button className="abrir" onClick={mostrar}>
+        <FaHeadset size={30} />
+  </button>
       {chamar && (
         <div className="chat-popup">
           <Chat />

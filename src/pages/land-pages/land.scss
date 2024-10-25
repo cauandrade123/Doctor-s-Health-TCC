@@ -89,7 +89,7 @@
     background-color: #0b9debe6;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-direction: row;
     margin: 0 auto;
     border-radius: 15px;
@@ -98,6 +98,10 @@
     color: rgb(255, 255, 255);
     margin-top: 40px;
     
+    li{
+      font-size: 3vh;
+      font-weight: 500;
+    }
   }
 
   .sobreNos{

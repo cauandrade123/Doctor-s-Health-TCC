@@ -163,11 +163,12 @@ export default function Auto_cadastro() {
         return response.data;
     };
 
-    const verificarConsulta = async (cpf) => {
-
-        const response = await axios.get(`http://localhost:5020/verificarconsulta/${cpf}`);
+    const TelefoneExiste = async (telefone) => {
+        const url = 'http://localhost:5020/verificar-telefone';
+        const response = await axios.post(url, { telefone });
         return response.data;
     };
+
 
     const verificarCpf = (cpf) => {
         const cpfLimpo = cpf.replace(/\D/g, '');
@@ -269,6 +270,18 @@ export default function Auto_cadastro() {
             setNegacao(true)
 
             return;
+        }
+
+        console.log('Verificando se o telefone já está cadastrado...');
+        const TelefoneExistente = await TelefoneExiste(telefone);
+
+        if (TelefoneExistente.existe) {
+            console.log('O telefone já cadastrado:', TelefoneExistente);
+            setMensagem('O seu telefone já está cadastrado no sistema.');
+            setCarregando(false);
+            setNegacao(true)
+
+            return
         }
     
         const validarIdade = validarMaiorDe18(DTnascimento);

@@ -6,6 +6,8 @@ header{
     align-items: center;
     width: 100%;
 
+    
+
 
 
     .logo{
@@ -25,6 +27,13 @@ header{
         margin-right: 64px;
         color: white;
         font-family: 'Roboto';
+
+        .menu-toggle {
+            display: none;
+            font-size: 2em;
+            cursor: pointer;
+            padding: 10px;
+          }
 
         a{
             text-decoration: none;
@@ -50,3 +59,8 @@ header{
         }
     }
 }
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }}

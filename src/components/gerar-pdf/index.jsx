@@ -68,8 +68,8 @@ export default function AtestadoMedicoPDF({
             }],
             margin: [0, 10, 0, 10]
         },
-        { text: `Médico: ${nome_medico}`, fontSize: 12, margin: [0, 5] },
-        { text: `CRM: ${crm}`, fontSize: 12, margin: [0, 5] },
+        { text: `Médico: João Silva`, fontSize: 12, margin: [0, 5] },
+        { text: `CRM: AMB`, fontSize: 12, margin: [0, 5] },
     ];
 
     function rodape(currentPage, pageCount) {

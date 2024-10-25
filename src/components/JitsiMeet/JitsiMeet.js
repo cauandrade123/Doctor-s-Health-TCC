@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 
 
-export default function JitsiMeet({nm_Paciente, nm_Sala}) {
+export default function JitsiMeet({ nm_Sala}) {
 
     const [link, setLink] = useState('')
 
@@ -18,7 +18,7 @@ export default function JitsiMeet({nm_Paciente, nm_Sala}) {
             },
             interfaceConfigOverwrite: { SHOW_JITSI_WATERMARK: true },
             userInfo: { 
-                displayName: nm_Paciente
+                displayName: 'Dr. Silva'
              }
            };
 
@@ -32,7 +32,7 @@ export default function JitsiMeet({nm_Paciente, nm_Sala}) {
            console.log(link)
            
            return () => api.dispose();
-        }, [nm_Paciente, nm_Sala]);
+        }, [nm_Sala]);
 
 
     

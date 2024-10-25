@@ -54,4 +54,3 @@ export default function Pagina () {
 }
 
 
-//vou fazer os botao ter a bolinha na hora da renderização //

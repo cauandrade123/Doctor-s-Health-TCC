@@ -1,3 +1,4 @@
+import { animateScroll } from 'react-scroll';
 import './index.scss';
 import { useState , useEffect, useRef } from 'react';
 
@@ -25,10 +26,9 @@ export default function Cards({ texto_1, texto_2, texto_3, img_1, img_2,img_3 })
 
 
       const rolagem_bonita = (index) => {
-        Animacao.current[index].scrollIntoView({
-             behavior: 'smooth',
-             block: 'nearest'
-        })
+        const irparalado = () => {
+        
+        }
 
       }
 

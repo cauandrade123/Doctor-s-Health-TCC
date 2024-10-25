@@ -20,29 +20,29 @@ import Header from "../../components/header/header";
 
 
 
-  export default function Land() {
+export default function Land() {
 
 
 
     let card_conheca = [
 
         {
-          'texto_1': 'Consultório licensiado para medicamento sobre restrição ',
-          'img_1': RemedioCard,
-          'texto_2': 'Os Melhores preços da região',
-          'img_2': DinheiroCard,
-          'texto_3': 'Melhor atendimento para sua saúde',
-          'img_3': SaudeCard,
-     
-       }
-     
-     
-      ]
+            'texto_1': 'Consultório licensiado para medicamento sobre restrição ',
+            'img_1': RemedioCard,
+            'texto_2': 'Os Melhores preços da região',
+            'img_2': DinheiroCard,
+            'texto_3': 'Melhor atendimento para sua saúde',
+            'img_3': SaudeCard,
+
+        }
+
+
+    ]
 
 
 
 
-    return(
+    return (
         <main className="principal-landing-page">
             <div className="secao1">
                 <div className="header">
@@ -72,10 +72,10 @@ import Header from "../../components/header/header";
             <div className="sobreNos">
                 <div className="box-cinza">
                     <div id="Sobrenos" className="box-branca">
-                        <div  className="cabecalho">
+                        <div className="cabecalho">
                             <h3>Sobre Nós</h3>
                         </div>
-                        <div  className="content-sobre-nos">
+                        <div className="content-sobre-nos">
 
                             <div className="textos">
                                 <h1>Na Doctors Health,<br /> a sua saúde é nossa prioridade <br /> absoluta! </h1>
@@ -89,17 +89,17 @@ import Header from "../../components/header/header";
                     </div>
                     <div className="box-transparente">
                         <div className="image">
-                                <img src={FotoSobreNos2} alt="" />
+                            <img src={FotoSobreNos2} alt="" />
                         </div>
                         <div className="textos-box-cinza">
 
-                                <h2>Como Trabalhamos</h2>
+                            <h2>Como Trabalhamos</h2>
 
-                                <h1>Marcar uma consulta <br /> é facil como 1, 2, 3...</h1>
+                            <h1>Marcar uma consulta <br /> é facil como 1, 2, 3...</h1>
 
-                                <li>se cadastre, é super fácil!</li>
-                                <li>escolha o melhor horário pra você...</li>
-                                <li>Pronto! sua consulta está agendada!</li>
+                            <li>se cadastre, é super fácil!</li>
+                            <li>escolha o melhor horário pra você...</li>
+                            <li>Pronto! sua consulta está agendada!</li>
                         </div>
                     </div>
                     <div id="ComoTrabalhamos" className="box-branca2">
@@ -113,28 +113,28 @@ import Header from "../../components/header/header";
                             <button>Contate-nos</button>
                         </div>
                         <div className="image-box-branca2">
-                             <img src={EnfermeiraCuidando} alt="" />
+                            <img src={EnfermeiraCuidando} alt="" />
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
             <div id="Serviços" className="Card-Servicos">
-                {card_conheca.map((item,index) => 
-                        <Cards
-                            key={index}
-                            texto_1={item.texto_1}
-                            img_1={ item.img_1}
-                            texto_2={ item.texto_2}
-                            img_2={item.img_2}
-                            texto_3={item.texto_3}
-                            img_3={item.img_3}
-                        />  
+                {card_conheca.map((item, index) =>
+                    <Cards
+                        key={index}
+                        texto_1={item.texto_1}
+                        img_1={item.img_1}
+                        texto_2={item.texto_2}
+                        img_2={item.img_2}
+                        texto_3={item.texto_3}
+                        img_3={item.img_3}
+                    />
                 )}
             </div>
-                
+
             <div className="chamar-chat-container">
-                <ChamarChat />
+                <ChamarChat/>
             </div>
             
                 <Footer />

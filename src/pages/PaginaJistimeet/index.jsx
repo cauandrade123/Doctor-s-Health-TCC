@@ -12,7 +12,6 @@ export default function PageJitsi() {
     return (
         <div className="div-JitsiMeet">
         <JitsiMeet 
-        nm_Paciente={nome}
         nm_Sala={`SALA DE ${nome}`}
         />
         </div>

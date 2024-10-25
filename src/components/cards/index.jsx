@@ -7,11 +7,11 @@ export default function Cards({ texto_1, texto_2, texto_3, img_1, img_2,img_3 })
 
 
     const [posicao, setPosicao] = useState(0);
-    const Animacao = useRef ([])
 
 
     const passar = () => {
         setPosicao((prev) => (prev + 1) % 3); 
+        
     };
 
     const voltar = () => {
@@ -24,13 +24,6 @@ export default function Cards({ texto_1, texto_2, texto_3, img_1, img_2,img_3 })
         return () => clearInterval(slideInterval); 
       }, []);
 
-
-      const rolagem_bonita = (index) => {
-        const irparalado = () => {
-        
-        }
-
-      }
 
     return (
         <div className="container">

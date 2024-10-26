@@ -46,7 +46,7 @@
             border: none;
             border-radius: 20px;
             color: rgba(1, 146, 219, 1);
-            font-size: 3.5vh;
+            font-size: 1.5vw;
             font-weight: bolder;
             transition: all 0.4s;
           }
@@ -56,7 +56,7 @@
           }
   
           h1{
-            font-size: 10vh;
+            font-size: 5.5vw;
           }
 
           p{
@@ -99,8 +99,14 @@
     margin-top: 40px;
     
     li{
-      font-size: 3vh;
+      font-size: 1.7vw;
       font-weight: 600;
+      transition: all 0.4s;
+      list-style-type: none;
+    }
+
+    li:hover{
+      transform: scale(1.5);
     }
   }
 
@@ -193,7 +199,8 @@
           align-items: center;
 
             img{
-              width: 80vh;
+              width: 45vw;
+              height: auto;
             }
         }
 
@@ -204,18 +211,18 @@
 
           h2{
             color: #0192db;
-            font-size: 04vh;
+            font-size: 02vw;
             font-family: 'Inter';
           
           }
 
           h1{
-            font-size: 05.6vh;
+            font-size: 02vw;
           }
 
           li{
             list-style-type: decimal;
-            font-size: 3vh;
+            font-size: 1.8vw;
             font-weight: 450;
           }
           
@@ -272,6 +279,7 @@
 
             img{
               width: 26vw;
+              height: auto;
               
             }
         }
@@ -335,13 +343,13 @@
             color: white;
   
             button{
-              width: 38vw;
+              width: 40vw;
               background-color: white;
-              height: 8vh;
+              height: 7vh;
               border: none;
               border-radius: 20px;
               color: rgba(1, 146, 219, 1);
-              font-size: 2.5vh;
+              font-size: 3.5vw;
               font-weight: bolder;
               transition: all 0.4s;
             }
@@ -352,7 +360,7 @@
     
             h1{
               width: 90%;
-              font-size: 6vh;
+              font-size: 7.5vw;
               display: flex;
               flex-direction: row;
               justify-content: center;
@@ -392,7 +400,7 @@
   
     .faixa-azul{
       li{
-        font-size: 12px;
+        font-size: 2vw;
         list-style-type: none;
       }
       
@@ -401,12 +409,14 @@
     .sobreNos{
   
       height: auto;
+
+      width: 100%;
       .box-cinza{
         display: flex;
         justify-content: center;
         flex-direction: column ;
         width: 97%;
-        height: auto;
+        height: 100%;
         border-radius: 20px;
         margin: 0 auto;
         margin-top: 10vh; 
@@ -424,13 +434,12 @@
           margin-top: 5vh;
           border-radius: 20px;
           width: 97%;
-          height: 100vh;
+          height: auto;
   
           .content-sobre-nos{
             display: flex;
             flex-direction: column;
             justify-content: space-around;
-            margin-bottom: 150vh;
             
   
             .textos{
@@ -459,7 +468,7 @@
               flex-direction: row;
               justify-content: center;
                 img{
-                  margin: 5vh 0px;
+                  margin: 5vh 0px 0 0;
                   width: 60vw;
                   height: auto;
                   box-shadow:0 0 10px 10px #66666628;
@@ -491,7 +500,8 @@
           width: 97%;
           border-radius: 20px;
           flex-direction: column-reverse;
-          gap: 30px;
+          margin-top: 10vw;
+          
           
          
   
@@ -543,20 +553,19 @@
         .box-branca2{
           display: flex;
           flex-direction: column;
-          justify-content: space-evenly;
           align-items: center;
           background-color: white;
           margin: 0 auto;
           border-radius: 20px;
           width: 97%;
-          height: 100vh;
+          height: auto;
   
   
           .textos-box-branca2{
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 40px;
+            
   
            
   
@@ -581,7 +590,7 @@
       
              
               p{
-               width: 180%;
+               width: 80vw;
                 text-align: center;
                 font-size: 16px;
 
@@ -595,7 +604,7 @@
               justify-content: center;
               align-items: center;
               img{
-                margin: 5vh 0px;
+                margin: 5vh auto;
                 width: 40vw;
                 height: auto;
                 box-shadow:0 0 10px 10px #66666628;

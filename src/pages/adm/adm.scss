@@ -128,8 +128,9 @@
 
                 .opcoes-do-menu {
                     display: flex;
-                    flex-direction: row; /* Alinha as opções em uma linha */
-                    gap: 40px; /* Espaçamento entre as opções */
+                    flex-direction: row; 
+                    gap: 40px;
+                    justify-content: center;
                     align-items: center; /* Alinha as opções ao centro verticalmente */
 
                     .Agenda, .Financas, .Consultas {
@@ -137,7 +138,7 @@
                         flex-direction: row;
                         align-items: center;
                         color: white;
-                        font-size: 100%;
+                        font-size: 3vw;
                         line-height: 3;
                         width: 100%;
                         background: none;

@@ -167,48 +167,13 @@
     }
 }
 
-@media (max-width: 768px) {
-    .mae {
-        padding: 2vh;
-        max-height: none;
-
-        .img-doutor {
-            padding-left: 0;
-
-            img {
-                width: 70%;
-            }
-        }
-
-        .informaçoes-do-doutor {
-            padding-left: 0;
-            align-items: center;
-            text-align: center;
-            gap: 3vh;
-
-            h1 {
-                font-size: 8vh;
-                gap: 5px;
-            }
-
-            h2 {
-                width: 80%;
-            }
-
-            a {
-                width: 50%;
-                height: 8vh;
-                font-size: 16px;
-            }
-        }
-    }
-}
 
 @media (max-width: 768px) {
     .login-page {
         main {
             flex-direction: column;
             height: auto;
+            align-items: center;
         }
 
         .borda-azul {
@@ -227,9 +192,30 @@
         }
 
         .opcoes {
-            input {
-                width: 90%; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .input-style {
+                display: flex;
+
+                flex-direction: column;
+                align-items: center;
+                width: 100%; 
                 font-size: 3vh; 
+
+                margin-left: 20px;
+
+                input{
+                    width: 85%;
+                }
+
+                .mostrar-erro{
+
+                   
+                   margin-top: -20px;
+
+                   width: 100%;
+                }
             }
 
             .entrar {
@@ -237,9 +223,13 @@
                 font-size: 4vh; 
             }
 
-            .voltar {
-                width: 40vh; 
-                font-size: 3vh;
+            .voltar-all {
+                width: 50vh; 
+                font-size: 3vw;
+
+                .voltar{
+                    width: 10vh;
+                }
             }
 
             h1 {

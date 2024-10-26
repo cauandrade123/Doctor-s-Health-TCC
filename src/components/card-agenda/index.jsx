@@ -45,7 +45,7 @@ export default function MyCalendar() {
 
   return (
     <main className='card-calendario'>
-      <div style={{ height: '500px', width: '50vw', marginLeft: '20dvh', backgroundColor: 'transparent' }}>
+      <div style={{ height: '500px', width: '50vw', marginLeft: '20dvh',  margintop:'10vh', backgroundColor: 'transparent' }}>
         <Calendar
           localizer={localizer}
           events={events}

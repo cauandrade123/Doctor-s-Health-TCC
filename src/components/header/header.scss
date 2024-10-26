@@ -47,7 +47,7 @@ header{
         }
 
         li{
-            font-size: 2.8vh;
+            font-size: 1.8vw;
             transition: all 0.3s;
             color: white;
             cursor: pointer;
@@ -66,6 +66,9 @@ header{
 
         gap: 0px;
         margin-right: 0px;
+        li{
+            font-size: 2vw; 
+        }
 
     }}
 }

@@ -24,6 +24,13 @@ export default function Chat() {
         setMensagem("");
         setCarregando(true); 
 
+
+        function ChamarMedico () {
+            let url = `https://api.fda.gov/drug/event.json?search=${mensagem}&limit=5`
+        }
+
+
+
         const respotadobot = await axios.get(`https://api.wit.ai/message`, {
             params: {
                 v: '20241016',
@@ -45,16 +52,48 @@ export default function Chat() {
         const numero = resp.entities ['numero:numero'] || [];
         const plano = resp.entities ['plano:plano'] || [];
         const pagamento =   resp.entities ['pagamento:pagamento'] || [];
+        const doenca = resp.entities [  'doen_a:doen_a'] || [];
+
 
 
 
 
         const novasRespostas = [];
 
+        
+
 
         if (pagamento.length > 0) {
              novasRespostas.push({ text: 'Aceitamos Dinheiro, pix e cartão'  , sender: 'bot' });
 
+        }
+
+          
+           if (doenca.length > 0) {
+         
+               
+                const respostadoremedio = await axios.get(`https://api.fda.gov/drug/event.json`, {
+                    params: {
+                        search: doenca[0].value, 
+                        limit: 1
+                    }
+                });
+
+                const dadosMedicamento = respostadoremedio.data.results || [];
+                if (dadosMedicamento.length > 0) {
+                    const respostaMedicamento = dadosMedicamento.map(dado => {
+            
+                        const medicamento = dado.patient?.drug[0]?.medicinalproduct || 'não disponível';
+          
+                        return `Medicamento: ${medicamento}`;
+                    }).join('\n');
+
+            
+                    novasRespostas.push({ text: respostaMedicamento || 'Não encontrei informações sobre medicamentos relacionados.', sender: 'bot' });
+                } else {
+                    novasRespostas.push({ text: 'Não encontrei informações sobre medicamentos relacionados.', sender: 'bot' });
+                }
+            
         }
 
         if (plano.length > 0) {

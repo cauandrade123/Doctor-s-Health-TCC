@@ -105,3 +105,18 @@ button {
 
 
 }
+
+::-webkit-scrollbar {
+    width: 2vh;
+    height: 2vh;
+}
+
+::-webkit-scrollbar-track{
+    border-radius: 2vh;
+    background-color:#ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1882f3; 
+    border-radius: 10px; 
+}

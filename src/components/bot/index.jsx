@@ -107,7 +107,7 @@ export default function Chat() {
         
                             const medicamentoTraduzido = responseRemedioTraducao.data.responseData?.translatedText;
         
-                            return `o Medicamento recomendado para ${userTranslate} é: ${medicamentoTraduzido} Nunca utilize este remédio sem prescrição médica, pois a automedicação pode acarretar riscos à saúde. Lembre-se: a responsabilidade não é do médico, para um diagnostico preciso marque sua consulta!`;
+                            return `o Medicamento recomendado para sua queixa é: ${medicamentoTraduzido} Nunca utilize este remédio sem prescrição médica, pois a automedicação pode acarretar riscos à saúde. Lembre-se: a responsabilidade não é do médico, para um diagnostico preciso marque sua consulta!`;
                         })
                     );
         

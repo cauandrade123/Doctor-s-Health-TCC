@@ -1,5 +1,9 @@
 
-
+.mae-card{
+    display: flex
+    ;flex-direction: column;
+    align-items: center;
+}
 .container {
     width: 87%;
     height: 60dvh;
@@ -23,6 +27,9 @@
         border-bottom-left-radius: 03vh;
         gap: 30px;
 
+        .content{
+            width: 90%;
+        }
 
         .title{
             display: flex;

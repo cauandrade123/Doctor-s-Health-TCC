@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Await, useNavigate } from "react-router-dom";
 
 import './index.scss'
 
@@ -69,33 +69,57 @@ export default function Chat() {
         }
 
           
-           if (doenca.length > 0) {
+        if (doenca.length > 0) {
+
+
+            const responseUserTraducao = await axios.get(`https://api.mymemory.translated.net/get`, {
+                params: {
+                    q: doenca[0].value,
+                    langpair: "pt|en" 
+                }
+            });
+
+            const userTranslate = responseUserTraducao.data.responseData?.translatedText;
+
+            
          
-               
                 const respostadoremedio = await axios.get(`https://api.fda.gov/drug/event.json`, {
                     params: {
-                        search: doenca[0].value, 
+                        search:userTranslate, 
                         limit: 1
                     }
                 });
-
+        
                 const dadosMedicamento = respostadoremedio.data.results || [];
                 if (dadosMedicamento.length > 0) {
-                    const respostaMedicamento = dadosMedicamento.map(dado => {
-            
-                        const medicamento = dado.patient?.drug[0]?.medicinalproduct || 'não disponível';
-          
-                        return `Medicamento: ${medicamento}`;
-                    }).join('\n');
-
-            
-                    novasRespostas.push({ text: respostaMedicamento || 'Não encontrei informações sobre medicamentos relacionados.', sender: 'bot' });
+                    // Mapeia e aguarda as traduções de cada medicamento
+                    const respostaMedicamentoArray = await Promise.all(
+                        dadosMedicamento.map(async (dado) => {
+                            const medicamento = dado.patient?.drug[0]?.medicinalproduct || 'não disponível';
+        
+                            // Traduz o nome do medicamento
+                            const responseRemedioTraducao = await axios.get(`https://api.mymemory.translated.net/get`, {
+                                params: {
+                                    q: medicamento,
+                                    langpair: "en|pt" 
+                                }
+                            });
+        
+                            const medicamentoTraduzido = responseRemedioTraducao.data.responseData?.translatedText;
+        
+                            return `o Medicamento recomendado para ${userTranslate} é: ${medicamentoTraduzido} Nunca utilize este remédio sem prescrição médica, pois a automedicação pode acarretar riscos à saúde. Lembre-se: a responsabilidade não é do médico, para um diagnostico preciso marque sua consulta!`;
+                        })
+                    );
+        
+                    const respostaMedicamento = respostaMedicamentoArray.join('\n');
+                    novasRespostas.push({ text: respostaMedicamento, sender: 'bot' });
+                    novasRespostas.push({ text: 'Marque aqui -->    ', sender: 'button' });
                 } else {
                     novasRespostas.push({ text: 'Não encontrei informações sobre medicamentos relacionados.', sender: 'bot' });
                 }
-            
+           
         }
-
+        
         if (plano.length > 0) {
             novasRespostas.push({ 
                 text: `Gostaríamos de informar que, atualmente, o Dr.Joao silva não aceita nenhum plano de saúde. O pagamento das consultas e procedimentos deve ser realizado diretamente no ato do atendimento.`, 
@@ -161,7 +185,7 @@ export default function Chat() {
                         <li key={index} className={msg.sender}>
                             <strong>{msg.sender === 'user' ? 'Você' : 'Aquino'}:</strong> {msg.text}
                             {msg.sender === 'button' && (
-                                <button className="clique" onClick={navegar}>{msg.text}</button>
+                                <button className="clique" onClick={navegar}>Agendar</button>
                             )}
                         </li>
                     ))}

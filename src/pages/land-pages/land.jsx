@@ -126,7 +126,7 @@ export default function Land() {
                     </div>
                 </div>
             </div>
-            {/* <div id="Serviços" className="Card-Servicos">
+            <div id="Serviços" className="Card-Servicos">
                 {card_conheca.map((item, index) =>
                     <Cards
                         key={index}
@@ -138,7 +138,7 @@ export default function Land() {
                         img_3={item.img_3}
                     />
                 )}
-            </div> */}
+            </div> 
 
          
             

@@ -7,8 +7,8 @@
 .main-adm {
     display: flex;
     flex-direction: row;
-    min-height: 100vh; 
- 
+    min-height: 100vh;
+
 
 
     .consultas {
@@ -17,16 +17,16 @@
         align-self: center;
         min-height: 100vh;
         flex: 1;
-    
 
-        
-        background-color: rgba(153, 153, 153, 0.326); 
 
-       
+
+        background-color: rgba(153, 153, 153, 0.326);
+
+
     }
 
     .menu-adm {
-        background: #006eff; 
+        background: #006eff;
         width: 53vh;
         min-height: 100vh;
         display: flex;
@@ -42,7 +42,7 @@
             .voltar {
                 width: 9vh;
             }
-            
+
             img {
                 height: 70%;
                 margin-left: 10px;
@@ -65,11 +65,13 @@
             .opcoes-do-menu {
                 display: flex;
                 flex-direction: column;
-                
+
                 line-height: 1.5;
                 width: 100%;
 
-                .Agenda, .Financas, .Consultas {
+                .Agenda,
+                .Financas,
+                .Consultas {
                     display: flex;
                     flex-direction: column;
                     align-items: flex-start;
@@ -83,7 +85,9 @@
                     transition: all 0.3s;
                 }
 
-                .Agenda:hover, .Financas:hover, .Consultas:hover {
+                .Agenda:hover,
+                .Financas:hover,
+                .Consultas:hover {
                     display: flex;
                     flex-direction: column;
                     align-items: flex-start;
@@ -100,40 +104,44 @@
         }
     }
 
-   
+
 }
 
 @media (max-width: 768px) {
     .main-adm {
-        flex-direction: column; 
+        flex-direction: column;
 
         .menu-adm {
-            width: 100%; 
-            min-height: 200px; 
+            width: 100%;
+            min-height: 30vw;
             display: flex;
             flex-direction: column;
-          
-            justify-content: space-between; 
+
+            justify-content: space-between;
 
             .menu-azul {
-                background-color:#006eff;;
+                background-color: #006eff;
+                ;
                 width: auto;
-                height: 100px; 
+                height: 20px;
                 margin: 0;
-                margin-bottom: 20px; 
+                margin-bottom: 6vw;
                 border-radius: 0;
-                padding: 10px; 
+                padding: 10px;
                 justify-content: center;
-                margin-top: 0; 
+                margin-top: 0;
 
                 .opcoes-do-menu {
                     display: flex;
-                    flex-direction: row; 
+                    flex-direction: row;
                     gap: 40px;
                     justify-content: center;
-                    align-items: center; /* Alinha as opções ao centro verticalmente */
+                    align-items: center;
+                    
 
-                    .Agenda, .Financas, .Consultas {
+                    .Agenda,
+                    .Financas,
+                    .Consultas {
                         display: flex;
                         flex-direction: row;
                         align-items: center;
@@ -146,15 +154,18 @@
                         transition: all 0.3s;
                     }
 
-                    .Agenda:hover, .Financas:hover, .Consultas:hover {
+                    .Agenda:hover,
+                    .Financas:hover,
+                    .Consultas:hover {
                         display: flex;
                         flex-direction: row;
                         align-items: center;
                         text-align: center;
                         color: white;
-                        font-size: 130%;
+                        font-size: 120%;
                         line-height: 3;
                         width: 100%;
+                        height: 50px;
                         background-color: rgba(2, 2, 219, 0.877);
                         border-radius: 10px;
                         transform: scale(1.1);
@@ -167,29 +178,33 @@
                 align-items: center;
 
                 .logo {
-                    width: 280px;
+                    width: 45vw;
                 }
 
                 .voltar {
-                    width: 6vh; 
+                    width: 05vw;
+                }
+                .seta{
+                    width: 08vw
                 }
             }
         }
 
         .consultas {
-             display: flex;
-             width: 100%;
+            display: flex;
+            width: 100%;
+            height: auto;
 
-             flex-direction: column;
+            flex-direction: column;
             padding-top: 3vh;
-             align-self: center;
-            
-             flex: 1;
-            overflow-y: auto;
-    
+            align-self: center;
 
-        
-        background-color: rgba(153, 153, 153, 0.326); 
+            flex: 1;
+            overflow-y: auto;
+
+
+
+            background-color: rgba(153, 153, 153, 0.326);
         }
     }
 }

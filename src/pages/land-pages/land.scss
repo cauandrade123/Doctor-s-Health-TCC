@@ -106,7 +106,8 @@
     }
 
     li:hover{
-      transform: scale(1.5);
+      transform: scale(1.2);
+      cursor: pointer;
     }
   }
 
@@ -291,9 +292,9 @@
   }
 
   .Card-Servicos{
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
       margin-top: 05vh;
   }
 

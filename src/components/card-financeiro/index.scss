@@ -1,7 +1,6 @@
 .main_financeiro {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding: 5vh 10vh;
     gap: 3vh;
@@ -23,6 +22,7 @@
             height: 20vh;
             border-radius: 2vh;
             transition: 1s;
+            font-size: 1.1vw;
 
             &:hover {
                 transform: scale(1.1);
@@ -56,3 +56,21 @@
 }
 
 
+@media (max-width:786px) {
+   .main_financeiro{
+    height: auto;
+
+
+    .graficos {
+        max-height: 40vh;
+        overflow-y: scroll;
+    }
+    .card_financas {
+    .content-cards {
+        width: 17vh ;
+        height: 14vh;
+        font-size: 2vw;
+        margin-top: -5vw;
+        
+   } }}
+}

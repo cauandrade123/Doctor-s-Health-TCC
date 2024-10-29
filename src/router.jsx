@@ -10,6 +10,7 @@ import { jwtDecode } from 'jwt-decode';
 import Chat from "./components/bot";
 import PageJitsi from "./pages/PaginaJistimeet";
 import ChamarChat from "./components/teste_boy";
+import Page404 from "./pages/page404";
 
 
 export default function Navegacao() {
@@ -48,7 +49,7 @@ export default function Navegacao() {
                 <Route path="/auto_cadastro" element={<Auto_cadastro />} />
                 <Route path="/cadastrado" element={<Cadastrado />} />
                 <Route path="/reuniao" element={<PrivateRoute><PageJitsi/></PrivateRoute>} />
-
+                <Route path='*' element={<Page404/>}/>
                 
 
                  <Route
@@ -56,8 +57,7 @@ export default function Navegacao() {
                       <Adm/>
                     </PrivateRoute> }
                   />  
-                
-            </Routes>
+                 </Routes>
         </BrowserRouter>
     );
 }

@@ -21,33 +21,32 @@ export default function Cardadm() {
 
     function CalcularIdade (nascimento){
 
-        {/* Pega a informação da data atual */}
+       
         const dataHOJE = new Date();
         const ano = dataHOJE.getFullYear();
         const mes = dataHOJE.getMonth();
         const dia = dataHOJE.getDay();
-        {/* ------------------------------- */}
+        
 
-        {/* Pega a informação da data de nascimento */}
+       
         const dataNascimento = new Date(nascimento)
         const mesNasc = dataNascimento.getMonth();
         const anoNasc = dataNascimento.getFullYear();
         const diaNasc = dataNascimento.getDay();
-        {/* --------------------------------------- */}
+       
 
-        {/* Calculo e lógica da parada da situação do procedimento */}
+  
         let idade = ano- anoNasc 
 
         if ( mes < mesNasc || (mes === mesNasc && dia < diaNasc)) {
             idade--
         }
-        {/* ------------------------------------------------------ */}
-
+        
 
         return idade
     }
 
-    {/* Função para pesquisar no banco pelo CPF. */}
+
     async function Buscar() {
         const url = 'http://localhost:5020/consultasCpf/'+`${buscar}`
         let resp = await axios.get(url)
@@ -55,7 +54,7 @@ export default function Cardadm() {
         setConsultasList(resp.data)
     }
 
-      {/* Função para renderizar a resposta do BANCO nos cardzin. */}
+
     async function renderList(){
         const url = 'http://localhost:5020/'+tipoConsulta
         let resp = await axios.get(url)
@@ -63,8 +62,7 @@ export default function Cardadm() {
         setConsultasList(resp.data)
     }
 
-    {/* useEffect para renderizar a lista na tela, se o input "busca" tiver vazio, renderiza a opção
-    escolhida no input de passadas e futuras.*/}
+
     useEffect(()=> {
 
         if (buscar == '') {

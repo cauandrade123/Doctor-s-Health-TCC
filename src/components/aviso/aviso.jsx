@@ -1,20 +1,19 @@
 import React, { useEffect } from 'react';
-import './aviso.scss'; // Importa os estilos do componente
+import './aviso.scss';
 
 const Notification = ({ message, onClose, duration, type }) => {
     useEffect(() => {
         if (message) {
             const timer = setTimeout(() => {
-                onClose(); // Fecha a notificação após o tempo especificado
+                onClose(); 
             }, duration);
 
             return () => clearTimeout(timer);
         }
     }, [message, duration, onClose]);
 
-    if (!message) return null; // Não renderiza se não houver mensagem
+    if (!message) return null; 
 
-    // Define as cores com base no tipo de notificação
     const styles = {
         success: {
             backgroundColor: '#d4edda',
@@ -38,7 +37,7 @@ const Notification = ({ message, onClose, duration, type }) => {
         },
     };
 
-    const currentStyle = styles[type] || styles.info; // Define o estilo atual
+    const currentStyle = styles[type] || styles.info; 
 
     return (
         <div className="notification" style={currentStyle}>

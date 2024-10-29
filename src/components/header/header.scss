@@ -65,10 +65,14 @@ header{
     .links{
 
         gap: 0px;
-        margin-right: 0px;
+        margin-right: 0px; 
         li{
-            font-size: 2vw; 
+            font-size: 1.7vw; 
         }
+
+        .menu-toggle {
+            padding: 0px;
+          }
 
     }}
 }

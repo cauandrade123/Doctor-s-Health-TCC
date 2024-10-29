@@ -1,0 +1,56 @@
+
+.main404{
+    background-color: #0464D6;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    .btInicio{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        padding-left: 5vh;
+        padding-top: 3vh;
+        
+        .btVoltar{
+            color: white;
+            text-decoration: none;
+            font-size: 2.5vh;
+            
+        }
+    }
+
+    .container-box{
+        
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        align-items: center;
+        justify-content: center;
+
+        justify-self: center;
+
+        .container-box-imgs{
+           display: flex;
+           flex-direction: column;
+            align-self: center;
+            justify-self: center;
+    
+            align-items: center;
+            justify-content: center;
+
+            width: 75%;
+            gap: 3vh;
+            .imagem404{
+                width: 90%;
+            }
+
+            .logo{
+                width: 80%;
+            }
+        }
+
+    }
+}

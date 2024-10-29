@@ -11,6 +11,7 @@ import Chat from "./components/bot";
 import PageJitsi from "./pages/PaginaJistimeet";
 import ChamarChat from "./components/teste_boy";
 import Agendamentos from "./pages/agendamentos/agendamentos";
+import Page404 from "./pages/page404";
 
 
 export default function Navegacao() {
@@ -50,7 +51,7 @@ export default function Navegacao() {
                 <Route path="/cadastrado" element={<Cadastrado />} />
                 <Route path="/agendamentos" element={<Agendamentos />} />
                 <Route path="/reuniao" element={<PrivateRoute><PageJitsi/></PrivateRoute>} />
-
+                <Route path='*' element={<Page404/>}/>
                 
 
                  <Route
@@ -58,8 +59,7 @@ export default function Navegacao() {
                       <Adm/>
                     </PrivateRoute> }
                   />  
-                
-            </Routes>
+                 </Routes>
         </BrowserRouter>
     );
 }

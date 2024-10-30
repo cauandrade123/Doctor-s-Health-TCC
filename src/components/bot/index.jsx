@@ -25,11 +25,7 @@ export default function Chat() {
         setCarregando(true); 
 
 
-        function ChamarMedico () {
-            let url = `https://api.fda.gov/drug/event.json?search=${mensagem}&limit=5`
-        }
-
-
+        
 
         const respotadobot = await axios.get(`https://api.wit.ai/message`, {
             params: {
@@ -44,10 +40,15 @@ export default function Chat() {
         let resp = respotadobot.data;
 
         const saudacao = resp.entities['saudacao:saudacao'] || [];
+
         const consulta = resp.entities['consulta:consulta'] || [];
+
         const xingamento = resp.entities['xingamento:xingamento'] || [];
+
         const cancelar = resp.entities['cancelamento:cancelamentos'] || [];
+
         const nome = resp.entities['saber:saber'] || [];
+
         const especialidade = resp.entities ['especialidade:especialidade'] || [];
         const numero = resp.entities ['numero:numero'] || [];
         const plano = resp.entities ['plano:plano'] || [];
@@ -86,18 +87,18 @@ export default function Chat() {
                 const respostadoremedio = await axios.get(`https://api.fda.gov/drug/event.json`, {
                     params: {
                         search:userTranslate, 
-                        limit: 1
+                        limit: 5
                     }
                 });
         
                 const dadosMedicamento = respostadoremedio.data.results || [];
                 if (dadosMedicamento.length > 0) {
-                    // Mapeia e aguarda as traduções de cada medicamento
+
                     const respostaMedicamentoArray = await Promise.all(
+
                         dadosMedicamento.map(async (dado) => {
                             const medicamento = dado.patient?.drug[0]?.medicinalproduct || 'não disponível';
         
-                            // Traduz o nome do medicamento
                             const responseRemedioTraducao = await axios.get(`https://api.mymemory.translated.net/get`, {
                                 params: {
                                     q: medicamento,
@@ -152,7 +153,7 @@ export default function Chat() {
         }
         if (consulta.length > 0) {
             novasRespostas.push({ text: 'Para marcar sua consulta, clique no botão abaixo:', sender: "bot" });
-            novasRespostas.push({ text: 'Clique aqui', sender: 'button' });
+            novasRespostas.push({ text: 'Marque aqui -->', sender: 'button' });
         }
         if (xingamento.length > 0) {
             novasRespostas.push({ text: 'Esse tipo de mensagem não é tolerado.', sender: "bot" });
@@ -186,7 +187,7 @@ export default function Chat() {
                             <strong>{msg.sender === 'user' ? 'Você' : 'Aquino'}:</strong> {msg.text}
                             {msg.sender === 'button' && (
                                 <button className="clique" onClick={navegar}>Agendar</button>
-                            )}
+                            )}      
                         </li>
                     ))}
                     {carregando && <li className="bot"><strong>Aquino:</strong> Estou pensando...</li>} {/* Indicador de carregamento */}

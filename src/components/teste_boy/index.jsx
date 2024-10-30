@@ -4,7 +4,7 @@ import './index.scss'; // Importe o arquivo SCSS
 import { FaHeadset } from "react-icons/fa";
 
 export default function ChamarChat() {
-  const [chamar, setChamar] = useState(true);
+  const [chamar, setChamar] = useState(false);
 
   const mostrar = () => {
     setChamar(!chamar);

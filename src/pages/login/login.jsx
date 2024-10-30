@@ -43,7 +43,6 @@ export default function Login() {
             if (error.response && error.response.status === 401) {
                 setConteudo('Email ou senha incorretos.');
             } else {
-                alert(error)
                 setConteudo('Erro ao realizar o login.');
             }
         }

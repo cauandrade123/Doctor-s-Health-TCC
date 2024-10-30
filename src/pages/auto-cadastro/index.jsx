@@ -73,9 +73,7 @@ export default function Auto_cadastro() {
         
     const FecharNegação = () => {
         setNegacao(false);
-        setTimeout(function () {
-            window.location.reload();
-        }, 200);
+      
     };
     
     

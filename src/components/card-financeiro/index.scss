@@ -4,8 +4,8 @@
     align-items: center;
     padding: 5vh 10vh;
     gap: 3vh;
-    
-    
+
+
 
     .card_financas {
         display: flex;
@@ -57,20 +57,35 @@
 
 
 @media (max-width:786px) {
-   .main_financeiro{
-    height: auto;
+    .main_financeiro {
+        height: auto;
+        gap: 5vw;
 
 
-    .graficos {
-        max-height: 40vh;
-        overflow-y: scroll;
+        .graficos {
+            overflow-y: hidden;
+            overflow-x: auto;
+            max-height: 80vw;
+            max-width: 80vw;
+        }
+
+        .card_financas {
+            .content-cards {
+                width: 17vh;
+                height: 14vh;
+                font-size: 2vw;
+                margin-top: -5vw;
+
+
+            }
+        }
+
+        .content_anos{
+
+            button{
+
+                width: 15vh;
+            }
+        }
     }
-    .card_financas {
-    .content-cards {
-        width: 17vh ;
-        height: 14vh;
-        font-size: 2vw;
-        margin-top: -5vw;
-        
-   } }}
 }

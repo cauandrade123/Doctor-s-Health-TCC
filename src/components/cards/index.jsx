@@ -37,7 +37,7 @@ export default function Cards({ texto_1, texto_2, texto_3, img_1, img_2,img_3 })
                 </div>
                 <div className="content">
                     <h1>O <span style={{color: 'rgba(99, 199, 252, 1)'}}>melhor</span> serviço à oferecer.</h1>
-                </div>
+                </div>  
             </div>
             <div className="box-grande">
                 <div className="content-da-grande">

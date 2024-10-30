@@ -152,7 +152,7 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
                     <h2>RG: <p>{rg}</p></h2>
                 </div>
                 <div className="field">
-                    <h2>Idade: <p>{nascimento}</p></h2>
+                    <h2>Informações sobre o paciente: <p>{nascimento}</p></h2>
                 </div>
                 <div className="field">
                     <h2>CPF: <p>{cpf}</p></h2>

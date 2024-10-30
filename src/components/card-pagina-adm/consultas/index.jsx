@@ -100,13 +100,13 @@ export default function Cardadm() {
                     key={index}
                     id={item.id}
                     email={item.email}
+                    metodo_consulta={item.metodo_consulta}
                     condicao={item.condicao}
                     cpf={item.cpf}
                     dia_horario={new Date(item.dia_horario).toLocaleDateString()}
                     horario={new Date(item.dia_horario).toLocaleString('pt-BR', {hour: '2-digit',minute: '2-digit', hour12: false})}
                     medicacao={item.medicacao}
-                    nascimento={`Idade atual: ${CalcularIdade(item.nascimento)}  
-                     Data de nascimento: ${new Date(item.nascimento).toLocaleDateString()}`}
+                    nascimento={`Idade atual: ${CalcularIdade(item.nascimento)} anos  |  Data de nascimento: ${new Date(item.nascimento).toLocaleDateString()}`}
                     nome={item.nome}
                     preco={item.preco}
                     rg={item.rg}

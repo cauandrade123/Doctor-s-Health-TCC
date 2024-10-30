@@ -73,9 +73,7 @@ export default function Auto_cadastro() {
         
     const FecharNegação = () => {
         setNegacao(false);
-        setTimeout(function () {
-            window.location.reload();
-        }, 200);
+      
     };
     
     
@@ -84,7 +82,7 @@ export default function Auto_cadastro() {
     const [horariosOcupados, setHorariosOcupados] = useState([]);
     const [nome, setNome] = useState();
     const [telefone, setTelefone] = useState();
-    const [pagamento, setPagamento] = useState();
+    const [consulta, setConsulta] = useState();
     const [DTnascimento, setNascimento] = useState();
     const [cpf, setCpf] = useState();
     const [rg, setRg] = useState();
@@ -141,7 +139,7 @@ export default function Auto_cadastro() {
         return resp.data.pacienteId;
     };
 
-    const cadastrarConsulta = async (agendaId, pacienteId, pagamento) => {
+    const cadastrarConsulta = async (agendaId, pacienteId, consulta) => {
         const con = {
             "id_agenda": agendaId,
             "tratamento": "",
@@ -149,7 +147,7 @@ export default function Auto_cadastro() {
             "medicao": "",
             "preco": "0",
             "id_paciente": pacienteId,
-            "metodo": pagamento
+            "metodo": consulta
         };
 
         const url2 = 'http://localhost:5020/consultas';
@@ -239,11 +237,11 @@ export default function Auto_cadastro() {
 
 
 
-    const cadastrarTudo = async (nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario, email) => {
+    const cadastrarTudo = async (nome, telefone, consulta, DTnascimento, rg, cpf, data, horario, email) => {
         setCarregando(true)
         
     
-        if (!nome || !telefone || !pagamento || !DTnascimento || !rg || !cpf || !data || !horario || !email) {
+        if (!nome || !telefone || !consulta || !DTnascimento || !rg || !cpf || !data || !horario || !email) {
             setMensagem('Por favor, preencha todos os campos obrigatórios.');
             setCarregando(false);
             setNegacao(true)
@@ -336,7 +334,7 @@ export default function Auto_cadastro() {
                 const pacienteId = await criarAutoCadastro(nome, DTnascimento, rg, cpf, telefone, email);
     
                 console.log('Cadastrando consulta...');
-                const consultaData = await cadastrarConsulta(agendaId, pacienteId, pagamento);
+                const consultaData = await cadastrarConsulta(agendaId, pacienteId, consulta);
                 console.log('Consulta cadastrada:', consultaData);
                 
                 const enviarEmail = await EnviarEmail(nome, data, horario, email);
@@ -407,12 +405,11 @@ export default function Auto_cadastro() {
                         </div>
 
                         <div className="input-style">
-                            <p>Método de pagamento</p>
-                            <select onChange={e => setPagamento(e.target.value)}>
+                            <p>Método de consulta</p>
+                            <select onChange={e => setConsulta(e.target.value)}>
                                 <option value="">Selecione</option>
-                                <option value="Pix">Pix</option>
-                                <option value="Dinheiro">Dinheiro</option>
-                                <option value="Cartão">Cartão</option>
+                                <option value="Online">Online</option>
+                                <option value="Presencial">Presencial</option>
                             </select>
                         </div>
 
@@ -476,7 +473,7 @@ export default function Auto_cadastro() {
                             <Link to={'/cadastrado'}>Se você já possui cadastro, clique aqui.</Link>
                         </div>
 
-                        {<button onClick={() => cadastrarTudo(nome, telefone, pagamento, DTnascimento, rg, cpf, data, horario, email)}>Enviar</button>}
+                        {<button onClick={() => cadastrarTudo(nome, telefone, consulta, DTnascimento, rg, cpf, data, horario, email)}>Enviar</button>}
 
                         <Cardconfirmação mostrar={mostrarConfirmacao} aoFechar={FecharConfirmação} />
                         <CardNegacação mostrar={mostrarNegacao} aoFechar={FecharNegação} mensagem={mensagem}/>

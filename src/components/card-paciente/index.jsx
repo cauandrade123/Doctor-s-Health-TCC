@@ -8,7 +8,7 @@ import ConsultasPDF from '../gerar-pdf';
 import SimboloPDF from '../../assets/img/tcc/tccassests/simbolos/simbolPdf.png'
 import SimboloCamera from '../../assets/img/tcc/tccassests/simbolos/simbolCamera.png'
 
-export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario, medicacao, nascimento, nome, preco, rg, tratamento, finalizada, email }) {
+export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario, medicacao, nascimento, nome, preco, rg, tratamento, finalizada, email , metodo_consulta}) {
 
     const [editarMode, setEditarMode] = useState(false);
     const [sair, setSair] = useState(false);
@@ -156,6 +156,12 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
                 </div>
                 <div className="field">
                     <h2>CPF: <p>{cpf}</p></h2>
+                </div>
+                <div className="field">
+                    <h2>Metodo de consulta: <p>{metodo_consulta}</p></h2>
+                </div>
+                <div className="field">
+                    <h2>Email: <p>{email}</p></h2>
                 </div>
                 <div className="field">
                     <h2>Tratamento: {editarMode ? (

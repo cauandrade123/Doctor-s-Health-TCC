@@ -157,13 +157,13 @@ export default function Auto_cadastro() {
     };
 
     const verificarpaciente = async (cpf) => {
-        const url = api+'/verificar-cpf';
+        const url = '/verificar-cpf';
         const response = await api.post(url, { cpf });
         return response.data;
     };
 
     const TelefoneExiste = async (telefone) => {
-        const url = api+'/verificar-telefone';
+        const url = '/verificar-telefone';
         const response = await api.post(url, { telefone });
         return response.data;
     };

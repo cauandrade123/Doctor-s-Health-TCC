@@ -61,3 +61,27 @@
      align-items: start;
      width: 300px;}
 }
+
+
+
+
+@media (max-width: 1024px){
+
+
+  .card-calendario{
+    display: flex;
+    flex-direction: column;
+     align-items: start;
+     width: 70vw;
+
+
+      .card-calendario{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        width: 300px;
+      
+      }
+
+  }
+}

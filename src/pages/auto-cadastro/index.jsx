@@ -135,7 +135,7 @@ export default function Auto_cadastro() {
             "email": email
         };
 
-        const url = api+'/autocadastro';
+        const url = '/autocadastro';
         const resp = await api.post(url, tudo);
         return resp.data.pacienteId;
     };
@@ -151,7 +151,7 @@ export default function Auto_cadastro() {
             "metodo": consulta
         };
 
-        const url2 = api+'/consultas';
+        const url2 = '/consultas';
         const resp2 = await api.post(url2, con);
         return resp2.data;
     };

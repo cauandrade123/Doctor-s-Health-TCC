@@ -46,7 +46,7 @@ export default function Cadastrado() {
         return cpfLimpo[9] === primeiroDigito && cpfLimpo[10] === segundoDigito;
     };
 
-    const cadastrarConsulta = async (agendaId, pacienteId, pagamento) => {
+    const cadastrarConsulta = async (agendaId, pacienteId, consulta) => {
         const con = {
             "id_agenda": agendaId,
             "tratamento": "",
@@ -54,7 +54,7 @@ export default function Cadastrado() {
             "medicao": "",
             "preco": "0",
             "id_paciente": pacienteId,
-            "metodo": pagamento
+            "metodo": consulta
         };
 
         const url2 = 'http://localhost:5020/consultas';
@@ -104,7 +104,7 @@ export default function Cadastrado() {
         }, 200);
     };
 
-    const [pagamento, setPagamento] = useState();
+    const [consulta, setConsulta] = useState();
     const [cpf, setCpf] = useState();
     const [horario, setHorario] = useState();
     const [data, setData] = useState();
@@ -141,12 +141,12 @@ export default function Cadastrado() {
     const horariosDisponiveis = ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
 
 
-    const cadastrarTudo = async (pagamento, cpf, data, horario) => {
+    const cadastrarTudo = async (consulta, cpf, data, horario) => {
 
 
 
 
-        if (!pagamento || !cpf || !data || !horario) {
+        if (!consulta || !cpf || !data || !horario) {
             setMensagem('Por favor, preencha todos os campos obrigatórios.');
             setCarregando(false);
             setNegacao(true)
@@ -203,7 +203,7 @@ export default function Cadastrado() {
             console.log('Agenda cadastrada com ID:', agendaId);
 
             console.log('criando consulta...');
-            const criarConsulta = await cadastrarConsulta(agendaId, pacienteId, pagamento);
+            const criarConsulta = await cadastrarConsulta(agendaId, pacienteId, consulta);
             console.log('consulta criada...');
 
 
@@ -278,12 +278,11 @@ export default function Cadastrado() {
                         </div>
 
                         <div className="input-style">
-                            <p>Método de pagamento</p>
-                            <select onChange={e => setPagamento(e.target.value)}>
+                            <p>Método de consulta</p>
+                            <select onChange={e => setConsulta(e.target.value)}>
                                 <option value="">Selecione</option>
-                                <option value="Pix">Pix</option>
-                                <option value="Dinheiro">Dinheiro</option>
-                                <option value="Cartão">Cartão</option>
+                                <option value="Presencial">Presencial</option>
+                                <option value="Online">Online</option>
                             </select>
                         </div>
 
@@ -297,7 +296,7 @@ export default function Cadastrado() {
                                 <p>Em caso de cancelamento ou troca de horário entrar em contato por telefone!   </p>
                                 <a><Link to={'/auto_cadastro'}>Se você não possui cadastro, clique aqui.</Link></a>
                             </div>
-                            <button className="bt-enviar" onClick={() => cadastrarTudo(pagamento, cpf, data, horario)}>Enviar</button>
+                            <button className="bt-enviar" onClick={() => cadastrarTudo(consulta, cpf, data, horario)}>Enviar</button>
                             <Cardconfirmação mostrar={mostrarConfirmacao} aoFechar={FecharConfirmação} />
                             <CardNegacação mostrar={mostrarNegacao} aoFechar={FecharNegação} mensagem={mensagem} />
 

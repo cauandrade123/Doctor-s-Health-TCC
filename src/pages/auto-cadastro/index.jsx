@@ -209,6 +209,8 @@ export default function Auto_cadastro() {
     };
     const obterHorariosOcupados = async (data) => {
 
+
+     
         try {
             const response = await axios.post('http://localhost:5020/horarios-ocupados', { data });
             const horarios = response.data.horariosOcupados;
@@ -218,16 +220,36 @@ export default function Auto_cadastro() {
 
 
             const horariosOcupados = response.data.horariosOcupados[0].map(item => item.hora.slice(0, 5));
-            setHorariosOcupados(horariosOcupados);
+            if(horarios.length == 0) {
+                setHorariosOcupados('');
+
+            } else{
+                setHorariosOcupados(horariosOcupados);
+            }
+
         } catch (error) {
             console.error('Erro ao obter horários ocupados:', error);
         }
 
     };
 
+    function mapeamento(){
+        horariosDisponiveis.map(h => (
+            <option
+                key={h}
+                value={h}
+                className={horariosOcupados.includes(h) ? 'horario-ocupado' : 'horario-disponivel'}
+                disabled={horariosOcupados.includes(h)}
+            >
+                {h}
+            </option>
+        ))
+    };
+
     const IndetificarData = (e) => {
         const selecionarData = e.target.value;
         setData(selecionarData);
+        setHorariosOcupados([]);
         obterHorariosOcupados(selecionarData);
     };
 

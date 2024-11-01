@@ -87,7 +87,7 @@ export default function Chat() {
                 const respostadoremedio = await axios.get(`https://api.fda.gov/drug/event.json`, {
                     params: {
                         search:userTranslate, 
-                        limit: 5
+                        limit: 1
                     }
                 });
         

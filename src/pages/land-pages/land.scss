@@ -69,19 +69,14 @@
       
      
       .img-doutor{
-        display: flex;
-        justify-content: flex-end;
-        flex-direction: column ;
+
         width: 25vw;
         background-color: rgba(232, 242, 251, 0.849);
         border-radius: 10px ;
-        height: 63vh;
+        height: 76vh;
 
         img{
-          width: 35.2vw; 
-          margin-top: 40dvh;
-          margin-right: -40dvh;
-                   
+          width: 30.2vw;          
         }
       }
 
@@ -644,5 +639,3 @@
 
   
 }
-
-

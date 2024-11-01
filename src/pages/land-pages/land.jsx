@@ -27,7 +27,7 @@ export default function Land() {
     let card_conheca = [
 
         {
-            'texto_1': 'Consultório licensiado para medicamento sobre restrição ',
+            'texto_1': 'Consultório licenciado para medicamento sobre restrição ',
             'img_1': RemedioCard,
             'texto_2': 'Os Melhores preços da região',
             'img_2': DinheiroCard,

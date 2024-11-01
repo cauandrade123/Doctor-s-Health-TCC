@@ -2,7 +2,7 @@ import { animateScroll } from 'react-scroll';
 import './index.scss';
 import { useState , useEffect, useRef } from 'react';
 import { scrollMore } from 'react-scroll/modules/mixins/animate-scroll';
-
+ 
 
 export default function Cards({ texto_1, texto_2, texto_3, img_1, img_2,img_3 }) {
 

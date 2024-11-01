@@ -50,11 +50,15 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
         setEditarMode(true);
     };
     
-    function combinada(){
-        enviarEmail();
+    function combinada() {
         NavegarParaReuniao();
-        localStorage.removeItem('link');
-
+        
+        setTimeout(() => {
+            
+            enviarEmail();
+            localStorage.removeItem('link');
+            
+        }, 30000); 
     }
 
 

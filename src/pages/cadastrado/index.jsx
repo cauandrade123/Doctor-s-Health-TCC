@@ -16,7 +16,7 @@ import Cardconfirmação from '../../components/confirmacao/confirmacao'
 import CardNegacação from '../../components/negacao/negacao'
 import CardCarregamento from '../../components/carregando/carregando'
 import MapComponent from '../../components/MapComponent/index.jsx'
-
+import { api } from "../../servicos/index.js";
 
 
 export default function Cadastrado() {
@@ -57,25 +57,25 @@ export default function Cadastrado() {
             "metodo": consulta
         };
 
-        const url2 = 'http://localhost:5020/consultas';
+        const url2 = api+'/consultas';
         const resp2 = await axios.post(url2, con);
         return resp2.data;
     };
 
     const verificarpaciente = async (cpf) => {
-        const url = 'http://localhost:5020/verificar-cpf';
+        const url = api+'/verificar-cpf';
         const response = await axios.post(url, { cpf });
         return response.data;
     };
 
     const verificarConsulta = async (cpf) => {
 
-        const response = await axios.get(`http://localhost:5020/verificarconsulta/${cpf}`);
+        const response = await axios.get(api+`/verificarconsulta/${cpf}`);
         return response.data;
     };
 
     const cadastrarAgenda = async (data, horario) => {
-        const url = 'http://localhost:5020/agenda';
+        const url = api+'/agenda';
         const info = {
             "dia": data,
             "hora": horario
@@ -87,7 +87,7 @@ export default function Cadastrado() {
 
     const pegarId = async (cpf) => {
 
-        const response = await axios.get(`http://localhost:5020/Id-do-paciente/${cpf}`);
+        const response = await axios.get(api+`/Id-do-paciente/${cpf}`);
         return response.data.id_paciente;
     };
 
@@ -117,7 +117,7 @@ export default function Cadastrado() {
     const obterHorariosOcupados = async (data) => {
 
         try {
-            const response = await axios.post('http://localhost:5020/horarios-ocupados', { data });
+            const response = await axios.post(api+'/horarios-ocupados', { data });
             const horarios = response.data.horariosOcupados;
 
             console.log('Horários recebidos:', horarios);

@@ -7,6 +7,7 @@ import axios from 'axios';
 import ConsultasPDF from '../gerar-pdf';
 import SimboloPDF from '../../assets/img/tcc/tccassests/simbolos/simbolPdf.png'
 import SimboloCamera from '../../assets/img/tcc/tccassests/simbolos/simbolCamera.png'
+import { api } from '../../servicos';
 
 export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario, medicacao, nascimento, nome, preco, rg, tratamento, finalizada, email , metodo_consulta}) {
 
@@ -40,7 +41,7 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
             "link": `https://meet.jit.si/SALA%20DE%20${nome}`, 
             "email": email
         }
-        const url = `http://localhost:5020/enviar-call`;
+        const url = api+`/enviar-call`;
         await axios.post(url,comando);}
 
     const navigate = useNavigate();
@@ -67,7 +68,7 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
 
         try {
 
-            const url = `http://localhost:5020/consultas/${id}`;
+            const url = api+`/consultas/${id}`;
             const payload = {
                 "tratamento": novoTratamento,
                 "condicao": novaCondicao,
@@ -110,7 +111,7 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
     }
 
     async function Finalizar() {
-        const url = `http://localhost:5020/finalizarConsulta/${cpf}`;
+        const url = api+`/finalizarConsulta/${cpf}`;
         await axios.put(url);
 
 
@@ -123,7 +124,7 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
     }
 
     async function verificarEstadoFinalizada() {
-        const url2 = `http://localhost:5020/consultaFinalizar/${cpf}`;
+        const url2 = api+`/consultaFinalizar/${cpf}`;
         let resp2 = await axios.get(url2);
         setFinalizada2(resp2.data.finalizada);
     }

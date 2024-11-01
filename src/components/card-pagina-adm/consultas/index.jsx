@@ -4,6 +4,7 @@ import axios from 'axios';
 import Card_Paciente from '../../card-paciente';
 import Notification from '../../aviso/aviso';
 import InputMask from 'react-input-mask';
+import { api } from '../../../servicos';
 
 export default function Cardadm() {
  
@@ -48,7 +49,7 @@ export default function Cardadm() {
 
 
     async function Buscar() {
-        const url = 'http://localhost:5020/consultasCpf/'+`${buscar}`
+        const url = api+'/consultasCpf/'+`${buscar}`
         let resp = await axios.get(url)
 
         setConsultasList(resp.data)
@@ -56,7 +57,7 @@ export default function Cardadm() {
 
 
     async function renderList(){
-        const url = 'http://localhost:5020/'+tipoConsulta
+        const url = api+'/'+tipoConsulta
         let resp = await axios.get(url)
         
         setConsultasList(resp.data)

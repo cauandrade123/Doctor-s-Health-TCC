@@ -4,6 +4,7 @@ import Loginimg from '../../assets/img/tcc/tccassests/paginas/Login.svg';
 import logo from '../../assets/img/tcc/tccassests/logo/logomedica.svg'
 import { useState } from "react";
 import axios from "axios";
+import { api } from "../../servicos";
 
 export default function Login() {
     const [senha, setSenha] = useState(false); 
@@ -24,7 +25,7 @@ export default function Login() {
 
         try {
             
-            const response = await axios.post('http://localhost:5020/login', {
+            const response = await axios.post(api+'/login', {
                 email: email,
                 senha: senhalg,
             });

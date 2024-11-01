@@ -5,6 +5,7 @@ import axios from 'axios';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import moment from 'moment';
 import 'moment/locale/pt-br'; 
+import { api } from '../../servicos';
 
 const localizer = momentLocalizer(moment);
 
@@ -37,7 +38,7 @@ export default function MyCalendar() {
   }, []);
 
   const fetchConsultasFromAPI = async () => {
-    let url = `http://localhost:5020/pegardata`;
+    let url = api+`/pegardata`;
     let resp = await axios.get(url);
   
     return resp.data;

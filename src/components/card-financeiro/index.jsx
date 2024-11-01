@@ -3,6 +3,7 @@ import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import axios from 'axios';
 import Graficos from "../graficos";
 import './index.scss';
+import { api } from "../../servicos";
 
 export default function CardFinancas() {
     const [anos, setAnos] = useState(2024);
@@ -11,7 +12,7 @@ export default function CardFinancas() {
 
     useEffect(() => {
         async function MostrarValores() {
-            const { data } = await axios.get(`http://localhost:5020/puxarfinanceiro/${anos}`);
+            const { data } = await axios.get(api+`/puxarfinanceiro/${anos}`);
             const faturamentoMensal = Array(12).fill(0);
 
    

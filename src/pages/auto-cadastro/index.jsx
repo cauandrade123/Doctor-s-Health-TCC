@@ -16,6 +16,7 @@ import Cardconfirmação from '../../components/confirmacao/confirmacao'
 import CardNegacação from '../../components/negacao/negacao'
 import CardCarregamento from '../../components/carregando/carregando'
 import MapComponent from "../../components/MapComponent";
+import { api } from "../../servicos";
 
 
 
@@ -101,7 +102,7 @@ export default function Auto_cadastro() {
 
 
     const cadastrarAgenda = async (data, horario) => {
-        const url = 'http://localhost:5020/agenda';
+        const url = api+'/agenda';
         const info = {
             "dia": data,
             "hora": horario
@@ -112,7 +113,7 @@ export default function Auto_cadastro() {
     };
 
     const EnviarEmail = async (nome, data, horario, email) => {
-        const url = 'http://localhost:5020/enviar';
+        const url = api+'/enviar';
         const info = {
             "nome": nome,
             "email": email,
@@ -134,7 +135,7 @@ export default function Auto_cadastro() {
             "email": email
         };
 
-        const url = 'http://localhost:5020/autocadastro';
+        const url = api+'/autocadastro';
         const resp = await axios.post(url, tudo);
         return resp.data.pacienteId;
     };
@@ -150,19 +151,19 @@ export default function Auto_cadastro() {
             "metodo": consulta
         };
 
-        const url2 = 'http://localhost:5020/consultas';
+        const url2 = api+'/consultas';
         const resp2 = await axios.post(url2, con);
         return resp2.data;
     };
 
     const verificarpaciente = async (cpf) => {
-        const url = 'http://localhost:5020/verificar-cpf';
+        const url = api+'/verificar-cpf';
         const response = await axios.post(url, { cpf });
         return response.data;
     };
 
     const TelefoneExiste = async (telefone) => {
-        const url = 'http://localhost:5020/verificar-telefone';
+        const url = api+'/verificar-telefone';
         const response = await axios.post(url, { telefone });
         return response.data;
     };
@@ -212,7 +213,7 @@ export default function Auto_cadastro() {
 
      
         try {
-            const response = await axios.post('http://localhost:5020/horarios-ocupados', { data });
+            const response = await axios.post(api+'/horarios-ocupados', { data });
             const horarios = response.data.horariosOcupados;
 
             console.log('Horários recebidos:', horarios);

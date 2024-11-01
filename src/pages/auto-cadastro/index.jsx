@@ -6,7 +6,6 @@ import Email from '../../assets/img/tcc/tccassests/simbolos/Emailicon.svg'
 import LocIcon from '../../assets/img/tcc/tccassests/simbolos/LocIcon.svg'
 import Mapa from '../../assets/img/tcc/tccassests/simbolos/MapImage.svg'
 import Footer from "../../components/footer/footer";
-import axios from "axios";
 import InputMask from 'react-input-mask';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
@@ -17,6 +16,7 @@ import CardNegacação from '../../components/negacao/negacao'
 import CardCarregamento from '../../components/carregando/carregando'
 import MapComponent from "../../components/MapComponent";
 import { api } from "../../servicos";
+import axios from "axios";
 
 
 
@@ -108,7 +108,7 @@ export default function Auto_cadastro() {
             "hora": horario
         };
 
-        const response = await axios.post(url, info);
+        const response = await api.post(url, info);
         return response.data.agendaId;
     };
 
@@ -121,7 +121,7 @@ export default function Auto_cadastro() {
             "horario": horario
         };
 
-        const response = await axios.post(url, info);
+        const response = await api.post(url, info);
         return response.data.agendaId;
     };
 
@@ -136,7 +136,7 @@ export default function Auto_cadastro() {
         };
 
         const url = api+'/autocadastro';
-        const resp = await axios.post(url, tudo);
+        const resp = await api.post(url, tudo);
         return resp.data.pacienteId;
     };
 
@@ -152,19 +152,19 @@ export default function Auto_cadastro() {
         };
 
         const url2 = api+'/consultas';
-        const resp2 = await axios.post(url2, con);
+        const resp2 = await api.post(url2, con);
         return resp2.data;
     };
 
     const verificarpaciente = async (cpf) => {
         const url = api+'/verificar-cpf';
-        const response = await axios.post(url, { cpf });
+        const response = await api.post(url, { cpf });
         return response.data;
     };
 
     const TelefoneExiste = async (telefone) => {
         const url = api+'/verificar-telefone';
-        const response = await axios.post(url, { telefone });
+        const response = await api.post(url, { telefone });
         return response.data;
     };
 
@@ -213,7 +213,7 @@ export default function Auto_cadastro() {
 
      
         try {
-            const response = await axios.post(api+'/horarios-ocupados', { data });
+            const response = await api.post('/horarios-ocupados', { data });
             const horarios = response.data.horariosOcupados;
 
             console.log('Horários recebidos:', horarios);

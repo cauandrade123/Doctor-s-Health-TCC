@@ -2,7 +2,7 @@ import './index.scss';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Notification from '../aviso/aviso';
-import axios from 'axios';
+
 
 import ConsultasPDF from '../gerar-pdf';
 import SimboloPDF from '../../assets/img/tcc/tccassests/simbolos/simbolPdf.png'
@@ -42,7 +42,7 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
             "email": email
         }
         const url = api+`/enviar-call`;
-        await axios.post(url,comando);}
+        await api.post(url,comando);}
 
     const navigate = useNavigate();
 
@@ -75,7 +75,7 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
                 "medicacao": novaMedicacao,
                 "preco": novoPreco
             };
-            const tal = await axios.put(url, payload);
+            const tal = await api.put(url, payload);
             setNotificationMessage('Dados atualizados com sucesso!');
             setNotificationType('sucess');
         } catch (error) {
@@ -112,7 +112,7 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
 
     async function Finalizar() {
         const url = api+`/finalizarConsulta/${cpf}`;
-        await axios.put(url);
+        await api.put(url);
 
 
         setNotificationMessage('Consulta finalizada com sucesso!');
@@ -125,7 +125,7 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
 
     async function verificarEstadoFinalizada() {
         const url2 = api+`/consultaFinalizar/${cpf}`;
-        let resp2 = await axios.get(url2);
+        let resp2 = await api.get(url2);
         setFinalizada2(resp2.data.finalizada);
     }
 

@@ -12,7 +12,7 @@ export default function CardFinancas() {
 
     useEffect(() => {
         async function MostrarValores() {
-            const { data } = await axios.get(api+`/puxarfinanceiro/${anos}`);
+            const { data } = await api.get(`/puxarfinanceiro/${anos}`);
             const faturamentoMensal = Array(12).fill(0);
 
    

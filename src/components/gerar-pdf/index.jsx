@@ -1,4 +1,4 @@
-import axios from 'axios';
+
 import pdfmake from 'pdfmake/build/pdfmake';
 import pdffont from 'pdfmake/build/vfs_fonts';
 

@@ -37,7 +37,7 @@ export default function MyCalendar() {
   }, []);
 
   const fetchConsultasFromAPI = async () => {
-    let url = api+`/pegardata`;
+    let url = `/pegardata`;
     let resp = await api.get(url);
   
     return resp.data;

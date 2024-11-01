@@ -41,7 +41,7 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
             "link": `https://meet.jit.si/SALA%20DE%20${nome}`, 
             "email": email
         }
-        const url = api+`/enviar-call`;
+        const url = `/enviar-call`;
         await api.post(url,comando);}
 
     const navigate = useNavigate();
@@ -68,7 +68,7 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
 
         try {
 
-            const url = api+`/consultas/${id}`;
+            const url = `/consultas/${id}`;
             const payload = {
                 "tratamento": novoTratamento,
                 "condicao": novaCondicao,
@@ -111,7 +111,7 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
     }
 
     async function Finalizar() {
-        const url = api+`/finalizarConsulta/${cpf}`;
+        const url = `/finalizarConsulta/${cpf}`;
         await api.put(url);
 
 
@@ -124,7 +124,7 @@ export default function Card_Paciente({ id, condicao, cpf, dia_horario, horario,
     }
 
     async function verificarEstadoFinalizada() {
-        const url2 = api+`/consultaFinalizar/${cpf}`;
+        const url2 = `/consultaFinalizar/${cpf}`;
         let resp2 = await api.get(url2);
         setFinalizada2(resp2.data.finalizada);
     }

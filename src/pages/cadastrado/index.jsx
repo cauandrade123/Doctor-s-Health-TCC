@@ -57,25 +57,25 @@ export default function Cadastrado() {
             "metodo": consulta
         };
 
-        const url2 = api+'/consultas';
+        const url2 = '/consultas';
         const resp2 = await api.post(url2, con);
         return resp2.data;
     };
 
     const verificarpaciente = async (cpf) => {
-        const url = api+'/verificar-cpf';
+        const url = '/verificar-cpf';
         const response = await api.post(url, { cpf });
         return response.data;
     };
 
     const verificarConsulta = async (cpf) => {
 
-        const response = await api.get(api+`/verificarconsulta/${cpf}`);
+        const response = await api.get(`/verificarconsulta/${cpf}`);
         return response.data;
     };
 
     const cadastrarAgenda = async (data, horario) => {
-        const url = api+'/agenda';
+        const url = '/agenda';
         const info = {
             "dia": data,
             "hora": horario
@@ -87,7 +87,7 @@ export default function Cadastrado() {
 
     const pegarId = async (cpf) => {
 
-        const response = await api.get(api+`/Id-do-paciente/${cpf}`);
+        const response = await api.get(`/Id-do-paciente/${cpf}`);
         return response.data.id_paciente;
     };
 
@@ -117,7 +117,7 @@ export default function Cadastrado() {
     const obterHorariosOcupados = async (data) => {
 
         try {
-            const response = await api.post(api+'/horarios-ocupados', { data });
+            const response = await api.post('/horarios-ocupados', { data });
             const horarios = response.data.horariosOcupados;
 
             console.log('Horários recebidos:', horarios);

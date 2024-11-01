@@ -48,7 +48,7 @@ export default function Cardadm() {
 
 
     async function Buscar() {
-        const url = api+'/consultasCpf/'+`${buscar}`
+        const url = '/consultasCpf/'+`${buscar}`
         let resp = await api.get(url)
 
         setConsultasList(resp.data)
@@ -56,7 +56,7 @@ export default function Cardadm() {
 
 
     async function renderList(){
-        const url = api+'/'+tipoConsulta
+        const url = '/'+tipoConsulta
         let resp = await api.get(url)
         
         setConsultasList(resp.data)

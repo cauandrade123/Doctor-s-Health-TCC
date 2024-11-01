@@ -102,7 +102,7 @@ export default function Auto_cadastro() {
 
 
     const cadastrarAgenda = async (data, horario) => {
-        const url = api+'/agenda';
+        const url = '/agenda';
         const info = {
             "dia": data,
             "hora": horario
@@ -113,7 +113,7 @@ export default function Auto_cadastro() {
     };
 
     const EnviarEmail = async (nome, data, horario, email) => {
-        const url = api+'/enviar';
+        const url = '/enviar';
         const info = {
             "nome": nome,
             "email": email,

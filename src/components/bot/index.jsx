@@ -114,7 +114,7 @@ export default function Chat() {
                     );
         
                  
-                    novasRespostas.push({ text: "lembrando que qualquer efeito negativo nao sera responsabilidade do doutor, para um diagnostico preciso agende sua  consulta", sender: 'bot' });
+                    novasRespostas.push({ text: "Quaisquer efeitos negativos não serão responsabilidade do doutor. Para um diagnóstico preciso, agende sua consulta.", sender: 'bot' });
                     novasRespostas.push({ text: 'Marque aqui -->    ', sender: 'button' });
                 } else {
                     novasRespostas.push({ text: 'Não encontrei informações sobre medicamentos relacionados.', sender: 'bot' });

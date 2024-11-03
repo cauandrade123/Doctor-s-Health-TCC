@@ -115,7 +115,7 @@ export default function Land() {
 
                             <p>Na Doctors Health, o suporte ao cliente é uma prioridade. Nossa equipe de profissionais dedicados está disponível para atender às suas necessidades, garantindo que você tenha uma experiência tranquila e satisfatória. Oferecemos diversos canais de atendimento, incluindo telefone, e-mail e chat ao vivo, para que você possa escolher a forma que melhor se adapta à sua rotina.</p>
 
-                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=caua.goldenboyy@gmail.com&su=Assunto%20do%20Email&body=Olá,%20gostaria%20de%20mais%20informações."><button>Contate-nos</button></a>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=caua.goldenboyy@gmail.com&su=Assunto%20do%20Email&body=Olá,%20gostaria%20de%20mais%20informações." target="blank"><button>Contate-nos</button></a>
 
                             
                         </div>

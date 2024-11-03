@@ -4,6 +4,7 @@ import Login from "./pages/login/login";
 import Adm from "./pages/adm/adm";
 import Auto_cadastro from "./pages/auto-cadastro";
 import Cadastrado from "./pages/cadastrado";
+import MinhasConsultas from "./pages/minhasConsultas";
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
@@ -51,8 +52,8 @@ export default function Navegacao() {
                 <Route path="/cadastrado" element={<Cadastrado />} />
                 <Route path="/agendamentos" element={<Agendamentos />} />
                 <Route path="/reuniao" element={<PrivateRoute><PageJitsi/></PrivateRoute>} />
-                <Route path='*' element={<Page404/>}/>
-                
+                <Route path='/minhasConsultas' element={<MinhasConsultas />}/>
+                <Route path='*' element={<Page404/>}/> 
 
                  <Route
                     path="/adm" element={ <PrivateRoute>

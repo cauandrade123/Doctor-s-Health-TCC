@@ -7,7 +7,7 @@ import LocIcon from '../../assets/img/tcc/tccassests/simbolos/LocIcon.svg'
 import Mapa from '../../assets/img/tcc/tccassests/simbolos/MapImage.svg'
 import Footer from "../../components/footer/footer";
 import InputMask from 'react-input-mask';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import Notification from "../../components/aviso/aviso";
 import { Link } from "react-router-dom";
@@ -137,7 +137,14 @@ export default function Auto_cadastro() {
 
         const url = '/autocadastro';
         const resp = await api.post(url, tudo);
+
+        localStorage.setItem('token', resp.data.token)
+
+        console.log('token armazenado')
+        
         return resp.data.pacienteId;
+        
+
     };
 
     const cadastrarConsulta = async (agendaId, pacienteId, consulta) => {
@@ -364,6 +371,7 @@ export default function Auto_cadastro() {
                 setMensagem('Agendamento concluido')
                 setCarregando(false);
                 setConfirmacao(true);
+                navigate('/minhasConsultas')
     
            
             

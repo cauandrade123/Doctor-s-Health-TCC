@@ -87,7 +87,7 @@ export default function Chat() {
                 const respostadoremedio = await axios.get(`https://api.fda.gov/drug/event.json`, {
                     params: {
                         search:userTranslate, 
-                        limit: 1
+                        limit: 5
                     }
                 });
         
@@ -108,12 +108,13 @@ export default function Chat() {
         
                             const medicamentoTraduzido = responseRemedioTraducao.data.responseData?.translatedText;
         
-                            return `o Medicamento recomendado para sua queixa é: ${medicamentoTraduzido} Nunca utilize este remédio sem prescrição médica, pois a automedicação pode acarretar riscos à saúde. Lembre-se: a responsabilidade não é do médico, para um diagnostico preciso marque sua consulta!`;
+                            novasRespostas.push({ text: medicamentoTraduzido, sender: 'bot' });
+                           
                         })
                     );
         
-                    const respostaMedicamento = respostaMedicamentoArray.join('\n');
-                    novasRespostas.push({ text: respostaMedicamento, sender: 'bot' });
+                 
+                    novasRespostas.push({ text: "Quaisquer efeitos negativos não serão responsabilidade do doutor. Para um diagnóstico preciso, agende sua consulta.", sender: 'bot' });
                     novasRespostas.push({ text: 'Marque aqui -->    ', sender: 'button' });
                 } else {
                     novasRespostas.push({ text: 'Não encontrei informações sobre medicamentos relacionados.', sender: 'bot' });

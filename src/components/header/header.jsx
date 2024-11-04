@@ -1,7 +1,7 @@
 
 import NewLogo from '../../assets/img/tcc/tccassests/NovoAssets/new-logo/newlogo.svg'
 import { Link as ScrollLink } from 'react-scroll';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link, Link as RouterLink } from 'react-router-dom';
 import './header.scss';
 import { Colors } from 'chart.js';
 
@@ -10,7 +10,7 @@ export default function Header() {
 
         <header>
             <div className="logo">
-                <img src={NewLogo} alt="" />
+               <Link to={'/'}> <img src={NewLogo} alt="" /></Link>
             </div>
             <div className="links">
                <RouterLink to={'/'}><li>Home</li></RouterLink> 

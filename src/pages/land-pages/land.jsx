@@ -11,6 +11,7 @@ import Header from "../../components/header/header";
   import Cards from "../../components/cards";
   import Footer from '../../components/footer/footer'
   import ChamarChat from '../../components/teste_boy/index'
+  import MapComponent from '../../components/MapComponent/index'
   
 
 
@@ -91,20 +92,13 @@ export default function Land() {
                             <img src={FotoSobreNos2} alt="" />
                         </div>
                         <div className="textos-box-cinza">
-
                             <h2>Como Trabalhamos</h2>
-
-
                                 <h1>Marcar uma consulta <br /> é facil como 1, 2, 3...</h1>
                                 <div>
-
-                                <li>se cadastre, é super fácil!</li>
-                                <li>escolha o melhor horário pra você...</li>
-                                <li>Pronto! sua consulta está agendada!</li>
+                                    <li>se cadastre, é super fácil!</li>
+                                    <li>escolha o melhor horário pra você...</li>
+                                    <li>Pronto! sua consulta está agendada!</li>
                                 </div>
-
-                            
-
                         </div>
                     </div>
                     <div id="ComoTrabalhamos" className="box-branca2">
@@ -140,18 +134,13 @@ export default function Land() {
                     />
                 )}
             </div> 
-
-         
-            
-          
-
+  
                 <Footer />
 
 
-
                 <div className="chamar-chat-container">
-              <ChamarChat/>
-            </div>
+                    <ChamarChat/>
+                </div>
 
         </main>
     );

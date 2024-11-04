@@ -116,6 +116,8 @@ export default function Cadastrado() {
 
     const obterHorariosOcupados = async (data) => {
 
+
+     
         try {
             const response = await api.post('/horarios-ocupados', { data });
             const horarios = response.data.horariosOcupados;
@@ -125,16 +127,26 @@ export default function Cadastrado() {
 
 
             const horariosOcupados = response.data.horariosOcupados[0].map(item => item.hora.slice(0, 5));
-            setHorariosOcupados(horariosOcupados);
+            if(horarios.length == 0) {
+                setHorariosOcupados('');
+
+            } else if (horarios.length > 0){
+                setHorariosOcupados(horariosOcupados);
+            }
+
+            console.log(horariosOcupados);
+
         } catch (error) {
             console.error('Erro ao obter horários ocupados:', error);
         }
 
     };
 
+ 
     const IndetificarData = (e) => {
         const selecionarData = e.target.value;
         setData(selecionarData);
+        setHorariosOcupados([]);
         obterHorariosOcupados(selecionarData);
     };
 

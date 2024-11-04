@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import NewLogo from '../../assets/img/tcc/tccassests/NovoAssets/new-logo/newlogo.svg';
 import { Link as ScrollLink } from 'react-scroll';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link, Link as RouterLink } from 'react-router-dom';
 import './header.scss';
 import sanduba from '../../assets/img/tcc/tccassests/simbolos/icons8-menu-quadrado-2-50.png'
 import { IoMenuOutline } from "react-icons/io5";
 export default function Header() {
+    
   const [menuAberto, setMenuAberto] = useState(false);
-
   const alternarMenu = () => {
     setMenuAberto(!menuAberto);
   };
+
 
   return (
     <header>

@@ -241,18 +241,6 @@ export default function Auto_cadastro() {
 
     };
 
-    function mapeamento(){
-        horariosDisponiveis.map(h => (
-            <option
-                key={h}
-                value={h}
-                className={horariosOcupados.includes(h) ? 'horario-ocupado' : 'horario-disponivel'}
-                disabled={horariosOcupados.includes(h)}
-            >
-                {h}
-            </option>
-        ))
-    };
 
     const IndetificarData = (e) => {
         const selecionarData = e.target.value;

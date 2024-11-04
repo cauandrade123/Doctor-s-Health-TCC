@@ -1,3 +1,7 @@
+*{
+  text-decoration: none;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -70,11 +74,14 @@ header {
         top: 10vh;           
         right: 7vw;
         background-color: rgb(255, 255, 255); 
+        opacity: 88%;
         border-radius: 8px;  
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         padding: 10px;        
-        z-index: 1000;        
+        z-index: 1000;   
 
+
+        
      
         &.aberto {
           display: flex;

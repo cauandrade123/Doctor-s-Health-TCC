@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
-import axios from 'axios';
 import Graficos from "../graficos";
 import './index.scss';
 import { api } from "../../servicos";
@@ -34,9 +33,12 @@ export default function CardFinancas() {
 
             if (maiorFaturamento > 0) {
                 setMelhormes(meses[MelhorMes])
+                
             } else {
                 setMelhormes("não teve")
             }
+
+
 
 
         }
@@ -50,13 +52,13 @@ export default function CardFinancas() {
                 <div className="content-cards">
                     <h2>Finanças</h2>
              
-                    <p>{dados.reduce((acc, curr) => acc + curr, 0)}</p>
+                    <p className="finacas">{dados.reduce((acc, curr) => acc + curr, 0)}</p>
                 </div>
 
                 <div className="content-cards">
                     <h2>Melhor mês</h2>
                 
-                    <p>{melhormes}</p>
+                    <p className="melhormes">{melhormes}</p>
                 </div>
             </div>
 

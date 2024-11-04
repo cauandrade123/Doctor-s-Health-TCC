@@ -529,8 +529,14 @@
                 gap: 2vh;
 
                 button {
+                    margin-right: 4vh;
+                    border-radius: 20px;
+                    background-color: #0B9DEB;
                     width: 12vh;
-                    height: 5vh;
+                    height: 6vh;
+
+                    color: white;
+                    font-size: 2vh;
                 }
             }
         }

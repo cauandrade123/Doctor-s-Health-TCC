@@ -1,22 +1,28 @@
-// import React, { useEffect, useRef } from 'react';
-// import DailyIframe from '@daily-co/daily-js';
-
-// export default function VideoCall() {
-//     const videoContainerRef = useRef(null);
-
-//     useEffect(() => {
-//         const callFrame = DailyIframe.createFrame(videoContainerRef.current, {
-//             showLeaveButton: true,
-//             iframeStyle: {
-//                 width: '100%',
-//                 height: '100%',
-//             },
-//         });
-
-//         callFrame.join({ url: 'https://your-domain.daily.co/your-room' });
-
-//         return () => callFrame.leave();
-//     }, []);
-
-//     return <div ref={videoContainerRef} style={{ width: '100%', height: '100vh' }} />;
-// }
+import React, {useEffect, useState} from "react";
+export default function JitsiMeet({ nm_Sala}) {
+    const [link, setLink] = useState('')
+    useEffect(() => {
+           const dominio = 'meet.jit.si'
+           const opcoes = {
+            roomName: nm_Sala,
+            width: "100%",
+            parentNode: document.querySelector('#div-JitsiMeet'),
+            configOverwrite: {
+                startWithAudioMuted: true,
+                startWithVideoMuted: false
+            },
+            interfaceConfigOverwrite: { SHOW_JITSI_WATERMARK: true },
+            userInfo: { 
+                displayName: 'Dr. João Silva'
+             }
+           };
+           const api = new window.JitsiMeetExternalAPI(dominio, opcoes);
+        
+    
+           setLink(`https://${dominio}/${nm_Sala}`)
+           
+           return () => api.dispose()
+    }, [])
+    
+    return <div id="div-JitsiMeet" style={{ width: '100%', height: '100vh' }}></div>;
+}

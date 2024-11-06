@@ -2,6 +2,7 @@ import './index.scss';
 import Header from '../../components/header/header';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { api } from '../../servicos';
 
 export default function MinhasConsultas() {
     const [minhasConsultas, setMinhasConsultas] = useState([]);
@@ -13,13 +14,13 @@ export default function MinhasConsultas() {
 
 
         async function Consultas() {
-            let url = `http://localhost:5028/MinhasConsultas`;
+            let url = `/MinhasConsultas`;
 
             try {
                 const token = localStorage.getItem('token'); 
              
         
-                const resp = await axios.get(url, {
+                const resp = await api.get(url, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },

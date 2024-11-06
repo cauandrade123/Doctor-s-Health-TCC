@@ -123,11 +123,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 92%;
 
 
     .container {
-        width: 95dvw;
+        width: 91dvw;
         height: 28dvh;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         display: flex;
@@ -168,10 +168,10 @@
        
             .content{
            
-                width: 26dvw;
-                margin-left: 05dvw;
+                width: 30dvw;
+                margin-left: 10dvw;
                 h1{
-                    font-size: 3.4dvh;
+                    font-size: 3.1dvh;
                 }
             
             }
@@ -258,7 +258,11 @@
 
 
 
-@media (min-width: 769px) and (max-width: 910px) {
+
+
+
+
+@media (min-width: 776px) and (max-width: 910px) {
         
     
     .container {
@@ -298,7 +302,7 @@
             
 
                 h4{
-                    font-size: 10dvh ;
+                    font-size: 4dvh ;
                 }
                 
             }
@@ -314,7 +318,7 @@
                 h1 {
                     color: #000000;
                     height: 20dvh;
-                    font-size: 5dvh;
+                    font-size: 3.6dvh;
                 }
             }
     
@@ -393,7 +397,7 @@
 
 
 
-@media  (min-width: 920px) and (max-width: 1280px) {
+@media  (max-width: 1280px) {
 
 
     .container {
@@ -434,9 +438,9 @@
 
                 h4{
                     font-size: 4dvh ;
-                }    
+                }
                 
-            }    
+            }
     
           
             .content{
@@ -450,8 +454,8 @@
                     color: #000000;
                     height: 20dvh;
                     font-size: 6.6dvh;
-                }    
-            }    
+                }
+            }
     
     
            
@@ -460,8 +464,8 @@
                 color: rgba(99, 199, 252, 1) ;
                 font-size: 4dvh;
                 justify-self: flex-start;
-            }    
-        }    
+            }
+        }
     
         .box-grande {
             position: relative;
@@ -505,25 +509,21 @@
                             margin-top: 2dvh;
                             font-size: 02.9dvh;
                             color: white;
-                        }    
+                        }
     
-                    }    
+                    }
     
                  
         
                     img {
                             width: 20dvh;
                             height: 20dvh;
-                    }        
+                    }
     
-                }    
-            }    
+                }
+            }
     
-        }    
-    }    
+        }
+    }
     
     }
-
-
-
-    

@@ -164,11 +164,22 @@
                         color: white;
                         font-size: 120%;
                         line-height: 0;
-                        width: 100%;
                         height: 50px;
-                        background-color: rgba(2, 2, 219, 0.877);
                         border-radius: 10px;
                         transform: scale(1);
+                        padding-left: 2vh; /* Diminui o espaçamento à esquerda */
+                        width: 90%; /* Reduz a largura do fundo */
+                        border-radius: 5px; /* Diminui o arredondamento */
+                        background-color: rgba(2, 2, 219, 0.5); /* Ajuste da opacidade opcional */
+                    }
+
+                    .opcoes-do-menu .Agenda:hover,
+                    .opcoes-do-menu .Financas:hover,
+                    .opcoes-do-menu .Consultas:hover {
+                        padding-left: 2vh; /* Diminui o espaçamento à esquerda */
+                        width: 90%; /* Reduz a largura do fundo */
+                        border-radius: 5px; /* Diminui o arredondamento */
+                        background-color: rgba(2, 2, 219, 0.5); /* Ajuste da opacidade opcional */
                     }
                 }
             }

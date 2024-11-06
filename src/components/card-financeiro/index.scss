@@ -68,9 +68,9 @@
 
 
         .graficos {
-            overflow-y: hidden;
+            overflow-y: auto;
             overflow-x: auto;
-            max-height: 80vw;
+            max-height: 60vw;
             max-width: 80vw;
         }
 
@@ -89,7 +89,7 @@
 
             button{
 
-                width: 15vh;
+                width: 20vw;
             }
         }
     }

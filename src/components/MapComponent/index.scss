@@ -2,4 +2,17 @@
     width: 80vw;
     height: 100vh;
     border-radius: 10px;
+
+    font-size: 200dvh;
+
+    .leaflet-tooltip {
+        font-size: 1600px; /* Ajuste o tamanho conforme necessário */
+        font-weight: bold; /* Opcional, para melhorar a visibilidade */
+    }
+
+    .custom-tooltip {
+        font-size: 18px; /* Tamanho da fonte */
+        font-weight: bold;
+    }
+    
 }

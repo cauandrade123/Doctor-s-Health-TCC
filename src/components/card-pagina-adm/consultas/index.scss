@@ -112,15 +112,33 @@ body {
 
   @media (max-width: 768px) {
 
-    .cards{
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+    .card-container{
+      align-items: start;
+      margin: 0 auto;
+      
+      .buscar-paciente{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        .Buscar{
+          width:70vw;
+          height: 10vw;
+        }
 
-      margin-bottom: 40vh;
-  
-      
-      
+          .Buscar::placeholder{
+            font-size: 2.5vh;
+          }
+      }
+      .cards{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        
+        margin-bottom: 40vh;
+        
+        
+        
+      }
     }
-
+      
   }

@@ -40,7 +40,8 @@
                 .mostrar-erro{
                     display: flex;
                     justify-content: space-between;
-
+                    align-items: center;
+                    margin-top: -1vw;
                     .erro{
                      color: #FF7E7E;
                     justify-self: flex-end;
@@ -53,9 +54,9 @@
 
             h4 {
                 color: rgba(41, 41, 41, 0.884);
-                margin-bottom: 1vh; // Espaço entre os textos e os inputs
+                margin-bottom: 1vh; 
                 align-self: flex-start;
-                margin-left: 0; // Remove o deslocamento à esquerda
+                margin-left: 0; 
             }
 
             
@@ -67,7 +68,7 @@
                     border-radius:8px;
                     text-decoration: none;
                     color: white;
-                    margin-bottom: 2vh; // Espaço entre os botões
+                    margin-bottom: 2vh;
                     transition: 0.4s;
                     margin-top: 5vh;
                     align-self: center;
@@ -91,18 +92,18 @@
                 height: 5vh;
                 width: 50vh;
                 border: none;
-                margin-bottom: 2vh; // Espaço entre os inputs
+                margin-bottom: 2vh; 
                 padding-left: 2vh;
             }
 
             h1 {
                 color: white;
-                margin-bottom: 4vh; // Espaço abaixo do título
+                margin-bottom: 4vh; 
             }
 
             button {
-                margin-bottom: 1vh; // Espaço entre os textos e os inputs
-                align-self: flex-start; // Alinha o texto à esquerda
+                margin-bottom: 1vh; 
+                align-self: flex-start;
                 margin-left: 0;
                 background: none;
                 border: none;
@@ -113,14 +114,14 @@
             .voltar-all {
                 display: flex;
                 flex-direction: row;
-                gap: 2vh; // Espaço entre o texto e o botão
-                justify-content: center; // Centraliza os itens no eixo horizontal
-                align-items: center; // Centraliza os itens no eixo vertical
+                gap: 2vh; 
+                justify-content: center; 
+                align-items: center;
 
                 h3 {
                     color: white;
-                    margin: 0; // Remove margens extras que podem desalinhar
-                    line-height: 5vh; // Garante que o texto tenha a mesma altura que o botão
+                    margin: 0; 
+                    line-height: 5vh; 
                 }
 
                 .voltar {
@@ -169,10 +170,10 @@
 
 
 @media (max-width: 768px) {
+   
     .login-page {
         main {
             flex-direction: column;
-            height: auto;
             align-items: center;
         }
 
@@ -197,13 +198,14 @@
             align-items: center;
             .input-style {
                 display: flex;
-
                 flex-direction: column;
                 align-items: center;
                 width: 100%; 
                 font-size: 3vh; 
-
-                margin-left: 20px;
+                h4{
+                    margin-left: 6.5vw ;
+                }
+                
 
                 input{
                     width: 85%;
@@ -211,10 +213,12 @@
 
                 .mostrar-erro{
 
-                   
-                   margin-top: -20px;
-
-                   width: 100%;
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: space-around;
+                   width: 90%;
+                   align-items: center;
+                   margin-top: -2.5vw;
                 }
             }
 

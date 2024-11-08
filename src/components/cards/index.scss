@@ -117,7 +117,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 400px) and (max-width: 768px) {
     
 .mae-card{
     display: flex;
@@ -167,10 +167,12 @@
        
             .content{
            
-                width: 23dvw;
+                width: 18dvw;
+                margin-right: 13dvw;
+
      
                 h1{
-                    font-size: 2.1dvh;
+                    font-size: 3.2dvh;
                 }
             
             }
@@ -179,13 +181,13 @@
     
         .box-grande {
             position: relative;
-            width: 20%;
+            width: 15%;
             height: 28dvh;
             background-color: rgba(99, 199, 252, 1);
             display: flex;
             flex-direction: row;
             align-items: center;
-            flex: 2.7 ;
+            flex: 2.2 ;
             justify-content: center;
             border-top-right-radius:  01.5vh;
             border-bottom-right-radius: 01.5vh;
@@ -299,13 +301,14 @@
             .content{
                 display: flex;
                 height: 10dvh;
-                margin-bottom: 08dvh ;
+                width:12vw ;
+             
+                
+
     
                 h1 {
                     color: #000000;
-                    height: 20dvh;
-                    width: 20dvh;
-                    font-size: 4dvh;
+                        
                 }
             }
     

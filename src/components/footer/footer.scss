@@ -9,6 +9,7 @@
     justify-content: center;
     gap: 3vh;
     color: #ffff;
+    text-align: center;
 
 
 
@@ -94,9 +95,6 @@
         align-items: center;
         margin-bottom: 7vh;
 
-      button{
-        
-      }
 
     }
 }
@@ -105,14 +103,14 @@
     .container-footer {
         padding: 5vh 2vh 0vh 2vh;
         height: auto;
-        background-color: #0A6290;
+        background-color: rgba(60, 150, 255, 1);
         display: flex;
         flex-direction: column;
         gap: 2vh;
         color: #ffff;
 
         .container-logo-loc {
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
             padding: 0;
             gap: 2vh;
@@ -124,6 +122,9 @@
             .loc {
                 margin-right: 0;
                 text-align: center;
+                p{
+                    font-size: 1.8vh;
+                }
             }
         }
 
@@ -140,19 +141,30 @@
             align-items: center;
             justify-content: center;
             padding: 0;
-            gap: 2vh;
+            gap: 1.5vh;
 
             .insta1 {
                 img {
-                    width: 6vh;
+                    width: 5.4vh;
+                };
+                p{
+                    font-size: 1.8vh;
                 }
             }
+
+                
+            
+
+            p{
+                font-size: 1.8vh;
+            }
         }
+        
 
         .botao-adm {
       
             justify-content: center;
-            margin-top: 2vh;
+            margin-top: 1.3vh;
             margin-left: 15px;
 
             .botao {

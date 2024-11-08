@@ -359,7 +359,7 @@ export default function Auto_cadastro() {
                 setMensagem('Agendamento concluido')
                 setCarregando(false);
                 setConfirmacao(true);
-                navigate('/minhasConsultas')
+                navigate('/')
     
            
             

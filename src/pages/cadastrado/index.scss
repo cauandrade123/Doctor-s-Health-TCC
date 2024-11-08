@@ -10,7 +10,7 @@
     align-items: center;
 
     .h1-title-container-box{
-        font-size: 6vh;
+        font-size: 3vw;
         color: #FFFFFF;
     }
 
@@ -52,7 +52,7 @@
         
             .h1-title-container-box-inputs{
                 color: #0B9DEB;
-                margin-top: 3vh;
+                margin-top: 3vw;
             }
             .container-box-inputs{
                 display: flex;
@@ -442,8 +442,7 @@
 
 @media (max-width: 768px) {
     .main-cadastrado {
-
-          
+  
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -454,10 +453,11 @@
             
         .h1-title-container-box{
             font-size: 4vh;
+            text-align: center;
         }
 
         .h1-title-container-box-inputs{
-            font-size: 4vh;
+            font-size: 3vh;
         }
 
         .container-box
@@ -468,6 +468,8 @@
             width: 90%;
 
             .container-box-geral{
+                flex-direction: column;
+                align-items: center;
 
                 
                 .container-box-inputs{
@@ -479,11 +481,133 @@
 
                 .container-box-txt-button{
                     display: flex;
-                    flex-direction: column                     
+                    flex-direction: column;
+                
+                    
+                    
+                    .txt-hr{
+                        width: 78%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        margin: 0 auto;
+                        align-items: center;
+                        
+                    }
+
+                    .bt-enviar{
+                        margin: 0 auto;
+                    }
+
                 }
+                
                 
             }
         }
+
+        .container-box2 {
+            width: 95%;
+
+            h1{
+                font-size: 7vw;
+            }
+
+            .container-box-cards {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+
+
+
+                gap: 3vh;
+
+                .card-box-email {
+                    display: flex;
+                    flex-direction: row;
+
+                    align-items: center;
+
+                    background-color: #FFFFFF;
+                    border-radius: 20px;
+                    padding: 2vh;
+                    padding-top: 1.5vh;
+                    padding-right: 5vh;
+                    padding-left: 1vh;
+
+
+                    .Emailicon {
+                        width: 13.5vh;
+                    }
+
+                    .txt-card {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.5vh;
+                    }
+                }
+
+                .card-box-tel {
+                    display: flex;
+                    flex-direction: row;
+
+                    align-items: center;
+
+                    background-color: #FFFFFF;
+                    border-radius: 20px;
+                    padding: 2vh;
+                    padding-right: 14vh;
+                    padding-left: 2vh;
+                    gap: 2vh;
+
+                    .Emailicon {
+                        width: 12vh;
+                    }
+
+
+                    img {
+                        width: 10.5vh;
+                    }
+
+                    .txt-card {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.5vh;
+                    }
+                }
+
+                .card-box-loc {
+                    display: flex;
+                    flex-direction: row;
+
+                    align-items: center;
+
+                    background-color: #FFFFFF;
+                    border-radius: 20px;
+                    padding: 2vh;
+                    padding-right: 9vh;
+                    padding-left: 2vh;
+                    gap: 1vh;
+
+                    .Emailicon {
+                        width: 12vh;
+                    }
+
+
+                    img {
+                        width: 11.5vh;
+                    }
+
+                    .txt-card {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.5vh;
+                    }
+                }
+            }
+        }
+
 
     }
 };

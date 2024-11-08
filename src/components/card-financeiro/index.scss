@@ -5,11 +5,15 @@
     padding: 5vh 10vh;
     gap: 3vh;
 
+    .finacas , .melhormes    {
+        color: white;
+    }
+
 
 
     .card_financas {
         display: flex;
-        gap: 5vh;
+        gap: 6vh;
 
         .content-cards {
             display: flex;
@@ -23,6 +27,7 @@
             border-radius: 2vh;
             transition: 1s;
             font-size: 1.1vw;
+            
 
             &:hover {
                 transform: scale(1.1);
@@ -35,7 +40,7 @@
 .content_anos {
     display: flex;
     flex-direction: row;
-    gap: 5vh;
+    gap: 6vh;
 
     button {
         background-color: #046AE2;
@@ -63,9 +68,9 @@
 
 
         .graficos {
-            overflow-y: hidden;
+            overflow-y: auto;
             overflow-x: auto;
-            max-height: 80vw;
+            max-height: 60vw;
             max-width: 80vw;
         }
 
@@ -84,7 +89,7 @@
 
             button{
 
-                width: 15vh;
+                width: 20vw;
             }
         }
     }

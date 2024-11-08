@@ -69,30 +69,29 @@
                     align-items: center;
                 }
 
-                .input-style {
-                    p {
+                .input-style{
+                    p{
                         font-size: 1.5vh;
                         margin-bottom: 1vh;
                     }
 
-                    input {
+                    input{
                         border: 1px solid black;
                         border-radius: 8px;
 
                         height: 6vh;
-                        width: 39vh;
+                        width: 35vh;
 
                         padding-left: 1vh;
                         padding-right: 1vh;
-
                     }
 
-                    select {
+                    select{
                         border: 1px solid black;
                         border-radius: 8px;
 
                         height: 6vh;
-                        width: 39vh;
+                        width: 35vh;
 
                         padding-left: 1vh;
                         color: gray;
@@ -479,7 +478,6 @@
 
 @media (max-width: 768px) {
     .main {
-        gap: 2vh;
 
         p {
             font-size: 11px;
@@ -487,7 +485,8 @@
         }
 
         .h1-title-container-box {
-            font-size: 3.5vw;
+            font-size: 4vh;
+            text-align: center;
 
 
         }
@@ -496,19 +495,22 @@
         .container-box {
             display: flex;
             width: 90%;
+            height: auto;
 
             .container-box-geral{
 
                 .h1-title-container-box-inputs {
                     color: #0B9DEB;
                     margin-top: 3vw;
+                    font-size: 3vh;
                 }
 
             .container-box-inputs {
-                width: 90vw;
+                width: 80vh;
                 display: flex;
                 flex-direction: column;
                 align-items: center ;
+                
                 
                
             }
@@ -524,14 +526,26 @@
                 }
             }
 
-            .container-box-txt-button {
+            .container-box-txt-button{
+                display: flex;
                 flex-direction: column;
-                gap: 2vh;
-
-                button {
-                    width: 12vh;
-                    height: 5vh;
+            
+                
+                
+                .txt-hr{
+                    width: 78%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin: 0 auto;
+                    align-items: center;
+                    
                 }
+
+                .bt-enviar{
+                    margin: 0 auto;
+                }
+
             }
         }
         }

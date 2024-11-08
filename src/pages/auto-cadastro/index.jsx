@@ -241,18 +241,6 @@ export default function Auto_cadastro() {
 
     };
 
-    function mapeamento(){
-        horariosDisponiveis.map(h => (
-            <option
-                key={h}
-                value={h}
-                className={horariosOcupados.includes(h) ? 'horario-ocupado' : 'horario-disponivel'}
-                disabled={horariosOcupados.includes(h)}
-            >
-                {h}
-            </option>
-        ))
-    };
 
     const IndetificarData = (e) => {
         const selecionarData = e.target.value;
@@ -504,7 +492,7 @@ export default function Auto_cadastro() {
                             <Link to={'/cadastrado'}>Se você já possui cadastro, clique aqui.</Link>
                         </div>
 
-                        {<button onClick={() => cadastrarTudo(nome, telefone, consultas, DTnascimento, rg, cpf, data, horario, email)}>Enviar</button>}
+                        {<button className="bt-enviar" onClick={() => cadastrarTudo(nome, telefone, consultas, DTnascimento, rg, cpf, data, horario, email)}>Enviar</button>}
 
                         <Cardconfirmação mostrar={mostrarConfirmacao} aoFechar={FecharConfirmação} />
                         <CardNegacação mostrar={mostrarNegacao} aoFechar={FecharNegação} mensagem={mensagem}/>

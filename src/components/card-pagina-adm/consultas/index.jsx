@@ -83,7 +83,7 @@ export default function Cardadm() {
             <InputMask mask="999.999.999-99" value={buscar} onChange={e => setBuscar(e.target.value)} className='Buscar' type="text" placeholder={`🔎 Consultar pelo CPF`}/>
 
             <label className='label-select-input' htmlFor="">Escolha entre consultas:</label>
-             <select onChange={ e => setTipoconsulta(e.target.value)}>
+             <select onChange={ e => setTipoconsulta(e.target.value)} className='sele'>
                 <option value={futura}>Futuras</option>
                 <option value={passadas}>Passadas</option>
                 

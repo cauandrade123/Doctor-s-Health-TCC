@@ -107,8 +107,8 @@ export default function Chat() {
                             });
         
                             const medicamentoTraduzido = responseRemedioTraducao.data.responseData?.translatedText;
-        
-                            novasRespostas.push({ text: medicamentoTraduzido, sender: 'bot' });
+                            const sla = medicamentoTraduzido.toLowerCase()
+                            novasRespostas.push({ text: sla, sender: 'bot' });
                            
                         })
                     );
@@ -164,6 +164,7 @@ export default function Chat() {
         if (novasRespostas.length === 0) {
             novasRespostas.push({ text: 'Desculpe, não compreendo sua solicitação.', sender: "bot" });
         }
+    
 
         setResposta((prevResposta) => [...prevResposta, ...novasRespostas]);
         setCarregando(false); 

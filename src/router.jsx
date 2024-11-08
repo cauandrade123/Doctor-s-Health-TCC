@@ -52,7 +52,7 @@ export default function Navegacao() {
                 <Route path="/cadastrado" element={<Cadastrado />} />
                 <Route path="/agendamentos" element={<Agendamentos />} />
                 <Route path="/reuniao" element={<PrivateRoute><PageJitsi/></PrivateRoute>} />
-                <Route path='/' element={<MinhasConsultas />}/>
+                <Route path='/' element={<App />}/>
                 <Route path='*' element={<Page404/>}/> 
 
                  <Route

@@ -56,7 +56,7 @@ export default function MinhasConsultas() {
                         {minhasConsultas.length > 0 ? (
                             minhasConsultas.map((consulta, index) => (
                                 <div className="consulta" key={index}>
-                                    {new Date(consulta.dia_horario).toLocaleString()}
+                                    <h3>{new Date(consulta.dia_horario).toLocaleString()}</h3>
                                 </div>
                             ))
                         ) : (

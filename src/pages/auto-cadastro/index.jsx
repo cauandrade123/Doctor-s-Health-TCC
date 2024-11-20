@@ -44,14 +44,15 @@ export default function Auto_cadastro() {
     const verificarTelefone = async (telefone) => {
         const novo = telefone.replace(/\D/g, '')
         console.log(novo)
+
+        if (novo.length < 10 || novo.length > 11) {
+            return false;
+        }
        
-            const url = `https://api.apilayer.com/number_verification/validate?number=55${novo}`;
-            const response = await axios.get(url, {
-                headers: {
-                    apikey: "QEfnE0uqDtnxB5qBrff4A8Ct2lTYsxHn"
-                }
-            });
-            return response.data.valid; 
+            const url = `https://api.veriphone.io/v2/verify?phone=55${novo}&key=2054E5F5B84C4794BF5E1C458782559F`;
+            const response = await axios.get(url);
+            console.log(response.data.phone_valid);
+            return response.data.phone_valid; 
     };
 
 
@@ -324,7 +325,7 @@ export default function Auto_cadastro() {
         const validarNumero = await verificarTelefone(telefone);
         console.log(validarNumero)
         if (!validarNumero) {
-            setMensagem('Numero inválido. Por favor, verifique e tente novamente.');
+            setMensagem('Verifique seu telefone e tente novamente.');
             setCarregando(false);
             setNegacao(true)
 

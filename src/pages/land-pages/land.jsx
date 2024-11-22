@@ -121,19 +121,7 @@ export default function Land() {
                     </div>
                 </div>
             </div>
-            <div id="Serviços" className="Card-Servicos">
-                {card_conheca.map((item, index) =>
-                    <Cards
-                        key={index}
-                        texto_1={item.texto_1}
-                        img_1={item.img_1}
-                        texto_2={item.texto_2}
-                        img_2={item.img_2}
-                        texto_3={item.texto_3}
-                        img_3={item.img_3}
-                    />
-                )}
-            </div> 
+           
   
                 <Footer />
 

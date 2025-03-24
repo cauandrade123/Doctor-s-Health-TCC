@@ -25,8 +25,8 @@ export default function Header() {
         <div className={`info ${menuAberto ? 'aberto' : ''}`}>
           <RouterLink to={'/'}><li>Home</li></RouterLink> 
           <ScrollLink to="Sobrenos" smooth={true} duration={500}><li>Sobre Nós</li></ScrollLink>
-          <ScrollLink to="Serviços" smooth={true} duration={500}><li>Como Trabalhamos</li></ScrollLink>
-          <ScrollLink to="ComoTrabalhamos" smooth={true} duration={500}><li>Serviços</li></ScrollLink>
+          <ScrollLink to="ComoTrabalhamos" smooth={true} duration={500}><li>Como Trabalhamos</li></ScrollLink>
+          <ScrollLink to="Serviços" smooth={true} duration={500}><li>Serviços</li></ScrollLink>
         </div>
       </div>
     </header>

@@ -426,7 +426,7 @@ export default function Auto_cadastro() {
 
                         <div className="input-style">
                             <p>Método de Consulta</p>
-                            <select onChange={e => setConsultas(e.target.value)}>
+                            <select className="metodoConsulta" onChange={e => setConsultas(e.target.value)}>
                                 <option value="">Selecione</option>
                                 <option value="Online ">Online</option>
                                 <option value="Presencial">Presencial</option>

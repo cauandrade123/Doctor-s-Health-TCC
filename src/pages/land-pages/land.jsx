@@ -91,7 +91,7 @@ export default function Land() {
                         <div className="image">
                             <img src={FotoSobreNos2} alt="" />
                         </div>
-                        <div className="textos-box-cinza">
+                        <div id="ComoTrabalhamos" className="textos-box-cinza">
                             <h2>Como Trabalhamos</h2>
                                 <h1>Marcar uma consulta <br /> é facil como 1, 2, 3...</h1>
                                 <div>
@@ -101,8 +101,8 @@ export default function Land() {
                                 </div>
                         </div>
                     </div>
-                    <div id="ComoTrabalhamos" className="box-branca2">
-                        <div className="textos-box-branca2">
+                    <div  className="box-branca2">
+                        <div id="Serviços" className="textos-box-branca2">
                             <h3>Suporte</h3>
 
                             <h1>Estamos Aqui Para Te Ajudar!</h1>

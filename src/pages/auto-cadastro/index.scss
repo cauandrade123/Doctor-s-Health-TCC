@@ -6,11 +6,9 @@
     flex-direction: column;
     gap: 5vh;
     margin: 0;
-
-
     background: linear-gradient(to bottom, #60B6E3, #C8E7F7);
-
     align-items: center;
+    
 
     .h1-title-container-box {
         font-size: 3vw;
@@ -45,9 +43,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-
             align-items: center;
-
             margin-bottom: 4vh;
             margin-top: 2vh;
 
@@ -61,7 +57,8 @@
                 width: 58vw;
                 flex-wrap: wrap;
                 justify-content: center;
-                margin-top: 8vh;
+                align-items: center;
+                margin-top:8vh;
                 gap: 5vh;
 
                 .input-style-center {
@@ -170,7 +167,6 @@
 
                                     height: 6vh;
                                     width: 100%;
-
                                     padding-left: 2vh;
 
                                 }
@@ -453,11 +449,12 @@
 
 .horario-select {
     width: 100%;
-    padding: 10px;
+    margin-top: 2vh;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
     background-color: #f9f9f9;
+    
 
     &:focus {
         outline: none;
@@ -475,6 +472,9 @@
     background-color: rgb(255, 255, 255);
 }
 
+.metodoConsulta{
+    margin-top: 2vh;
+}
 
 @media (max-width: 768px) {
     .main {
